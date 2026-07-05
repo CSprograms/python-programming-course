@@ -13,6 +13,12 @@ Python Programming course, organized session by session.
   [`Session_Programs/README.md`](Session_Programs/README.md) for the full
   layout (teaching sessions, assignments, class tests, seminar/discussion
   sessions).
+- **[`Supplementary-NCERT-Programs/`](Supplementary-NCERT-Programs/)** - 92
+  extra practice programs from the NCERT-aligned Computer Science /
+  Informatics Practices coursework (Classes XI-XII), organized `Unit_01`
+  ... `Unit_11` to mirror the course units. Supplementary to the session
+  programs above, not part of the graded session plan. See
+  [`Supplementary-NCERT-Programs/README.md`](Supplementary-NCERT-Programs/README.md).
 
 ## Course units
 
