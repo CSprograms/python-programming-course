@@ -4,7 +4,7 @@ Course: UCAM11I - Python Programming, BCA Section 1, Sri Sankara Arts and Scienc
 
 This folder holds every runnable Python program from the 75-session course, one
 subfolder per session (`Session_01` ... `Session_75`), extracted from the
-Lecture Notes in `../LectureNotes/`.
+course's Lecture Notes.
 
 ## Layout
 
