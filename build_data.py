@@ -8,6 +8,7 @@ Builds the data files for the static Session Viewer web app:
                                    with optional answers)
 """
 import ast
+import hashlib
 import json
 import os
 import re
@@ -411,6 +412,39 @@ def build_question_bank():
     )
 
 
+# ---------------------------------------------------------------------------
+# Cache-busting: index.html / 404.html load css/style.css?v=<hash> and
+# js/app.js?v=<hash>. The hash changes whenever the file changes, so every
+# browser downloads the new version at once instead of using an old cached
+# copy (earlier deploys told browsers to cache these files for a year).
+# ---------------------------------------------------------------------------
+WEB_DIR = os.path.join(ROOT, "web-app")
+ASSETS = ["css/style.css", "js/app.js"]
+HTML_PAGES = ["index.html", "404.html"]
+
+
+def stamp_asset_versions():
+    versions = {}
+    for asset in ASSETS:
+        with open(os.path.join(WEB_DIR, asset), "rb") as f:
+            versions[asset] = hashlib.sha1(f.read()).hexdigest()[:10]
+    for page in HTML_PAGES:
+        path = os.path.join(WEB_DIR, page)
+        if not os.path.exists(path):
+            continue
+        with open(path, "r", encoding="utf-8", newline="") as f:
+            html = f.read()
+        new_html = html
+        for asset, v in versions.items():
+            pattern = r'((?:href|src)="/?' + re.escape(asset) + r')(?:\?v=[0-9a-f]*)?(")'
+            new_html = re.sub(pattern, r"\g<1>?v=" + v + r"\g<2>", new_html)
+        if new_html != html:
+            with open(path, "w", encoding="utf-8", newline="") as f:
+                f.write(new_html)
+    print("Asset versions: " + ", ".join(f"{a}?v={v}" for a, v in versions.items()))
+
+
 if __name__ == "__main__":
     build()
     build_question_bank()
+    stamp_asset_versions()
