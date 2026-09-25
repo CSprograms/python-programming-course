@@ -1,6 +1,7 @@
 # Question Bank (previous-year questions)
 
-This folder is the source for the **Question Bank** page of the Session Viewer (`/#qb`).
+This folder is the source for the **Question Bank** pages of the Session Viewer: an overview at `/#qb`, one page
+per unit (`/#qb/unit-I` … `/#qb/unit-V`), and Part A / B / C tabs inside each (`/#qb/unit-I/part-A`).
 
 | File | Purpose |
 |---|---|

@@ -5,7 +5,7 @@
     data: null,
     qb: null,          // question bank data (loaded after the sessions)
     qbError: null,
-    qbFilter: { unit: "all", part: "all", repeated: false },
+    qbRepeated: false, // "Asked more than once" toggle on the unit pages
     view: "intro",     // "intro" | "session" | "qb"
     filter: "",
     activeSession: null,
@@ -117,6 +117,32 @@
     } else {
       els.tree.appendChild(frag);
     }
+    els.tree.appendChild(buildQBTreeBlock());
+  }
+
+  // Sidebar block with links to the five Question Bank unit pages.
+  function buildQBTreeBlock() {
+    var block = document.createElement("div");
+    block.className = "qb-tree";
+    var html = '<a class="qb-tree-head" href="#qb">Question Bank</a>';
+    state.data.units.forEach(function (u) {
+      html += '<a class="qb-tree-item" data-unit="' + u.number + '" href="#qb/unit-' + u.number + '">' +
+        '<span class="n">Unit ' + u.number + '</span><span class="label">' + escapeHtml(u.title) + "</span></a>";
+    });
+    block.innerHTML = html;
+    block.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeDrawer);
+    });
+    return block;
+  }
+
+  function markQBTree() {
+    var unit = state.view === "qb" && state.qbRoute ? state.qbRoute.unit : null;
+    els.tree.querySelectorAll(".qb-tree-item").forEach(function (a) {
+      a.classList.toggle("active", a.dataset.unit === unit);
+    });
+    var head = els.tree.querySelector(".qb-tree-head");
+    if (head) head.classList.toggle("active", state.view === "qb" && !unit);
   }
 
   function allSessionsInRange(start, end) {
@@ -162,9 +188,17 @@
   // ---------------------------------------------------------------
   // Routing
   // ---------------------------------------------------------------
+  // Question Bank routes:
+  //   #qb                  overview: one card per unit
+  //   #qb/unit-II          unit page with Part A, Part B and Part C
+  //   #qb/unit-II/part-B   unit page showing only Part B
+  var QB_ROUTE = /^#qb(?:\/unit-(I|II|III|IV|V)(?:\/part-([ABC]))?)?$/;
+
   function route() {
     var m = /^#session-(\d+)$/.exec(location.hash);
-    if (location.hash === "#qb") {
+    var q = QB_ROUTE.exec(location.hash);
+    if (q) {
+      state.qbRoute = { unit: q[1] || null, part: q[2] || null };
       renderQB();
     } else if (m && state.data.sessions[m[1]]) {
       renderSession(parseInt(m[1], 10));
@@ -179,6 +213,7 @@
     els.navQB.classList.toggle("active", state.view === "qb");
     if (state.view === "qb") els.navQB.setAttribute("aria-current", "page");
     else els.navQB.removeAttribute("aria-current");
+    markQBTree();
   }
 
   // ---------------------------------------------------------------
@@ -389,138 +424,204 @@
       els.content.innerHTML = state.qbError
         ? '<div class="session-note">Could not load the question bank (' + escapeHtml(state.qbError) +
           "). Check that data/question_bank.json exists.</div>"
-        : '<div class="qb-empty">Loading question bank\u2026</div>';
+        : '<div class="qb-empty">Loading question bank…</div>';
       return;
     }
+    if (state.qbRoute && state.qbRoute.unit) renderQBUnit();
+    else renderQBOverview();
+  }
 
+  // Called when the search box changes while a Question Bank page is open.
+  function renderQBResults() {
+    if (!state.qb) return;
+    if (state.qbRoute && state.qbRoute.unit) renderQBUnitList();
+    else renderQBOverviewResults();
+  }
+
+  function unitByNumber(num) {
+    return state.data.units.filter(function (u) { return u.number === num; })[0];
+  }
+
+  function questionsForUnit(num) {
+    return state.qb.questions.filter(function (q) { return q.units.indexOf(num) !== -1; });
+  }
+
+  function textMatches(q, text) {
+    if (!text) return true;
+    var hay = (q.question + " " + q.co + " " + q.kl + " " + (q.note || "") + " " +
+      q.asked.map(function (a) { return a.exam; }).join(" ")).toLowerCase();
+    return hay.indexOf(text) !== -1;
+  }
+
+  function plural(n, word) {
+    return n + " " + word + (n === 1 ? "" : "s");
+  }
+
+  // ---- #qb : overview with one card per unit -------------------------
+  function renderQBOverview() {
     var qb = state.qb;
     var exams = qb.exams || [];
+    var parts = Object.keys(qb.parts);
+
     var html = '<div class="qb-head">';
-    html += '<div class="kicker">' + escapeHtml(state.data.course.code) + " \u00B7 Previous-year questions</div>";
+    html += '<div class="kicker">' + escapeHtml(state.data.course.code) + " · Previous-year questions</div>";
     html += "<h1>Question Bank</h1>";
     html +=
       "<p>" + qb.questions.length + " questions from the end-semester papers" +
       (exams.length ? " of " + escapeHtml(exams[0]) + " to " + escapeHtml(exams[exams.length - 1]) : "") +
-      ", grouped by unit. " + escapeHtml(qb.excluded || "") + "</p>";
+      ". Choose a unit to see its Part A, Part B and Part C questions. " +
+      escapeHtml(qb.excluded || "") + "</p>";
     html += "</div>";
 
-    html += '<div class="qb-filters" id="qbFilters"></div>';
+    html += '<div class="qb-unit-cards">';
+    state.data.units.forEach(function (u) {
+      var qs = questionsForUnit(u.number);
+      html += '<a class="qb-unit-card" href="#qb/unit-' + u.number + '">';
+      html += '<div class="u-num">Unit ' + u.number + "</div>";
+      html += '<div class="u-title">' + escapeHtml(u.title) + "</div>";
+      html += '<div class="u-parts">';
+      parts.forEach(function (p) {
+        var n = qs.filter(function (q) { return q.part === p; }).length;
+        html += '<span class="u-part part-' + p + '"><b>' + n + "</b> " + escapeHtml(qb.parts[p]) + "</span>";
+      });
+      html += "</div>";
+      html += '<div class="u-total">' + plural(qs.length, "question") + " →</div>";
+      html += "</a>";
+    });
+    html += "</div>";
     html += '<div class="qb-summary" id="qbSummary" aria-live="polite"></div>';
     html += '<div id="qbResults"></div>';
     els.content.innerHTML = html;
-
-    renderQBFilters();
-    renderQBResults();
+    renderQBOverviewResults();
   }
 
-  function qbMatches(q, f, text) {
-    if (f.unit !== "all" && q.units.indexOf(f.unit) === -1) return false;
-    if (f.part !== "all" && q.part !== f.part) return false;
-    if (f.repeated && q.asked.length < 2) return false;
-    if (text) {
-      var hay = (q.question + " " + q.co + " " + q.kl + " " + (q.note || "") + " " +
-        q.asked.map(function (a) { return a.exam; }).join(" ")).toLowerCase();
-      if (hay.indexOf(text) === -1) return false;
+  // On the overview, a search shows matching questions from every unit.
+  function renderQBOverviewResults() {
+    var box = document.getElementById("qbResults");
+    var sum = document.getElementById("qbSummary");
+    if (!box || !sum) return;
+    var text = state.filter.trim().toLowerCase();
+    if (!text) {
+      box.innerHTML = "";
+      sum.textContent = "";
+      return;
     }
-    return true;
-  }
-
-  function renderQBFilters() {
-    var f = state.qbFilter;
-    var qs = state.qb.questions;
-    function count(over) {
-      var g = { unit: f.unit, part: f.part, repeated: f.repeated };
-      for (var k in over) g[k] = over[k];
-      return qs.filter(function (q) { return qbMatches(q, g, ""); }).length;
-    }
-    function chip(kind, value, label, on, n) {
-      return '<button type="button" class="chip' + (on ? " on" : "") + '" data-kind="' + kind +
-        '" data-value="' + value + '" aria-pressed="' + on + '">' + label +
-        (n !== undefined ? '<span class="count">' + n + "</span>" : "") + "</button>";
-    }
-
-    var html = '<div class="qb-filter-group"><span class="label">Unit</span>';
-    html += chip("unit", "all", "All", f.unit === "all", count({ unit: "all" }));
+    var shown = state.qb.questions.filter(function (q) { return textMatches(q, text); });
+    sum.textContent = plural(shown.length, "question") + " matching “" + state.filter.trim() + "” in all units";
+    var html = "";
     state.data.units.forEach(function (u) {
-      html += chip("unit", u.number, u.number, f.unit === u.number, count({ unit: u.number }));
+      var inUnit = shown.filter(function (q) { return q.units[0] === u.number; });
+      if (!inUnit.length) return;
+      html += '<section class="qb-unit"><div class="qb-unit-head"><h2><span class="num">Unit ' + u.number +
+        "</span>" + escapeHtml(u.title) + '</h2><a href="#qb/unit-' + u.number + '">Open unit page →</a></div>';
+      html += '<ol class="qb-list">';
+      inUnit.forEach(function (q) { html += qbItem(q, true); });
+      html += "</ol></section>";
     });
-    html += '</div><div class="qb-filter-group"><span class="label">Part</span>';
-    html += chip("part", "all", "All", f.part === "all", count({ part: "all" }));
-    Object.keys(state.qb.parts).forEach(function (p) {
-      html += chip("part", p, escapeHtml(p), f.part === p, count({ part: p }));
-    });
-    html += '</div><div class="qb-filter-group">';
-    html += chip("repeated", "1", "Asked more than once", f.repeated, count({ repeated: true }));
+    box.innerHTML = html || '<div class="qb-empty">No questions match your search.</div>';
+  }
+
+  // ---- #qb/unit-N[/part-X] : one unit with Part A / B / C --------------
+  function renderQBUnit() {
+    var r = state.qbRoute;
+    var u = unitByNumber(r.unit);
+    var qb = state.qb;
+    var parts = Object.keys(qb.parts);
+    var all = questionsForUnit(u.number);
+    var idx = state.data.units.indexOf(u);
+    var prev = state.data.units[idx - 1];
+    var next = state.data.units[idx + 1];
+
+    var html = '<div class="qb-head">';
+    html += '<div class="qb-crumb"><a href="#qb">Question Bank</a> › Unit ' + u.number +
+      (r.part ? " › " + escapeHtml(qb.parts[r.part]) : "") + "</div>";
+    html += '<h1><span class="qb-h-num">Unit ' + u.number + "</span> " + escapeHtml(u.title) + "</h1>";
+    html += "<p>" + plural(all.length, "previous-year question") + " · " +
+      '<a href="#session-' + u.start + '">Sessions ' + u.start + "–" + u.end + " →</a></p>";
     html += "</div>";
 
-    var box = document.getElementById("qbFilters");
-    box.innerHTML = html;
-    box.querySelectorAll(".chip").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var kind = btn.dataset.kind;
-        if (kind === "repeated") state.qbFilter.repeated = !state.qbFilter.repeated;
-        else state.qbFilter[kind] = btn.dataset.value;
-        renderQBFilters();
-        renderQBResults();
-      });
+    // Part tabs: All parts | Part A | Part B | Part C
+    html += '<nav class="qb-tabs" aria-label="Parts">';
+    html += '<a class="qb-tab' + (!r.part ? " on" : "") + '" href="#qb/unit-' + u.number + '">All parts<span class="count">' + all.length + "</span></a>";
+    parts.forEach(function (p) {
+      var n = all.filter(function (q) { return q.part === p; }).length;
+      html += '<a class="qb-tab part-' + p + (r.part === p ? " on" : "") + '" href="#qb/unit-' + u.number + "/part-" + p + '">' +
+        escapeHtml(qb.parts[p]) + '<span class="count">' + n + "</span></a>";
     });
+    html += "</nav>";
+
+    html += '<div class="qb-filters"><button type="button" class="chip' + (state.qbRepeated ? " on" : "") +
+      '" id="qbRepeated" aria-pressed="' + state.qbRepeated + '">Asked more than once</button></div>';
+    html += '<div class="qb-summary" id="qbSummary" aria-live="polite"></div>';
+    html += '<div id="qbResults"></div>';
+
+    html += '<div class="prev-next">';
+    html += prev
+      ? '<a href="#qb/unit-' + prev.number + '"><span class="dir">← Previous unit</span>Unit ' + prev.number + " · " + escapeHtml(prev.title) + "</a>"
+      : "<span></span>";
+    html += next
+      ? '<a class="next" href="#qb/unit-' + next.number + '"><span class="dir">Next unit →</span>Unit ' + next.number + " · " + escapeHtml(next.title) + "</a>"
+      : "<span></span>";
+    html += "</div>";
+
+    els.content.innerHTML = html;
+    document.getElementById("qbRepeated").addEventListener("click", function () {
+      state.qbRepeated = !state.qbRepeated;
+      this.classList.toggle("on", state.qbRepeated);
+      this.setAttribute("aria-pressed", String(state.qbRepeated));
+      renderQBUnitList();
+    });
+    renderQBUnitList();
   }
 
-  function renderQBResults() {
+  function renderQBUnitList() {
     var box = document.getElementById("qbResults");
-    if (!box || !state.qb) return;
-    var f = state.qbFilter;
+    if (!box) return;
+    var r = state.qbRoute;
+    var qb = state.qb;
     var text = state.filter.trim().toLowerCase();
-    var shown = state.qb.questions.filter(function (q) { return qbMatches(q, f, text); });
+    var shown = questionsForUnit(r.unit).filter(function (q) {
+      if (r.part && q.part !== r.part) return false;
+      if (state.qbRepeated && q.asked.length < 2) return false;
+      return textMatches(q, text);
+    });
 
-    var summary = shown.length + (shown.length === 1 ? " question" : " questions");
-    if (text) summary += " matching \u201C" + state.filter.trim() + "\u201D";
+    var summary = plural(shown.length, "question");
+    if (text) summary += " matching “" + state.filter.trim() + "”";
     document.getElementById("qbSummary").textContent = summary;
 
-    if (shown.length === 0) {
+    if (!shown.length) {
       box.innerHTML = '<div class="qb-empty">No questions match these filters.</div>';
       return;
     }
-
     var html = "";
-    state.data.units.forEach(function (u) {
-      // A question spanning two units (e.g. IV/V) is listed under its first
-      // unit, or under the unit being filtered on.
-      var inUnit = shown.filter(function (q) {
-        return f.unit !== "all" ? q.units.indexOf(u.number) !== -1 : q.units[0] === u.number;
-      });
-      if (inUnit.length === 0) return;
-      html += '<section class="qb-unit">';
-      html += '<div class="qb-unit-head"><h2><span class="num">Unit ' + u.number + "</span>" +
-        escapeHtml(u.title) + "</h2>" +
-        '<a href="#session-' + u.start + '">Sessions ' + u.start + "\u2013" + u.end + " \u2192</a></div>";
-      Object.keys(state.qb.parts).forEach(function (p) {
-        var inPart = inUnit.filter(function (q) { return q.part === p; });
-        if (inPart.length === 0) return;
-        html += '<div class="qb-part-title">' + escapeHtml(state.qb.parts[p]) + " \u00B7 " +
-          inPart.length + (inPart.length === 1 ? " question" : " questions") + "</div>";
-        html += '<ol class="qb-list">';
-        inPart.forEach(function (q) { html += qbItem(q); });
-        html += "</ol>";
-      });
-      html += "</section>";
+    Object.keys(qb.parts).forEach(function (p) {
+      var inPart = shown.filter(function (q) { return q.part === p; });
+      if (!inPart.length) return;
+      html += '<section class="qb-part" id="part-' + p + '">';
+      html += '<h2 class="qb-part-h part-' + p + '">' + escapeHtml(qb.parts[p]) +
+        '<span class="count">' + plural(inPart.length, "question") + "</span></h2>";
+      html += '<ol class="qb-list">';
+      inPart.forEach(function (q) { html += qbItem(q, false); });
+      html += "</ol></section>";
     });
     box.innerHTML = html;
   }
 
-  function qbItem(q) {
+  function qbItem(q, showPart) {
     var html = '<li class="qb-q part-' + q.part + '">';
     html += '<div class="qb-q-text">' + escapeHtml(q.question) + "</div>";
     html += '<div class="qb-meta">';
-    if (q.asked.length > 1) html += '<span class="qb-tag repeat">Asked ' + q.asked.length + "\u00D7</span>";
+    if (showPart) html += '<span class="qb-tag part">' + escapeHtml(state.qb.parts[q.part]) + "</span>";
+    if (q.asked.length > 1) html += '<span class="qb-tag repeat">Asked ' + q.asked.length + "×</span>";
     html += '<span class="qb-tag" title="Knowledge level">' + escapeHtml(q.kl) + "</span>";
     html += '<span class="qb-tag" title="Course outcome">' + escapeHtml(q.co) + "</span>";
     if (q.units.length > 1) html += '<span class="qb-tag" title="Units">Units ' + escapeHtml(q.units.join(" & ")) + "</span>";
     html += '<span class="qb-asked">' + q.asked.map(function (a) {
-      return escapeHtml(a.exam) + " \u00B7 Q" + escapeHtml(String(a.qno));
+      return escapeHtml(a.exam) + " · Q" + escapeHtml(String(a.qno));
     }).join(", ") + "</span>";
     html += '<span title="Programme outcomes / programme-specific outcomes">' +
-      escapeHtml([q.po, q.pso].filter(Boolean).join(" \u00B7 ")) + "</span>";
+      escapeHtml([q.po, q.pso].filter(Boolean).join(" · ")) + "</span>";
     html += "</div>";
     if (q.note) html += '<div class="qb-note">' + escapeHtml(q.note) + "</div>";
     html += "</li>";

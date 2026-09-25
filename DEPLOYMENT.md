@@ -58,7 +58,8 @@ Unknown paths show `web-app/404.html`.
 - [ ] The local server shows the home page, and a few sessions open correctly
       (for example 1, 12, 14, 40, 75)
 - [ ] Search finds programs (try "dictionary" and "40")
-- [ ] **Question Bank** (top bar) lists 95 questions, and the Unit / Part filters work
+- [ ] **Question Bank** (top bar) shows five unit cards. Each unit page opens, and its
+      Part A / Part B / Part C tabs work (try `/#qb/unit-II/part-B`)
 - [ ] The **Validate course data** workflow is green on GitHub
 - [ ] The Netlify deploy log shows `Wrote …/web-app/data/sessions.json` and **Published**
 - [ ] The live site works on a phone (the menu button opens the session list)

@@ -11,8 +11,10 @@ documented sample output, and a "Try also" hint where there is one.
 - 230 programs: session programs, workout programs, assignments and class tests
 - Seminar and Student Discussion sessions show a short note in place of code
 - **Question Bank**: 95 in-syllabus questions from the end-semester papers of
-  November 2023 to November 2025. You can filter them by unit, by part (A/B/C) and
-  by "asked more than once". Out-of-syllabus questions (File Handling, Arrays) are excluded.
+  November 2023 to November 2025, with a separate page for each unit (`#qb/unit-I` …
+  `#qb/unit-V`). Each unit page has Part A, Part B and Part C tabs
+  (for example `#qb/unit-II/part-B`) and an "asked more than once" filter.
+  Out-of-syllabus questions (File Handling, Arrays) are excluded.
 - Search by title, keyword, code text or session number
 - Works on desktop and mobile; plain HTML/CSS/JavaScript with no framework
 
