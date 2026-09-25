@@ -1,0 +1,117 @@
+# UCAM11I Python Programming - Question Bank
+# Unit II: Flow Control - Part A
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Define break and continue statements.
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: November 2025 Q12
+Answer:
+
+=== Q2
+Question: Define elif statement.
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: November 2023 Q4
+Answer:
+
+=== Q3
+Question: Difference between while and do-while loop.
+KL: K2
+CO: CO2
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2025 Q4
+Note: Python has no do-while loop; answer by contrasting while with the do-while idiom (while True: ... if not cond: break).
+Answer:
+
+=== Q4
+Question: Different between for and while loops.
+KL: K2
+CO: CO2
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2023 Q3
+Answer:
+
+=== Q5
+Question: Differentiate between break and continue statement.
+KL: K2
+CO: CO2
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2024 Q5
+Answer:
+
+=== Q6
+Question: List out the uses of Break statement.
+KL: K2
+CO: CO2
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2024 Q3
+Answer:
+
+=== Q7
+Question: What do you mean by conditional statements?
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: November 2025 Q3
+Answer:
+
+=== Q8
+Question: What is indefinite loop?
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: April 2024 Q4
+Answer:
+
+=== Q9
+Question: What is iterative statement?
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: November 2023 Q12
+Answer:
+
+=== Q10
+Question: What is nested loop?
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: April 2024 Q6
+Answer:
+
+=== Q11
+Question: Write a Syntax of Continue Statement.
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: April 2025 Q4
+Answer:
+
+=== Q12
+Question: Write down the syntax for loop statement.
+KL: K1
+CO: CO2
+PO: PO1
+PSO: PSO1
+Asked: November 2024 Q4
+Answer:

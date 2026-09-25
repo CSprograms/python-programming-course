@@ -1,0 +1,53 @@
+# UCAM11I Python Programming - Question Bank
+# Unit I: Introduction to Python - Part B
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Describe about features of python.
+KL: K2
+CO: CO1
+PO: PO1,PO6
+PSO: PSO1
+Asked: November 2023 Q13
+Answer:
+
+=== Q2
+Question: Explain the various operators in Python Programming.
+KL: K2
+CO: CO1
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2025 Q13
+Answer:
+
+=== Q3
+Question: List out Operators in python.
+KL: K2
+CO: CO1
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2024 Q14
+Answer:
+
+=== Q4
+Question: What are built-in data types used in python? Explain in detail.
+KL: K2
+CO: CO1
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2025 Q13
+Answer:
+
+=== Q5
+Question: What are the built-in data types in python ? Explain.
+KL: K2
+CO: CO1
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2024 Q14
+Answer:

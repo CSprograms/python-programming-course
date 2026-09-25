@@ -3,11 +3,11 @@
 Builds the data files for the static Session Viewer web app:
 
 * web-app/data/sessions.json       from Session_Programs/ (docstring + code)
-* web-app/data/question_bank.json  from Question_Bank/question_bank.csv
-                                   (previous-year questions, in syllabus only)
+* web-app/data/question_bank.json  from Question_Bank/Unit_<1-5>_Part_<A-C>.txt
+                                   (previous-year questions, in syllabus only,
+                                   with optional answers)
 """
 import ast
-import csv
 import json
 import os
 import re
@@ -15,7 +15,7 @@ import re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SESSIONS_DIR = os.path.join(ROOT, "Session_Programs")
 OUT_PATH = os.path.join(ROOT, "web-app", "data", "sessions.json")
-QB_CSV = os.path.join(ROOT, "Question_Bank", "question_bank.csv")
+QB_DIR = os.path.join(ROOT, "Question_Bank")
 QB_OUT_PATH = os.path.join(ROOT, "web-app", "data", "question_bank.json")
 
 UNITS = [
@@ -232,13 +232,30 @@ QB_PARTS = {
     "B": "Part B",
     "C": "Part C",
 }
-QB_REQUIRED = ["Part", "Unit", "Question", "KL", "CO", "PO", "PSO", "Exam", "QNo"]
 MONTHS = {
     "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
     "july": 7, "august": 8, "september": 9, "october": 10, "november": 11,
     "december": 12,
 }
+ROMAN = ["I", "II", "III", "IV", "V"]           # Unit_1 ... Unit_5 -> I ... V
 VALID_UNITS = {u["number"] for u in UNITS}
+
+# Field lines allowed inside a question block ("Key: value"), in the order
+# they are usually written. "Answer:" must be the last one: everything after
+# it, up to the next "=== Q<n>" line, is the answer text, kept as written.
+QB_FIELDS = {
+    "question": "question",
+    "kl": "kl",
+    "co": "co",
+    "po": "po",
+    "pso": "pso",
+    "asked": "asked",
+    "also in unit": "also_in",
+    "note": "note",
+}
+BLOCK_START = re.compile(r"^===\s*Q\s*\d+\s*$", re.I)
+FIELD_LINE = re.compile(r"^([A-Za-z][A-Za-z ]*?)\s*:\s?(.*)$")
+ASKED_ITEM = re.compile(r"^(.+?)\s+Q\s*(\d+)$", re.I)
 
 
 def exam_sort_key(exam):
@@ -251,73 +268,124 @@ def exam_sort_key(exam):
 
 
 def normalise_question(text):
-    """Key used to merge the same question asked in several exams:
-    case, spacing and punctuation are ignored."""
+    """Case, spacing and punctuation are ignored when spotting duplicates."""
     return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
 
 
-def build_question_bank():
-    """Read Question_Bank/question_bank.csv (one row per question per exam,
-    in-syllabus questions only) and write question_bank.json with repeated
-    questions merged and their exam history listed."""
-    if not os.path.exists(QB_CSV):
-        print(f"Question bank: {os.path.relpath(QB_CSV, ROOT)} not found, skipped")
-        return
+def parse_qb_file(path, unit, part):
+    """Parse one Question_Bank/Unit_N_Part_X.txt file into question dicts."""
+    rel = os.path.relpath(path, ROOT)
 
-    with open(QB_CSV, "r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
-        missing = [c for c in QB_REQUIRED if c not in (reader.fieldnames or [])]
-        if missing:
-            raise SystemExit(f"ERROR: {QB_CSV} is missing column(s): {', '.join(missing)}")
-        rows = list(reader)
+    def fail(line_no, msg):
+        raise SystemExit(f"ERROR: {rel}, line {line_no}: {msg}")
 
-    merged = {}
-    order = []
-    for line_no, row in enumerate(rows, start=2):
-        row = {k: (v or "").strip() for k, v in row.items() if k}
-        if not row["Question"]:
-            continue
-        part = row["Part"].upper()
-        if part not in QB_PARTS:
-            raise SystemExit(f"ERROR: question_bank.csv line {line_no}: Part must be A, B or C")
-        units = [u.strip() for u in row["Unit"].split("/") if u.strip()]
-        bad = [u for u in units if u not in VALID_UNITS]
-        if not units or bad:
-            raise SystemExit(
-                f"ERROR: question_bank.csv line {line_no}: Unit '{row['Unit']}' "
-                f"must be I-V (use I/II for a question spanning two units)"
-            )
-
-        key = (part, normalise_question(row["Question"]))
-        if key not in merged:
-            merged[key] = {
-                "part": part,
-                "units": units,
-                "question": row["Question"],
-                "kl": row["KL"],
-                "co": row["CO"],
-                "po": row["PO"],
-                "pso": row["PSO"],
-                "note": row.get("Note", ""),
-                "asked": [],
-            }
-            order.append(key)
-        entry = merged[key]
-        if row.get("Note") and not entry["note"]:
-            entry["note"] = row["Note"]
-        qno = row["QNo"]
-        entry["asked"].append({"exam": row["Exam"], "qno": int(qno) if qno.isdigit() else qno})
+    with open(path, "r", encoding="utf-8-sig") as f:   # BOM-safe, CRLF-safe
+        lines = f.read().split("\n")
 
     questions = []
-    for key in order:
-        q = merged[key]
-        q["asked"].sort(key=lambda a: exam_sort_key(a["exam"]))
+    current = None
+    in_answer = False
+
+    def finish(q):
+        if q is None:
+            return
+        if not q.get("question"):
+            fail(q["_line"], "question block has no 'Question:' line")
+        answer = "\n".join(q.pop("_answer")).strip("\n")
+        # Remove trailing spaces on each line but keep indentation for code.
+        q["answer"] = "\n".join(ln.rstrip() for ln in answer.split("\n")).strip("\n")
         questions.append(q)
 
-    unit_rank = {u["number"]: i for i, u in enumerate(UNITS)}
-    questions.sort(
-        key=lambda q: (unit_rank[q["units"][0]], q["part"], -len(q["asked"]), q["question"].lower())
-    )
+    for n, raw in enumerate(lines, start=1):
+        line = raw.rstrip("\r")
+        if BLOCK_START.match(line.strip()):
+            finish(current)
+            current = {"_line": n, "_answer": []}
+            in_answer = False
+            continue
+        if current is None:
+            # File header: only comments and blank lines are allowed here.
+            if line.strip() and not line.lstrip().startswith("#"):
+                fail(n, "text before the first '=== Q1' line (header lines must start with #)")
+            continue
+        if in_answer:
+            current["_answer"].append(line)
+            continue
+        if not line.strip():
+            continue
+        m = FIELD_LINE.match(line.strip())
+        if not m:
+            fail(n, f"expected 'Key: value' or 'Answer:', found: {line.strip()[:60]}")
+        key, value = m.group(1).strip().lower(), m.group(2).strip()
+        if key == "answer":
+            in_answer = True
+            if value:
+                current["_answer"].append(value)
+            continue
+        if key not in QB_FIELDS:
+            fail(n, f"unknown field '{m.group(1)}:' (allowed: Question, KL, CO, PO, PSO, Asked, Also in unit, Note, Answer)")
+        current[QB_FIELDS[key]] = value
+    finish(current)
+
+    out = []
+    seen = {}
+    for q in questions:
+        line_no = q.pop("_line")
+        asked = []
+        for item in filter(None, (a.strip() for a in q.get("asked", "").split(";"))):
+            m = ASKED_ITEM.match(item)
+            if not m:
+                fail(line_no, f"'Asked:' entry '{item}' must look like 'November 2025 Q7'")
+            asked.append({"exam": m.group(1).strip(), "qno": int(m.group(2))})
+        asked.sort(key=lambda a: exam_sort_key(a["exam"]))
+
+        units = [unit]
+        for extra in filter(None, (u.strip().upper() for u in q.get("also_in", "").split(","))):
+            if extra not in VALID_UNITS:
+                fail(line_no, f"'Also in unit: {extra}' must be one of I, II, III, IV, V")
+            if extra not in units:
+                units.append(extra)
+
+        key = normalise_question(q["question"])
+        if key in seen:
+            fail(line_no, f"same question as the block at line {seen[key]}; "
+                          "merge them and list both exams on one 'Asked:' line")
+        seen[key] = line_no
+
+        out.append({
+            "part": part,
+            "units": units,
+            "question": q["question"],
+            "kl": q.get("kl", ""),
+            "co": q.get("co", ""),
+            "po": q.get("po", ""),
+            "pso": q.get("pso", ""),
+            "note": q.get("note", ""),
+            "asked": asked,
+            "answer": q["answer"],
+        })
+    return out
+
+
+def build_question_bank():
+    """Read the 15 Question_Bank/Unit_<1-5>_Part_<A-C>.txt files and write
+    web-app/data/question_bank.json (order within a file is kept)."""
+    if not os.path.isdir(QB_DIR):
+        print("Question bank: Question_Bank/ not found, skipped")
+        return
+
+    questions = []
+    missing = []
+    for i, roman in enumerate(ROMAN, start=1):
+        for part in QB_PARTS:
+            path = os.path.join(QB_DIR, f"Unit_{i}_Part_{part}.txt")
+            if not os.path.exists(path):
+                missing.append(os.path.basename(path))
+                continue
+            questions.extend(parse_qb_file(path, roman, part))
+    if missing:
+        print("Question bank: WARNING, missing file(s): " + ", ".join(missing))
+
     for i, q in enumerate(questions, start=1):
         q["id"] = i
 
@@ -334,12 +402,12 @@ def build_question_bank():
         json.dump(data, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
-    occurrences = sum(len(q["asked"]) for q in questions)
+    answered = sum(1 for q in questions if q["answer"])
     repeated = sum(1 for q in questions if len(q["asked"]) > 1)
     print(f"Wrote {QB_OUT_PATH}")
     print(
-        f"Question bank: {len(rows)} rows -> {len(questions)} unique questions "
-        f"({occurrences} exam occurrences, {repeated} repeated), exams: {', '.join(exams)}"
+        f"Question bank: {len(questions)} questions ({answered} with answers, "
+        f"{repeated} asked more than once), exams: {', '.join(exams)}"
     )
 
 

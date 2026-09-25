@@ -1,0 +1,80 @@
+# UCAM11I Python Programming - Question Bank
+# Unit IV: Strings and Lists - Part A
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Define list.
+KL: K1
+CO: CO4
+PO: PO1
+PSO: PSO1
+Asked: November 2024 Q7
+Answer:
+
+=== Q2
+Question: How do you add values to a list in python?
+KL: K2
+CO: CO4
+PO: PO2,PO3
+PSO: PSO1
+Asked: November 2025 Q7
+Answer:
+
+=== Q3
+Question: How to declare list in python?
+KL: K2
+CO: CO4
+PO: PO1,PO2
+PSO: PSO1
+Asked: November 2023 Q7
+Answer:
+
+=== Q4
+Question: What is immutable string?
+KL: K1
+CO: CO4
+PO: PO1
+PSO: PSO1
+Asked: November 2023 Q5
+Answer:
+
+=== Q5
+Question: What is List?
+KL: K1
+CO: CO4
+PO: PO1
+PSO: PSO1
+Asked: April 2025 Q8
+Answer:
+
+=== Q6
+Question: What is String function?
+KL: K1
+CO: CO4
+PO: PO1
+PSO: PSO1
+Asked: April 2025 Q5
+Answer:
+
+=== Q7
+Question: Write a string compare function in python.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: November 2024 Q6
+Answer:
+
+=== Q8
+Question: Write down the purpose of append function.
+KL: K2
+CO: CO4
+PO: PO1,PO2
+PSO: PSO1
+Asked: November 2024 Q10
+Answer:

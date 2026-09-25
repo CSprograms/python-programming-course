@@ -448,7 +448,7 @@
 
   function textMatches(q, text) {
     if (!text) return true;
-    var hay = (q.question + " " + q.co + " " + q.kl + " " + (q.note || "") + " " +
+    var hay = (q.question + " " + q.co + " " + q.kl + " " + (q.note || "") + " " + (q.answer || "") + " " +
       q.asked.map(function (a) { return a.exam; }).join(" ")).toLowerCase();
     return hay.indexOf(text) !== -1;
   }
@@ -519,6 +519,7 @@
       html += "</ol></section>";
     });
     box.innerHTML = html || '<div class="qb-empty">No questions match your search.</div>';
+    highlightAnswers();
   }
 
   // ---- #qb/unit-N[/part-X] : one unit with Part A / B / C --------------
@@ -606,6 +607,7 @@
       html += "</ol></section>";
     });
     box.innerHTML = html;
+    highlightAnswers();
   }
 
   function qbItem(q, showPart) {
@@ -624,8 +626,61 @@
       escapeHtml([q.po, q.pso].filter(Boolean).join(" · ")) + "</span>";
     html += "</div>";
     if (q.note) html += '<div class="qb-note">' + escapeHtml(q.note) + "</div>";
+    if (q.answer) {
+      html += '<details class="qb-answer"><summary>Answer</summary><div class="qb-answer-body">' +
+        formatAnswer(q.answer) + "</div></details>";
+    }
     html += "</li>";
     return html;
+  }
+
+  // Answers come from the Question_Bank/*.txt files as plain text:
+  //   * a blank line starts a new paragraph, a single line break is kept;
+  //   * ```python ... ``` (or plain ```) fences mark a code block.
+  function formatAnswer(text) {
+    var out = "";
+    var para = [];
+    var code = null;   // array of lines while inside a ``` block
+    var lang = "python";
+
+    function flushPara() {
+      if (para.length) out += "<p>" + para.map(escapeHtml).join("<br>") + "</p>";
+      para = [];
+    }
+
+    String(text).split("\n").forEach(function (line) {
+      var fence = /^\s*```\s*([A-Za-z0-9_+-]*)\s*$/.exec(line);
+      if (code !== null) {
+        if (fence) {
+          out += '<pre class="qb-code"><code class="language-' + escapeHtml(lang) + '">' +
+            escapeHtml(code.join("\n")) + "</code></pre>";
+          code = null;
+        } else {
+          code.push(line);
+        }
+      } else if (fence) {
+        flushPara();
+        code = [];
+        lang = fence[1] || "python";
+      } else if (!line.trim()) {
+        flushPara();
+      } else {
+        para.push(line);
+      }
+    });
+    if (code !== null) {  // unclosed fence: still show the code
+      out += '<pre class="qb-code"><code class="language-' + escapeHtml(lang) + '">' +
+        escapeHtml(code.join("\n")) + "</code></pre>";
+    }
+    flushPara();
+    return out;
+  }
+
+  function highlightAnswers() {
+    if (!window.hljs) return;
+    els.content.querySelectorAll(".qb-code code").forEach(function (block) {
+      window.hljs.highlightElement(block);
+    });
   }
 
   // ---------------------------------------------------------------

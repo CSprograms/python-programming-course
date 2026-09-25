@@ -1,0 +1,91 @@
+# UCAM11I Python Programming - Question Bank
+# Unit IV: Strings and Lists - Part B
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Describe about python string operations.
+KL: K2
+CO: CO4
+PO: PO1,PO3,PO6
+PSO: PSO1
+Asked: November 2023 Q16
+Answer:
+
+=== Q2
+Question: Explain about built-in string methods with examples.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: April 2024 Q17
+Answer:
+
+=== Q3
+Question: Explain few string operations. Give an example of it.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: November 2025 Q18
+Answer:
+
+=== Q4
+Question: Explain the append() method of a list with an example.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO6
+PSO: PSO1
+Asked: April 2025 Q19
+Note: Reframed from "Explain the following (i) append() (ii) writelines()"; part (ii) is file handling, which is out of syllabus.
+Answer:
+
+=== Q5
+Question: Explain the String methods and functions.
+KL: K2
+CO: CO4
+PO: PO1,PO3,PO6
+PSO: PSO1
+Asked: April 2025 Q16
+Answer:
+
+=== Q6
+Question: List out and explain any 5 String Functions in Python.
+KL: K2
+CO: CO4
+PO: PO1,PO3,PO6
+PSO: PSO1
+Asked: November 2024 Q17
+Answer:
+
+=== Q7
+Question: Write about basic list operations with example.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: November 2023 Q17
+Answer:
+
+=== Q8
+Question: Write about string comparison.
+KL: K2
+CO: CO4
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2024 Q13
+Answer:
+
+=== Q9
+Question: Write difference between list and dictionary.
+KL: K2
+CO: CO4/CO5
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2025 Q19
+Also in unit: V
+Answer:

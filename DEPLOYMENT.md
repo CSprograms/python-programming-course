@@ -4,7 +4,7 @@ The site uses **Netlify's Git integration**. Netlify reads `netlify.toml`:
 
 | Setting | Value | Why |
 |---|---|---|
-| Build command | `python3 build_data.py` | Regenerates `web-app/data/sessions.json` (from `Session_Programs/`) and `question_bank.json` (from `Question_Bank/question_bank.csv`) |
+| Build command | `python3 build_data.py` | Regenerates `web-app/data/sessions.json` (from `Session_Programs/`) and `question_bank.json` (from the 15 `Question_Bank/Unit_N_Part_X.txt` files) |
 | Publish directory | `web-app` | The static site |
 | Functions | none | Everything runs in the browser |
 

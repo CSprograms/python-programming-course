@@ -24,7 +24,7 @@ documented sample output, and a "Try also" hint where there is one.
 python-programming-course/
 ├── Session_Programs/            # Source of truth: Session_01 … Session_75
 │   └── Session_NN/Program_K_*.py  (or README.md for seminar/discussion sessions)
-├── Question_Bank/               # Previous-year questions (question_bank.csv + analysis .xlsx)
+├── Question_Bank/               # Previous-year questions: 15 text files, Unit_1_Part_A.txt … Unit_5_Part_C.txt
 ├── Supplementary-NCERT-Programs/  # Extra practice programs (not shown in the viewer)
 ├── web-app/                     # The site Netlify publishes
 │   ├── index.html
@@ -88,8 +88,9 @@ matches `Session_Programs/`. Committing the JSON keeps the local viewer in sync.
 
 ## Updating the Question Bank
 
-Edit `Question_Bank/question_bank.csv` (in-syllabus questions only) and run
-`python build_data.py`. The steps are in [Question_Bank/README.md](./Question_Bank/README.md).
+Edit the text file for the unit and part (for example `Question_Bank/Unit_2_Part_B.txt`),
+add or change questions and their answers, then run `python build_data.py`. The file format is
+explained in [Question_Bank/README.md](./Question_Bank/README.md).
 
 ## Deployment
 

@@ -1,0 +1,44 @@
+# UCAM11I Python Programming - Question Bank
+# Unit II: Flow Control - Part C
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Explain in detail if else and nested if statement with example
+KL: K3
+CO: CO2
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: November 2023 Q21
+Answer:
+
+=== Q2
+Question: Explain iterative statements with example.
+KL: K3
+CO: CO2
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: November 2025 Q21
+Answer:
+
+=== Q3
+Question: Explain various iterative statements in python with examples.
+KL: K3
+CO: CO2
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: April 2024 Q21
+Answer:
+
+=== Q4
+Question: List out IF statement and its types.
+KL: K2
+CO: CO2
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2024 Q21
+Answer:

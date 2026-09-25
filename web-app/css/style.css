@@ -734,6 +734,40 @@ a { color: inherit; }
 .qb-tag.part { background: var(--ink); color: var(--text-hi); border-color: var(--ink); }
 .qb-head + .prev-next, #qbResults + .prev-next { max-width: 860px; }
 
+/* Question Bank: answers (collapsed until opened) */
+.qb-answer { margin-top: 10px; }
+.qb-answer summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  width: fit-content;
+}
+.qb-answer summary:hover { color: var(--blue-soft); }
+.qb-answer-body {
+  margin-top: 8px;
+  padding: 4px 0 2px 12px;
+  border-left: 2px solid var(--border-light);
+  color: var(--text-hi-light);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.qb-answer-body p { margin: 0 0 10px; }
+.qb-code {
+  margin: 0 0 10px;
+  background: var(--ink);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  overflow-x: auto;
+}
+.qb-code code {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-hi);
+  background: none !important;
+}
+
 /* Question Bank links in the sidebar */
 .qb-tree {
   border-top: 1px solid var(--border-dark);

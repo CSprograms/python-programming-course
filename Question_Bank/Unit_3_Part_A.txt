@@ -1,0 +1,71 @@
+# UCAM11I Python Programming - Question Bank
+# Unit III: Functions and Exception Handling - Part A
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: What is Recursion?
+KL: K1
+CO: CO3
+PO: PO1
+PSO: PSO1
+Asked: November 2023 Q6; April 2025 Q6
+Answer:
+
+=== Q2
+Question: Define recursion.
+KL: K1
+CO: CO3
+PO: PO1
+PSO: PSO1
+Asked: April 2024 Q7
+Answer:
+
+=== Q3
+Question: Define variable scope and lifetime?
+KL: K2
+CO: CO3
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2025 Q5
+Answer:
+
+=== Q4
+Question: What is meant by local scope of a variable?
+KL: K1
+CO: CO3
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2024 Q8
+Answer:
+
+=== Q5
+Question: What is meant by recursion?
+KL: K1
+CO: CO3
+PO: PO1
+PSO: PSO1
+Asked: November 2024 Q5
+Answer:
+
+=== Q6
+Question: What is module?
+KL: K1
+CO: CO3
+PO: PO1
+PSO: PSO1
+Asked: November 2025 Q6
+Answer:
+
+=== Q7
+Question: What is Namespace?
+KL: K2
+CO: CO3
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2024 Q12
+Answer:

@@ -1,0 +1,26 @@
+# UCAM11I Python Programming - Question Bank
+# Unit IV: Strings and Lists - Part C
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Explain Lists with suitable examples.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: April 2025 Q23
+Answer:
+
+=== Q2
+Question: What is a list? Explain the basic list operations and methods.
+KL: K3
+CO: CO4
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: April 2024 Q23
+Answer:

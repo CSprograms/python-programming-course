@@ -1,0 +1,53 @@
+# UCAM11I Python Programming - Question Bank
+# Unit V: Tuples and Dictionaries - Part B
+#
+# These header lines (starting with #) are comments. Each question starts
+# with a line "=== Q<number>". Write the answer below "Answer:" (any number
+# of lines; put code between ```python and ``` lines). Leave it empty if
+# the answer is not ready yet.
+# Format guide: Question_Bank/README.md
+
+=== Q1
+Question: Explain about different tuple methods used in python.
+KL: K2
+CO: CO5
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2025 Q16
+Answer:
+
+=== Q2
+Question: Explain Dictionaries and its related functions.
+KL: K2
+CO: CO5
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2025 Q17
+Answer:
+
+=== Q3
+Question: How to Sort a Dictionary.
+KL: K3
+CO: CO5
+PO: PO2,PO3,PO5
+PSO: PSO1
+Asked: November 2024 Q18
+Answer:
+
+=== Q4
+Question: What are the various operations performed on dictionary ? Explain.
+KL: K2
+CO: CO5
+PO: PO1,PO3
+PSO: PSO1
+Asked: April 2024 Q18
+Answer:
+
+=== Q5
+Question: What is dictionary? How to create dictionary?
+KL: K2
+CO: CO5
+PO: PO1,PO3
+PSO: PSO1
+Asked: November 2023 Q18
+Answer:
