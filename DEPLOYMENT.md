@@ -44,7 +44,9 @@ git push origin main          # Netlify builds and publishes in about a minute
 `app.js`, `style.css` and `sessions.json` keep fixed file names, so they are
 served with `Cache-Control: max-age=0, must-revalidate`. Browsers check for a
 new version on each visit and get a quick 304 reply when nothing has changed,
-so students see updates right away without a hard refresh.
+so students see updates right away without a hard refresh. In addition,
+`build_data.py` stamps `index.html` with `?v=<hash>` versions of `style.css` and
+`app.js` (cache-busting), so a changed file always gets a new URL.
 
 ## Routing
 
@@ -71,7 +73,8 @@ Unknown paths show `web-app/404.html`.
 | Deploy fails at `python3 build_data.py` with "syntax error in Session_Programs/…" | Fix that program (the message gives the file and line), then push again |
 | "Could not load session data" on the page | Open the Netlify deploy log and confirm the build step ran and `web-app/data/sessions.json` was written |
 | Blank page when `index.html` is opened directly | Use a local server (see README); `file://` pages cannot fetch the data |
-| Site not updating | Netlify → **Deploys**: check the latest deploy for errors; **Trigger deploy → Clear cache and deploy site** |
+| Site not updating | Netlify → **Deploys**: is there a deploy for your latest commit, and did it succeed? If there is none, check **Site configuration → Build & deploy → Continuous deployment** (the repository must be `CSprograms/python-programming-course`, branch `main`). Otherwise use **Trigger deploy → Clear cache and deploy site** |
+| Browser shows an old version | `build_data.py` adds `?v=<hash>` to `css/style.css` and `js/app.js` in `index.html`, so a new deploy is picked up automatically. Browsers that cached the files under the old one-year setting pick up the change on their next visit |
 
 ## Rollback
 
