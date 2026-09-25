@@ -1,0 +1,33 @@
+{
+  "name": "ucam11-python-course-viewer",
+  "version": "1.0.0",
+  "description": "Session Viewer web app for UCAM11I Python Programming course — browse 75 sessions with code and sample output",
+  "main": "web-app/index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000 --directory web-app",
+    "dev": "python3 -m http.server 8000 --directory web-app",
+    "build": "python3 build_data.py",
+    "build:watch": "watch 'python3 build_data.py' Session_Programs/",
+    "test": "echo 'No tests configured'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "python",
+    "course",
+    "session",
+    "programming",
+    "ucam11",
+    "code-viewer"
+  ],
+  "author": "Aravindhan Mohan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSprograms/UCAM11"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=16.0.0",
+    "python": ">=3.9"
+  }
+}

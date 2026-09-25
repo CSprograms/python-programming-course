@@ -1,0 +1,65 @@
+[build]
+  # Static site — no build process needed
+  publish = "web-app"
+  command = ""
+  functions = "functions"
+
+[build.environment]
+  # Python version for any scripts (like build_data.py if used in CI)
+  PYTHON_VERSION = "3.11"
+
+# Development settings
+[dev]
+  command = "python3 -m http.server 8000"
+  port = 8000
+  framework = "static"
+
+# Context-specific settings
+[context.production]
+  command = ""
+  publish = "web-app"
+
+[context.deploy-preview]
+  command = ""
+  publish = "web-app"
+
+[context.branch-deploy]
+  command = ""
+  publish = "web-app"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=()"
+
+# Cache control
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "max-age=31536000, immutable"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "max-age=3600, must-revalidate"
+
+# Single Page Application (SPA) routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

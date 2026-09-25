@@ -1,0 +1,81 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Regenerate session data
+        run: |
+          python3 build_data.py
+      
+      - name: Validate JSON
+        run: |
+          python3 -m json.tool web-app/data/sessions.json > /dev/null && echo "✓ sessions.json is valid"
+      
+      - name: Commit regenerated data (if on main branch)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add web-app/data/sessions.json
+          git diff --quiet && git diff --cached --quiet || (git commit -m "Auto-regenerate session data [skip ci]" && git push)
+      
+      - name: Suggest commit (if on PR and data changed)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            try {
+              const result = require('child_process').execSync('git diff --quiet web-app/data/sessions.json || echo CHANGED').toString();
+              if (result.includes('CHANGED')) {
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: '⚠️ Session programs have changed. Run `python3 build_data.py` and commit the updated `web-app/data/sessions.json`.'
+                })
+              }
+            } catch (e) {
+              console.log('No changes detected or error occurred:', e.message);
+            }
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.1.0
+        with:
+          publish-dir: './web-app'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: 'Deploy from GitHub Actions'
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1

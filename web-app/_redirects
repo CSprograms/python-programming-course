@@ -1,0 +1,3 @@
+# Single Page Application (SPA) routing
+# All requests that don't match a file are served index.html
+/*    /index.html   200

@@ -1,0 +1,2637 @@
+{
+  "course": {
+    "code": "UCAM11I",
+    "title": "Python Programming",
+    "institution": "Sri Sankara Arts and Science College (Autonomous), Enathur",
+    "section": "BCA Section 1"
+  },
+  "units": [
+    {
+      "number": "I",
+      "title": "Introduction to Python",
+      "start": 1,
+      "end": 15
+    },
+    {
+      "number": "II",
+      "title": "Flow Control",
+      "start": 16,
+      "end": 30
+    },
+    {
+      "number": "III",
+      "title": "Functions and Exception Handling",
+      "start": 31,
+      "end": 45
+    },
+    {
+      "number": "IV",
+      "title": "Strings and Lists",
+      "start": 46,
+      "end": 60
+    },
+    {
+      "number": "V",
+      "title": "Tuples and Dictionaries",
+      "start": 61,
+      "end": 75
+    }
+  ],
+  "sessions": {
+    "1": {
+      "number": 1,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Hello_Python.py",
+          "title": "Hello Python",
+          "header": "Session 1 - Program 1: Hello Python",
+          "description": "Write a program to display Hello, Python!.",
+          "sample_output": "Hello, Python!",
+          "try_also": null,
+          "code": "# Program 1: Display a message\nprint(\"Hello, Python!\")"
+        },
+        {
+          "file": "Program_2_Greeting.py",
+          "title": "Greeting",
+          "header": "Session 1 - Program 2: Greeting",
+          "description": "Read a name from the user and greet them.",
+          "sample_output": "Enter your name: Arun\nHello, Arun!",
+          "try_also": null,
+          "code": "# Program 2: Read a name and greet\nname = input(\"Enter your name: \")\nprint(\"Hello,\", name + \"!\")"
+        },
+        {
+          "file": "Program_3_Print_Banner_Workout.py",
+          "title": "Print Banner (Workout)",
+          "header": "Session 1 - Program 3: Print Banner (Workout)",
+          "description": "Print a banner with the word PYTHON between two rows of asterisks, using\nmultiple print statements. All text is hard-coded (no variables or input\nneeded at this stage).",
+          "sample_output": "**********\n* PYTHON *\n**********",
+          "try_also": null,
+          "code": "# Program 3: Print a banner (hard-coded)\nprint(\"**********\")\nprint(\"* PYTHON *\")\nprint(\"**********\")"
+        },
+        {
+          "file": "Program_4_Multi_line_Welcome_Workout.py",
+          "title": "Multi-line Welcome (Workout)",
+          "header": "Session 1 - Program 4: Multi-line Welcome (Workout)",
+          "description": "Print a four-line welcome message using four separate print statements, one\nline at a time.",
+          "sample_output": "Welcome to Python!\nSession One\nIntroduction\nLet's begin!",
+          "try_also": null,
+          "code": "# Program 4: Four-line welcome message\nprint(\"Welcome to Python!\")\nprint(\"Session One\")\nprint(\"Introduction\")\nprint(\"Let's begin!\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "2": {
+      "number": 2,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_List_Keywords.py",
+          "title": "List Keywords",
+          "header": "Session 2 - Program 1: List Keywords",
+          "description": "List Python keywords using the keyword module.",
+          "sample_output": "['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await',\n 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except',\n 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is',\n 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try',\n 'while', 'with', 'yield']\nTotal keywords: 35",
+          "try_also": null,
+          "code": "# Program 1: List all Python keywords\nimport keyword\nprint(keyword.kwlist)\nprint(\"Total keywords:\", len(keyword.kwlist))"
+        },
+        {
+          "file": "Program_2_Comments_Demo.py",
+          "title": "Comments Demo",
+          "header": "Session 2 - Program 2: Comments Demo",
+          "description": "Demonstrate single-line and multi-line comments.",
+          "sample_output": "Comments are ignored by Python\nProgram finished",
+          "try_also": null,
+          "code": "# Program 2: Single-line and multi-line comments\n\n# This is a single-line comment\nprint(\"Comments are ignored by Python\")   # inline comment\n\n\"\"\"\nThis is a multi-line comment written using\ntriple quotes. It is not executed.\n\"\"\"\nprint(\"Program finished\")"
+        },
+        {
+          "file": "Program_3_Keyword_Check_Workout.py",
+          "title": "Keyword Check (Workout)",
+          "header": "Session 2 - Program 3: Keyword Check (Workout)",
+          "description": "Use the keyword module to check whether a name is a reserved keyword.",
+          "sample_output": "True",
+          "try_also": "name = \"hello\" gives False.",
+          "code": "# Program 3: Is the name a keyword?\nimport keyword\nname = \"if\"\nprint(keyword.iskeyword(name))"
+        },
+        {
+          "file": "Program_4_Valid_Identifier_Workout.py",
+          "title": "Valid Identifier (Workout)",
+          "header": "Session 2 - Program 4: Valid Identifier (Workout)",
+          "description": "Determine whether a given string is a valid Python identifier using\nstr.isidentifier(), printing the boolean result directly.",
+          "sample_output": "True",
+          "try_also": "s = \"1student\" gives False.",
+          "code": "# Program 4: Valid identifier check\ns = \"student1\"\nprint(s.isidentifier())"
+        }
+      ],
+      "type": "teaching"
+    },
+    "3": {
+      "number": 3,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Numeric_Types.py",
+          "title": "Numeric Types",
+          "header": "Session 3 - Program 1: Numeric Types",
+          "description": "Display the data type of an integer and a float value.",
+          "sample_output": "<class 'int'>\n<class 'float'>",
+          "try_also": null,
+          "code": "# Program 1: Data type of int and float\na = 25\nb = 3.14\nprint(type(a))\nprint(type(b))"
+        },
+        {
+          "file": "Program_2_Arithmetic_on_Numbers.py",
+          "title": "Arithmetic on Numbers",
+          "header": "Session 3 - Program 2: Arithmetic on Numbers",
+          "description": "Read two numbers and display their sum, difference and product.",
+          "sample_output": "Enter first number: 10\nEnter second number: 5\nSum        = 15\nDifference = 5\nProduct    = 50",
+          "try_also": null,
+          "code": "# Program 2: Sum, difference and product\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(\"Sum        =\", a + b)\nprint(\"Difference =\", a - b)\nprint(\"Product    =\", a * b)"
+        },
+        {
+          "file": "Program_3_True_vs_Floor_Division_Workout.py",
+          "title": "True vs Floor Division (Workout)",
+          "header": "Session 3 - Program 3: True vs Floor Division (Workout)",
+          "description": "Display both true division (/) and floor division (//) of two integers. True\ndivision always gives a float; floor division rounds down.",
+          "sample_output": "True : 3.4\nFloor: 3",
+          "try_also": "a, b = 20, 6 gives True: 3.33, Floor: 3.",
+          "code": "# Program 3: True and floor division\na, b = 17, 5\nprint(\"True :\", round(a / b, 2))\nprint(\"Floor:\", a // b)"
+        },
+        {
+          "file": "Program_4_Numeric_Type_Check_Workout.py",
+          "title": "Numeric Type Check (Workout)",
+          "header": "Session 3 - Program 4: Numeric Type Check (Workout)",
+          "description": "Indicate whether a value is an int, a float, or neither, using isinstance().",
+          "sample_output": "int",
+          "try_also": "x = 3.14 gives float.",
+          "code": "# Program 4: int, float or neither\nx = 25\nif isinstance(x, int):\n    print(\"int\")\nelif isinstance(x, float):\n    print(\"float\")\nelse:\n    print(\"neither\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "4": {
+      "number": 4,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Bool_and_String_Types.py",
+          "title": "Bool and String Types",
+          "header": "Session 4 - Program 1: Bool and String Types",
+          "description": "Display the data type of a string and a boolean value.",
+          "sample_output": "<class 'str'>\n<class 'bool'>",
+          "try_also": null,
+          "code": "# Program 1: Data type of str and bool\ns = \"Python\"\nflag = True\nprint(type(s))\nprint(type(flag))"
+        },
+        {
+          "file": "Program_2_String_Length.py",
+          "title": "String Length",
+          "header": "Session 4 - Program 2: String Length",
+          "description": "Read a string and display its length.",
+          "sample_output": "Enter a string: Programming\nLength = 11",
+          "try_also": null,
+          "code": "# Program 2: Length of a string\ns = input(\"Enter a string: \")\nprint(\"Length =\", len(s))"
+        },
+        {
+          "file": "Program_3_Boolean_of_a_Value_Workout.py",
+          "title": "Boolean of a Value (Workout)",
+          "header": "Session 4 - Program 3: Boolean of a Value (Workout)",
+          "description": "Print the bool() result for several values.",
+          "sample_output": "[False, True, True, False, False, True]",
+          "try_also": null,
+          "code": "# Program 3: bool() of different values\nvalues = [0, 1, -5, 0.0, '', 'Hi']\nprint([bool(v) for v in values])"
+        },
+        {
+          "file": "Program_4_Length_and_Repeat_Workout.py",
+          "title": "Length and Repeat (Workout)",
+          "header": "Session 4 - Program 4: Length and Repeat (Workout)",
+          "description": "Read a string, display its length, and print it repeated three times using\nthe * operator.",
+          "sample_output": "Length = 3\nBCABCABCA",
+          "try_also": "s = \"Py\" gives Length = 2 and PyPyPy.",
+          "code": "# Program 4: length and repetition\ns = \"BCA\"\nprint(\"Length =\", len(s))\nprint(s * 3)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "5": {
+      "number": 5,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Student_Info.py",
+          "title": "Student Info",
+          "header": "Session 5 - Program 1: Student Info",
+          "description": "Read a student's name and age, then display them using formatted output.",
+          "sample_output": "Enter name: Ravi\nEnter age: 21\nName: Ravi, Age: 21",
+          "try_also": null,
+          "code": "# Program 1: Student information\nname = input(\"Enter name: \")\nage = int(input(\"Enter age: \"))\nprint(f\"Name: {name}, Age: {age}\")"
+        },
+        {
+          "file": "Program_2_Multiplication_Line.py",
+          "title": "Multiplication Line",
+          "header": "Session 5 - Program 2: Multiplication Line",
+          "description": "Display a multiplication line in the format a x b = c.",
+          "sample_output": "Enter first number: 5\nEnter second number: 6\n5 x 6 = 30",
+          "try_also": null,
+          "code": "# Program 2: Multiplication line\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nprint(f\"{a} x {b} = {a * b}\")"
+        },
+        {
+          "file": "Program_3_Bill_Receipt_Workout.py",
+          "title": "Bill Receipt (Workout)",
+          "header": "Session 5 - Program 3: Bill Receipt (Workout)",
+          "description": "Print a formatted bill receipt with item name, quantity, unit price and\ntotal amount.",
+          "sample_output": "Item name : Pen\nQuantity  : 5\nUnit price: 10\nItem: Pen, Qty: 5, Total: 50.00",
+          "try_also": null,
+          "code": "# Program 3: Bill receipt\nitem  = input(\"Item name : \")\nqty   = int(input(\"Quantity  : \"))\nprice = float(input(\"Unit price: \"))\ntotal = qty * price\nprint(f\"Item: {item}, Qty: {qty}, Total: {total:.2f}\")"
+        },
+        {
+          "file": "Program_4_Right_Aligned_Numbers_Workout.py",
+          "title": "Right-Aligned Numbers (Workout)",
+          "header": "Session 5 - Program 4: Right-Aligned Numbers (Workout)",
+          "description": "Print three numbers right-justified in a field of width~8.",
+          "sample_output": "       5     100    1234",
+          "try_also": null,
+          "code": "# Program 4: right-justified numbers (width 8)\nnums = [5, 100, 1234]\nfor n in nums:\n    print(f\"{n:>8}\", end=\"\")\nprint()"
+        }
+      ],
+      "type": "teaching"
+    },
+    "6": {
+      "number": 6,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Rectangle.py",
+          "title": "Rectangle",
+          "header": "Session 6 - Program 1: Rectangle",
+          "description": "Find the area and perimeter of a rectangle.",
+          "sample_output": "Enter length : 10\nEnter breadth: 5\nArea      = 50\nPerimeter = 30",
+          "try_also": null,
+          "code": "# Program 1: Area and perimeter of a rectangle\nlength  = int(input(\"Enter length : \"))\nbreadth = int(input(\"Enter breadth: \"))\narea      = length * breadth\nperimeter = 2 * (length + breadth)\nprint(\"Area      =\", area)\nprint(\"Perimeter =\", perimeter)"
+        },
+        {
+          "file": "Program_2_Quotient_and_Remainder.py",
+          "title": "Quotient and Remainder",
+          "header": "Session 6 - Program 2: Quotient and Remainder",
+          "description": "Find the quotient and remainder when dividing two integers.",
+          "sample_output": "Enter dividend: 17\nEnter divisor : 5\nQuotient  = 3\nRemainder = 2",
+          "try_also": null,
+          "code": "# Program 2: Quotient and remainder\na = int(input(\"Enter dividend: \"))\nb = int(input(\"Enter divisor : \"))\nprint(\"Quotient  =\", a // b)\nprint(\"Remainder =\", a % b)"
+        },
+        {
+          "file": "Program_3_Sum_and_Average_of_Three_Workout.py",
+          "title": "Sum and Average of Three (Workout)",
+          "header": "Session 6 - Program 3: Sum and Average of Three (Workout)",
+          "description": "Read three numbers and display their sum and average.",
+          "sample_output": "Sum = 60\nAvg = 20.0",
+          "try_also": null,
+          "code": "# Program 3: sum and average of three numbers\na, b, c = 10, 20, 30\ntotal = a + b + c\naverage = total / 3\nprint(\"Sum =\", total)\nprint(\"Avg =\", average)"
+        },
+        {
+          "file": "Program_4_Plus_One_Workout.py",
+          "title": "Plus One (Workout)",
+          "header": "Session 6 - Program 4: Plus One (Workout)",
+          "description": "Given an integer N, return N + 1. (A simplified, single-number version of\nthe classic \"Plus One\" problem.)",
+          "sample_output": "124",
+          "try_also": "N = 4321 gives 4322.",
+          "code": "# Program 4: Plus One\nN = 123\nprint(N + 1)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "7": {
+      "number": 7,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Relational_Compare.py",
+          "title": "Relational Compare",
+          "header": "Session 7 - Program 1: Relational Compare",
+          "description": "Compare two numbers and print all relational results.",
+          "sample_output": "a == b : False\na != b : True\na >  b : True\na <  b : False\na >= b : True\na <= b : False",
+          "try_also": null,
+          "code": "# Program 1: Relational operators\na, b = 10, 5\nprint(\"a == b :\", a == b)\nprint(\"a != b :\", a != b)\nprint(\"a >  b :\", a > b)\nprint(\"a <  b :\", a < b)\nprint(\"a >= b :\", a >= b)\nprint(\"a <= b :\", a <= b)"
+        },
+        {
+          "file": "Program_2_Range_Check.py",
+          "title": "Range Check",
+          "header": "Session 7 - Program 2: Range Check",
+          "description": "Check whether a number lies between 10 and 50 using logical operators.",
+          "sample_output": "In range",
+          "try_also": "x = 75 gives Out of range.",
+          "code": "# Program 2: Range check with logical operators\nx = 25\nif x >= 10 and x <= 50:\n    print(\"In range\")\nelse:\n    print(\"Out of range\")"
+        },
+        {
+          "file": "Program_3_Triangle_Validity_Workout.py",
+          "title": "Triangle Validity (Workout)",
+          "header": "Session 7 - Program 3: Triangle Validity (Workout)",
+          "description": "Given three sides, decide whether they can form a valid triangle (the sum of\nany two sides must be greater than the third), printing the boolean result\ndirectly.",
+          "sample_output": "True",
+          "try_also": "a, b, c = 1, 1, 5 gives False.",
+          "code": "# Program 3: valid triangle?\na, b, c = 3, 4, 5\nprint(a + b > c and b + c > a and a + c > b)"
+        },
+        {
+          "file": "Program_4_In_Range_Check_Workout.py",
+          "title": "In-Range Check (Workout)",
+          "header": "Session 7 - Program 4: In-Range Check (Workout)",
+          "description": "Check whether a number lies in [lo, hi] using the logical and operator,\nprinting the boolean result directly.",
+          "sample_output": "True",
+          "try_also": "x = 75 gives False.",
+          "code": "# Program 4: is x in [lo, hi]?\nx, lo, hi = 25, 10, 50\nprint(x >= lo and x <= hi)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "8": {
+      "number": 8,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Compound_Assignment.py",
+          "title": "Compound Assignment",
+          "header": "Session 8 - Program 1: Compound Assignment",
+          "description": "Demonstrate the use of compound assignment operators.",
+          "sample_output": "15\n30",
+          "try_also": null,
+          "code": "# Program 1: Compound assignment operators\nx = 10\nx += 5      # x = x + 5\nprint(x)\nx *= 2      # x = x * 2\nprint(x)"
+        },
+        {
+          "file": "Program_2_Bitwise_Operators.py",
+          "title": "Bitwise Operators",
+          "header": "Session 8 - Program 2: Bitwise Operators",
+          "description": "Demonstrate bitwise AND, OR and XOR operations.",
+          "sample_output": "AND = 8\nOR  = 14\nXOR = 6",
+          "try_also": null,
+          "code": "# Program 2: Bitwise AND, OR, XOR\na, b = 12, 10\nprint(\"AND =\", a & b)\nprint(\"OR  =\", a | b)\nprint(\"XOR =\", a ^ b)"
+        },
+        {
+          "file": "Program_3_Compound_Assignment_Sequence_Workout.py",
+          "title": "Compound Assignment Sequence (Workout)",
+          "header": "Session 8 - Program 3: Compound Assignment Sequence (Workout)",
+          "description": "Start with x = 20. Apply x += 5, x -= 3, x *= 2, and x //= 4 in sequence,\nprinting x after each step (no loop needed).",
+          "sample_output": "25\n22\n44\n11",
+          "try_also": "x = 10 gives 15, 12, 24, 6.",
+          "code": "# Program 3: Compound assignment sequence (no loop)\nx = 20\nx += 5\nprint(x)\nx -= 3\nprint(x)\nx *= 2\nprint(x)\nx //= 4\nprint(x)"
+        },
+        {
+          "file": "Program_4_Bit_Shift_Workout.py",
+          "title": "Bit Shift (Workout)",
+          "header": "Session 8 - Program 4: Bit Shift (Workout)",
+          "description": "Demonstrate left shift (<<) and right shift (>>) of a number by 2 positions.",
+          "sample_output": "Left  = 32\nRight = 2",
+          "try_also": "n = 16 gives Left = 64 and Right = 4.",
+          "code": "# Program 4: left and right shift by 2\nn = 8\nprint(\"Left  =\", n << 2)\nprint(\"Right =\", n >> 2)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "9": {
+      "number": 9,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Explicit_Conversion.py",
+          "title": "Explicit Conversion",
+          "header": "Session 9 - Program 1: Explicit Conversion",
+          "description": "Demonstrate explicit conversion from string to int and from int to float.",
+          "sample_output": "25 <class 'int'>\n30.0 <class 'float'>",
+          "try_also": null,
+          "code": "# Program 1: Explicit type conversion\ns = \"25\"\nn = int(s)          # str -> int\nprint(n, type(n))\n\ni = 30\nf = float(i)        # int -> float\nprint(f, type(f))"
+        },
+        {
+          "file": "Program_2_Type_Promotion.py",
+          "title": "Type Promotion",
+          "header": "Session 9 - Program 2: Type Promotion",
+          "description": "Demonstrate implicit conversion when adding an int and a float.",
+          "sample_output": "25.5 <class 'float'>",
+          "try_also": null,
+          "code": "# Program 2: Implicit conversion (int + float)\na = 10\nb = 15.5\nresult = a + b\nprint(result, type(result))"
+        },
+        {
+          "file": "Program_3_String_to_Int_and_Add_Workout.py",
+          "title": "String to Int and Add (Workout)",
+          "header": "Session 9 - Program 3: String to Int and Add (Workout)",
+          "description": "Given two numeric strings, convert each to an integer using int() and\ndisplay their sum.",
+          "sample_output": "42",
+          "try_also": "\"100\", \"50\" gives 150.",
+          "code": "# Program 3: Convert two strings to int and add\na = \"25\"\nb = \"17\"\nresult = int(a) + int(b)\nprint(result)"
+        },
+        {
+          "file": "Program_4_Multi_Type_Cast_Workout.py",
+          "title": "Multi-Type Cast (Workout)",
+          "header": "Session 9 - Program 4: Multi-Type Cast (Workout)",
+          "description": "Read a value as a float, then explicitly convert it to int, str, and bool\nusing int(), str(), and bool(); display each converted value.",
+          "sample_output": "int: 3\nstr: 3.75\nbool: True",
+          "try_also": "x = 0.0 gives int: 0, str: 0.0, bool: False.",
+          "code": "# Program 4: Convert a float to int, str, and bool\nx = 3.75\nprint(\"int:\", int(x))\nprint(\"str:\", str(x))\nprint(\"bool:\", bool(x))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "10": {
+      "number": 10,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Operator_Precedence.py",
+          "title": "Operator Precedence",
+          "header": "Session 10 - Program 1: Operator Precedence",
+          "description": "Evaluate an expression that demonstrates operator precedence.",
+          "sample_output": "14\n20",
+          "try_also": null,
+          "code": "# Program 1: Operator precedence\nprint(2 + 3 * 4)        # * is applied before +\nprint((2 + 3) * 4)      # () is applied first"
+        },
+        {
+          "file": "Program_2_Simple_Interest.py",
+          "title": "Simple Interest",
+          "header": "Session 10 - Program 2: Simple Interest",
+          "description": "Compute simple interest using SI = (P x T x R)/100.",
+          "sample_output": "SI = 100.0",
+          "try_also": "P = 5000, T = 3, R = 8 gives SI = 1200.0.",
+          "code": "# Program 2: Simple interest\nP = 1000\nT = 2\nR = 5\nSI = (P * T * R) / 100\nprint(\"SI =\", SI)"
+        },
+        {
+          "file": "Program_3_Hypotenuse_Workout.py",
+          "title": "Hypotenuse (Workout)",
+          "header": "Session 10 - Program 3: Hypotenuse (Workout)",
+          "description": "Compute the hypotenuse of a right-angled triangle using a^2+b^2.",
+          "sample_output": "5.0",
+          "try_also": "a, b = 6, 8 gives 10.0.",
+          "code": "# Program 3: hypotenuse\nimport math\na, b = 3, 4\nh = math.sqrt(a ** 2 + b ** 2)\nprint(h)"
+        },
+        {
+          "file": "Program_4_Evaluate_an_Expression_Workout.py",
+          "title": "Evaluate an Expression (Workout)",
+          "header": "Session 10 - Program 4: Evaluate an Expression (Workout)",
+          "description": "Evaluate (a + b) c - d / e for given values and print the result.",
+          "sample_output": "15.0",
+          "try_also": "a, b, c, d, e = 1, 1, 1, 4, 2 gives 0.0.",
+          "code": "# Program 4: evaluate (a + b) * c - d / e\na, b, c, d, e = 2, 3, 4, 10, 2\nresult = (a + b) * c - d / e\nprint(result)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "11": {
+      "number": 11,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_1_Temperature_Conversion.py",
+          "title": "Temperature Conversion",
+          "header": "Session 11 - Assignment 1, Program 1: Temperature Conversion",
+          "description": "Convert Celsius to Fahrenheit: F = (C x 9/5) + 32.",
+          "sample_output": "Enter Celsius: 100\nF = 212.0",
+          "try_also": "C = 0 gives F = 32.0.",
+          "code": "C = float(input(\"Enter Celsius: \"))\nF = (C * 9 / 5) + 32\nprint(\"F =\", F)"
+        },
+        {
+          "file": "Program_2_Compound_Interest.py",
+          "title": "Compound Interest",
+          "header": "Session 11 - Assignment 1, Program 2: Compound Interest",
+          "description": "A = P(1 + R/(100n))^nT and CI = A - P.",
+          "sample_output": "CI = 102.5",
+          "try_also": "P = 5000, T = 3, R = 10, n = 1 gives CI = 1655.0.",
+          "code": "P, T, R, n = 1000, 2, 5, 1\nA = P * (1 + R / (100 * n)) ** (n * T)\nCI = A - P\nprint(\"CI =\", CI)"
+        },
+        {
+          "file": "Program_3_ASCII_Value.py",
+          "title": "ASCII Value",
+          "header": "Session 11 - Assignment 1, Program 3: ASCII Value",
+          "description": "Find the ASCII value of a character using ord().",
+          "sample_output": "65",
+          "try_also": "ch = 'z' gives 122.",
+          "code": "ch = 'A'\nprint(ord(ch))"
+        },
+        {
+          "file": "Program_4_Total_Bill_with_GST.py",
+          "title": "Total Bill with GST",
+          "header": "Session 11 - Assignment 1, Program 4: Total Bill with GST",
+          "description": "Add GST to a bill amount.",
+          "sample_output": "1180.0",
+          "try_also": "bill = 500, gst = 5 gives 525.0.",
+          "code": "bill = 1000\ngst = 18\ntotal = bill + bill * gst / 100\nprint(total)"
+        },
+        {
+          "file": "Program_5_Personal_Info_Card.py",
+          "title": "Personal Info Card",
+          "header": "Session 11 - Assignment 1, Program 5: Personal Info Card",
+          "description": "Read a student's details and display them using formatted output.",
+          "sample_output": "Name: Ravi, Age: 21, Course: BCA, Section: 4",
+          "try_also": null,
+          "code": "name = \"Ravi\"\nage = 21\ncourse = \"BCA\"\nsection = 4\nprint(f\"Name: {name}, Age: {age}, Course: {course}, Section: {section}\")"
+        }
+      ],
+      "type": "assignment"
+    },
+    "12": {
+      "number": 12,
+      "unit": "I",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_12.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "13": {
+      "number": 13,
+      "unit": "I",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_13.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "14": {
+      "number": 14,
+      "unit": "I",
+      "programs": [
+        {
+          "file": "Program_3_Swap_two_variables_without_using_a_third_variable_program.py",
+          "title": "Swap two variables without using a third variable (program).",
+          "header": "Session 14 - Class Test 1, Q3: Swap two variables without using a third variable (program).",
+          "description": "",
+          "sample_output": "Before: 5 10\nAfter : 10 5",
+          "try_also": null,
+          "code": "# Method 1: tuple assignment (recommended)\na, b = 5, 10\nprint(\"Before:\", a, b)\na, b = b, a\nprint(\"After :\", a, b)"
+        }
+      ],
+      "type": "class-test"
+    },
+    "15": {
+      "number": 15,
+      "unit": "I",
+      "programs": [],
+      "type": "discussion",
+      "note": "This is a **Student Discussion** session with no programming exercises.\nRefer to `sessions/session_15.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "16": {
+      "number": 16,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Positive_Check.py",
+          "title": "Positive Check",
+          "header": "Session 16 - Program 1: Positive Check",
+          "description": "Check whether a number is positive. Print Positive only when it is.",
+          "sample_output": "Enter a number: 15\nPositive",
+          "try_also": "-5 prints nothing, because the condition n > 0 is false.",
+          "code": "# Program 1: Check whether a number is positive\nn = int(input(\"Enter a number: \"))\nif n > 0:\n    print(\"Positive\")"
+        },
+        {
+          "file": "Program_2_Vote_Eligibility.py",
+          "title": "Vote Eligibility",
+          "header": "Session 16 - Program 2: Vote Eligibility",
+          "description": "Print Eligible if the age is at least 18.",
+          "sample_output": "Enter your age: 22\nEligible",
+          "try_also": "16 prints nothing.",
+          "code": "# Program 2: \"Eligible\" if age >= 18\nage = int(input(\"Enter your age: \"))\nif age >= 18:\n    print(\"Eligible\")"
+        },
+        {
+          "file": "Program_3_Discount_Eligibility_Workout.py",
+          "title": "Discount Eligibility (Workout)",
+          "header": "Session 16 - Program 3: Discount Eligibility (Workout)",
+          "description": "Print Discount Applied if the purchase amount is greater than 1000;\notherwise do nothing.",
+          "sample_output": "Enter purchase amount: 1500\nDiscount Applied",
+          "try_also": "800 prints nothing.",
+          "code": "# Program 3: Discount if amount > 1000\namount = int(input(\"Enter purchase amount: \"))\nif amount > 1000:\n    print(\"Discount Applied\")"
+        },
+        {
+          "file": "Program_4_Pass_Indicator_Workout.py",
+          "title": "Pass Indicator (Workout)",
+          "header": "Session 16 - Program 4: Pass Indicator (Workout)",
+          "description": "Print Pass if the marks are at least 40.",
+          "sample_output": "Enter marks: 55\nPass",
+          "try_also": "30 prints nothing.",
+          "code": "# Program 4: \"Pass\" if marks >= 40\nmarks = int(input(\"Enter marks: \"))\nif marks >= 40:\n    print(\"Pass\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "17": {
+      "number": 17,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Even_or_Odd.py",
+          "title": "Even or Odd",
+          "header": "Session 17 - Program 1: Even or Odd",
+          "description": "A number is even when dividing it by 2 leaves remainder 0.",
+          "sample_output": "Enter a number: 10\nEven",
+          "try_also": "7 gives Odd.",
+          "code": "# Program 1: Even or odd\nn = int(input(\"Enter a number: \"))\nif n % 2 == 0:\n    print(\"Even\")\nelse:\n    print(\"Odd\")"
+        },
+        {
+          "file": "Program_2_Biggest.py",
+          "title": "Biggest",
+          "header": "Session 17 - Program 2: Biggest",
+          "description": "Find the larger of two numbers fixed in the program.",
+          "sample_output": "6",
+          "try_also": "a = 10, b = 20 gives 20.",
+          "code": "# Program 2: Larger of two numbers\na = 5\nb = 6\nif a > b:\n    print(a)\nelse:\n    print(b)"
+        },
+        {
+          "file": "Program_3_Driver_Eligibility_Workout.py",
+          "title": "Driver Eligibility (Workout)",
+          "header": "Session 17 - Program 3: Driver Eligibility (Workout)",
+          "description": "Print Can Drive if age is at least 18, otherwise Cannot Drive.",
+          "sample_output": "Enter age: 20\nCan Drive",
+          "try_also": "16 gives Cannot Drive.",
+          "code": "# Program 3: Can Drive / Cannot Drive\nage = int(input(\"Enter age: \"))\nif age >= 18:\n    print(\"Can Drive\")\nelse:\n    print(\"Cannot Drive\")"
+        },
+        {
+          "file": "Program_4_Maximum_of_Two_Workout.py",
+          "title": "Maximum of Two (Workout)",
+          "header": "Session 17 - Program 4: Maximum of Two (Workout)",
+          "description": "Find the maximum of two numbers using if-else, without the built-in max().",
+          "sample_output": "Enter first number: 10\nEnter second number: 5\n10",
+          "try_also": "3, 7 gives 7.",
+          "code": "# Program 4: Maximum of two (no max())\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nif a >= b:\n    largest = a\nelse:\n    largest = b\nprint(largest)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "18": {
+      "number": 18,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Student_Grade.py",
+          "title": "Student Grade",
+          "header": "Session 18 - Program 1: Student Grade",
+          "description": "Assign a grade from the average marks.",
+          "sample_output": "Enter average marks: 85\nGrade A",
+          "try_also": "45 gives Grade D (it is below 50 but at least 40).",
+          "code": "# Program 1: Grade from average marks\nmarks = int(input(\"Enter average marks: \"))\nif marks >= 80:\n    print(\"Grade A\")\nelif marks >= 60:\n    print(\"Grade B\")\nelif marks >= 50:\n    print(\"Grade C\")\nelif marks >= 40:\n    print(\"Grade D\")\nelse:\n    print(\"Fail\")"
+        },
+        {
+          "file": "Program_2_Simple_Calculator.py",
+          "title": "Simple Calculator",
+          "header": "Session 18 - Program 2: Simple Calculator",
+          "description": "Perform one of the four basic operations chosen by the user.",
+          "sample_output": "Enter first number: 10\nEnter second number: 5\nEnter operator (+, -, *, /): +\n15",
+          "try_also": "20, 4, / gives 5.0 (division always produces a float).",
+          "code": "# Program 2: Simple calculator (+, -, *, /)\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nop = input(\"Enter operator (+, -, *, /): \")\nif op == \"+\":\n    print(a + b)\nelif op == \"-\":\n    print(a - b)\nelif op == \"*\":\n    print(a * b)\nelif op == \"/\":\n    print(a / b)\nelse:\n    print(\"Invalid operator\")"
+        },
+        {
+          "file": "Program_3_Day_of_Week_Workout.py",
+          "title": "Day of Week (Workout)",
+          "header": "Session 18 - Program 3: Day of Week (Workout)",
+          "description": "Map a number 1-7 to the day of the week.",
+          "sample_output": "Enter a number (1-7): 3\nWednesday",
+          "try_also": "6 gives Saturday.",
+          "code": "# Program 3: Day of week (1=Mon ... 7=Sun)\nn = int(input(\"Enter a number (1-7): \"))\nif n == 1:\n    print(\"Monday\")\nelif n == 2:\n    print(\"Tuesday\")\nelif n == 3:\n    print(\"Wednesday\")\nelif n == 4:\n    print(\"Thursday\")\nelif n == 5:\n    print(\"Friday\")\nelif n == 6:\n    print(\"Saturday\")\nelif n == 7:\n    print(\"Sunday\")\nelse:\n    print(\"Invalid number\")"
+        },
+        {
+          "file": "Program_4_Roman_Numeral_to_Integer_Workout.py",
+          "title": "Roman Numeral to Integer (Workout)",
+          "header": "Session 18 - Program 4: Roman Numeral to Integer (Workout)",
+          "description": "Convert a single Roman numeral character to its value. (LeetCode 13, single\nsymbol.)",
+          "sample_output": "Enter a Roman numeral (I,V,X,L,C,D,M): V\n5",
+          "try_also": "X gives 10.",
+          "code": "# Program 4: Roman numeral character to integer\nch = input(\"Enter a Roman numeral (I,V,X,L,C,D,M): \")\nif ch == \"I\":\n    print(1)\nelif ch == \"V\":\n    print(5)\nelif ch == \"X\":\n    print(10)\nelif ch == \"L\":\n    print(50)\nelif ch == \"C\":\n    print(100)\nelif ch == \"D\":\n    print(500)\nelif ch == \"M\":\n    print(1000)\nelse:\n    print(\"Invalid\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "19": {
+      "number": 19,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Largest_of_Three_Nested.py",
+          "title": "Largest of Three (Nested)",
+          "header": "Session 19 - Program 1: Largest of Three (Nested)",
+          "description": "Find the largest of three numbers using nested if.",
+          "sample_output": "Enter first number: 10\nEnter second number: 20\nEnter third number: 15\n20",
+          "try_also": "100, 50, 75 gives 100.",
+          "code": "# Program 1: Largest of three (nested if)\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nc = int(input(\"Enter third number: \"))\nif a >= b:\n    if a >= c:\n        print(a)\n    else:\n        print(c)\nelse:\n    if b >= c:\n        print(b)\n    else:\n        print(c)"
+        },
+        {
+          "file": "Program_2_Leap_Year.py",
+          "title": "Leap Year",
+          "header": "Session 19 - Program 2: Leap Year",
+          "description": "A year is a leap year if it is divisible by 4, except century years, which\nmust be divisible by 400.",
+          "sample_output": "Enter a year: 2024\nLeap Year",
+          "try_also": "2023 gives Not a Leap Year; 1900 gives Not a Leap Year; 2000 gives Leap Year.",
+          "code": "# Program 2: Leap year (nested if)\nyear = int(input(\"Enter a year: \"))\nif year % 4 == 0:\n    if year % 100 == 0:\n        if year % 400 == 0:\n            print(\"Leap Year\")\n        else:\n            print(\"Not a Leap Year\")\n    else:\n        print(\"Leap Year\")\nelse:\n    print(\"Not a Leap Year\")"
+        },
+        {
+          "file": "Program_3_Login_Validation_Workout.py",
+          "title": "Login Validation (Workout)",
+          "header": "Session 19 - Program 3: Login Validation (Workout)",
+          "description": "Check the username first, and only then the password.",
+          "sample_output": "Enter username: admin\nEnter password: 1234\nLogin Success",
+          "try_also": "admin / wrong gives Invalid Password.",
+          "code": "# Program 3: Login validation (nested if)\nusername = input(\"Enter username: \")\npassword = input(\"Enter password: \")\nif username == \"admin\":\n    if password == \"1234\":\n        print(\"Login Success\")\n    else:\n        print(\"Invalid Password\")\nelse:\n    print(\"Invalid Username\")"
+        },
+        {
+          "file": "Program_4_Number_Category_Workout.py",
+          "title": "Number Category (Workout)",
+          "header": "Session 19 - Program 4: Number Category (Workout)",
+          "description": "Classify a given non-zero integer using nested if statements into one of:\nPositive Even, Positive Odd, Negative Even, or Negative Odd.",
+          "sample_output": "Enter a non-zero number: 6\nPositive Even",
+          "try_also": "-3 gives Negative Odd.",
+          "code": "# Program 4: Classify a number (nested if)\nn = int(input(\"Enter a non-zero number: \"))\nif n > 0:\n    if n % 2 == 0:\n        print(\"Positive Even\")\n    else:\n        print(\"Positive Odd\")\nelse:\n    if n % 2 == 0:\n        print(\"Negative Even\")\n    else:\n        print(\"Negative Odd\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "20": {
+      "number": 20,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Natural_Numbers.py",
+          "title": "Natural Numbers",
+          "header": "Session 20 - Program 1: Natural Numbers",
+          "description": "Print the first N natural numbers.",
+          "sample_output": "Enter N: 5\n1 2 3 4 5",
+          "try_also": "N = 3 gives 1 2 3.",
+          "code": "# Program 1: First N natural numbers (while)\nN = int(input(\"Enter N: \"))\ni = 1\nwhile i <= N:\n    print(i, end=\" \")\n    i += 1\nprint()"
+        },
+        {
+          "file": "Program_2_Sum_of_Digits.py",
+          "title": "Sum of Digits",
+          "header": "Session 20 - Program 2: Sum of Digits",
+          "description": "Add up the digits of a number by repeatedly taking the last digit.",
+          "sample_output": "Enter a number: 123\n6",
+          "try_also": "456 gives 15.",
+          "code": "# Program 2: Sum of digits\nn = int(input(\"Enter a number: \"))\ntotal = 0\nwhile n > 0:\n    total += n % 10      # add the last digit\n    n //= 10             # drop the last digit\nprint(total)"
+        },
+        {
+          "file": "Program_3_Count_Down_Workout.py",
+          "title": "Count Down (Workout)",
+          "header": "Session 20 - Program 3: Count Down (Workout)",
+          "description": "Print from N down to 1.",
+          "sample_output": "Enter N: 5\n5 4 3 2 1",
+          "try_also": "N = 3 gives 3 2 1.",
+          "code": "# Program 3: Count down from N to 1 (while)\nN = int(input(\"Enter N: \"))\ni = N\nwhile i >= 1:\n    print(i, end=\" \")\n    i -= 1\nprint()"
+        },
+        {
+          "file": "Program_4_GCD_Using_While_Workout.py",
+          "title": "GCD Using While (Workout)",
+          "header": "Session 20 - Program 4: GCD Using While (Workout)",
+          "description": "Find the GCD (Greatest Common Divisor) of two positive integers using a\nwhile loop, applying Euclid's method via repeated subtraction.",
+          "sample_output": "Enter first number: 12\nEnter second number: 18\n6",
+          "try_also": "48, 60 gives 12.",
+          "code": "# Program 4: GCD using repeated subtraction (while)\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nwhile a != b:\n    if a > b:\n        a -= b\n    else:\n        b -= a\nprint(a)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "21": {
+      "number": 21,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Sum_of_Positive_Numbers.py",
+          "title": "Sum of Positive Numbers",
+          "header": "Session 21 - Program 1: Sum of Positive Numbers",
+          "description": "Keep adding numbers until a negative number is entered (the sentinel).",
+          "sample_output": "Enter a number: 3\nEnter a number: 4\nEnter a number: 5\nEnter a number: -1\n12",
+          "try_also": "2, 4, 6, -5 gives 12.",
+          "code": "# Program 1: Sum numbers until a negative is entered\ntotal = 0\nnum = int(input(\"Enter a number: \"))\nwhile num >= 0:\n    total += num\n    num = int(input(\"Enter a number: \"))\nprint(total)"
+        },
+        {
+          "file": "Program_2_Reverse_a_Number.py",
+          "title": "Reverse a Number",
+          "header": "Session 21 - Program 2: Reverse a Number",
+          "description": "Build the reversed number one digit at a time.",
+          "sample_output": "Enter a number: 1234\n4321",
+          "try_also": "567 gives 765.",
+          "code": "# Program 2: Reverse the digits of a number\nn = int(input(\"Enter a number: \"))\nrev = 0\nwhile n > 0:\n    rev = rev * 10 + n % 10\n    n //= 10\nprint(rev)"
+        },
+        {
+          "file": "Program_3_Power_Without_Workout.py",
+          "title": "Power Without ** (Workout)",
+          "header": "Session 21 - Program 3: Power Without ** (Workout)",
+          "description": "Compute a^b by multiplying a by itself b times.",
+          "sample_output": "Enter base a: 2\nEnter exponent b: 5\n32",
+          "try_also": "a = 3, b = 4 gives 81.",
+          "code": "# Program 3: Compute a to the power b without **\na = int(input(\"Enter base a: \"))\nb = int(input(\"Enter exponent b: \"))\nresult = 1\ncount = 0\nwhile count < b:\n    result *= a\n    count += 1\nprint(result)"
+        },
+        {
+          "file": "Program_4_Climbing_Stairs_Workout.py",
+          "title": "Climbing Stairs (Workout)",
+          "header": "Session 21 - Program 4: Climbing Stairs (Workout)",
+          "description": "Count the ways to climb n steps taking 1 or 2 steps at a time. The answer\nfollows the Fibonacci pattern. (LeetCode 70.)",
+          "sample_output": "Enter number of steps n: 3\n3",
+          "try_also": "n = 5 gives 8.",
+          "code": "# Program 4: Climbing stairs (1 or 2 steps)\nn = int(input(\"Enter number of steps n: \"))\na = 1    # ways to reach the ground\nb = 1    # ways to reach step 1\ncount = 1\nwhile count < n:\n    a, b = b, a + b\n    count += 1\nprint(b)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "22": {
+      "number": 22,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Odd_Numbers.py",
+          "title": "Odd Numbers",
+          "header": "Session 22 - Program 1: Odd Numbers",
+          "description": "Print the first N odd numbers using a step of 2.",
+          "sample_output": "Enter N: 5\n1 3 5 7 9",
+          "try_also": "N = 3 gives 1 3 5.",
+          "code": "# Program 1: First N odd numbers (for)\nN = int(input(\"Enter N: \"))\nfor i in range(1, 2 * N, 2):\n    print(i, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_2_Multiplication_Table.py",
+          "title": "Multiplication Table",
+          "header": "Session 22 - Program 2: Multiplication Table",
+          "description": "Print the table of a number from 1 to 10.",
+          "sample_output": "Enter a number: 5\n5 10 15 20 25 30 35 40 45 50",
+          "try_also": "3 gives 3 6 9 12 15 18 21 24 27 30.",
+          "code": "# Program 2: Multiplication table of a number\nn = int(input(\"Enter a number: \"))\nfor i in range(1, 11):\n    print(n * i, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_3_Sum_1_to_N_Workout.py",
+          "title": "Sum 1 to N (Workout)",
+          "header": "Session 22 - Program 3: Sum 1 to N (Workout)",
+          "description": "Add the first N natural numbers.",
+          "sample_output": "Enter N: 10\n55",
+          "try_also": "N = 5 gives 15.",
+          "code": "# Program 3: Sum of first N natural numbers (for)\nN = int(input(\"Enter N: \"))\ntotal = 0\nfor i in range(1, N + 1):\n    total += i\nprint(total)"
+        },
+        {
+          "file": "Program_4_N_th_Tribonacci_Number_Workout.py",
+          "title": "N-th Tribonacci Number (Workout)",
+          "header": "Session 22 - Program 4: N-th Tribonacci Number (Workout)",
+          "description": "Each term is the sum of the previous three, starting T_0=0, T_1=1, T_2=1.\n(LeetCode 1137.)",
+          "sample_output": "Enter n: 4\n4",
+          "try_also": "n = 6 gives 13.",
+          "code": "# Program 4: N-th Tribonacci number\nn = int(input(\"Enter n: \"))\nt0, t1, t2 = 0, 1, 1\nif n == 0:\n    print(t0)\nelif n == 1 or n == 2:\n    print(1)\nelse:\n    for i in range(3, n + 1):\n        t3 = t0 + t1 + t2\n        t0, t1, t2 = t1, t2, t3\n    print(t2)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "23": {
+      "number": 23,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_String_Iteration.py",
+          "title": "String Iteration",
+          "header": "Session 23 - Program 1: String Iteration",
+          "description": "Print each character of a string on its own line.",
+          "sample_output": "Enter a string: Python\nP\ny\nt\nh\no\nn",
+          "try_also": "BCA prints B, C, A on three lines.",
+          "code": "# Program 1: Print each character on a new line\ns = input(\"Enter a string: \")\nfor ch in s:\n    print(ch)"
+        },
+        {
+          "file": "Program_2_Factorial.py",
+          "title": "Factorial",
+          "header": "Session 23 - Program 2: Factorial",
+          "description": "The factorial of n is the product 1 x 2 x x n.",
+          "sample_output": "Enter a number: 5\n120",
+          "try_also": "3 gives 6.",
+          "code": "# Program 2: Factorial of a number\nn = int(input(\"Enter a number: \"))\nfact = 1\nfor i in range(1, n + 1):\n    fact *= i\nprint(fact)"
+        },
+        {
+          "file": "Program_3_Count_Spaces_in_a_String_Workout.py",
+          "title": "Count Spaces in a String (Workout)",
+          "header": "Session 23 - Program 3: Count Spaces in a String (Workout)",
+          "description": "Count how many space characters a string contains.",
+          "sample_output": "Enter a string: Hello World\n1",
+          "try_also": "I love Python gives 2.",
+          "code": "# Program 3: Count spaces in a string (for)\ns = input(\"Enter a string: \")\ncount = 0\nfor ch in s:\n    if ch == \" \":\n        count += 1\nprint(count)"
+        },
+        {
+          "file": "Program_4_Sum_of_List_Elements_Workout.py",
+          "title": "Sum of List Elements (Workout)",
+          "header": "Session 23 - Program 4: Sum of List Elements (Workout)",
+          "description": "Add up all the numbers in a list.",
+          "sample_output": "60",
+          "try_also": "[1, 2, 3, 4, 5] gives 15.",
+          "code": "# Program 4: Sum of elements of a list (for)\nnumbers = [10, 20, 30]\ntotal = 0\nfor x in numbers:\n    total += x\nprint(total)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "24": {
+      "number": 24,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Even_Numbers_using_continue.py",
+          "title": "Even Numbers (using continue)",
+          "header": "Session 24 - Program 1: Even Numbers (using continue)",
+          "description": "Skip the odd numbers and print only the even ones.",
+          "sample_output": "Enter start: 1\nEnter end: 10\n2 4 6 8 10",
+          "try_also": "1, 5 gives 2 4.",
+          "code": "# Program 1: Even numbers in a range (continue)\nstart = int(input(\"Enter start: \"))\nend = int(input(\"Enter end: \"))\nfor i in range(start, end + 1):\n    if i % 2 != 0:\n        continue          # skip odd numbers\n    print(i, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_2_First_Divisible_by_7_using_break.py",
+          "title": "First Divisible by 7 (using break)",
+          "header": "Session 24 - Program 2: First Divisible by 7 (using break)",
+          "description": "Stop as soon as the first multiple of 7 is found.",
+          "sample_output": "Enter start: 1\nEnter end: 20\n7",
+          "try_also": "10, 30 gives 14.",
+          "code": "# Program 2: First number divisible by 7 (break)\nstart = int(input(\"Enter start: \"))\nend = int(input(\"Enter end: \"))\nfor i in range(start, end + 1):\n    if i % 7 == 0:\n        print(i)\n        break"
+        },
+        {
+          "file": "Program_3_Search_an_Element_Workout.py",
+          "title": "Search an Element (Workout)",
+          "header": "Session 24 - Program 3: Search an Element (Workout)",
+          "description": "Search a list and report the index, or Not Found.",
+          "sample_output": "Found at index 2",
+          "try_also": "numbers = [1, 2, 3], target = 4 gives Not Found.",
+          "code": "# Program 3: Search an element in a list (break)\nnumbers = [5, 3, 8, 1]\ntarget = 8\nfound = False\nfor index in range(len(numbers)):\n    if numbers[index] == target:\n        print(\"Found at index\", index)\n        found = True\n        break\nif not found:\n    print(\"Not Found\")"
+        },
+        {
+          "file": "Program_4_Skip_Multiples_of_5_Workout.py",
+          "title": "Skip Multiples of 5 (Workout)",
+          "header": "Session 24 - Program 4: Skip Multiples of 5 (Workout)",
+          "description": "Print 1 to N but skip every multiple of 5.",
+          "sample_output": "Enter N: 12\n1 2 3 4 6 7 8 9 11 12",
+          "try_also": "N = 7 gives 1 2 3 4 6 7.",
+          "code": "# Program 4: Print 1..N skipping multiples of 5 (continue)\nN = int(input(\"Enter N: \"))\nfor i in range(1, N + 1):\n    if i % 5 == 0:\n        continue\n    print(i, end=\" \")\nprint()"
+        }
+      ],
+      "type": "teaching"
+    },
+    "25": {
+      "number": 25,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Prime_Check.py",
+          "title": "Prime Check",
+          "header": "Session 25 - Program 1: Prime Check",
+          "description": "A number is prime if it has no divisor other than 1 and itself. The inner\nloop tests for divisors; break stops early once one is found.",
+          "sample_output": "Enter a number: 7\nPrime",
+          "try_also": "12 gives Not Prime.",
+          "code": "# Program 1: Prime check\nn = int(input(\"Enter a number: \"))\nif n <= 1:\n    print(\"Not Prime\")\nelse:\n    is_prime = True\n    for i in range(2, n):\n        if n % i == 0:\n            is_prime = False\n            break\n    if is_prime:\n        print(\"Prime\")\n    else:\n        print(\"Not Prime\")"
+        },
+        {
+          "file": "Program_2_Star_Pattern.py",
+          "title": "Star Pattern",
+          "header": "Session 25 - Program 2: Star Pattern",
+          "description": "Print a right-angled triangle of stars. Row i has i stars.",
+          "sample_output": "Enter number of rows: 4\n*\n* *\n* * *\n* * * *",
+          "try_also": "rows = 3 prints a 3-row triangle.",
+          "code": "# Program 2: Right-angled triangle of stars\nrows = int(input(\"Enter number of rows: \"))\nfor i in range(1, rows + 1):\n    for j in range(i):\n        print(\"*\", end=\" \")\n    print()"
+        },
+        {
+          "file": "Program_3_Multiplication_Chart_Workout.py",
+          "title": "Multiplication Chart (Workout)",
+          "header": "Session 25 - Program 3: Multiplication Chart (Workout)",
+          "description": "Print a chart where entry (i,j) is i x j.",
+          "sample_output": "Enter N: 3\n1   2   3\n2   4   6\n3   6   9",
+          "try_also": "N = 2 prints a 2x2 chart.",
+          "code": "# Program 3: Multiplication chart 1..N (nested loops)\nN = int(input(\"Enter N: \"))\nfor i in range(1, N + 1):\n    for j in range(1, N + 1):\n        print(i * j, end=\"\\t\")\n    print()"
+        },
+        {
+          "file": "Program_4_Pascal_s_Triangle_Workout.py",
+          "title": "Pascal's Triangle (Workout)",
+          "header": "Session 25 - Program 4: Pascal's Triangle (Workout)",
+          "description": "Each row starts and ends with 1; every inner number is the sum of the two\nnumbers above it. (LeetCode 118.)",
+          "sample_output": "Enter n: 4\n1\n1 1\n1 2 1\n1 3 3 1",
+          "try_also": "n = 3 prints the first three rows.",
+          "code": "# Program 4: Pascal's triangle (first n rows)\nn = int(input(\"Enter n: \"))\nrow = [1]\nfor r in range(n):\n    print(*row)\n    next_row = [1]\n    for k in range(len(row) - 1):\n        next_row.append(row[k] + row[k + 1])\n    next_row.append(1)\n    row = next_row"
+        }
+      ],
+      "type": "teaching"
+    },
+    "26": {
+      "number": 26,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_1_Armstrong_Number.py",
+          "title": "Armstrong Number",
+          "header": "Session 26 - Assignment 2, Program 1: Armstrong Number",
+          "description": "A 3-digit number is an Armstrong number if the sum of the cubes of its\ndigits equals the number itself (for example, 1^3 + 5^3 + 3^3 = 153).",
+          "sample_output": "Enter a number: 153\nArmstrong Number",
+          "try_also": "123 gives Not an Armstrong Number.",
+          "code": "# Assignment 1: Armstrong number\nn = int(input(\"Enter a number: \"))\ntemp = n\ntotal = 0\nwhile temp > 0:\n    digit = temp % 10\n    total += digit ** 3\n    temp //= 10\nif total == n:\n    print(\"Armstrong Number\")\nelse:\n    print(\"Not an Armstrong Number\")"
+        },
+        {
+          "file": "Program_2_Pascal_s_Triangle.py",
+          "title": "Pascal's Triangle",
+          "header": "Session 26 - Assignment 2, Program 2: Pascal's Triangle",
+          "description": "Print Pascal's triangle up to N rows.",
+          "sample_output": "Enter N: 4\n1\n1 1\n1 2 1\n1 3 3 1",
+          "try_also": "N = 3 prints the first three rows.",
+          "code": "# Assignment 2: Pascal's triangle (N rows)\nN = int(input(\"Enter N: \"))\nrow = [1]\nfor r in range(N):\n    print(*row)\n    next_row = [1]\n    for k in range(len(row) - 1):\n        next_row.append(row[k] + row[k + 1])\n    next_row.append(1)\n    row = next_row"
+        },
+        {
+          "file": "Program_3_GCD_of_Two_Numbers.py",
+          "title": "GCD of Two Numbers",
+          "header": "Session 26 - Assignment 2, Program 3: GCD of Two Numbers",
+          "description": "Use Euclid's method: replace the pair (a, b) by (b, a mod b) until b becomes\n0.",
+          "sample_output": "Enter first number: 12\nEnter second number: 18\n6",
+          "try_also": "24, 36 gives 12.",
+          "code": "# Assignment 3: GCD using a loop\na = int(input(\"Enter first number: \"))\nb = int(input(\"Enter second number: \"))\nwhile b != 0:\n    a, b = b, a % b\nprint(a)"
+        },
+        {
+          "file": "Program_4_Sum_of_First_N_Numbers.py",
+          "title": "Sum of First N Numbers",
+          "header": "Session 26 - Assignment 2, Program 4: Sum of First N Numbers",
+          "description": "Add the first N natural numbers with a while loop.",
+          "sample_output": "Enter N: 10\n55",
+          "try_also": "N = 5 gives 15.",
+          "code": "# Assignment 4: Sum of first N natural numbers (while)\nN = int(input(\"Enter N: \"))\ntotal = 0\ni = 1\nwhile i <= N:\n    total += i\n    i += 1\nprint(total)"
+        },
+        {
+          "file": "Program_5_Leap_Years_in_a_Range.py",
+          "title": "Leap Years in a Range",
+          "header": "Session 26 - Assignment 2, Program 5: Leap Years in a Range",
+          "description": "Print every leap year between two given years.",
+          "sample_output": "Enter start year: 2000\nEnter end year: 2020\n2000 2004 2008 2012 2016 2020",
+          "try_also": "2010, 2025 gives 2012 2016 2020 2024.",
+          "code": "# Assignment 5: Leap years in a range\nstart = int(input(\"Enter start year: \"))\nend = int(input(\"Enter end year: \"))\nfor year in range(start, end + 1):\n    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n        print(year, end=\" \")\nprint()"
+        }
+      ],
+      "type": "assignment"
+    },
+    "27": {
+      "number": 27,
+      "unit": "II",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_27.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "28": {
+      "number": 28,
+      "unit": "II",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_28.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "29": {
+      "number": 29,
+      "unit": "II",
+      "programs": [
+        {
+          "file": "Program_3_Program_check_whether_a_number_is_prime.py",
+          "title": "Program - check whether a number is prime.",
+          "header": "Session 29 - Class Test 2, Q3: Program - check whether a number is prime.",
+          "description": "A number is prime when no value from 2 up to n-1 divides it exactly.",
+          "sample_output": "Enter a number: 7\nPrime",
+          "try_also": null,
+          "code": "# Class Test: prime check\nn = int(input(\"Enter a number: \"))\nif n <= 1:\n    print(\"Not Prime\")\nelse:\n    is_prime = True\n    for i in range(2, n):\n        if n % i == 0:\n            is_prime = False\n            break\n    print(\"Prime\" if is_prime else \"Not Prime\")"
+        }
+      ],
+      "type": "class-test"
+    },
+    "30": {
+      "number": 30,
+      "unit": "II",
+      "programs": [],
+      "type": "discussion",
+      "note": "This is a **Student Discussion** session with no programming exercises.\nRefer to `sessions/session_30.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "31": {
+      "number": 31,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Welcome_Function.py",
+          "title": "Welcome Function",
+          "header": "Session 31 - Program 1: Welcome Function",
+          "description": "Define a function that displays a welcome message, then call it.",
+          "sample_output": "Welcome to Python Programming!",
+          "try_also": null,
+          "code": "# Program 1: A function that displays a welcome message\ndef welcome():\n    print(\"Welcome to Python Programming!\")\n\nwelcome()"
+        },
+        {
+          "file": "Program_2_Square_Function.py",
+          "title": "Square Function",
+          "header": "Session 31 - Program 2: Square Function",
+          "description": "A function that returns the square of a number.",
+          "sample_output": "Enter a number: 4\n16",
+          "try_also": "7 gives 49.",
+          "code": "# Program 2: A function that returns the square of a number\ndef square(n):\n    return n * n\n\nnum = int(input(\"Enter a number: \"))\nprint(square(num))"
+        },
+        {
+          "file": "Program_3_Print_N_Stars_Workout.py",
+          "title": "Print N Stars (Workout)",
+          "header": "Session 31 - Program 3: Print N Stars (Workout)",
+          "description": "A function that prints N stars on one line.",
+          "sample_output": "* * * * *",
+          "try_also": "print_stars(3) prints * * *.",
+          "code": "# Program 3: Print N stars on a single line (function)\ndef print_stars(n):\n    for i in range(n):\n        print(\"*\", end=\" \")\n    print()\n\nprint_stars(5)"
+        },
+        {
+          "file": "Program_4_Maximum_of_Three_Workout.py",
+          "title": "Maximum of Three (Workout)",
+          "header": "Session 31 - Program 4: Maximum of Three (Workout)",
+          "description": "A function that returns the largest of three numbers.",
+          "sample_output": "25",
+          "try_also": "maximum(5, 5, 8) gives 8.",
+          "code": "# Program 4: Return the maximum of three numbers\ndef maximum(a, b, c):\n    if a >= b and a >= c:\n        return a\n    elif b >= c:\n        return b\n    else:\n        return c\n\nprint(maximum(10, 25, 20))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "32": {
+      "number": 32,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Sum_Function.py",
+          "title": "Sum Function",
+          "header": "Session 32 - Program 1: Sum Function",
+          "description": "Find the sum of two numbers passed as positional arguments.",
+          "sample_output": "Enter first number: 10\nEnter second number: 15\n25",
+          "try_also": "100, 200 gives 300.",
+          "code": "# Program 1: Sum of two numbers (positional arguments)\ndef add(a, b):\n    return a + b\n\nx = int(input(\"Enter first number: \"))\ny = int(input(\"Enter second number: \"))\nprint(add(x, y))"
+        },
+        {
+          "file": "Program_2_Even_or_Odd_Function.py",
+          "title": "Even or Odd Function",
+          "header": "Session 32 - Program 2: Even or Odd Function",
+          "description": "Return whether a number is even or odd.",
+          "sample_output": "Enter a number: 10\nEven",
+          "try_also": "11 gives Odd.",
+          "code": "# Program 2: Check even or odd using a function\ndef even_odd(n):\n    if n % 2 == 0:\n        return \"Even\"\n    else:\n        return \"Odd\"\n\nnum = int(input(\"Enter a number: \"))\nprint(even_odd(num))"
+        },
+        {
+          "file": "Program_3_Cylinder_Volume_Workout.py",
+          "title": "Cylinder Volume (Workout)",
+          "header": "Session 32 - Program 3: Cylinder Volume (Workout)",
+          "description": "Return the volume of a cylinder, pi r^2 h, using two parameters.",
+          "sample_output": "785.40",
+          "try_also": "cylinder_volume(3, 7) gives 197.92.",
+          "code": "# Program 3: Volume of a cylinder (pi * r * r * h)\nimport math\n\ndef cylinder_volume(r, h):\n    return math.pi * r * r * h\n\nprint(f\"{cylinder_volume(5, 10):.2f}\")"
+        },
+        {
+          "file": "Program_4_Greet_User_Workout.py",
+          "title": "Greet User (Workout)",
+          "header": "Session 32 - Program 4: Greet User (Workout)",
+          "description": "Take a name and an age and print a personalised greeting.",
+          "sample_output": "Hello Ravi, age 21!",
+          "try_also": "greet(\"Meera\", 20) prints Hello Meera, age 20!.",
+          "code": "# Program 4: Personalised greeting\ndef greet(name, age):\n    print(f\"Hello {name}, age {age}!\")\n\ngreet(\"Ravi\", 21)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "33": {
+      "number": 33,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Rectangle_Two_Return_Values.py",
+          "title": "Rectangle (Two Return Values)",
+          "header": "Session 33 - Program 1: Rectangle (Two Return Values)",
+          "description": "Return both the area and the perimeter of a rectangle.",
+          "sample_output": "50 30",
+          "try_also": "rectangle(8, 4) gives 32 24.",
+          "code": "# Program 1: Area and perimeter of a rectangle (two values)\ndef rectangle(length, breadth):\n    area = length * breadth\n    perimeter = 2 * (length + breadth)\n    return area, perimeter\n\na, p = rectangle(10, 5)\nprint(a, p)"
+        },
+        {
+          "file": "Program_2_Recursive_Factorial.py",
+          "title": "Recursive Factorial",
+          "header": "Session 33 - Program 2: Recursive Factorial",
+          "description": "The factorial of n is n x (n-1)!, with 0! = 1! = 1 as the base case.",
+          "sample_output": "Enter a number: 5\n120",
+          "try_also": "6 gives 720.",
+          "code": "# Program 2: Factorial using recursion\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)\n\nnum = int(input(\"Enter a number: \"))\nprint(factorial(num))"
+        },
+        {
+          "file": "Program_3_Even_and_Odd_Count_Workout.py",
+          "title": "Even and Odd Count (Workout)",
+          "header": "Session 33 - Program 3: Even and Odd Count (Workout)",
+          "description": "Return how many even and how many odd numbers a list contains.",
+          "sample_output": "even=3, odd=3",
+          "try_also": "[10, 15, 20, 25] gives even=2, odd=2.",
+          "code": "# Program 3: Count even and odd numbers in a list\ndef count_even_odd(numbers):\n    even = 0\n    odd = 0\n    for x in numbers:\n        if x % 2 == 0:\n            even += 1\n        else:\n            odd += 1\n    return even, odd\n\ne, o = count_even_odd([1, 2, 3, 4, 5, 6])\nprint(f\"even={e}, odd={o}\")"
+        },
+        {
+          "file": "Program_4_Recursive_Sum_Workout.py",
+          "title": "Recursive Sum (Workout)",
+          "header": "Session 33 - Program 4: Recursive Sum (Workout)",
+          "description": "Add the first N natural numbers using recursion.",
+          "sample_output": "15",
+          "try_also": "rec_sum(10) gives 55.",
+          "code": "# Program 4: Sum of first N natural numbers using recursion\ndef rec_sum(n):\n    if n == 0:\n        return 0\n    return n + rec_sum(n - 1)\n\nprint(rec_sum(5))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "34": {
+      "number": 34,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Square_Root.py",
+          "title": "Square Root",
+          "header": "Session 34 - Program 1: Square Root",
+          "description": "Find the square root of a number using the math library.",
+          "sample_output": "Enter a number: 25\n5.0",
+          "try_also": "81 gives 9.0.",
+          "code": "# Program 1: Square root using the math library\nimport math\n\nn = int(input(\"Enter a number: \"))\nprint(math.sqrt(n))"
+        },
+        {
+          "file": "Program_2_Area_Using_Pi.py",
+          "title": "Area Using Pi",
+          "header": "Session 34 - Program 2: Area Using Pi",
+          "description": "Compute the area of a circle, pi r^2, using math.pi.",
+          "sample_output": "Enter the radius: 10\n314.159",
+          "try_also": "r = 7 gives 153.938.",
+          "code": "# Program 2: Area of a circle using math.pi\nimport math\n\nr = int(input(\"Enter the radius: \"))\narea = math.pi * r * r\nprint(round(area, 3))"
+        },
+        {
+          "file": "Program_3_Circle_Circumference_Workout.py",
+          "title": "Circle Circumference (Workout)",
+          "header": "Session 34 - Program 3: Circle Circumference (Workout)",
+          "description": "Return the circumference of a circle, 2 pi r.",
+          "sample_output": "43.98",
+          "try_also": "circumference(10) gives 62.83.",
+          "code": "# Program 3: Circumference of a circle using math.pi\nimport math\n\ndef circumference(r):\n    return 2 * math.pi * r\n\nprint(f\"{circumference(7):.2f}\")"
+        },
+        {
+          "file": "Program_4_Integer_Square_Root_Workout.py",
+          "title": "Integer Square Root (Workout)",
+          "header": "Session 34 - Program 4: Integer Square Root (Workout)",
+          "description": "Return the whole-number part of the square root. (LeetCode 69.)",
+          "sample_output": "Enter a non-negative integer: 8\n2",
+          "try_also": "4 gives 2 as well, since sqrt(4)=2.",
+          "code": "# Program 4: Integer square root (floor of the square root)\nimport math\n\nx = int(input(\"Enter a non-negative integer: \"))\nprint(int(math.sqrt(x)))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "35": {
+      "number": 35,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Ceil_and_Floor.py",
+          "title": "Ceil and Floor",
+          "header": "Session 35 - Program 1: Ceil and Floor",
+          "description": "Round a value up and down.",
+          "sample_output": "Enter a number: 4.3\nceil = 5, floor = 4",
+          "try_also": "7.8 gives ceil = 8, floor = 7.",
+          "code": "# Program 1: ceil and floor of a number\nimport math\n\nx = float(input(\"Enter a number: \"))\nprint(f\"ceil = {math.ceil(x)}, floor = {math.floor(x)}\")"
+        },
+        {
+          "file": "Program_2_Trigonometric_Values.py",
+          "title": "Trigonometric Values",
+          "header": "Session 35 - Program 2: Trigonometric Values",
+          "description": "Find sine, cosine and tangent of an angle given in degrees.",
+          "sample_output": "Enter an angle in degrees: 30\n0.50, 0.87, 0.58",
+          "try_also": "45 gives 0.71, 0.71, 1.00.",
+          "code": "# Program 2: sin, cos, tan of an angle in degrees\nimport math\n\nangle = float(input(\"Enter an angle in degrees: \"))\nr = math.radians(angle)\nprint(f\"{math.sin(r):.2f}, {math.cos(r):.2f}, {math.tan(r):.2f}\")"
+        },
+        {
+          "file": "Program_3_Round_Up_Currency_Workout.py",
+          "title": "Round Up Currency (Workout)",
+          "header": "Session 35 - Program 3: Round Up Currency (Workout)",
+          "description": "Round a price up to the next whole rupee.",
+          "sample_output": "Enter the price: 99.45\n100",
+          "try_also": "250.99 gives 251.",
+          "code": "# Program 3: Round a price up to the next rupee\nimport math\n\nprice = float(input(\"Enter the price: \"))\nprint(math.ceil(price))"
+        },
+        {
+          "file": "Program_4_Logarithm_Workout.py",
+          "title": "Logarithm (Workout)",
+          "header": "Session 35 - Program 4: Logarithm (Workout)",
+          "description": "Find the natural log and the log base 10 of a number.",
+          "sample_output": "Enter a number: 100\nln=4.605, log10=2.0",
+          "try_also": "1000 gives ln=6.908, log10=3.0.",
+          "code": "# Program 4: Natural log and log base 10\nimport math\n\nn = float(input(\"Enter a number: \"))\nprint(f\"ln={math.log(n):.3f}, log10={math.log10(n)}\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "36": {
+      "number": 36,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Default_Arguments.py",
+          "title": "Default Arguments",
+          "header": "Session 36 - Program 1: Default Arguments",
+          "description": "Compute the area of a rectangle, with the breadth defaulting to 1.",
+          "sample_output": "50\n8",
+          "try_also": null,
+          "code": "# Program 1: Area with a default argument\ndef area(length, breadth=1):\n    return length * breadth\n\nprint(area(10, 5))    # both given\nprint(area(8))        # breadth defaults to 1"
+        },
+        {
+          "file": "Program_2_Variable_Length_Sum.py",
+          "title": "Variable-Length Sum",
+          "header": "Session 36 - Program 2: Variable-Length Sum",
+          "description": "Add any number of values using *args.",
+          "sample_output": "15",
+          "try_also": "total(10, 20) gives 30.",
+          "code": "# Program 2: Sum using variable-length arguments (*args)\ndef total(*numbers):\n    s = 0\n    for x in numbers:\n        s += x\n    return s\n\nprint(total(1, 2, 3, 4, 5))"
+        },
+        {
+          "file": "Program_3_Default_Multiplier_Workout.py",
+          "title": "Default Multiplier (Workout)",
+          "header": "Session 36 - Program 3: Default Multiplier (Workout)",
+          "description": "Multiply N by 2 by default, or by a value the caller provides.",
+          "sample_output": "10\n15",
+          "try_also": null,
+          "code": "# Program 3: Multiply N by m (default m = 2)\ndef multiply(n, m=2):\n    return n * m\n\nprint(multiply(5))       # uses default m = 2\nprint(multiply(5, 3))    # m = 3"
+        },
+        {
+          "file": "Program_4_Maximum_of_Many_Workout.py",
+          "title": "Maximum of Many (Workout)",
+          "header": "Session 36 - Program 4: Maximum of Many (Workout)",
+          "description": "Find the maximum of a variable number of arguments with *args.",
+          "sample_output": "12",
+          "try_also": "maximum(1, 2) gives 2.",
+          "code": "# Program 4: Maximum of many numbers using *args\ndef maximum(*numbers):\n    big = numbers[0]\n    for x in numbers:\n        if x > big:\n            big = x\n    return big\n\nprint(maximum(10, 5, 8, 12, 3))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "37": {
+      "number": 37,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Local_vs_Global.py",
+          "title": "Local vs Global",
+          "header": "Session 37 - Program 1: Local vs Global",
+          "description": "Show that a local variable is separate from a global one of the same name.",
+          "sample_output": "Inside: 5\nOutside: 10",
+          "try_also": null,
+          "code": "# Program 1: Local vs global scope\nx = 10              # global variable\n\ndef show():\n    x = 5           # local variable (separate from the global x)\n    print(\"Inside:\", x)\n\nshow()\nprint(\"Outside:\", x)"
+        },
+        {
+          "file": "Program_2_The_global_Keyword.py",
+          "title": "The global Keyword",
+          "header": "Session 37 - Program 2: The global Keyword",
+          "description": "Modify a global variable from inside a function.",
+          "sample_output": "20",
+          "try_also": "Starting from count = 0 and setting count = 5 prints 5.",
+          "code": "# Program 2: Modify a global variable with 'global'\nx = 10\n\ndef change():\n    global x\n    x = 20\n\nchange()\nprint(x)"
+        },
+        {
+          "file": "Program_3_Account_Balance_Workout.py",
+          "title": "Account Balance (Workout)",
+          "header": "Session 37 - Program 3: Account Balance (Workout)",
+          "description": "Track a bank balance in a global variable across function calls.",
+          "sample_output": "Balance: 800",
+          "try_also": "Deposit 500 then withdraw 100 gives Balance: 400.",
+          "code": "# Program 3: Track a balance with a global variable\nbalance = 0\n\ndef deposit(amount):\n    global balance\n    balance += amount\n\ndef withdraw(amount):\n    global balance\n    balance -= amount\n\ndeposit(1000)\nwithdraw(200)\nprint(\"Balance:\", balance)"
+        },
+        {
+          "file": "Program_4_Variable_Shadowing_Workout.py",
+          "title": "Variable Shadowing (Workout)",
+          "header": "Session 37 - Program 4: Variable Shadowing (Workout)",
+          "description": "Use the same name as a local and a global variable, and print both.",
+          "sample_output": "Inside: 5\nOutside: 10",
+          "try_also": null,
+          "code": "# Program 4: Variable shadowing (local hides global)\ng = 10\n\ndef demo():\n    g = 5           # local g shadows the global g\n    print(\"Inside:\", g)\n\ndemo()\nprint(\"Outside:\", g)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "38": {
+      "number": 38,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Lambda_Square.py",
+          "title": "Lambda Square",
+          "header": "Session 38 - Program 1: Lambda Square",
+          "description": "Use a lambda to compute the square of a number.",
+          "sample_output": "16",
+          "try_also": "square(9) gives 81.",
+          "code": "# Program 1: Square using a lambda function\nsquare = lambda n: n * n\n\nprint(square(4))"
+        },
+        {
+          "file": "Program_2_Map_Square.py",
+          "title": "Map Square",
+          "header": "Session 38 - Program 2: Map Square",
+          "description": "Square every element of a list with map().",
+          "sample_output": "[1, 4, 9, 16]",
+          "try_also": "[5, 6, 7] gives [25, 36, 49].",
+          "code": "# Program 2: Square each element using map()\nnumbers = [1, 2, 3, 4]\nsquares = list(map(lambda n: n * n, numbers))\nprint(squares)"
+        },
+        {
+          "file": "Program_3_Sort_by_Length_Workout.py",
+          "title": "Sort by Length (Workout)",
+          "header": "Session 38 - Program 3: Sort by Length (Workout)",
+          "description": "Sort a list of strings by their length using a lambda as the key.",
+          "sample_output": "['kiwi', 'apple', 'banana']",
+          "try_also": "[\"hi\", \"bye\", \"okay\"] gives ['hi', 'bye', 'okay'].",
+          "code": "# Program 3: Sort strings by their length\nwords = [\"apple\", \"kiwi\", \"banana\"]\nwords.sort(key=lambda w: len(w))\nprint(words)"
+        },
+        {
+          "file": "Program_4_Filter_Positive_Workout.py",
+          "title": "Filter Positive (Workout)",
+          "header": "Session 38 - Program 4: Filter Positive (Workout)",
+          "description": "Extract the positive numbers from a list using filter().",
+          "sample_output": "[5, 8]",
+          "try_also": "[1, -2, 3, -4] gives [1, 3].",
+          "code": "# Program 4: Extract positive numbers using filter()\nnumbers = [-3, 5, -1, 8, 0]\npositives = list(filter(lambda x: x > 0, numbers))\nprint(positives)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "39": {
+      "number": 39,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Handle_Division_by_Zero.py",
+          "title": "Handle Division by Zero",
+          "header": "Session 39 - Program 1: Handle Division by Zero",
+          "description": "Catch ZeroDivisionError when dividing two numbers.",
+          "sample_output": "Enter numerator: 10\nEnter denominator: 0\nCannot divide by zero",
+          "try_also": "10, 2 gives 5.0.",
+          "code": "# Program 1: Handle division by zero\na = int(input(\"Enter numerator: \"))\nb = int(input(\"Enter denominator: \"))\ntry:\n    print(a / b)\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")"
+        },
+        {
+          "file": "Program_2_Handle_Invalid_Input.py",
+          "title": "Handle Invalid Input",
+          "header": "Session 39 - Program 2: Handle Invalid Input",
+          "description": "Catch ValueError when converting text to a number.",
+          "sample_output": "Enter a number: abc\nInvalid input",
+          "try_also": "\"25\" gives 25.",
+          "code": "# Program 2: Handle an invalid integer conversion\ns = input(\"Enter a number: \")\ntry:\n    n = int(s)\n    print(n)\nexcept ValueError:\n    print(\"Invalid input\")"
+        },
+        {
+          "file": "Program_3_Safe_Division_Workout.py",
+          "title": "Safe Division (Workout)",
+          "header": "Session 39 - Program 3: Safe Division (Workout)",
+          "description": "A function that returns 0 when the denominator is 0.",
+          "sample_output": "5.0\n0",
+          "try_also": null,
+          "code": "# Program 3: Safe division (return 0 if denominator is 0)\ndef safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return 0\n\nprint(safe_divide(10, 2))\nprint(safe_divide(10, 0))"
+        },
+        {
+          "file": "Program_4_Index_Error_Handler_Workout.py",
+          "title": "Index Error Handler (Workout)",
+          "header": "Session 39 - Program 4: Index Error Handler (Workout)",
+          "description": "Safely read a list element by index, catching IndexError.",
+          "sample_output": "2\nIndex out of range",
+          "try_also": null,
+          "code": "# Program 4: Safely access a list element by index\ndef get_item(lst, idx):\n    try:\n        return lst[idx]\n    except IndexError:\n        return \"Index out of range\"\n\nprint(get_item([1, 2, 3], 1))\nprint(get_item([1, 2, 3], 5))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "40": {
+      "number": 40,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_try_except_else_finally.py",
+          "title": "try-except-else-finally",
+          "header": "Session 40 - Program 1: try-except-else-finally",
+          "description": "Read a number safely and always report completion.",
+          "sample_output": "Enter a number: 10\nNumber is 10. Execution complete.",
+          "try_also": "\"xyz\" gives Invalid. Execution complete.",
+          "code": "# Program 1: try-except-else-finally\ns = input(\"Enter a number: \")\ntry:\n    n = int(s)\nexcept ValueError:\n    print(\"Invalid.\", end=\" \")\nelse:\n    print(f\"Number is {n}.\", end=\" \")\nfinally:\n    print(\"Execution complete.\")"
+        },
+        {
+          "file": "Program_2_The_raise_Statement.py",
+          "title": "The raise Statement",
+          "header": "Session 40 - Program 2: The raise Statement",
+          "description": "Raise an exception when the age is negative.",
+          "sample_output": "Enter age: 25\nAge is valid: 25",
+          "try_also": "-5 gives ValueError: Age cannot be negative.",
+          "code": "# Program 2: Raise an exception for a negative age\nage = int(input(\"Enter age: \"))\ntry:\n    if age < 0:\n        raise ValueError(\"Age cannot be negative\")\n    print(\"Age is valid:\", age)\nexcept ValueError as e:\n    print(\"ValueError:\", e)"
+        },
+        {
+          "file": "Program_3_Multi_Exception_Calculator_Workout.py",
+          "title": "Multi-Exception Calculator (Workout)",
+          "header": "Session 40 - Program 3: Multi-Exception Calculator (Workout)",
+          "description": "Handle several error types in one calculator function.",
+          "sample_output": "Cannot divide by zero\nInvalid operand type",
+          "try_also": null,
+          "code": "# Program 3: Calculator handling several exceptions\ndef calculate(a, b, op):\n    try:\n        if op == \"+\":\n            return a + b\n        elif op == \"/\":\n            return a / b\n    except ZeroDivisionError:\n        return \"Cannot divide by zero\"\n    except TypeError:\n        return \"Invalid operand type\"\n\nprint(calculate(10, 0, \"/\"))\nprint(calculate(\"a\", 5, \"+\"))"
+        },
+        {
+          "file": "Program_4_Custom_Exception_Workout.py",
+          "title": "Custom Exception (Workout)",
+          "header": "Session 40 - Program 4: Custom Exception (Workout)",
+          "description": "Define and raise your own exception type.",
+          "sample_output": "Valid: 25\nNegativeNumberError: Value cannot be negative",
+          "try_also": null,
+          "code": "# Program 4: Define and raise a custom exception\nclass NegativeNumberError(Exception):\n    pass\n\ndef check(value):\n    if value < 0:\n        raise NegativeNumberError(\"Value cannot be negative\")\n    return value\n\ntry:\n    print(\"Valid:\", check(25))\n    print(\"Valid:\", check(-7))\nexcept NegativeNumberError as e:\n    print(\"NegativeNumberError:\", e)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "41": {
+      "number": 41,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_1_Recursive_Fibonacci.py",
+          "title": "Recursive Fibonacci",
+          "header": "Session 41 - Assignment 3, Program 1: Recursive Fibonacci",
+          "description": "Each Fibonacci number is the sum of the previous two, with the first two\nequal to 1.",
+          "sample_output": "8",
+          "try_also": "fib(8) gives 21.",
+          "code": "# Assignment 1: Nth Fibonacci number (recursive)\ndef fib(n):\n    if n <= 2:\n        return 1\n    return fib(n - 1) + fib(n - 2)\n\nprint(fib(6))"
+        },
+        {
+          "file": "Program_2_Recursive_GCD.py",
+          "title": "Recursive GCD",
+          "header": "Session 41 - Assignment 3, Program 2: Recursive GCD",
+          "description": "Use Euclid's rule recursively: gcd(a, b) = gcd(b, a mod b).",
+          "sample_output": "6",
+          "try_also": "gcd(48, 60) gives 12.",
+          "code": "# Assignment 2: GCD of two numbers (recursive)\ndef gcd(a, b):\n    if b == 0:\n        return a\n    return gcd(b, a % b)\n\nprint(gcd(12, 18))"
+        },
+        {
+          "file": "Program_3_Power_with_Default_Argument.py",
+          "title": "Power with Default Argument",
+          "header": "Session 41 - Assignment 3, Program 3: Power with Default Argument",
+          "description": "Compute base^exp, with the exponent defaulting to 2.",
+          "sample_output": "32\n9",
+          "try_also": null,
+          "code": "# Assignment 3: Power with a default exponent\ndef power(base, exp=2):\n    return base ** exp\n\nprint(power(2, 5))\nprint(power(3))        # exp defaults to 2"
+        },
+        {
+          "file": "Program_4_Cube_with_map_and_lambda.py",
+          "title": "Cube with map and lambda",
+          "header": "Session 41 - Assignment 3, Program 4: Cube with map and lambda",
+          "description": "Cube each element of a list.",
+          "sample_output": "[1, 8, 27, 64]",
+          "try_also": "[2, 3, 5] gives [8, 27, 125].",
+          "code": "# Assignment 4: Cube each element using map() and lambda\nnumbers = [1, 2, 3, 4]\ncubes = list(map(lambda x: x ** 3, numbers))\nprint(cubes)"
+        },
+        {
+          "file": "Program_5_Division_with_Exception_Handling.py",
+          "title": "Division with Exception Handling",
+          "header": "Session 41 - Assignment 3, Program 5: Division with Exception Handling",
+          "description": "Divide two numbers, handling division by zero and wrong types.",
+          "sample_output": "5.0\nCannot divide by zero",
+          "try_also": null,
+          "code": "# Assignment 5: Safe division with exception handling\ndef divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return \"Cannot divide by zero\"\n    except TypeError:\n        return \"Invalid operand type\"\n\nprint(divide(10, 2))\nprint(divide(10, 0))"
+        }
+      ],
+      "type": "assignment"
+    },
+    "42": {
+      "number": 42,
+      "unit": "III",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_42.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "43": {
+      "number": 43,
+      "unit": "III",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_43.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "44": {
+      "number": 44,
+      "unit": "III",
+      "programs": [
+        {
+          "file": "Program_3_Program_factorial_using_recursion.py",
+          "title": "Program - factorial using recursion.",
+          "header": "Session 44 - Class Test 3, Q3: Program - factorial using recursion.",
+          "description": "The factorial of n is n x (n-1)!, stopping at the base case 0! = 1! = 1.",
+          "sample_output": "Enter a number: 5\n120",
+          "try_also": null,
+          "code": "# Class Test: factorial using recursion\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)\n\nnum = int(input(\"Enter a number: \"))\nprint(factorial(num))"
+        }
+      ],
+      "type": "class-test"
+    },
+    "45": {
+      "number": 45,
+      "unit": "III",
+      "programs": [],
+      "type": "discussion",
+      "note": "This is a **Student Discussion** session with no programming exercises.\nRefer to `sessions/session_45.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "46": {
+      "number": 46,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Concatenate_Strings.py",
+          "title": "Concatenate Strings",
+          "header": "Session 46 - Program 1: Concatenate Strings",
+          "description": "Join two strings entered by the user.",
+          "sample_output": "Enter first string: Hello\nEnter second string: World\nHelloWorld",
+          "try_also": "\"Py\", \"thon\" gives Python.",
+          "code": "# Program 1: Concatenate two strings\ns1 = input(\"Enter first string: \")\ns2 = input(\"Enter second string: \")\nprint(s1 + s2)"
+        },
+        {
+          "file": "Program_2_Substring_Search.py",
+          "title": "Substring Search",
+          "header": "Session 46 - Program 2: Substring Search",
+          "description": "Check whether a substring occurs in a string using in.",
+          "sample_output": "Enter a string: Hello, World!\nEnter substring to find: World\nFound",
+          "try_also": "\"Python\", \"Java\" gives Not Found.",
+          "code": "# Program 2: Check whether a substring exists (using 'in')\ntext = input(\"Enter a string: \")\nsub = input(\"Enter substring to find: \")\nif sub in text:\n    print(\"Found\")\nelse:\n    print(\"Not Found\")"
+        },
+        {
+          "file": "Program_3_Repeat_String_Workout.py",
+          "title": "Repeat String (Workout)",
+          "header": "Session 46 - Program 3: Repeat String (Workout)",
+          "description": "Repeat a string N times using *.",
+          "sample_output": "Enter a string: abc\nEnter N: 3\nabcabcabc",
+          "try_also": "\"*\", 5 gives *****.",
+          "code": "# Program 3: Repeat a string N times (using *)\ns = input(\"Enter a string: \")\nn = int(input(\"Enter N: \"))\nprint(s * n)"
+        },
+        {
+          "file": "Program_4_Character_Membership_Workout.py",
+          "title": "Character Membership (Workout)",
+          "header": "Session 46 - Program 4: Character Membership (Workout)",
+          "description": "Check whether a character is present in a string.",
+          "sample_output": "Enter a string: Hello\nEnter a character: e\nFound",
+          "try_also": "\"Hello\", \"z\" gives Not Found.",
+          "code": "# Program 4: Check whether a character is present (using 'in')\ns = input(\"Enter a string: \")\nch = input(\"Enter a character: \")\nif ch in s:\n    print(\"Found\")\nelse:\n    print(\"Not Found\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "47": {
+      "number": 47,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Extract_a_Substring.py",
+          "title": "Extract a Substring",
+          "header": "Session 47 - Program 1: Extract a Substring",
+          "description": "Use positive-index slicing to pull out part of a string.",
+          "sample_output": "Enter a string: Programming\nEnter start index: 0\nEnter end index: 7\nProgram",
+          "try_also": "\"Python\", 2, 6 gives thon.",
+          "code": "# Program 1: Extract a substring using s[start:end]\ns = input(\"Enter a string: \")\nstart = int(input(\"Enter start index: \"))\nend = int(input(\"Enter end index: \"))\nprint(s[start:end])"
+        },
+        {
+          "file": "Program_2_Reverse_a_String.py",
+          "title": "Reverse a String",
+          "header": "Session 47 - Program 2: Reverse a String",
+          "description": "Reverse a string with a step of -1.",
+          "sample_output": "Enter a string: Python\nnohtyP",
+          "try_also": "\"BCA\" gives ACB.",
+          "code": "# Program 2: Reverse a string using slicing\ns = input(\"Enter a string: \")\nprint(s[::-1])"
+        },
+        {
+          "file": "Program_3_Every_Other_Character_Workout.py",
+          "title": "Every Other Character (Workout)",
+          "header": "Session 47 - Program 3: Every Other Character (Workout)",
+          "description": "Print every second character using a step of 2.",
+          "sample_output": "Enter a string: Programming\nPormig",
+          "try_also": "\"Python\" gives Pto.",
+          "code": "# Program 3: Every other character (slice step 2)\ns = input(\"Enter a string: \")\nprint(s[::2])"
+        },
+        {
+          "file": "Program_4_First_and_Last_Three_Workout.py",
+          "title": "First and Last Three (Workout)",
+          "header": "Session 47 - Program 4: First and Last Three (Workout)",
+          "description": "Print the first three and last three characters.",
+          "sample_output": "Enter a string: Programming\nPro, ing",
+          "try_also": "\"Saveetha\" gives Sav, tha.",
+          "code": "# Program 4: First 3 and last 3 characters\ns = input(\"Enter a string: \")\nprint(s[:3] + \", \" + s[-3:])"
+        }
+      ],
+      "type": "teaching"
+    },
+    "48": {
+      "number": 48,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Print_Characters.py",
+          "title": "Print Characters",
+          "header": "Session 48 - Program 1: Print Characters",
+          "description": "Print each character of a string using a for loop.",
+          "sample_output": "Enter a string: python\np y t h o n",
+          "try_also": "\"sankara\" gives s a n k a r a.",
+          "code": "# Program 1: Print each character using a for loop\ns = input(\"Enter a string: \")\nfor ch in s:\n    print(ch, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_2_Vowel_Count.py",
+          "title": "Vowel Count",
+          "header": "Session 48 - Program 2: Vowel Count",
+          "description": "Count the vowels in a string.",
+          "sample_output": "Enter a string: Hello World\n3",
+          "try_also": "\"Programming\" also gives 3.",
+          "code": "# Program 2: Count the vowels in a string\ns = input(\"Enter a string: \")\ncount = 0\nfor ch in s:\n    if ch in \"aeiouAEIOU\":\n        count += 1\nprint(count)"
+        },
+        {
+          "file": "Program_3_Count_Digits_Workout.py",
+          "title": "Count Digits (Workout)",
+          "header": "Session 48 - Program 3: Count Digits (Workout)",
+          "description": "Count how many digit characters a string contains.",
+          "sample_output": "Enter a string: Hello123World45\n5",
+          "try_also": "\"abc\" gives 0.",
+          "code": "# Program 3: Count the digit characters in a string\ns = input(\"Enter a string: \")\ncount = 0\nfor ch in s:\n    if ch.isdigit():\n        count += 1\nprint(count)"
+        },
+        {
+          "file": "Program_4_Reverse_Vowels_Workout.py",
+          "title": "Reverse Vowels (Workout)",
+          "header": "Session 48 - Program 4: Reverse Vowels (Workout)",
+          "description": "Reverse only the vowels, leaving every other character in place. (LeetCode\n345.)",
+          "sample_output": "Enter a string: hello\nholle",
+          "try_also": "\"leetcode\" gives leotcede.",
+          "code": "# Program 4: Reverse only the vowels in a string\ns = input(\"Enter a string: \")\nvowels = \"aeiouAEIOU\"\nchars = list(s)\ni = 0\nj = len(chars) - 1\nwhile i < j:\n    if chars[i] not in vowels:\n        i += 1\n    elif chars[j] not in vowels:\n        j -= 1\n    else:\n        chars[i], chars[j] = chars[j], chars[i]\n        i += 1\n        j -= 1\nprint(\"\".join(chars))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "49": {
+      "number": 49,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Case_Conversion.py",
+          "title": "Case Conversion",
+          "header": "Session 49 - Program 1: Case Conversion",
+          "description": "Convert a string to uppercase and to lowercase.",
+          "sample_output": "Enter a string: Python\nPYTHON, python",
+          "try_also": "\"Hello World\" gives HELLO WORLD, hello world.",
+          "code": "# Program 1: Convert to uppercase and lowercase\ns = input(\"Enter a string: \")\nprint(s.upper() + \", \" + s.lower())"
+        },
+        {
+          "file": "Program_2_Character_Count.py",
+          "title": "Character Count",
+          "header": "Session 49 - Program 2: Character Count",
+          "description": "Use count() to find how often a character appears.",
+          "sample_output": "Enter a string: programming\nEnter a character: m\n2",
+          "try_also": "\"banana\", \"a\" gives 3.",
+          "code": "# Program 2: Count occurrences of a character\ns = input(\"Enter a string: \")\nch = input(\"Enter a character: \")\nprint(s.count(ch))"
+        },
+        {
+          "file": "Program_3_Title_Case_Sentence_Workout.py",
+          "title": "Title Case Sentence (Workout)",
+          "header": "Session 49 - Program 3: Title Case Sentence (Workout)",
+          "description": "Convert a sentence to title case with title().",
+          "sample_output": "Enter a sentence: hello world from python\nHello World From Python",
+          "try_also": "\"good morning\" gives Good Morning.",
+          "code": "# Program 3: Convert a sentence to title case\ns = input(\"Enter a sentence: \")\nprint(s.title())"
+        },
+        {
+          "file": "Program_4_Valid_Palindrome_Workout.py",
+          "title": "Valid Palindrome (Workout)",
+          "header": "Session 49 - Program 4: Valid Palindrome (Workout)",
+          "description": "Test whether a string reads the same both ways, ignoring case and keeping\nonly letters and digits. (LeetCode 125.)",
+          "sample_output": "Enter a string: A man a plan a canal: Panama\nTrue",
+          "try_also": "\"race a car\" gives False.",
+          "code": "# Program 4: Valid palindrome (alphanumeric only, ignore case)\ns = input(\"Enter a string: \")\ncleaned = \"\"\nfor ch in s:\n    if ch.isalnum():\n        cleaned += ch.lower()\nprint(cleaned == cleaned[::-1])"
+        }
+      ],
+      "type": "teaching"
+    },
+    "50": {
+      "number": 50,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Replace_Spaces.py",
+          "title": "Replace Spaces",
+          "header": "Session 50 - Program 1: Replace Spaces",
+          "description": "Replace every space with a hyphen.",
+          "sample_output": "Enter a string: Hello World\nHello-World",
+          "try_also": "\"I love Python\" gives I-love-Python.",
+          "code": "# Program 1: Replace spaces with hyphens\ns = input(\"Enter a string: \")\nprint(s.replace(\" \", \"-\"))"
+        },
+        {
+          "file": "Program_2_Split_and_Join.py",
+          "title": "Split and Join",
+          "header": "Session 50 - Program 2: Split and Join",
+          "description": "Split a sentence into words, then join them back with a double-hyphen\nseparator.",
+          "sample_output": "Enter a sentence: Hello Python World\nHello--Python--World",
+          "try_also": "\"I love coding\" gives I--love--coding.",
+          "code": "# Program 2: Split into words and join with \"--\"\ns = input(\"Enter a sentence: \")\nwords = s.split()\nprint(\"--\".join(words))"
+        },
+        {
+          "file": "Program_3_Trim_and_Capitalise_Workout.py",
+          "title": "Trim and Capitalise (Workout)",
+          "header": "Session 50 - Program 3: Trim and Capitalise (Workout)",
+          "description": "Strip surrounding spaces, then capitalise only the first letter.",
+          "sample_output": "Enter a string:   hello world\nHello world",
+          "try_also": "\" python \" gives Python.",
+          "code": "# Program 3: Strip whitespace and capitalise the first letter\ns = input(\"Enter a string: \")\nprint(s.strip().capitalize())"
+        },
+        {
+          "file": "Program_4_CSV_to_List_Workout.py",
+          "title": "CSV to List (Workout)",
+          "header": "Session 50 - Program 4: CSV to List (Workout)",
+          "description": "Split a comma-separated string into a list of fields.",
+          "sample_output": "Enter a CSV string: Ravi,21,BCA,90\n['Ravi', '21', 'BCA', '90']",
+          "try_also": "\"a,b,c\" gives ['a', 'b', 'c'].",
+          "code": "# Program 4: Split a CSV string into a list of fields\ns = input(\"Enter a CSV string: \")\nfields = s.split(\",\")\nprint(fields)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "51": {
+      "number": 51,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Print_a_List.py",
+          "title": "Print a List",
+          "header": "Session 51 - Program 1: Print a List",
+          "description": "Create a list and print all its elements.",
+          "sample_output": "10 20 30 40",
+          "try_also": "['a', 'b', 'c'] prints a b c.",
+          "code": "# Program 1: Create a list and print its elements\nnumbers = [10, 20, 30, 40]\nfor x in numbers:\n    print(x, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_2_Concatenate_and_Repeat.py",
+          "title": "Concatenate and Repeat",
+          "header": "Session 51 - Program 2: Concatenate and Repeat",
+          "description": "Join two lists, and repeat a list three times.",
+          "sample_output": "[1, 2, 3, 4]\n[1, 2, 1, 2, 1, 2]",
+          "try_also": null,
+          "code": "# Program 2: Concatenate two lists and repeat a list\na = [1, 2]\nb = [3, 4]\nprint(a + b)       # concatenation\nprint(a * 3)       # repetition"
+        },
+        {
+          "file": "Program_3_Product_of_Elements_Workout.py",
+          "title": "Product of Elements (Workout)",
+          "header": "Session 51 - Program 3: Product of Elements (Workout)",
+          "description": "Multiply all the numbers in a list together.",
+          "sample_output": "24",
+          "try_also": "[5, 5, 5] gives 125.",
+          "code": "# Program 3: Product of all elements in a list\nnumbers = [1, 2, 3, 4]\nproduct = 1\nfor x in numbers:\n    product *= x\nprint(product)"
+        },
+        {
+          "file": "Program_4_Single_Number_Workout.py",
+          "title": "Single Number (Workout)",
+          "header": "Session 51 - Program 4: Single Number (Workout)",
+          "description": "Every value appears twice except one; find the one. The trick: XOR of a\nvalue with itself is 0, so the pairs cancel out. (LeetCode 136.)",
+          "sample_output": "1",
+          "try_also": "[4, 1, 2, 1, 2] gives 4.",
+          "code": "# Program 4: Find the element that appears only once\nnumbers = [2, 2, 1]\nresult = 0\nfor x in numbers:\n    result ^= x      # XOR cancels equal pairs\nprint(result)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "52": {
+      "number": 52,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Largest_in_a_List.py",
+          "title": "Largest in a List",
+          "header": "Session 52 - Program 1: Largest in a List",
+          "description": "Find the largest element without using max().",
+          "sample_output": "8",
+          "try_also": "[10, 4, 15, 6] gives 15.",
+          "code": "# Program 1: Largest element without max()\nnumbers = [3, 7, 2, 8, 5]\nlargest = numbers[0]\nfor x in numbers:\n    if x > largest:\n        largest = x\nprint(largest)"
+        },
+        {
+          "file": "Program_2_Sum_of_a_List.py",
+          "title": "Sum of a List",
+          "header": "Session 52 - Program 2: Sum of a List",
+          "description": "Add up every element of a list.",
+          "sample_output": "15",
+          "try_also": "[10, 20, 30] gives 60.",
+          "code": "# Program 2: Sum of all elements\nnumbers = [1, 2, 3, 4, 5]\ntotal = 0\nfor x in numbers:\n    total += x\nprint(total)"
+        },
+        {
+          "file": "Program_3_Minimum_Manually_Workout.py",
+          "title": "Minimum Manually (Workout)",
+          "header": "Session 52 - Program 3: Minimum Manually (Workout)",
+          "description": "Find the smallest element without using min().",
+          "sample_output": "2",
+          "try_also": "[10, 4, 15, 6] gives 4.",
+          "code": "# Program 3: Minimum element without min()\nnumbers = [3, 7, 2, 8, 5]\nsmallest = numbers[0]\nfor x in numbers:\n    if x < smallest:\n        smallest = x\nprint(smallest)"
+        },
+        {
+          "file": "Program_4_Count_Negative_Numbers_Workout.py",
+          "title": "Count Negative Numbers (Workout)",
+          "header": "Session 52 - Program 4: Count Negative Numbers (Workout)",
+          "description": "Count how many elements are negative.",
+          "sample_output": "3",
+          "try_also": "[1, 2, 3] gives 0.",
+          "code": "# Program 4: Count negative numbers\nnumbers = [-3, 5, -1, 8, -7]\ncount = 0\nfor x in numbers:\n    if x < 0:\n        count += 1\nprint(count)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "53": {
+      "number": 53,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Append_and_Insert.py",
+          "title": "Append and Insert",
+          "header": "Session 53 - Program 1: Append and Insert",
+          "description": "Add items with append() and insert().",
+          "sample_output": "[0, 1, 2, 3, 4]",
+          "try_also": null,
+          "code": "# Program 1: append() and insert()\nnumbers = [1, 2, 3]\nnumbers.append(4)        # add at the end\nnumbers.insert(0, 0)     # insert 0 at index 0\nprint(numbers)"
+        },
+        {
+          "file": "Program_2_Remove_and_Pop.py",
+          "title": "Remove and Pop",
+          "header": "Session 53 - Program 2: Remove and Pop",
+          "description": "Delete items with remove() and pop().",
+          "sample_output": "[1, 3]",
+          "try_also": null,
+          "code": "# Program 2: remove() and pop()\nnumbers = [1, 2, 3, 4]\nnumbers.remove(2)        # remove the value 2\nnumbers.pop()            # remove the last element\nprint(numbers)"
+        },
+        {
+          "file": "Program_3_Extend_Two_Lists_Workout.py",
+          "title": "Extend Two Lists (Workout)",
+          "header": "Session 53 - Program 3: Extend Two Lists (Workout)",
+          "description": "Merge two lists into one with extend().",
+          "sample_output": "[1, 2, 3, 4, 5, 6]",
+          "try_also": "['a'] extended by ['b', 'c'] gives ['a', 'b', 'c'].",
+          "code": "# Program 3: Merge two lists with extend()\na = [1, 2, 3]\nb = [4, 5, 6]\na.extend(b)\nprint(a)"
+        },
+        {
+          "file": "Program_4_Move_Zeroes_Workout.py",
+          "title": "Move Zeroes (Workout)",
+          "header": "Session 53 - Program 4: Move Zeroes (Workout)",
+          "description": "Move every zero to the end while keeping the order of the non-zero items.\n(LeetCode 283.)",
+          "sample_output": "[1, 3, 12, 0, 0]",
+          "try_also": "[0] stays [0].",
+          "code": "# Program 4: Move all zeroes to the end (in place)\nnumbers = [0, 1, 0, 3, 12]\npos = 0                          # next slot for a non-zero value\nfor i in range(len(numbers)):\n    if numbers[i] != 0:\n        numbers[pos] = numbers[i]\n        pos += 1\nwhile pos < len(numbers):\n    numbers[pos] = 0\n    pos += 1\nprint(numbers)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "54": {
+      "number": 54,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Sort_a_List.py",
+          "title": "Sort a List",
+          "header": "Session 54 - Program 1: Sort a List",
+          "description": "Sort in ascending and then descending order.",
+          "sample_output": "[1, 2, 3, 4, 5]\n[5, 4, 3, 2, 1]",
+          "try_also": null,
+          "code": "# Program 1: Sort ascending and descending\nnumbers = [5, 3, 1, 4, 2]\nnumbers.sort()\nprint(numbers)               # ascending\nnumbers.sort(reverse=True)\nprint(numbers)               # descending"
+        },
+        {
+          "file": "Program_2_Count_and_Index.py",
+          "title": "Count and Index",
+          "header": "Session 54 - Program 2: Count and Index",
+          "description": "Find how often a value occurs and where it first appears.",
+          "sample_output": "Count = 3, Index = 1",
+          "try_also": "['a', 'b', 'c', 'b'] with 'b' gives Count = 2, Index = 1.",
+          "code": "# Program 2: count() and index()\nnumbers = [1, 2, 2, 3, 2]\nprint(f\"Count = {numbers.count(2)}, Index = {numbers.index(2)}\")"
+        },
+        {
+          "file": "Program_3_Sort_by_Length_Workout.py",
+          "title": "Sort by Length (Workout)",
+          "header": "Session 54 - Program 3: Sort by Length (Workout)",
+          "description": "Sort a list of strings from shortest to longest.",
+          "sample_output": "['fig', 'kiwi', 'apple']",
+          "try_also": "[\"Hi\", \"Bye\", \"OK\"] gives ['Hi', 'OK', 'Bye'].",
+          "code": "# Program 3: Sort strings by length (ascending)\nwords = [\"apple\", \"kiwi\", \"fig\"]\nwords.sort(key=len)\nprint(words)"
+        },
+        {
+          "file": "Program_4_Find_Index_or_1_Workout.py",
+          "title": "Find Index or -1 (Workout)",
+          "header": "Session 54 - Program 4: Find Index or -1 (Workout)",
+          "description": "Return the index of an element, or -1 when it is not present.",
+          "sample_output": "1",
+          "try_also": "target = 50 gives -1.",
+          "code": "# Program 4: Find the index of an element, or -1 if absent\nnumbers = [10, 20, 30]\ntarget = 20\nif target in numbers:\n    print(numbers.index(target))\nelse:\n    print(-1)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "55": {
+      "number": 55,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Traverse_a_Nested_List.py",
+          "title": "Traverse a Nested List",
+          "header": "Session 55 - Program 1: Traverse a Nested List",
+          "description": "Print every element of a nested list.",
+          "sample_output": "1 2 3 4 5 6",
+          "try_also": "[['a', 'b'], ['c', 'd']] prints a b c d.",
+          "code": "# Program 1: Traverse a nested list\nmatrix = [[1, 2], [3, 4], [5, 6]]\nfor row in matrix:\n    for x in row:\n        print(x, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_2_List_Average.py",
+          "title": "List Average",
+          "header": "Session 55 - Program 2: List Average",
+          "description": "Pass a list to a function that returns its average.",
+          "sample_output": "20.0",
+          "try_also": "[5, 15, 25, 35] also gives 20.0.",
+          "code": "# Program 2: Average of a list (passed to a function)\ndef average(numbers):\n    return sum(numbers) / len(numbers)\n\nprint(average([10, 20, 30]))"
+        },
+        {
+          "file": "Program_3_Matrix_Sum_Workout.py",
+          "title": "Matrix Sum (Workout)",
+          "header": "Session 55 - Program 3: Matrix Sum (Workout)",
+          "description": "Add up every element of a 2D matrix.",
+          "sample_output": "10",
+          "try_also": "[[1, 2, 3], [4, 5, 6]] gives 21.",
+          "code": "# Program 3: Sum of all elements of a 2D matrix\nmatrix = [[1, 2], [3, 4]]\ntotal = 0\nfor row in matrix:\n    for x in row:\n        total += x\nprint(total)"
+        },
+        {
+          "file": "Program_4_Transpose_a_Matrix_Workout.py",
+          "title": "Transpose a Matrix (Workout)",
+          "header": "Session 55 - Program 4: Transpose a Matrix (Workout)",
+          "description": "Swap rows and columns of a matrix. (LeetCode 867.)",
+          "sample_output": "[[1, 4], [2, 5], [3, 6]]",
+          "try_also": "[[1, 2], [3, 4]] gives [[1, 3], [2, 4]].",
+          "code": "# Program 4: Transpose of a 2D matrix\nmatrix = [[1, 2, 3], [4, 5, 6]]\nrows = len(matrix)\ncols = len(matrix[0])\nresult = []\nfor c in range(cols):\n    new_row = []\n    for r in range(rows):\n        new_row.append(matrix[r][c])\n    result.append(new_row)\nprint(result)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "56": {
+      "number": 56,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_1_Palindrome_String.py",
+          "title": "Palindrome String",
+          "header": "Session 56 - Assignment 4, Program 1: Palindrome String",
+          "description": "A string is a palindrome if it reads the same forwards and backwards.",
+          "sample_output": "Enter a string: madam\nPalindrome",
+          "try_also": "\"python\" gives Not a Palindrome.",
+          "code": "# Assignment 1: Check whether a string is a palindrome\ns = input(\"Enter a string: \")\nif s == s[::-1]:\n    print(\"Palindrome\")\nelse:\n    print(\"Not a Palindrome\")"
+        },
+        {
+          "file": "Program_2_Vowel_and_Consonant_Count.py",
+          "title": "Vowel and Consonant Count",
+          "header": "Session 56 - Assignment 4, Program 2: Vowel and Consonant Count",
+          "description": "Count vowels and consonants, ignoring spaces and punctuation.",
+          "sample_output": "Enter a string: Hello World\nVowels = 3, Consonants = 7",
+          "try_also": "\"Python\" gives Vowels = 1, Consonants = 5.",
+          "code": "# Assignment 2: Count vowels and consonants\ns = input(\"Enter a string: \")\nvowels = 0\nconsonants = 0\nfor ch in s:\n    if ch.isalpha():\n        if ch in \"aeiouAEIOU\":\n            vowels += 1\n        else:\n            consonants += 1\nprint(f\"Vowels = {vowels}, Consonants = {consonants}\")"
+        },
+        {
+          "file": "Program_3_Sort_a_List_Without_sort.py",
+          "title": "Sort a List Without sort()",
+          "header": "Session 56 - Assignment 4, Program 3: Sort a List Without sort()",
+          "description": "Sort in ascending order using a simple bubble sort.",
+          "sample_output": "[1, 2, 3, 4, 5]",
+          "try_also": "[10, 4, 15, 6] gives [4, 6, 10, 15].",
+          "code": "# Assignment 3: Sort a list ascending without sort() (bubble sort)\nnumbers = [5, 3, 1, 4, 2]\nn = len(numbers)\nfor i in range(n):\n    for j in range(n - 1 - i):\n        if numbers[j] > numbers[j + 1]:\n            numbers[j], numbers[j + 1] = numbers[j + 1], numbers[j]\nprint(numbers)"
+        },
+        {
+          "file": "Program_4_Second_Largest.py",
+          "title": "Second Largest",
+          "header": "Session 56 - Assignment 4, Program 4: Second Largest",
+          "description": "Find the second largest element in a list.",
+          "sample_output": "20",
+          "try_also": "[1, 2, 3, 4, 5] gives 4.",
+          "code": "# Assignment 4: Second largest element\nnumbers = [10, 5, 20, 15, 25]\nlargest = max(numbers)\nsecond = -float(\"inf\")\nfor x in numbers:\n    if x != largest and x > second:\n        second = x\nprint(second)"
+        },
+        {
+          "file": "Program_5_Merge_Lists_Alternately.py",
+          "title": "Merge Lists Alternately",
+          "header": "Session 56 - Assignment 4, Program 5: Merge Lists Alternately",
+          "description": "Build one list by taking items from two lists in turn.",
+          "sample_output": "[1, 4, 2, 5, 3, 6]",
+          "try_also": "['a', 'b'] and ['x', 'y'] give ['a', 'x', 'b', 'y'].",
+          "code": "# Assignment 5: Merge two lists alternately\na = [1, 2, 3]\nb = [4, 5, 6]\nresult = []\nfor i in range(len(a)):\n    result.append(a[i])\n    result.append(b[i])\nprint(result)"
+        }
+      ],
+      "type": "assignment"
+    },
+    "57": {
+      "number": 57,
+      "unit": "IV",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_57.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "58": {
+      "number": 58,
+      "unit": "IV",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_58.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "59": {
+      "number": 59,
+      "unit": "IV",
+      "programs": [
+        {
+          "file": "Program_3_Program_reverse_a_string_without_built_in_functions.py",
+          "title": "Program - reverse a string without built-in functions.",
+          "header": "Session 59 - Class Test 4, Q3: Program - reverse a string without built-in functions.",
+          "description": "Build the result by placing each character in front of what has been\ncollected so far.",
+          "sample_output": "Enter a string: Python\nnohtyP",
+          "try_also": null,
+          "code": "# Class Test: reverse a string without built-in functions\ns = input(\"Enter a string: \")\nresult = \"\"\nfor ch in s:\n    result = ch + result      # prepend each character\nprint(result)"
+        }
+      ],
+      "type": "class-test"
+    },
+    "60": {
+      "number": 60,
+      "unit": "IV",
+      "programs": [],
+      "type": "discussion",
+      "note": "This is a **Student Discussion** session with no programming exercises.\nRefer to `sessions/session_60.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "61": {
+      "number": 61,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Create_a_Tuple.py",
+          "title": "Create a Tuple",
+          "header": "Session 61 - Program 1: Create a Tuple",
+          "description": "Create a tuple and print all its elements.",
+          "sample_output": "10 20 30 40",
+          "try_also": "('a', 'b', 'c') prints a b c.",
+          "code": "# Program 1: Create a tuple and print its elements\nt = (10, 20, 30, 40)\nfor x in t:\n    print(x, end=\" \")\nprint()"
+        },
+        {
+          "file": "Program_2_Slice_a_Tuple.py",
+          "title": "Slice a Tuple",
+          "header": "Session 61 - Program 2: Slice a Tuple",
+          "description": "Take a slice from a tuple.",
+          "sample_output": "(2, 3, 4)",
+          "try_also": "(10, 20, 30, 40)[0:2] gives (10, 20).",
+          "code": "# Program 2: Slice a tuple\nt = (1, 2, 3, 4, 5)\nprint(t[1:4])"
+        },
+        {
+          "file": "Program_3_Tuple_Min_and_Max_Workout.py",
+          "title": "Tuple Min and Max (Workout)",
+          "header": "Session 61 - Program 3: Tuple Min and Max (Workout)",
+          "description": "Find the smallest and largest elements of a tuple.",
+          "sample_output": "Min=1, Max=9",
+          "try_also": "(15, 25, 10) gives Min=10, Max=25.",
+          "code": "# Program 3: Minimum and maximum of a tuple\nt = (5, 2, 9, 1, 7)\nprint(f\"Min={min(t)}, Max={max(t)}\")"
+        },
+        {
+          "file": "Program_4_Tuple_to_List_Workout.py",
+          "title": "Tuple to List (Workout)",
+          "header": "Session 61 - Program 4: Tuple to List (Workout)",
+          "description": "Convert a tuple into a list and print both.",
+          "sample_output": "Tuple: (1, 2, 3) List: [1, 2, 3]",
+          "try_also": "('a', 'b') gives Tuple: ('a', 'b') List: ['a', 'b'].",
+          "code": "# Program 4: Convert a tuple to a list\nt = (1, 2, 3)\nlst = list(t)\nprint(\"Tuple:\", t, \"List:\", lst)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "62": {
+      "number": 62,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Concatenate_and_Repeat.py",
+          "title": "Concatenate and Repeat",
+          "header": "Session 62 - Program 1: Concatenate and Repeat",
+          "description": "Join two tuples, and repeat a tuple.",
+          "sample_output": "(1, 2, 3, 4)\n(1, 2, 1, 2)",
+          "try_also": null,
+          "code": "# Program 1: Concatenate and repeat tuples\na = (1, 2)\nb = (3, 4)\nprint(a + b)       # concatenation\nprint(a * 2)       # repetition"
+        },
+        {
+          "file": "Program_2_Length_Max_Min.py",
+          "title": "Length, Max, Min",
+          "header": "Session 62 - Program 2: Length, Max, Min",
+          "description": "Find the length, maximum, and minimum of a tuple.",
+          "sample_output": "Length = 5, Max = 9, Min = 1",
+          "try_also": "(15, 25, 10) gives Length = 3, Max = 25, Min = 10.",
+          "code": "# Program 2: Length, max, and min of a tuple\nt = (5, 2, 9, 1, 7)\nprint(f\"Length = {len(t)}, Max = {max(t)}, Min = {min(t)}\")"
+        },
+        {
+          "file": "Program_3_Tuple_Membership_Workout.py",
+          "title": "Tuple Membership (Workout)",
+          "header": "Session 62 - Program 3: Tuple Membership (Workout)",
+          "description": "Check whether a value exists in a tuple.",
+          "sample_output": "Found",
+          "try_also": "val = 5 gives Not Found.",
+          "code": "# Program 3: Check membership in a tuple (using 'in')\nt = (1, 2, 3, 4)\nval = 3\nif val in t:\n    print(\"Found\")\nelse:\n    print(\"Not Found\")"
+        },
+        {
+          "file": "Program_4_Sum_of_Tuple_Squares_Workout.py",
+          "title": "Sum of Tuple Squares (Workout)",
+          "header": "Session 62 - Program 4: Sum of Tuple Squares (Workout)",
+          "description": "Add up the squares of all elements.",
+          "sample_output": "14",
+          "try_also": "(2, 4) gives 20.",
+          "code": "# Program 4: Sum of squares of tuple elements\nt = (1, 2, 3)\ntotal = 0\nfor x in t:\n    total += x * x\nprint(total)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "63": {
+      "number": 63,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Count_and_Index.py",
+          "title": "Count and Index",
+          "header": "Session 63 - Program 1: Count and Index",
+          "description": "Count a value and find its first position.",
+          "sample_output": "Count = 3, Index = 1",
+          "try_also": "('a', 'b', 'a') with 'a' gives Count = 2, Index = 0.",
+          "code": "# Program 1: count() and index() on a tuple\nt = (1, 2, 3, 2, 4, 2)\nprint(f\"Count = {t.count(2)}, Index = {t.index(2)}\")"
+        },
+        {
+          "file": "Program_2_Swap_Two_Values.py",
+          "title": "Swap Two Values",
+          "header": "Session 63 - Program 2: Swap Two Values",
+          "description": "Swap two values using tuple assignment.",
+          "sample_output": "a = 10, b = 5",
+          "try_also": "x = \"A\", y = \"B\" becomes x = B, y = A.",
+          "code": "# Program 2: Swap two values using tuple assignment\na = 5\nb = 10\na, b = b, a\nprint(f\"a = {a}, b = {b}\")"
+        },
+        {
+          "file": "Program_3_Unpack_a_Student_Record_Workout.py",
+          "title": "Unpack a Student Record (Workout)",
+          "header": "Session 63 - Program 3: Unpack a Student Record (Workout)",
+          "description": "Unpack a tuple into three separate variables.",
+          "sample_output": "Ravi, 21, BCA",
+          "try_also": "(\"Sita\", 20, \"BCA\") gives Sita, 20, BCA.",
+          "code": "# Program 3: Unpack a tuple into separate variables\nrecord = (\"Ravi\", 21, \"BCA\")\nname, age, course = record\nprint(name, age, course, sep=\", \")"
+        },
+        {
+          "file": "Program_4_Return_Min_and_Max_as_a_Tuple_Workout.py",
+          "title": "Return Min and Max as a Tuple (Workout)",
+          "header": "Session 63 - Program 4: Return Min and Max as a Tuple (Workout)",
+          "description": "Return both the minimum and maximum of a list, bundled in a tuple.",
+          "sample_output": "(1, 9)",
+          "try_also": "[10, 20, 5] gives (5, 20).",
+          "code": "# Program 4: Return (min, max) of a list as a tuple\ndef min_max(numbers):\n    return (min(numbers), max(numbers))\n\nprint(min_max([3, 1, 4, 1, 5, 9, 2, 6]))"
+        }
+      ],
+      "type": "teaching"
+    },
+    "64": {
+      "number": 64,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Access_a_Nested_Tuple.py",
+          "title": "Access a Nested Tuple",
+          "header": "Session 64 - Program 1: Access a Nested Tuple",
+          "description": "Read selected elements from a nested tuple.",
+          "sample_output": "1 4 6",
+          "try_also": "For (('a', 'b'), ('c', 'd')), t[0][0] and t[1][1] give a d.",
+          "code": "# Program 1: Access elements of a nested tuple\nt = ((1, 2), (3, 4), (5, 6))\nprint(t[0][0], t[1][1], t[2][1])"
+        },
+        {
+          "file": "Program_2_Min_and_Max_as_a_Tuple.py",
+          "title": "Min and Max as a Tuple",
+          "header": "Session 64 - Program 2: Min and Max as a Tuple",
+          "description": "A function that returns a tuple of the minimum and maximum.",
+          "sample_output": "(1, 9)",
+          "try_also": "[10, 20, 30] gives (10, 30).",
+          "code": "# Program 2: Function returning (min, max) of a list\ndef min_max(numbers):\n    return (min(numbers), max(numbers))\n\nprint(min_max([3, 1, 4, 1, 5, 9, 2]))"
+        },
+        {
+          "file": "Program_3_Student_Records_Workout.py",
+          "title": "Student Records (Workout)",
+          "header": "Session 64 - Program 3: Student Records (Workout)",
+          "description": "Store records as a list of tuples and print each one.",
+          "sample_output": "Ravi:85, Sita:90",
+          "try_also": "[(\"A\", 75), (\"B\", 82)] gives A:75, B:82.",
+          "code": "# Program 3: Store student records as a list of tuples\nrecords = [(\"Ravi\", 85), (\"Sita\", 90)]\noutput = []\nfor name, mark in records:\n    output.append(f\"{name}:{mark}\")\nprint(\", \".join(output))"
+        },
+        {
+          "file": "Program_4_Sort_Tuples_by_Mark_Workout.py",
+          "title": "Sort Tuples by Mark (Workout)",
+          "header": "Session 64 - Program 4: Sort Tuples by Mark (Workout)",
+          "description": "Sort a list of (name, mark) tuples by mark, highest first.",
+          "sample_output": "[('Sita', 90), ('Ravi', 85), ('Ram', 75)]",
+          "try_also": "[(\"A\", 60), (\"B\", 80), (\"C\", 70)] gives [('B', 80), ('C', 70), ('A', 60)].",
+          "code": "# Program 4: Sort (name, mark) tuples by mark, descending\nrecords = [(\"Ravi\", 85), (\"Sita\", 90), (\"Ram\", 75)]\nrecords.sort(key=lambda r: r[1], reverse=True)\nprint(records)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "65": {
+      "number": 65,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Create_a_Dictionary.py",
+          "title": "Create a Dictionary",
+          "header": "Session 65 - Program 1: Create a Dictionary",
+          "description": "Create a dictionary of names and marks and print each pair.",
+          "sample_output": "Ravi: 85, Sita: 90",
+          "try_also": "{\"A\": 1, \"B\": 2} gives A: 1, B: 2.",
+          "code": "# Program 1: Create a dictionary and print it\nmarks = {\"Ravi\": 85, \"Sita\": 90}\npairs = []\nfor name, score in marks.items():\n    pairs.append(f\"{name}: {score}\")\nprint(\", \".join(pairs))"
+        },
+        {
+          "file": "Program_2_Access_a_Value.py",
+          "title": "Access a Value",
+          "header": "Session 65 - Program 2: Access a Value",
+          "description": "Read a value from a dictionary using its key.",
+          "sample_output": "90",
+          "try_also": "{\"a\": 10, \"b\": 20} with key \"a\" gives 10.",
+          "code": "# Program 2: Access a value by its key\nmarks = {\"Ravi\": 85, \"Sita\": 90}\nprint(marks[\"Sita\"])"
+        },
+        {
+          "file": "Program_3_Phonebook_Lookup_Workout.py",
+          "title": "Phonebook Lookup (Workout)",
+          "header": "Session 65 - Program 3: Phonebook Lookup (Workout)",
+          "description": "Retrieve a phone number by name.",
+          "sample_output": "9999",
+          "try_also": "{\"A\": 1234, \"B\": 5678} with \"B\" gives 5678.",
+          "code": "# Program 3: Phonebook lookup by name\nphonebook = {\"Ravi\": 9999, \"Sita\": 8888}\nprint(phonebook[\"Ravi\"])"
+        },
+        {
+          "file": "Program_4_Country_and_Capital_Workout.py",
+          "title": "Country and Capital (Workout)",
+          "header": "Session 65 - Program 4: Country and Capital (Workout)",
+          "description": "Print the capital of a given country.",
+          "sample_output": "Delhi",
+          "try_also": "{\"UK\": \"London\", \"France\": \"Paris\"} with \"France\" gives Paris.",
+          "code": "# Program 4: Capital of a given country\ncapitals = {\"India\": \"Delhi\", \"USA\": \"Washington\"}\nprint(capitals[\"India\"])"
+        }
+      ],
+      "type": "teaching"
+    },
+    "66": {
+      "number": 66,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Add_and_Update.py",
+          "title": "Add and Update",
+          "header": "Session 66 - Program 1: Add and Update",
+          "description": "Add a new key, and change the value of an existing one.",
+          "sample_output": "{'a': 5, 'b': 2}",
+          "try_also": "{\"x\": 10} with add (\"y\", 20) and update (\"x\", 15) gives {'x': 15, 'y': 20}.",
+          "code": "# Program 1: Add a new entry and update an existing one\nd = {\"a\": 1}\nd[\"b\"] = 2        # add a new key\nd[\"a\"] = 5        # update an existing key\nprint(d)"
+        },
+        {
+          "file": "Program_2_Delete_an_Entry.py",
+          "title": "Delete an Entry",
+          "header": "Session 66 - Program 2: Delete an Entry",
+          "description": "Remove a key with del.",
+          "sample_output": "{'a': 1, 'c': 3}",
+          "try_also": "{\"x\": 10, \"y\": 20} after del d[\"x\"] gives {'y': 20}.",
+          "code": "# Program 2: Delete an entry using del\nd = {\"a\": 1, \"b\": 2, \"c\": 3}\ndel d[\"b\"]\nprint(d)"
+        },
+        {
+          "file": "Program_3_Update_Marks_Workout.py",
+          "title": "Update Marks (Workout)",
+          "header": "Session 66 - Program 3: Update Marks (Workout)",
+          "description": "Change a student's marks and print the result.",
+          "sample_output": "{'Ravi': 95}",
+          "try_also": "{\"A\": 50} updated to 60 gives {'A': 60}.",
+          "code": "# Program 3: Update a student's marks\nmarks = {\"Ravi\": 70}\nmarks[\"Ravi\"] = 95\nprint(marks)"
+        },
+        {
+          "file": "Program_4_Remove_an_Entry_Workout.py",
+          "title": "Remove an Entry (Workout)",
+          "header": "Session 66 - Program 4: Remove an Entry (Workout)",
+          "description": "Remove a specific entry with del.",
+          "sample_output": "{'a': 1, 'c': 3}",
+          "try_also": "{\"x\": 10, \"y\": 20} after del d[\"x\"] gives {'y': 20}.",
+          "code": "# Program 4: Remove a specific entry using del\nd = {\"a\": 1, \"b\": 2, \"c\": 3}\ndel d[\"b\"]\nprint(d)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "67": {
+      "number": 67,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Keys_and_Values.py",
+          "title": "Keys and Values",
+          "header": "Session 67 - Program 1: Keys and Values",
+          "description": "Print all keys and all values.",
+          "sample_output": "Keys: a b c\nValues: 1 2 3",
+          "try_also": null,
+          "code": "# Program 1: Print all keys and all values\nd = {\"a\": 1, \"b\": 2, \"c\": 3}\nprint(\"Keys:\", *d.keys())\nprint(\"Values:\", *d.values())"
+        },
+        {
+          "file": "Program_2_Key_Value_Pairs.py",
+          "title": "Key-Value Pairs",
+          "header": "Session 67 - Program 2: Key-Value Pairs",
+          "description": "Print each pair using items().",
+          "sample_output": "a-1, b-2",
+          "try_also": "{\"Tamil\": 80, \"English\": 75} gives Tamil-80, English-75.",
+          "code": "# Program 2: Print all key-value pairs using items()\nd = {\"a\": 1, \"b\": 2}\npairs = []\nfor key, value in d.items():\n    pairs.append(f\"{key}-{value}\")\nprint(\", \".join(pairs))"
+        },
+        {
+          "file": "Program_3_Sum_of_Values_Workout.py",
+          "title": "Sum of Values (Workout)",
+          "header": "Session 67 - Program 3: Sum of Values (Workout)",
+          "description": "Add up all the numeric values in a dictionary.",
+          "sample_output": "60",
+          "try_also": "{\"x\": 5, \"y\": 15, \"z\": 25} gives 45.",
+          "code": "# Program 3: Sum of all values in a dictionary\nd = {\"a\": 10, \"b\": 20, \"c\": 30}\nprint(sum(d.values()))"
+        },
+        {
+          "file": "Program_4_Find_Key_by_Value_Workout.py",
+          "title": "Find Key by Value (Workout)",
+          "header": "Session 67 - Program 4: Find Key by Value (Workout)",
+          "description": "Given a value, find the matching key.",
+          "sample_output": "b",
+          "try_also": "{\"A\": 100, \"B\": 200} with val = 100 gives A.",
+          "code": "# Program 4: Find the key for a given value\nd = {\"a\": 1, \"b\": 2, \"c\": 3}\nval = 2\nfor key, value in d.items():\n    if value == val:\n        print(key)\n        break"
+        }
+      ],
+      "type": "teaching"
+    },
+    "68": {
+      "number": 68,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_The_get_Method.py",
+          "title": "The get Method",
+          "header": "Session 68 - Program 1: The get Method",
+          "description": "Safely retrieve a value, even when the key is absent.",
+          "sample_output": "85\nNone",
+          "try_also": null,
+          "code": "# Program 1: Safely retrieve a value with get()\nd = {\"Ravi\": 85}\nprint(d.get(\"Ravi\"))\nprint(d.get(\"Sita\"))"
+        },
+        {
+          "file": "Program_2_Merge_Dictionaries.py",
+          "title": "Merge Dictionaries",
+          "header": "Session 68 - Program 2: Merge Dictionaries",
+          "description": "Combine two dictionaries with update().",
+          "sample_output": "{'a': 1, 'b': 2, 'c': 3}",
+          "try_also": "{\"x\": 10} merged with {\"y\": 20} gives {'x': 10, 'y': 20}.",
+          "code": "# Program 2: Merge two dictionaries with update()\na = {\"a\": 1}\nb = {\"b\": 2, \"c\": 3}\na.update(b)\nprint(a)"
+        },
+        {
+          "file": "Program_3_Default_Value_with_get_Workout.py",
+          "title": "Default Value with get (Workout)",
+          "header": "Session 68 - Program 3: Default Value with get (Workout)",
+          "description": "Use get() with a default of 0 for a missing key.",
+          "sample_output": "0",
+          "try_also": "d.get(\"Ravi\", 0) gives 85.",
+          "code": "# Program 3: get() with a default of 0\nd = {\"Ravi\": 85}\nprint(d.get(\"Sita\", 0))"
+        },
+        {
+          "file": "Program_4_Merge_Two_Dictionaries_Workout.py",
+          "title": "Merge Two Dictionaries (Workout)",
+          "header": "Session 68 - Program 4: Merge Two Dictionaries (Workout)",
+          "description": "Merge two dictionaries into one.",
+          "sample_output": "{'a': 1, 'b': 2, 'c': 3}",
+          "try_also": "{\"x\": 10} merged with {\"y\": 20} gives {'x': 10, 'y': 20}.",
+          "code": "# Program 4: Merge two dictionaries into one\na = {\"a\": 1}\nb = {\"b\": 2, \"c\": 3}\na.update(b)\nprint(a)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "69": {
+      "number": 69,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Dictionary_of_Squares.py",
+          "title": "Dictionary of Squares",
+          "header": "Session 69 - Program 1: Dictionary of Squares",
+          "description": "Build a dictionary of numbers and their squares.",
+          "sample_output": "Enter N: 5\n{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}",
+          "try_also": "N = 3 gives {1: 1, 2: 4, 3: 9}.",
+          "code": "# Program 1: Dictionary of squares using comprehension\nN = int(input(\"Enter N: \"))\nsquares = {i: i * i for i in range(1, N + 1)}\nprint(squares)"
+        },
+        {
+          "file": "Program_2_Character_Frequency.py",
+          "title": "Character Frequency",
+          "header": "Session 69 - Program 2: Character Frequency",
+          "description": "Count how many times each character appears.",
+          "sample_output": "Enter a string: banana\n{'b': 1, 'a': 3, 'n': 2}",
+          "try_also": "\"hello\" gives {'h': 1, 'e': 1, 'l': 2, 'o': 1}.",
+          "code": "# Program 2: Frequency of each character\ns = input(\"Enter a string: \")\nfreq = {}\nfor ch in s:\n    freq[ch] = freq.get(ch, 0) + 1\nprint(freq)"
+        },
+        {
+          "file": "Program_3_Letter_Positions_Workout.py",
+          "title": "Letter Positions (Workout)",
+          "header": "Session 69 - Program 3: Letter Positions (Workout)",
+          "description": "Map each letter of a word to its position using a comprehension.",
+          "sample_output": "Enter a word: CAT\n{'C': 0, 'A': 1, 'T': 2}",
+          "try_also": "\"ABCD\" gives {'A': 0, 'B': 1, 'C': 2, 'D': 3}.",
+          "code": "# Program 3: Map each letter to its position (dict comprehension)\nword = input(\"Enter a word: \")\npositions = {word[i]: i for i in range(len(word))}\nprint(positions)"
+        },
+        {
+          "file": "Program_4_Invert_a_Dictionary_Workout.py",
+          "title": "Invert a Dictionary (Workout)",
+          "header": "Session 69 - Program 4: Invert a Dictionary (Workout)",
+          "description": "Swap the keys and the values.",
+          "sample_output": "{1: 'a', 2: 'b'}",
+          "try_also": "{\"x\": 10, \"y\": 20} gives {10: 'x', 20: 'y'}.",
+          "code": "# Program 4: Swap keys and values\nd = {\"a\": 1, \"b\": 2}\ninverted = {value: key for key, value in d.items()}\nprint(inverted)"
+        }
+      ],
+      "type": "teaching"
+    },
+    "70": {
+      "number": 70,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Nested_Dictionary.py",
+          "title": "Nested Dictionary",
+          "header": "Session 70 - Program 1: Nested Dictionary",
+          "description": "Store a student record as a nested dictionary and read its fields.",
+          "sample_output": "Ravi, 85",
+          "try_also": "{\"S2\": {\"name\": \"Meera\", \"mark\": 92}} gives Meera, 92.",
+          "code": "# Program 1: Nested dictionary for a student record\nstudents = {\"S1\": {\"name\": \"Ravi\", \"mark\": 85}}\nprint(students[\"S1\"][\"name\"], students[\"S1\"][\"mark\"], sep=\", \")"
+        },
+        {
+          "file": "Program_2_Key_with_the_Maximum_Value.py",
+          "title": "Key with the Maximum Value",
+          "header": "Session 70 - Program 2: Key with the Maximum Value",
+          "description": "Find which key holds the largest value.",
+          "sample_output": "b",
+          "try_also": "{\"Ravi\": 80, \"Sita\": 95, \"Ram\": 85} gives Sita.",
+          "code": "# Program 2: Key with the maximum value\nd = {\"a\": 5, \"b\": 9, \"c\": 3}\nmax_key = max(d, key=d.get)\nprint(max_key)"
+        },
+        {
+          "file": "Program_3_Group_Words_by_Length_Workout.py",
+          "title": "Group Words by Length (Workout)",
+          "header": "Session 70 - Program 3: Group Words by Length (Workout)",
+          "description": "Group a list of words into a dictionary keyed by word length.",
+          "sample_output": "{2: ['hi'], 3: ['bye', 'cat'], 4: ['door']}",
+          "try_also": "[\"apple\", \"fig\", \"kiwi\"] gives {5: ['apple'], 3: ['fig'], 4: ['kiwi']}.",
+          "code": "# Program 3: Group words by their length\nwords = [\"hi\", \"bye\", \"cat\", \"door\"]\ngroups = {}\nfor word in words:\n    length = len(word)\n    if length not in groups:\n        groups[length] = []\n    groups[length].append(word)\nprint(groups)"
+        },
+        {
+          "file": "Program_4_Most_Frequent_Word_Workout.py",
+          "title": "Most Frequent Word (Workout)",
+          "header": "Session 70 - Program 4: Most Frequent Word (Workout)",
+          "description": "Find the word that appears most often in a sentence.",
+          "sample_output": "Enter a sentence: a b a c b a\na (count=3)",
+          "try_also": "\"go go go run\" gives go (count=3).",
+          "code": "# Program 4: Most frequent word in a sentence\nsentence = input(\"Enter a sentence: \")\nwords = sentence.split()\nfreq = {}\nfor word in words:\n    freq[word] = freq.get(word, 0) + 1\ntop = max(freq, key=freq.get)\nprint(f\"{top} (count={freq[top]})\")"
+        }
+      ],
+      "type": "teaching"
+    },
+    "71": {
+      "number": 71,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_1_Student_Database.py",
+          "title": "Student Database",
+          "header": "Session 71 - Assignment 5, Program 1: Student Database",
+          "description": "Display the students who scored above 80.",
+          "sample_output": "Ravi, Ram",
+          "try_also": "{\"A\": 75, \"B\": 95, \"C\": 82} gives B, C.",
+          "code": "# Assignment 1: Students who scored above 80\nmarks = {\"Ravi\": 85, \"Sita\": 72, \"Ram\": 90}\nresult = []\nfor name, score in marks.items():\n    if score > 80:\n        result.append(name)\nprint(\", \".join(result))"
+        },
+        {
+          "file": "Program_2_Sort_a_Dictionary_by_Value.py",
+          "title": "Sort a Dictionary by Value",
+          "header": "Session 71 - Assignment 5, Program 2: Sort a Dictionary by Value",
+          "description": "Sort a dictionary by its values, highest first.",
+          "sample_output": "{'a': 3, 'c': 2, 'b': 1}",
+          "try_also": "{\"x\": 10, \"y\": 5, \"z\": 15} gives {'z': 15, 'x': 10, 'y': 5}.",
+          "code": "# Assignment 2: Sort a dictionary by value (descending)\nd = {\"a\": 3, \"b\": 1, \"c\": 2}\nsorted_items = sorted(d.items(), key=lambda item: item[1], reverse=True)\nresult = dict(sorted_items)\nprint(result)"
+        },
+        {
+          "file": "Program_3_Common_Elements_in_Tuples.py",
+          "title": "Common Elements in Tuples",
+          "header": "Session 71 - Assignment 5, Program 3: Common Elements in Tuples",
+          "description": "Find the values that appear in both tuples.",
+          "sample_output": "(3, 4)",
+          "try_also": "(10, 20, 30) and (20, 30, 40) give (20, 30).",
+          "code": "# Assignment 3: Common elements between two tuples\na = (1, 2, 3, 4)\nb = (3, 4, 5, 6)\ncommon = tuple(x for x in a if x in b)\nprint(common)"
+        },
+        {
+          "file": "Program_4_Tuple_to_Dictionary.py",
+          "title": "Tuple to Dictionary",
+          "header": "Session 71 - Assignment 5, Program 4: Tuple to Dictionary",
+          "description": "Convert a tuple of (key, value) pairs into a dictionary.",
+          "sample_output": "{'a': 1, 'b': 2, 'c': 3}",
+          "try_also": "((\"x\", 10), (\"y\", 20)) gives {'x': 10, 'y': 20}.",
+          "code": "# Assignment 4: Convert a tuple of pairs into a dictionary\npairs = ((\"a\", 1), (\"b\", 2), (\"c\", 3))\nd = dict(pairs)\nprint(d)"
+        },
+        {
+          "file": "Program_5_Word_Frequency.py",
+          "title": "Word Frequency",
+          "header": "Session 71 - Assignment 5, Program 5: Word Frequency",
+          "description": "Count how often each word appears in a sentence.",
+          "sample_output": "Enter a sentence: a b a c b a\n{'a': 3, 'b': 2, 'c': 1}",
+          "try_also": "\"python is fun\" gives {'python': 1, 'is': 1, 'fun': 1}.",
+          "code": "# Assignment 5: Frequency of each word in a sentence\nsentence = input(\"Enter a sentence: \")\nwords = sentence.split()\nfreq = {}\nfor word in words:\n    freq[word] = freq.get(word, 0) + 1\nprint(freq)"
+        }
+      ],
+      "type": "assignment"
+    },
+    "72": {
+      "number": 72,
+      "unit": "V",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_72.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "73": {
+      "number": 73,
+      "unit": "V",
+      "programs": [],
+      "type": "seminar",
+      "note": "This is a **Seminar** session with no programming exercises.\nRefer to `sessions/session_73.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    },
+    "74": {
+      "number": 74,
+      "unit": "V",
+      "programs": [
+        {
+          "file": "Program_3_Program_word_frequency_using_a_dictionary.py",
+          "title": "Program - word frequency using a dictionary.",
+          "header": "Session 74 - Class Test 5, Q3: Program - word frequency using a dictionary.",
+          "description": "Split the sentence into words, then count each with the get pattern.",
+          "sample_output": "Enter a sentence: a b a c b a\n{'a': 3, 'b': 2, 'c': 1}",
+          "try_also": null,
+          "code": "# Class Test: word frequency using a dictionary\nsentence = input(\"Enter a sentence: \")\nwords = sentence.split()\nfreq = {}\nfor word in words:\n    freq[word] = freq.get(word, 0) + 1\nprint(freq)"
+        }
+      ],
+      "type": "class-test"
+    },
+    "75": {
+      "number": 75,
+      "unit": "V",
+      "programs": [],
+      "type": "discussion",
+      "note": "This is a **Student Discussion** session with no programming exercises.\nRefer to `sessions/session_75.tex` (Session Plan) for the topic(s) covered and to the corresponding Unit Lecture Notes for background reading."
+    }
+  }
+}
