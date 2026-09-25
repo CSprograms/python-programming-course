@@ -551,8 +551,11 @@
     });
     html += "</nav>";
 
+    var anyAnswer = all.some(function (q) { return q.answer; });
     html += '<div class="qb-filters"><button type="button" class="chip' + (state.qbRepeated ? " on" : "") +
-      '" id="qbRepeated" aria-pressed="' + state.qbRepeated + '">Asked more than once</button></div>';
+      '" id="qbRepeated" aria-pressed="' + state.qbRepeated + '">Asked more than once</button>' +
+      (anyAnswer ? '<button type="button" class="chip" id="qbExpand" aria-pressed="false">Show all answers</button>' : "") +
+      "</div>";
     html += '<div class="qb-summary" id="qbSummary" aria-live="polite"></div>';
     html += '<div id="qbResults"></div>';
 
@@ -572,6 +575,16 @@
       this.setAttribute("aria-pressed", String(state.qbRepeated));
       renderQBUnitList();
     });
+    var expandBtn = document.getElementById("qbExpand");
+    if (expandBtn) {
+      expandBtn.addEventListener("click", function () {
+        var open = expandBtn.getAttribute("aria-pressed") !== "true";
+        expandBtn.setAttribute("aria-pressed", String(open));
+        expandBtn.classList.toggle("on", open);
+        expandBtn.textContent = open ? "Hide all answers" : "Show all answers";
+        els.content.querySelectorAll(".qb-answer").forEach(function (d) { d.open = open; });
+      });
+    }
     renderQBUnitList();
   }
 
@@ -607,6 +620,10 @@
       html += "</ol></section>";
     });
     box.innerHTML = html;
+    var expandBtn = document.getElementById("qbExpand");
+    if (expandBtn && expandBtn.getAttribute("aria-pressed") === "true") {
+      box.querySelectorAll(".qb-answer").forEach(function (d) { d.open = true; });
+    }
     highlightAnswers();
   }
 
@@ -643,8 +660,20 @@
     var code = null;   // array of lines while inside a ``` block
     var lang = "python";
 
+    // A short first line with no full stop ("Introduction", "1. if statement",
+    // "Example 2: leap year") followed by more lines, or a lone line ending in
+    // ":" ("Output:", "Syntax:"), is shown in bold as a small heading.
+    function isHeading(line, count) {
+      var t = line.trim();
+      if (t.length > 60 || /^[-*]\s/.test(t) || /[.,;]$/.test(t)) return false;
+      return count > 1 || /:$/.test(t);
+    }
     function flushPara() {
-      if (para.length) out += "<p>" + para.map(escapeHtml).join("<br>") + "</p>";
+      if (para.length) {
+        var html = para.map(escapeHtml);
+        if (isHeading(para[0], para.length)) html[0] = "<strong>" + html[0] + "</strong>";
+        out += "<p>" + html.join("<br>") + "</p>";
+      }
       para = [];
     }
 
@@ -652,8 +681,7 @@
       var fence = /^\s*```\s*([A-Za-z0-9_+-]*)\s*$/.exec(line);
       if (code !== null) {
         if (fence) {
-          out += '<pre class="qb-code"><code class="language-' + escapeHtml(lang) + '">' +
-            escapeHtml(code.join("\n")) + "</code></pre>";
+          out += codeBlock(lang, code);
           code = null;
         } else {
           code.push(line);
@@ -668,17 +696,23 @@
         para.push(line);
       }
     });
-    if (code !== null) {  // unclosed fence: still show the code
-      out += '<pre class="qb-code"><code class="language-' + escapeHtml(lang) + '">' +
-        escapeHtml(code.join("\n")) + "</code></pre>";
-    }
+    if (code !== null) out += codeBlock(lang, code);  // unclosed fence: still show it
     flushPara();
     return out;
   }
 
+  // ```python blocks are dark and highlighted; ```text blocks (syntax,
+  // program output) are light, like the Sample Output of a session program.
+  function codeBlock(lang, lines) {
+    var isText = lang === "text" || lang === "output";
+    return '<pre class="qb-code' + (isText ? " qb-text" : "") + '"><code class="' +
+      (isText ? "nohighlight" : "language-" + escapeHtml(lang)) + '">' +
+      escapeHtml(lines.join("\n")) + "</code></pre>";
+  }
+
   function highlightAnswers() {
     if (!window.hljs) return;
-    els.content.querySelectorAll(".qb-code code").forEach(function (block) {
+    els.content.querySelectorAll(".qb-code:not(.qb-text) code").forEach(function (block) {
       window.hljs.highlightElement(block);
     });
   }

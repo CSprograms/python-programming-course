@@ -15,6 +15,22 @@ PO: PO1
 PSO: PSO1
 Asked: November 2023 Q6; April 2025 Q6
 Answer:
+Recursion is a technique in which a function calls itself to solve a problem. The problem is divided into a smaller problem of the same kind. Every recursive function must have:
+1. A base case, which stops the recursion.
+2. A recursive case, in which the function calls itself with a smaller value.
+
+```python
+def factorial(n):
+    if n == 0:                 # base case
+        return 1
+    return n * factorial(n - 1)   # recursive call
+print(factorial(5))
+```
+
+Output:
+```text
+120
+```
 
 === Q2
 Question: Define recursion.
@@ -24,6 +40,21 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q7
 Answer:
+Recursion is the process in which a function calls itself, directly or indirectly. Such a function is called a recursive function. It must have a base condition to stop; otherwise Python raises RecursionError (maximum recursion depth exceeded).
+
+Example: sum of the first n natural numbers
+```python
+def total(n):
+    if n == 1:
+        return 1
+    return n + total(n - 1)
+print(total(10))
+```
+
+Output:
+```text
+55
+```
 
 === Q3
 Question: Define variable scope and lifetime?
@@ -33,6 +64,28 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2025 Q5
 Answer:
+Scope: the part of the program where a variable can be accessed.
+- Local scope: a variable created inside a function can be used only inside that function.
+- Global scope: a variable created outside all functions can be used anywhere in the program.
+
+Lifetime: the period during which a variable exists in memory.
+- A local variable lives only while the function is running; it is destroyed when the function returns.
+- A global variable lives until the program ends.
+
+```python
+x = 10              # global
+def show():
+    y = 5           # local
+    print(x, y)
+show()
+print(x)            # y is not available here
+```
+
+Output:
+```text
+10 5
+10
+```
 
 === Q4
 Question: What is meant by local scope of a variable?
@@ -42,6 +95,24 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2024 Q8
 Answer:
+A variable created inside a function has local scope: it can be used only inside that function. It is created when the function is called and destroyed when the function ends. Using it outside the function gives NameError. A local variable with the same name as a global variable hides the global one inside the function.
+
+```python
+def area():
+    length = 5          # local variable
+    print("Inside:", length * 2)
+area()
+try:
+    print(length)
+except NameError:
+    print("length is not defined outside the function")
+```
+
+Output:
+```text
+Inside: 10
+length is not defined outside the function
+```
 
 === Q5
 Question: What is meant by recursion?
@@ -51,6 +122,20 @@ PO: PO1
 PSO: PSO1
 Asked: November 2024 Q5
 Answer:
+Recursion means a function calling itself. A large problem is solved by breaking it into a smaller version of the same problem until a simple case (base case) is reached, which is solved directly. Examples: factorial, Fibonacci series, GCD, sum of digits.
+
+```python
+def fib(n):
+    if n <= 1:
+        return n                    # base case
+    return fib(n - 1) + fib(n - 2)  # recursive case
+print([fib(i) for i in range(8)])
+```
+
+Output:
+```text
+[0, 1, 1, 2, 3, 5, 8, 13]
+```
 
 === Q6
 Question: What is module?
@@ -60,6 +145,22 @@ PO: PO1
 PSO: PSO1
 Asked: November 2025 Q6
 Answer:
+A module is a Python file (with the .py extension) that contains functions, variables and classes which can be reused in other programs. It is included with the import statement. Modules are of two kinds:
+1. Built-in modules: math, random, datetime, os
+2. User-defined modules: files written by the programmer
+
+```python
+import math
+from random import randint
+print(math.sqrt(49), math.pi > 3)
+print(1 <= randint(1, 6) <= 6)
+```
+
+Output:
+```text
+7.0 True
+True
+```
 
 === Q7
 Question: What is Namespace?
@@ -69,3 +170,23 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2024 Q12
 Answer:
+A namespace is a mapping from names (identifiers) to objects. It keeps names unique and avoids conflicts, because the same name can exist in different namespaces. Python has:
+1. Built-in namespace: names such as print, len, int (available always).
+2. Global namespace: names defined at the top level of a module.
+3. Local namespace: names defined inside a function.
+Python searches for a name in the order Local -> Enclosing -> Global -> Built-in (the LEGB rule).
+
+```python
+x = "global x"
+def demo():
+    x = "local x"
+    print(x)
+demo()
+print(x)
+```
+
+Output:
+```text
+local x
+global x
+```

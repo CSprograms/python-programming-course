@@ -15,6 +15,22 @@ PO: PO1,PO2
 PSO: PSO1
 Asked: November 2023 Q11
 Answer:
+In Python a variable is declared and initialized in one step: write the variable name, the assignment operator = and a value. No data type is written; Python decides the type from the value.
+
+Syntax:  variable_name = value
+
+```python
+age = 19              # int
+name = "Priya"        # str
+a, b, c = 1, 2, 3     # several variables in one line
+x = y = 0             # same value to many variables
+print(age, name, a, b, c, x, y)
+```
+
+Output:
+```text
+19 Priya 1 2 3 0 0
+```
 
 === Q2
 Question: List out the rules to declare a variable in python.
@@ -24,6 +40,14 @@ PO: PO1
 PSO: PSO1
 Asked: November 2024 Q1
 Answer:
+Rules for naming a variable (identifier) in Python:
+1. The name can contain letters (a–z, A–Z), digits (0–9) and the underscore ( _ ).
+2. It must start with a letter or an underscore, not a digit (1total is invalid).
+3. Spaces and special symbols such as @, $, %, - are not allowed (my-name is invalid).
+4. A keyword cannot be used as a name (for, if, class are invalid).
+5. Names are case-sensitive: total, Total and TOTAL are three different variables.
+
+Valid: total, _count, mark1, student_name        Invalid: 1mark, my name, for, a$b
 
 === Q3
 Question: What is Comment?
@@ -33,6 +57,17 @@ PO: PO1
 PSO: PSO1
 Asked: April 2025 Q2
 Answer:
+A comment is a note written in the program to explain the code. The Python interpreter ignores comments; they are not executed.
+
+- Single-line comment: starts with the # symbol.
+- Multi-line comment: several lines each starting with #. A string in triple quotes (""" ... """) that is not assigned to a variable is also often used as a multi-line comment.
+
+```python
+# This program adds two numbers
+a = 10
+b = 20
+print(a + b)   # prints the sum
+```
 
 === Q4
 Question: What is comment? Give an example.
@@ -42,6 +77,24 @@ PO: PO1,PO6
 PSO: PSO1
 Asked: November 2023 Q2
 Answer:
+A comment is an explanatory note in a program that is ignored by the Python interpreter. It makes the program easier to read and understand. A single-line comment starts with #; a multi-line comment can be written with # on every line or inside triple quotes.
+
+Example:
+```python
+# Program to find the area of a circle   (single-line comment)
+r = 5
+area = 3.14 * r * r     # formula: pi * r * r
+"""
+This is a multi-line comment
+written using triple quotes.
+"""
+print("Area =", area)
+```
+
+Output:
+```text
+Area = 78.5
+```
 
 === Q5
 Question: What is constants?
@@ -51,6 +104,20 @@ PO: PO1
 PSO: PSO1
 Asked: November 2025 Q1
 Answer:
+A constant is a value that does not change while the program runs.
+- Literal constants are fixed values written directly in the program, such as 10, 3.14, "Hello", True.
+- Python has no special keyword for named constants. By convention, a variable written in CAPITAL letters is treated as a constant and should not be changed, for example PI = 3.14159 and MAX_MARKS = 100.
+
+```python
+PI = 3.14159
+MAX_MARKS = 100
+print(PI, MAX_MARKS)
+```
+
+Output:
+```text
+3.14159 100
+```
 
 === Q6
 Question: What is expression? Give an example.
@@ -60,6 +127,22 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2025 Q2
 Answer:
+An expression is a combination of values (operands), variables and operators that Python evaluates to produce a single value.
+
+Examples: 5 + 3 gives 8; a * b - c; x > y gives True or False.
+
+```python
+a, b = 10, 4
+result = a * 2 + b     # expression
+print(result)
+print(a > b)           # relational expression
+```
+
+Output:
+```text
+24
+True
+```
 
 === Q7
 Question: What is Identifier?
@@ -69,6 +152,12 @@ PO: PO1
 PSO: PSO1
 Asked: April 2025 Q1
 Answer:
+An identifier is the name given to a program element such as a variable, function, class or module. It identifies that element in the program.
+
+Rules: it may contain letters, digits and underscore; it must not start with a digit; it cannot be a keyword; no spaces or special symbols; it is case-sensitive.
+
+Examples of valid identifiers: total, _count, student_name, mark1.
+Invalid: 2marks, for, my name.
 
 === Q8
 Question: What is indentation?
@@ -78,6 +167,22 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q2
 Answer:
+Indentation is the white space (spaces or tabs) at the beginning of a line. Python uses indentation to mark a block of code, instead of braces { } used in C or Java. All statements in the same block must have the same indentation (4 spaces is the standard). Wrong indentation gives an IndentationError.
+
+```python
+marks = 75
+if marks >= 40:
+    print("Pass")        # indented: inside the if block
+    print("Well done")
+print("End")             # not indented: outside the block
+```
+
+Output:
+```text
+Pass
+Well done
+End
+```
 
 === Q9
 Question: What is keyword?
@@ -87,6 +192,20 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q3
 Answer:
+A keyword is a reserved word that has a special meaning to the Python interpreter. Keywords cannot be used as variable, function or class names. Python 3 has about 35 keywords, and all are lowercase except True, False and None.
+
+Examples: if, else, elif, for, while, break, continue, def, return, class, import, True, False, None, and, or, not, in, is.
+
+The full list can be printed with:
+```python
+import keyword
+print(len(keyword.kwlist) > 30, "for" in keyword.kwlist)
+```
+
+Output:
+```text
+True True
+```
 
 === Q10
 Question: What is literal?
@@ -96,6 +215,16 @@ PO: PO1
 PSO: PSO1
 Asked: November 2023 Q1
 Answer:
+A literal is a fixed value written directly in the source code.
+
+Types of literals:
+1. Numeric literals: 10 (int), 3.14 (float), 2+3j (complex)
+2. String literals: 'Python', "BCA", '''multi-line'''
+3. Boolean literals: True, False
+4. Special literal: None (means "no value")
+5. Collection literals: [1, 2] list, (1, 2) tuple, {"a": 1} dictionary, {1, 2} set
+
+Example: in x = 25, the value 25 is an integer literal.
 
 === Q11
 Question: What is type conversion?
@@ -105,6 +234,21 @@ PO: PO1
 PSO: PSO1
 Asked: November 2025 Q11
 Answer:
+Type conversion is changing a value from one data type to another.
+1. Implicit conversion: Python converts automatically, for example int + float gives float (5 + 2.5 = 7.5).
+2. Explicit conversion (type casting): the programmer converts using functions such as int(), float(), str(), bool(), list(), tuple().
+
+```python
+a = 5 + 2.5          # implicit: int -> float
+b = int("25")        # explicit: str -> int
+c = str(100)         # explicit: int -> str
+print(a, b + 1, c + "!")
+```
+
+Output:
+```text
+7.5 26 100!
+```
 
 === Q12
 Question: Write any four features of python.
@@ -114,6 +258,12 @@ PO: PO1,PO6
 PSO: PSO1
 Asked: April 2024 Q1
 Answer:
+1. Simple and easy to learn: the syntax is close to English and programs are short.
+2. Interpreted: the code runs line by line, so errors are easy to find.
+3. Dynamically typed: no need to declare the data type of a variable.
+4. Platform independent (portable): the same program runs on Windows, Linux and macOS.
+5. Free and open source, with a large standard library ("batteries included").
+6. Object-oriented, and supports procedural programming too.
 
 === Q13
 Question: Write down the Input statement in python.
@@ -123,3 +273,21 @@ PO: PO1,PO2
 PSO: PSO1
 Asked: November 2024 Q2
 Answer:
+The input() function reads a line typed by the user from the keyboard. It always returns the value as a string, so int() or float() is used to convert numbers.
+
+Syntax:  variable = input("prompt message")
+
+```text
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+mark = float(input("Enter your mark: "))
+print("Hello", name, "your age is", age)
+```
+
+Sample run:
+```text
+Enter your name: Ravi
+Enter your age: 19
+Enter your mark: 82.5
+Hello Ravi your age is 19
+```

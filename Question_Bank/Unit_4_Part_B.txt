@@ -15,6 +15,42 @@ PO: PO1,PO3,PO6
 PSO: PSO1
 Asked: November 2023 Q16
 Answer:
+A string is a sequence of characters enclosed in single, double or triple quotes. Strings are immutable. Python supports the following operations on strings.
+
+1. Concatenation (+): joins two strings.
+2. Repetition (*): repeats a string n times.
+3. Indexing [ ]: gets one character; indexes start at 0, and negative indexes count from the end (-1 is the last character).
+4. Slicing [start:end:step]: gets a part of the string (end is not included).
+5. Membership (in, not in): checks whether a substring is present.
+6. Comparison (==, !=, <, >): compares strings character by character.
+7. Length len(): number of characters.
+8. Traversal: visiting each character with a for loop.
+
+```python
+s1, s2 = "Python", "Program"
+print(s1 + " " + s2)            # concatenation
+print("Hi! " * 3)               # repetition
+print(s1[0], s1[-1])            # indexing
+print(s1[1:4], s1[::-1])        # slicing, reverse
+print("tho" in s1, "z" not in s1)   # membership
+print(s1 == "python", s1 < s2)      # comparison
+print(len(s2))                  # length
+for ch in "BCA":                # traversal
+    print(ch, end="-")
+print()
+```
+
+Output:
+```text
+Python Program
+Hi! Hi! Hi!
+P n
+yth nohtyP
+True True
+False False
+7
+B-C-A-
+```
 
 === Q2
 Question: Explain about built-in string methods with examples.
@@ -24,6 +60,62 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2024 Q17
 Answer:
+String methods are built-in functions that belong to string objects and are called with dot notation: string.method(). Since strings are immutable, methods return a new string (or a value) and do not change the original.
+
+1. Case conversion
+- upper(): all letters to capital
+- lower(): all letters to small
+- title(): first letter of every word capital
+- capitalize(): only the first letter of the string capital
+- swapcase(): changes the case of every letter
+
+2. Searching
+- find(sub): index of the first occurrence, or -1 if not found
+- index(sub): like find() but gives an error if not found
+- count(sub): number of occurrences
+- startswith(), endswith(): check the beginning or end
+
+3. Modifying
+- replace(old, new): replaces text
+- strip(), lstrip(), rstrip(): remove spaces at the ends
+
+4. Splitting and joining
+- split(sep): breaks a string into a list
+- join(list): joins list items into one string
+
+5. Testing (return True or False)
+- isalpha(), isdigit(), isalnum(), isupper(), islower(), isspace()
+
+```python
+s = "welcome to python programming"
+print(s.upper())
+print(s.title())
+print(s.capitalize())
+print("PyThOn".swapcase())
+print(s.find("python"), s.find("java"), s.count("o"))
+print(s.startswith("wel"), s.endswith("ing"))
+print(s.replace("python", "Java"))
+print("   BCA   ".strip() + "|")
+words = s.split()
+print(words)
+print("-".join(words))
+print("2026".isdigit(), "BCA2".isalnum(), "abc".isalpha())
+```
+
+Output:
+```text
+WELCOME TO PYTHON PROGRAMMING
+Welcome To Python Programming
+Welcome to python programming
+pYtHoN
+11 -1 4
+True True
+welcome to Java programming
+BCA|
+['welcome', 'to', 'python', 'programming']
+welcome-to-python-programming
+True True True
+```
 
 === Q3
 Question: Explain few string operations. Give an example of it.
@@ -33,6 +125,51 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2025 Q18
 Answer:
+Strings in Python are sequences of characters. The main operations are:
+
+1. Concatenation (+)
+Joins two strings: "Good" + " Morning" gives "Good Morning".
+
+2. Repetition (*)
+Repeats a string: "ab" * 3 gives "ababab".
+
+3. Indexing
+Accesses a single character by position. s[0] is the first character and s[-1] is the last.
+
+4. Slicing
+Extracts a substring: s[start:end] (end excluded), s[:3] (first three), s[::-1] (reverse).
+
+5. Membership
+in / not in test whether a substring exists.
+
+6. Length
+len(s) returns the number of characters.
+
+Example: checking a palindrome and forming initials
+```python
+word = "madam"
+print(word, "is palindrome:", word == word[::-1])
+
+name = "Sri Sankara Arts College"
+initials = ""
+for part in name.split():
+    initials = initials + part[0]
+print("Initials:", initials)
+
+greeting = "Good" + " " + "Morning"
+print(greeting, len(greeting))
+print("=" * 15)
+print("Morning" in greeting, greeting[5:], greeting[-3:])
+```
+
+Output:
+```text
+madam is palindrome: True
+Initials: SSAC
+Good Morning 12
+===============
+True Morning ing
+```
 
 === Q4
 Question: Explain the append() method of a list with an example.
@@ -43,6 +180,63 @@ PSO: PSO1
 Asked: April 2025 Q19
 Note: Reframed from "Explain the following (i) append() (ii) writelines()"; part (ii) is file handling, which is out of syllabus.
 Answer:
+Purpose
+append() is a list method that adds a single element at the end of a list.
+
+Syntax
+list_name.append(element)
+
+Features
+1. It modifies the original list in place (lists are mutable).
+2. It adds exactly one element; the length increases by 1.
+3. It returns None, so do not write lst = lst.append(x) (lst would become None).
+4. The element can be of any type. If a list is appended, it is added as a single nested element.
+5. To add many elements one by one, use extend() or a loop with append().
+
+Example 1: building a list
+```python
+squares = []
+for i in range(1, 6):
+    squares.append(i * i)
+print(squares)
+```
+
+Output:
+```text
+[1, 4, 9, 16, 25]
+```
+
+Example 2: append() vs extend()
+```python
+a = [1, 2]
+b = [1, 2]
+a.append([3, 4])      # one element (a list)
+b.extend([3, 4])      # two elements
+print(a, len(a))
+print(b, len(b))
+result = a.append(5)
+print(result)
+```
+
+Output:
+```text
+[1, 2, [3, 4]] 3
+[1, 2, 3, 4] 4
+None
+```
+
+Example 3: storing marks entered by the user
+```python
+marks = []
+for m in [78, 91, 66]:        # m = int(input("Enter mark: "))
+    marks.append(m)
+print("Marks:", marks, "Total:", sum(marks))
+```
+
+Output:
+```text
+Marks: [78, 91, 66] Total: 235
+```
 
 === Q5
 Question: Explain the String methods and functions.
@@ -52,6 +246,48 @@ PO: PO1,PO3,PO6
 PSO: PSO1
 Asked: April 2025 Q16
 Answer:
+Python provides built-in functions that work on strings, and string methods that are called on a string object with a dot.
+
+A) Built-in functions used with strings
+- len(s): number of characters
+- max(s), min(s): character with the highest / lowest Unicode value
+- str(x): converts a value to a string
+- ord(ch): Unicode (ASCII) value of a character
+- chr(n): character for a Unicode value
+- sorted(s): list of the characters in sorted order
+
+B) String methods
+1. Case: upper(), lower(), title(), capitalize(), swapcase()
+2. Search: find(), rfind(), index(), count(), startswith(), endswith()
+3. Edit: replace(), strip(), lstrip(), rstrip(), center(width), zfill(width)
+4. Split/join: split(), join(), partition()
+5. Test: isalpha(), isdigit(), isalnum(), isspace(), isupper(), islower(), istitle()
+
+```python
+s = "Python"
+print(len(s), max(s), min(s))
+print(ord("A"), chr(97), str(25) + "5")
+print(sorted("bca"))
+print(s.upper(), s.lower(), s.swapcase())
+print(s.find("h"), s.count("o"), s.index("n"))
+print(s.center(10, "*"), "7".zfill(3))
+print("a,b,c".split(","), " ".join(["I", "love", s]))
+print(s.isalpha(), "123".isdigit(), s.istitle())
+```
+
+Output:
+```text
+6 y P
+65 a 255
+['a', 'b', 'c']
+PYTHON python pYTHON
+3 1 5
+**Python** 007
+['a', 'b', 'c'] I love Python
+True True True
+```
+
+Note: strings are immutable, so every method returns a new string; the original s is unchanged.
 
 === Q6
 Question: List out and explain any 5 String Functions in Python.
@@ -61,6 +297,54 @@ PO: PO1,PO3,PO6
 PSO: PSO1
 Asked: November 2024 Q17
 Answer:
+1. len()
+Returns the number of characters in a string (including spaces).
+Example: len("Hello World") gives 11
+
+2. upper() and lower()
+upper() converts all letters to uppercase; lower() converts them to lowercase.
+Example: "Python".upper() gives "PYTHON"
+
+3. find()
+Returns the index of the first occurrence of a substring, or -1 if it is not found.
+Example: "banana".find("na") gives 2
+
+4. replace(old, new)
+Returns a new string in which all occurrences of old are replaced by new.
+Example: "I like Java".replace("Java", "Python") gives "I like Python"
+
+5. split()
+Breaks a string into a list of words, using spaces (or the given separator).
+Example: "a-b-c".split("-") gives ['a', 'b', 'c']
+
+6. strip()
+Removes spaces (or given characters) from both ends.
+Example: "  hi  ".strip() gives "hi"
+
+7. count()
+Returns how many times a substring occurs.
+Example: "banana".count("a") gives 3
+
+```python
+text = "  Python is easy and Python is fun  "
+t = text.strip()
+print(len(t))
+print(t.upper())
+print(t.find("easy"), t.find("hard"))
+print(t.replace("Python", "Java"))
+print(t.split())
+print(t.count("Python"))
+```
+
+Output:
+```text
+32
+PYTHON IS EASY AND PYTHON IS FUN
+10 -1
+Java is easy and Java is fun
+['Python', 'is', 'easy', 'and', 'Python', 'is', 'fun']
+2
+```
 
 === Q7
 Question: Write about basic list operations with example.
@@ -70,6 +354,51 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2023 Q17
 Answer:
+A list is an ordered, mutable collection written in [ ]. The basic operations on lists are:
+1. Creating: nums = [10, 20, 30]
+2. Accessing (indexing): nums[0], nums[-1]
+3. Slicing: nums[1:3]
+4. Updating: nums[1] = 25
+5. Concatenation (+): [1, 2] + [3] gives [1, 2, 3]
+6. Repetition (*): [0] * 3 gives [0, 0, 0]
+7. Membership (in, not in): 20 in nums
+8. Length: len(nums)
+9. Adding items: append(), insert(), extend()
+10. Removing items: remove(value), pop(index), del nums[i], clear()
+11. Traversal with a for loop
+12. Sorting and reversing: sort(), reverse()
+
+```python
+nums = [40, 10, 30]
+print(nums[0], nums[-1], nums[0:2])
+nums[1] = 15
+nums.append(50)
+nums.insert(1, 5)
+print(nums)
+nums.remove(30)
+last = nums.pop()
+del nums[0]
+print(nums, "popped:", last)
+print(nums + [99], [0] * 3)
+print(15 in nums, len(nums))
+nums.extend([8, 2])
+nums.sort()
+print(nums)
+for n in nums:
+    print(n * 2, end=" ")
+print()
+```
+
+Output:
+```text
+40 30 [40, 10]
+[40, 5, 15, 30, 50]
+[5, 15] popped: 50
+[5, 15, 99] [0, 0, 0]
+True 2
+[2, 5, 8, 15]
+4 10 16 30
+```
 
 === Q8
 Question: Write about string comparison.
@@ -79,6 +408,40 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2024 Q13
 Answer:
+Strings are compared using the relational operators ==, !=, <, >, <=, >=. The result is True or False.
+
+How it works
+1. Python compares the two strings character by character from the left.
+2. The first pair of different characters decides the result, using their Unicode (ASCII) values (ord()).
+3. If one string is the beginning of the other, the shorter string is smaller ("app" < "apple").
+4. Comparison is case-sensitive: uppercase letters (A = 65 ... Z = 90) are smaller than lowercase letters (a = 97 ... z = 122).
+5. For case-insensitive comparison, compare s1.lower() and s2.lower().
+
+Other ways to compare
+- is: checks whether two names refer to the same object (not recommended for comparing values).
+- startswith(), endswith(), in: compare parts of strings.
+
+```python
+print("apple" == "apple", "apple" != "Apple")
+print("apple" < "banana", "cat" > "car")
+print("app" < "apple")
+print("Zebra" < "apple", ord("Z"), ord("a"))
+print("Python".lower() == "PYTHON".lower())
+names = ["ravi", "Anu", "bala"]
+print(sorted(names))
+print(sorted(names, key=str.lower))
+```
+
+Output:
+```text
+True True
+True True
+True
+True 90 97
+True
+['Anu', 'bala', 'ravi']
+['Anu', 'bala', 'ravi']
+```
 
 === Q9
 Question: Write difference between list and dictionary.
@@ -89,3 +452,47 @@ PSO: PSO1
 Asked: November 2025 Q19
 Also in unit: V
 Answer:
+List
+1. An ordered collection of items.
+2. Written in square brackets [ ].
+3. Items are accessed by an integer index (0, 1, 2, ...).
+4. Duplicate items are allowed.
+5. Items are single values: [10, 20, 30].
+6. Searching for a value checks items one by one, which is slower for large lists.
+7. Methods: append(), insert(), extend(), remove(), pop(), sort().
+8. Created with [] or list().
+9. Used for sequences such as marks, names, a queue.
+
+Dictionary
+1. A collection of key : value pairs (it keeps insertion order from Python 3.7).
+2. Written in curly braces { }.
+3. Values are accessed by key: d["name"].
+4. Keys must be unique; values may repeat.
+5. Items are pairs: {"roll": 1, "name": "Anu"}.
+6. Looking up a key is very fast (hashing).
+7. Methods: keys(), values(), items(), get(), update(), pop().
+8. Created with {} or dict().
+9. Used for records, lookups and counting.
+
+Both are mutable, can grow or shrink, and can hold any data type as values.
+
+```python
+marks_list = [85, 90, 78]
+marks_dict = {"python": 85, "java": 90, "maths": 78}
+print(marks_list[1])               # access by index
+print(marks_dict["java"])          # access by key
+marks_list.append(88)
+marks_dict["dbms"] = 88            # add a new key-value pair
+print(marks_list)
+print(marks_dict)
+print(90 in marks_list, "java" in marks_dict)
+```
+
+Output:
+```text
+90
+90
+[85, 90, 78, 88]
+{'python': 85, 'java': 90, 'maths': 78, 'dbms': 88}
+True True
+```

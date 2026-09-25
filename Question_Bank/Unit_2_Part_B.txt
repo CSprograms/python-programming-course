@@ -16,6 +16,60 @@ PSO: PSO1
 Asked: November 2023 Q14
 Note: Python has no do-while loop; answer by contrasting while with the do-while idiom (while True: ... if not cond: break).
 Answer:
+Note: Python has only the while loop. It has no do-while loop, but the same behaviour can be written with while True and break.
+
+1. while loop (entry-controlled loop)
+- The condition is tested before the body is executed.
+- If the condition is False at the start, the body is not executed even once.
+- Syntax:
+```text
+while condition:
+    statements
+```
+
+2. do-while loop (exit-controlled loop, in C/C++/Java)
+- The body is executed first, and the condition is tested at the end.
+- The body is executed at least once, even if the condition is False.
+- C syntax: do { statements; } while (condition);
+
+3. do-while in Python
+```text
+while True:
+    statements
+    if not condition:
+        break
+```
+
+Differences
+- Condition checked: while at the start; do-while at the end.
+- Minimum executions: while 0 times; do-while 1 time.
+- Type: while is entry-controlled; do-while is exit-controlled.
+- Python support: while is built in; do-while is written with while True + break.
+
+Example: menu that must be shown at least once
+```python
+choice_list = [2, 1, 0]      # values a user might enter
+i = 0
+while True:                  # do-while style
+    choice = choice_list[i]
+    i += 1
+    print("Menu shown, choice =", choice)
+    if not choice != 0:      # stop when user enters 0
+        break
+
+count = 5
+while count < 3:             # normal while: not executed at all
+    print("never printed")
+print("Done")
+```
+
+Output:
+```text
+Menu shown, choice = 2
+Menu shown, choice = 1
+Menu shown, choice = 0
+Done
+```
 
 === Q2
 Question: Explain about Jump Statement in Python.
@@ -25,6 +79,65 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2025 Q14
 Answer:
+Jump statements transfer the control from one part of the program to another, unconditionally. Python has three jump statements used in loops: break, continue and pass. The return statement is also a jump statement (used in functions).
+
+1. break
+Ends the loop immediately; control goes to the statement after the loop.
+```python
+for i in range(1, 10):
+    if i == 5:
+        break
+    print(i, end=" ")
+print("| loop ended at 5")
+```
+
+Output:
+```text
+1 2 3 4 | loop ended at 5
+```
+
+2. continue
+Skips the rest of the current iteration and continues with the next one.
+```python
+for i in range(1, 8):
+    if i % 2 == 0:
+        continue          # skip even numbers
+    print(i, end=" ")
+print()
+```
+
+Output:
+```text
+1 3 5 7
+```
+
+3. pass
+A null statement: it does nothing. It is used where a statement is required by syntax but no action is needed yet (an empty loop, if block or function).
+```python
+for i in range(3):
+    pass                  # to be completed later
+def future_function():
+    pass
+print("pass executed without error")
+```
+
+Output:
+```text
+pass executed without error
+```
+
+4. return
+Ends a function and sends a value back to the caller.
+```python
+def square(n):
+    return n * n
+print(square(6))
+```
+
+Output:
+```text
+36
+```
 
 === Q3
 Question: Explain about selection control statement with example program.
@@ -34,6 +147,77 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2024 Q15
 Answer:
+Selection (decision-making) statements choose which block of code to execute depending on a condition. The condition is an expression that gives True or False. Python has four forms.
+
+1. Simple if
+Executes the block only when the condition is True.
+```text
+if condition:
+    statements
+```
+
+2. if-else
+Executes one block when the condition is True and another when it is False.
+```text
+if condition:
+    statements-1
+else:
+    statements-2
+```
+
+3. if-elif-else ladder
+Checks many conditions one after another; the first True block runs.
+```text
+if condition1:
+    block1
+elif condition2:
+    block2
+else:
+    block3
+```
+
+4. Nested if
+An if statement written inside another if or else block.
+
+Example program: result of a student
+```python
+mark = 68
+attendance = 82
+
+if mark >= 0:                                  # simple if
+    print("Valid mark")
+
+if attendance >= 75:                           # if-else
+    print("Eligible for exam")
+else:
+    print("Not eligible")
+
+if mark >= 90:                                 # if-elif-else ladder
+    grade = "O"
+elif mark >= 75:
+    grade = "A"
+elif mark >= 60:
+    grade = "B"
+elif mark >= 40:
+    grade = "C"
+else:
+    grade = "RA"
+print("Grade:", grade)
+
+if mark >= 40:                                 # nested if
+    if mark >= 60:
+        print("First class")
+    else:
+        print("Pass")
+```
+
+Output:
+```text
+Valid mark
+Eligible for exam
+Grade: B
+First class
+```
 
 === Q4
 Question: Explain selection statements used in python with suitable example.
@@ -43,6 +227,73 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2025 Q14
 Answer:
+Selection statements (conditional statements) allow a program to take decisions. Depending on whether a condition is True or False, a particular block is executed. Blocks are marked by indentation.
+
+1. if statement
+```python
+temperature = 38
+if temperature > 37.5:
+    print("You have fever")
+```
+
+Output:
+```text
+You have fever
+```
+
+2. if-else statement
+```python
+n = 17
+if n % 2 == 0:
+    print(n, "is even")
+else:
+    print(n, "is odd")
+```
+
+Output:
+```text
+17 is odd
+```
+
+3. if-elif-else statement
+```python
+units = 250
+if units <= 100:
+    bill = 0
+elif units <= 200:
+    bill = (units - 100) * 2.25
+else:
+    bill = 100 * 2.25 + (units - 200) * 4.5
+print("Electricity bill:", bill)
+```
+
+Output:
+```text
+Electricity bill: 450.0
+```
+
+4. Nested if statement
+```python
+a, b, c = 12, 45, 30
+if a > b:
+    if a > c:
+        print("Largest:", a)
+    else:
+        print("Largest:", c)
+else:
+    if b > c:
+        print("Largest:", b)
+    else:
+        print("Largest:", c)
+```
+
+Output:
+```text
+Largest: 45
+```
+
+5. Conditional expression (short if-else in one line)
+result = "Pass" if mark >= 40 else "Fail"
 
 === Q5
 Question: Explain the While statement with sample code.
@@ -52,6 +303,56 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2024 Q15
 Answer:
+The while statement repeats a block of statements as long as a condition is True. It is an entry-controlled loop: the condition is checked before each iteration. It is used when the number of repetitions is not known in advance.
+
+Syntax:
+```text
+while condition:
+    statements
+else:          # optional: runs when the condition becomes False
+    statements
+```
+
+Working:
+1. The condition is evaluated.
+2. If True, the body is executed and control goes back to step 1.
+3. If False, the loop ends and the statement after the loop runs.
+The body must change the loop variable; otherwise the loop runs forever (infinite loop).
+
+Sample code 1: sum of digits
+```python
+n = 5078
+total = 0
+while n > 0:
+    total += n % 10
+    n //= 10
+print("Sum of digits:", total)
+```
+
+Output:
+```text
+Sum of digits: 20
+```
+
+Sample code 2: multiplication table with while ... else
+```python
+i = 1
+while i <= 5:
+    print("7 x", i, "=", 7 * i)
+    i += 1
+else:
+    print("Table completed")
+```
+
+Output:
+```text
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+Table completed
+```
 
 === Q6
 Question: How the Nested If works?
@@ -61,6 +362,42 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2024 Q16
 Answer:
+A nested if is an if (or if-else) statement placed inside another if or else block. The inner condition is checked only when the outer condition is True (or False, if it is in the else part). It is used when a decision depends on more than one condition, checked step by step.
+
+Syntax:
+```text
+if condition1:
+    if condition2:
+        statements-A
+    else:
+        statements-B
+else:
+    statements-C
+```
+
+Working:
+1. condition1 is checked first.
+2. If it is False, statements-C run and the inner if is skipped.
+3. If it is True, condition2 is checked: True runs statements-A, False runs statements-B.
+
+Example: checking whether a number is positive, and then even or odd
+```python
+for n in (8, 7, -3):
+    if n > 0:
+        if n % 2 == 0:
+            print(n, "is positive and even")
+        else:
+            print(n, "is positive and odd")
+    else:
+        print(n, "is not positive")
+```
+
+Output:
+```text
+8 is positive and even
+7 is positive and odd
+-3 is not positive
+```
 
 === Q7
 Question: Write for loop & while loop Syntaxes with examples.
@@ -70,3 +407,67 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2025 Q15
 Answer:
+1. for loop
+Repeats a block for each item of a sequence. Used when the number of iterations is known.
+
+Syntax:
+```text
+for variable in sequence:
+    statements
+```
+
+range() syntax: range(stop), range(start, stop), range(start, stop, step). stop is not included.
+
+Example: squares of 1 to 5
+```python
+for i in range(1, 6):
+    print(i, "squared =", i * i)
+```
+
+Output:
+```text
+1 squared = 1
+2 squared = 4
+3 squared = 9
+4 squared = 16
+5 squared = 25
+```
+
+Example: iterating over a string
+```python
+for ch in "BCA":
+    print(ch)
+```
+
+Output:
+```text
+B
+C
+A
+```
+
+2. while loop
+Repeats a block while a condition is True. Used when the number of iterations is not known.
+
+Syntax:
+```text
+initialisation
+while condition:
+    statements
+    update
+```
+
+Example: reverse a number
+```python
+n = 1234
+rev = 0
+while n > 0:
+    rev = rev * 10 + n % 10
+    n //= 10
+print("Reversed:", rev)
+```
+
+Output:
+```text
+Reversed: 4321
+```

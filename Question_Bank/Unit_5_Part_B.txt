@@ -15,6 +15,57 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2025 Q16
 Answer:
+A tuple is an ordered, immutable sequence written in ( ). Since its items cannot be changed, tuples do not have methods such as append(), remove() or sort(). Python provides only two tuple methods, and several built-in functions work with tuples.
+
+1. count(value)
+Returns the number of times the value appears in the tuple. It returns 0 if the value is not present.
+
+2. index(value[, start[, end]])
+Returns the position of the first occurrence of the value. The optional start and end limit the search. It raises ValueError if the value is not found.
+
+```python
+marks = (78, 92, 65, 92, 88, 92)
+print("count(92):", marks.count(92))
+print("count(50):", marks.count(50))
+print("index(92):", marks.index(92))
+print("index(92, 2):", marks.index(92, 2))
+try:
+    marks.index(50)
+except ValueError:
+    print("50 is not in the tuple")
+```
+
+Output:
+```text
+count(92): 3
+count(50): 0
+index(92): 1
+index(92, 2): 3
+50 is not in the tuple
+```
+
+Built-in functions used with tuples
+- len(t): number of items
+- max(t), min(t): largest and smallest item
+- sum(t): total of numeric items
+- sorted(t): returns a new sorted list
+- tuple(seq): converts a list or string into a tuple
+
+```python
+t = (78, 92, 65, 88)
+print(len(t), max(t), min(t), sum(t))
+print(sorted(t), tuple(sorted(t)))
+print(tuple("abc"), tuple([1, 2]))
+```
+
+Output:
+```text
+4 92 65 323
+[65, 78, 88, 92] (65, 78, 88, 92)
+('a', 'b', 'c') (1, 2)
+```
+
+Note: to "modify" a tuple, convert it to a list with list(), change the list, and convert it back with tuple().
 
 === Q2
 Question: Explain Dictionaries and its related functions.
@@ -24,6 +75,54 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2025 Q17
 Answer:
+A dictionary is a mutable collection of key : value pairs written in { }. Keys are unique and immutable; values can be any type. Values are accessed through keys: d[key].
+
+Creating: d = {"a": 1, "b": 2}, d = dict(a=1, b=2), d = {}
+
+Dictionary methods
+1. keys(): returns all keys
+2. values(): returns all values
+3. items(): returns (key, value) pairs
+4. get(key, default): returns the value, or the default if the key is missing (no error)
+5. update(other): adds or changes pairs from another dictionary
+6. pop(key): removes the key and returns its value
+7. popitem(): removes and returns the last inserted pair
+8. setdefault(key, value): returns the value; inserts the key if it is absent
+9. copy(): returns a shallow copy
+10. clear(): removes all pairs
+11. dict.fromkeys(keys, value): creates a dictionary from a sequence of keys
+
+Built-in functions: len(d), sorted(d), key in d, del d[key]
+
+```python
+emp = {"id": 7, "name": "Hari", "salary": 30000}
+print(emp.keys())
+print(emp.values())
+print(emp.items())
+print(emp.get("name"), emp.get("dept", "Not assigned"))
+emp.update({"salary": 35000, "dept": "IT"})
+print(emp)
+print("Removed:", emp.pop("id"))
+print("Last pair:", emp.popitem())
+print(len(emp), "name" in emp, sorted(emp))
+print(dict.fromkeys(["python", "java"], 0))
+emp.clear()
+print(emp)
+```
+
+Output:
+```text
+dict_keys(['id', 'name', 'salary'])
+dict_values([7, 'Hari', 30000])
+dict_items([('id', 7), ('name', 'Hari'), ('salary', 30000)])
+Hari Not assigned
+{'id': 7, 'name': 'Hari', 'salary': 35000, 'dept': 'IT'}
+Removed: 7
+Last pair: ('dept', 'IT')
+2 True ['name', 'salary']
+{'python': 0, 'java': 0}
+{}
+```
 
 === Q3
 Question: How to Sort a Dictionary.
@@ -33,6 +132,47 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2024 Q18
 Answer:
+A dictionary has no sort() method. It is sorted with the built-in sorted() function, which returns a sorted list. The result can be converted back into a dictionary with dict().
+
+1. Sort by keys
+sorted(d) or sorted(d.items()) sorts by key.
+
+2. Sort by values
+Use the key parameter: sorted(d.items(), key=lambda item: item[1]).
+
+3. Descending order
+Add reverse=True.
+
+```python
+marks = {"Ravi": 78, "Anu": 92, "Bala": 65, "Deepa": 88}
+
+print(sorted(marks))                         # keys only
+by_key = dict(sorted(marks.items()))
+print("By name :", by_key)
+
+by_value = dict(sorted(marks.items(), key=lambda item: item[1]))
+print("By mark :", by_value)
+
+top = dict(sorted(marks.items(), key=lambda item: item[1], reverse=True))
+print("Rank list:", top)
+
+for rank, (name, mark) in enumerate(top.items(), start=1):
+    print(rank, name, mark)
+```
+
+Output:
+```text
+['Anu', 'Bala', 'Deepa', 'Ravi']
+By name : {'Anu': 92, 'Bala': 65, 'Deepa': 88, 'Ravi': 78}
+By mark : {'Bala': 65, 'Ravi': 78, 'Deepa': 88, 'Anu': 92}
+Rank list: {'Anu': 92, 'Deepa': 88, 'Ravi': 78, 'Bala': 65}
+1 Anu 92
+2 Deepa 88
+3 Ravi 78
+4 Bala 65
+```
+
+Note: dictionaries keep insertion order (Python 3.7 and later), so the dictionary built from the sorted list stays in sorted order.
 
 === Q4
 Question: What are the various operations performed on dictionary ? Explain.
@@ -42,6 +182,63 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2024 Q18
 Answer:
+A dictionary stores data as key : value pairs. The operations performed on a dictionary are:
+
+1. Creating
+d = {"name": "Anu", "age": 19} or d = dict(name="Anu", age=19)
+
+2. Accessing
+d["name"] returns the value (KeyError if the key is missing); d.get("name") returns None instead of an error.
+
+3. Adding
+d["city"] = "Chennai" adds a new pair.
+
+4. Updating
+d["age"] = 20 changes an existing value; d.update({...}) changes several.
+
+5. Deleting
+del d["city"], d.pop("age"), d.popitem(), d.clear()
+
+6. Membership
+"name" in d checks whether a key exists.
+
+7. Length
+len(d) gives the number of pairs.
+
+8. Traversing
+for k in d, for v in d.values(), for k, v in d.items()
+
+9. Copying and merging
+d.copy(), and d1 | d2 (Python 3.9 and later) or d1.update(d2)
+
+```python
+d = {"name": "Anu", "age": 19}
+print(d["name"], d.get("mark"))          # accessing
+d["city"] = "Chennai"                    # adding
+d["age"] = 20                            # updating
+print(d)
+del d["city"]                            # deleting
+print(d.pop("age"), d)
+print("name" in d, len(d))               # membership, length
+d.update({"dept": "BCA", "year": 1})
+for key, value in d.items():             # traversing
+    print(key, "->", value)
+backup = d.copy()
+d.clear()
+print(d, backup)
+```
+
+Output:
+```text
+Anu None
+{'name': 'Anu', 'age': 20, 'city': 'Chennai'}
+20 {'name': 'Anu'}
+True 1
+name -> Anu
+dept -> BCA
+year -> 1
+{} {'name': 'Anu', 'dept': 'BCA', 'year': 1}
+```
 
 === Q5
 Question: What is dictionary? How to create dictionary?
@@ -51,3 +248,52 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2023 Q18
 Answer:
+Dictionary
+A dictionary is a mutable collection of key : value pairs written inside curly braces { }. Each key is unique and maps to a value; values are accessed by key, not by position. Keys must be immutable (str, int, tuple); values can be of any type. Dictionaries keep insertion order from Python 3.7.
+
+Ways to create a dictionary
+
+1. Using curly braces
+student = {"roll": 1, "name": "Anu"}
+
+2. Empty dictionary, then adding pairs
+d = {}  then  d["key"] = value
+
+3. Using the dict() constructor with keyword arguments
+d = dict(name="Anu", age=19)
+
+4. From a list of tuples
+d = dict([("a", 1), ("b", 2)])
+
+5. From two lists using zip()
+d = dict(zip(keys_list, values_list))
+
+6. Using dict.fromkeys()
+d = dict.fromkeys(["x", "y"], 0)
+
+7. Dictionary comprehension
+d = {n: n * n for n in range(1, 4)}
+
+```python
+d1 = {"roll": 1, "name": "Anu"}
+d2 = {}
+d2["city"] = "Kanchipuram"
+d3 = dict(name="Bala", age=20)
+d4 = dict([("a", 1), ("b", 2)])
+d5 = dict(zip(["python", "java"], [88, 79]))
+d6 = dict.fromkeys(["x", "y"], 0)
+d7 = {n: n * n for n in range(1, 4)}
+for d in (d1, d2, d3, d4, d5, d6, d7):
+    print(d)
+```
+
+Output:
+```text
+{'roll': 1, 'name': 'Anu'}
+{'city': 'Kanchipuram'}
+{'name': 'Bala', 'age': 20}
+{'a': 1, 'b': 2}
+{'python': 88, 'java': 79}
+{'x': 0, 'y': 0}
+{1: 1, 2: 4, 3: 9}
+```

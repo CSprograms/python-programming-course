@@ -15,6 +15,49 @@ PO: PO1,PO6
 PSO: PSO1
 Asked: November 2023 Q13
 Answer:
+Python is a high-level, general-purpose programming language created by Guido van Rossum (first released in 1991). Its main features are:
+
+1. Simple and easy to learn
+The syntax is close to English, uses few symbols and needs fewer lines than C or Java.
+
+2. Interpreted language
+Python code is executed line by line by the interpreter. There is no separate compile step, and errors are reported with the line number.
+
+3. Dynamically typed
+The type of a variable is decided at run time from its value; no declaration is needed (x = 10, then x = "ten").
+
+4. Free and open source
+Python can be downloaded, used and shared freely.
+
+5. Platform independent (portable)
+A program written on Windows runs on Linux or macOS without changes.
+
+6. Object-oriented
+It supports classes and objects, and also procedural and functional styles.
+
+7. Large standard library
+Ready-made modules such as math, random, datetime and os save programming effort ("batteries included").
+
+8. Extensible and embeddable
+Python can use code written in C/C++ and can be embedded in other applications.
+
+9. High-level language
+Memory management is automatic (garbage collection); the programmer does not handle memory addresses.
+
+10. Wide range of applications
+Web development, data science, machine learning, automation, scripting and games.
+
+Example (a complete program in three lines):
+```python
+name = "BCA"
+year = 2026
+print("Welcome to Python,", name, year)
+```
+
+Output:
+```text
+Welcome to Python, BCA 2026
+```
 
 === Q2
 Question: Explain the various operators in Python Programming.
@@ -24,6 +67,40 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2025 Q13
 Answer:
+An operator is a symbol that performs an operation on values (operands). Example: in 5 + 3, + is the operator and 5, 3 are operands. Python operators are:
+
+1. Arithmetic operators: + (add), - (subtract), * (multiply), / (divide, float result), // (floor division), % (remainder), ** (power).
+2. Relational (comparison) operators: ==, !=, >, <, >=, <=. The result is True or False.
+3. Logical operators: and, or, not.
+4. Assignment operators: =, +=, -=, *=, /=, //=, %=, **=.
+5. Bitwise operators: & (AND), | (OR), ^ (XOR), ~ (NOT), << (left shift), >> (right shift).
+6. Membership operators: in, not in (checks whether a value is in a sequence).
+7. Identity operators: is, is not (checks whether two names refer to the same object).
+
+```python
+a, b = 10, 3
+print(a + b, a / b, a // b, a % b, a ** 2)   # arithmetic
+print(a > b, a == b)                         # relational
+print(a > 5 and b > 5, not a > 5)            # logical
+a += 2                                       # assignment (a = a + 2)
+print(a)
+print(6 & 3, 6 | 3, 6 << 1)                  # bitwise
+print('y' in 'Python')                       # membership
+x = [1, 2]
+y = x
+print(x is y)                                # identity
+```
+
+Output:
+```text
+13 3.3333333333333335 3 1 100
+True False
+False False
+12
+2 7 12
+True
+True
+```
 
 === Q3
 Question: List out Operators in python.
@@ -33,6 +110,36 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2024 Q14
 Answer:
+Python provides seven types of operators:
+1. Arithmetic operators: +  -  *  /  //  %  **
+   Example: 7 // 2 = 3, 7 % 2 = 1, 2 ** 3 = 8
+2. Relational (comparison) operators: ==  !=  >  <  >=  <=
+   Example: 5 > 3 gives True
+3. Logical operators: and  or  not
+   Example: (5 > 3) and (2 > 4) gives False
+4. Assignment operators: =  +=  -=  *=  /=  //=  %=  **=
+   Example: x += 5 means x = x + 5
+5. Bitwise operators: &  |  ^  ~  <<  >>
+   Example: 5 & 3 = 1, 5 | 3 = 7
+6. Membership operators: in  not in
+   Example: 'a' in 'java' gives True
+7. Identity operators: is  is not
+   Example: x is None
+
+```python
+x = 7
+print(x // 2, x % 2, 2 ** 3)
+print(x > 3 and x < 10)
+x += 5
+print(x, 5 & 3, 5 | 3, 'a' in 'java')
+```
+
+Output:
+```text
+3 1 8
+True
+12 1 7 True
+```
 
 === Q4
 Question: What are built-in data types used in python? Explain in detail.
@@ -42,6 +149,43 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2025 Q13
 Answer:
+A data type tells what kind of value a variable holds and which operations are allowed on it. The type() function shows the data type. Python's built-in data types are:
+
+1. Numeric types
+- int: whole numbers of any size, e.g. 25, -7
+- float: numbers with a decimal point, e.g. 3.14, 2.5e3
+- complex: numbers with a real and an imaginary part, e.g. 3+4j
+
+2. Boolean type (bool)
+Has only two values, True and False. It is the result of comparisons.
+
+3. Sequence types
+- str: a sequence of characters in quotes, e.g. "Python". Strings are immutable.
+- list: an ordered, changeable collection in [ ], e.g. [10, 20, 30]
+- tuple: an ordered, unchangeable collection in ( ), e.g. (1, 2, 3)
+- range: a sequence of numbers, e.g. range(1, 5)
+
+4. Mapping type (dict)
+Key-value pairs in { }, e.g. {"name": "Ravi", "age": 19}
+
+5. Set types
+- set: an unordered collection of unique items, e.g. {1, 2, 3}
+- frozenset: an immutable set
+
+6. None type
+None represents "no value".
+
+```python
+a = 25; b = 3.14; c = 3 + 4j; d = True
+s = "BCA"; l = [1, 2]; t = (1, 2); dt = {"x": 1}; st = {1, 2}; n = None
+names = [type(v).__name__ for v in (a, b, c, d, s, l, t, dt, st, n)]
+print(" ".join(names))
+```
+
+Output:
+```text
+int float complex bool str list tuple dict set NoneType
+```
 
 === Q5
 Question: What are the built-in data types in python ? Explain.
@@ -51,3 +195,34 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2024 Q14
 Answer:
+Every value in Python has a data type. Python decides the type automatically from the value, and type() shows it.
+
+1. int: integers such as 10, -45, 1000000. There is no size limit.
+2. float: real numbers with a decimal point, such as 2.5 and -0.75.
+3. complex: numbers in the form a+bj, such as 2+3j.
+4. bool: logical values True and False.
+5. str: text in single, double or triple quotes, such as 'hello'. Strings are immutable.
+6. list: an ordered, mutable collection, such as [1, "a", 2.5].
+7. tuple: an ordered, immutable collection, such as (10, 20).
+8. dict: key-value pairs, such as {"roll": 1, "name": "Anu"}.
+9. set: an unordered collection of unique values, such as {1, 2, 3}.
+10. NoneType: the special value None.
+
+Mutable types (can be changed): list, dict, set.
+Immutable types (cannot be changed): int, float, complex, bool, str, tuple.
+
+```python
+marks = [80, 90]
+marks.append(75)          # list is mutable
+print(marks, type(marks))
+name = "python"
+print(name.upper(), type(name))
+print(type(10), type(2.5), type(2+3j), type(True))
+```
+
+Output:
+```text
+[80, 90, 75] <class 'list'>
+PYTHON <class 'str'>
+<class 'int'> <class 'float'> <class 'complex'> <class 'bool'>
+```

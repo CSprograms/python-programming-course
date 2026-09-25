@@ -15,6 +15,20 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q10; April 2025 Q7
 Answer:
+A dictionary is a built-in data type that stores data as key : value pairs inside curly braces { }. Each key is unique and is used to access its value. Dictionaries are mutable. Keys must be immutable (string, number, tuple); values can be of any type. From Python 3.7, dictionaries keep the insertion order.
+
+```python
+student = {"roll": 101, "name": "Anu", "dept": "BCA"}
+print(student["name"])
+student["year"] = 1
+print(student)
+```
+
+Output:
+```text
+Anu
+{'roll': 101, 'name': 'Anu', 'dept': 'BCA', 'year': 1}
+```
 
 === Q2
 Question: Define Dictionary.
@@ -24,6 +38,17 @@ PO: PO1
 PSO: PSO1
 Asked: November 2024 Q8
 Answer:
+A dictionary is a mutable collection of key-value pairs, written as {key1: value1, key2: value2, ...}. Values are accessed by their keys, not by position. Keys are unique and immutable; values may repeat.
+
+```python
+capitals = {"Tamil Nadu": "Chennai", "Kerala": "Thiruvananthapuram"}
+print(capitals["Tamil Nadu"], len(capitals))
+```
+
+Output:
+```text
+Chennai 2
+```
 
 === Q3
 Question: Define tuple.
@@ -33,6 +58,17 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q9
 Answer:
+A tuple is an ordered, immutable collection of items written inside round brackets ( ), separated by commas. Once created, its items cannot be changed, added or removed. Tuples allow duplicates and different data types, and support indexing and slicing. A tuple with one item needs a trailing comma: (5,).
+
+```python
+t = (10, "BCA", 8.5, 10)
+print(t[1], t[-1], len(t), type((5,)))
+```
+
+Output:
+```text
+BCA 10 4 <class 'tuple'>
+```
 
 === Q4
 Question: How to create an element in dictionary?
@@ -42,6 +78,21 @@ PO: PO2,PO3
 PSO: PSO1,PSO2
 Asked: April 2025 Q9
 Answer:
+A new element (key-value pair) is created by assigning a value to a new key: dict_name[key] = value. If the key already exists, its value is updated. update() can add several elements at once, and setdefault() adds a key only if it is not present.
+
+```python
+d = {}                          # empty dictionary
+d["name"] = "Kavi"              # create element
+d["age"] = 19
+d.update({"dept": "BCA", "year": 2})
+d.setdefault("city", "Kanchipuram")
+print(d)
+```
+
+Output:
+```text
+{'name': 'Kavi', 'age': 19, 'dept': 'BCA', 'year': 2, 'city': 'Kanchipuram'}
+```
 
 === Q5
 Question: What is meant by tuple?
@@ -51,6 +102,19 @@ PO: PO1
 PSO: PSO1
 Asked: November 2024 Q9
 Answer:
+A tuple is a sequence data type that stores a fixed collection of items in order. It is written with round brackets and is immutable, so it is used for data that should not change, such as dates, coordinates or days of the week. Tuples are faster than lists and can be used as dictionary keys.
+
+```python
+days = ("Mon", "Tue", "Wed")
+point = 3, 4                  # brackets are optional (packing)
+x, y = point                  # unpacking
+print(days[0], point, x + y)
+```
+
+Output:
+```text
+Mon (3, 4) 7
+```
 
 === Q6
 Question: What is nested tuple?
@@ -60,6 +124,24 @@ PO: PO1
 PSO: PSO1
 Asked: November 2025 Q8
 Answer:
+A nested tuple is a tuple that contains one or more tuples as its elements. Inner elements are accessed with two indexes: t[i][j]. It is used to store table-like data such as student records.
+
+```python
+students = (("Anu", 85), ("Bala", 92), ("Charu", 78))
+print(students[1])          # second record
+print(students[1][0])       # name in the second record
+for name, mark in students:
+    print(name, mark)
+```
+
+Output:
+```text
+('Bala', 92)
+Bala
+Anu 85
+Bala 92
+Charu 78
+```
 
 === Q7
 Question: Write types of tuple methods.
@@ -69,3 +151,20 @@ PO: PO1
 PSO: PSO1
 Asked: November 2023 Q8
 Answer:
+Because tuples are immutable, they have only two methods:
+1. count(x): returns the number of times x occurs in the tuple.
+2. index(x): returns the index of the first occurrence of x (ValueError if not found).
+
+Built-in functions often used with tuples: len(), max(), min(), sum(), sorted(), tuple().
+
+```python
+t = (4, 7, 4, 9, 4)
+print(t.count(4), t.index(9))
+print(len(t), max(t), min(t), sum(t), sorted(t))
+```
+
+Output:
+```text
+3 3
+5 9 4 28 [4, 4, 4, 7, 9]
+```

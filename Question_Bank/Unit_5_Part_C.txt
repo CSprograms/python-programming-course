@@ -15,6 +15,111 @@ PO: PO2,PO3,PO5
 PSO: PSO1,PSO2
 Asked: November 2025 Q23
 Answer:
+Introduction
+A dictionary is a mutable collection of key : value pairs written in curly braces { }. Keys are unique and immutable (string, number, tuple); values can be of any type. Items are reached through keys, not positions. Dictionaries keep insertion order (Python 3.7 and later).
+
+1. Creating a dictionary
+a) With curly braces:  student = {"roll": 101, "name": "Anu", "dept": "BCA"}
+b) Empty dictionary:   d = {}  or  d = dict()
+c) With dict():        d = dict(name="Anu", age=19)
+d) From pairs:         d = dict([("a", 1), ("b", 2)])
+e) With zip():         d = dict(zip(keys, values))
+f) Comprehension:      squares = {n: n * n for n in range(1, 6)}
+
+```python
+student = {"roll": 101, "name": "Anu", "dept": "BCA"}
+empty = {}
+emp = dict(name="Ravi", age=25)
+squares = {n: n * n for n in range(1, 6)}
+print(student, empty, emp, squares, sep="\n")
+```
+
+Output:
+```text
+{'roll': 101, 'name': 'Anu', 'dept': 'BCA'}
+{}
+{'name': 'Ravi', 'age': 25}
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+2. Accessing elements
+a) Using the key in square brackets: d[key]. A missing key raises KeyError.
+b) Using get(key, default): returns the default (or None) for a missing key.
+c) keys(), values() and items() return all keys, values and pairs.
+d) A for loop traverses the dictionary.
+
+```python
+student = {"roll": 101, "name": "Anu", "dept": "BCA"}
+print(student["name"])
+print(student.get("mark"), student.get("mark", 0))
+print(list(student.keys()), list(student.values()))
+for key, value in student.items():
+    print(key, ":", value)
+```
+
+Output:
+```text
+Anu
+None 0
+['roll', 'name', 'dept'] [101, 'Anu', 'BCA']
+roll : 101
+name : Anu
+dept : BCA
+```
+
+3. Updating elements
+a) Assign to an existing key to change its value: d[key] = new_value.
+b) Assign to a new key to add an element.
+c) update() changes or adds many pairs at once.
+
+```python
+student = {"roll": 101, "name": "Anu", "dept": "BCA"}
+student["dept"] = "B.Sc CS"          # change value
+student["mark"] = 88                 # add new pair
+student.update({"mark": 91, "year": 2})
+print(student)
+```
+
+Output:
+```text
+{'roll': 101, 'name': 'Anu', 'dept': 'B.Sc CS', 'mark': 91, 'year': 2}
+```
+
+4. Deleting elements
+a) del d[key]: removes the pair (KeyError if the key is missing).
+b) pop(key): removes the pair and returns its value.
+c) popitem(): removes and returns the last inserted pair.
+d) clear(): removes all pairs, leaving an empty dictionary.
+e) del d: deletes the whole dictionary variable.
+
+```python
+student = {"roll": 101, "name": "Anu", "dept": "BCA", "mark": 91, "year": 2}
+del student["roll"]
+print(student)
+print("pop:", student.pop("mark"))
+print("popitem:", student.popitem())
+print(student)
+student.clear()
+print(student)
+del student
+try:
+    print(student)
+except NameError:
+    print("student no longer exists")
+```
+
+Output:
+```text
+{'name': 'Anu', 'dept': 'BCA', 'mark': 91, 'year': 2}
+pop: 91
+popitem: ('year', 2)
+{'name': 'Anu', 'dept': 'BCA'}
+{}
+student no longer exists
+```
+
+Conclusion
+Dictionaries are created with { } or dict(), accessed with keys or get(), updated by assignment or update(), and elements are deleted with del, pop(), popitem() or clear().
 
 === Q2
 Question: How to add and delete an element in dictionary.
@@ -24,6 +129,88 @@ PO: PO2,PO3,PO5
 PSO: PSO1,PSO2
 Asked: November 2024 Q23
 Answer:
+A dictionary stores key : value pairs and is mutable, so elements can be added and deleted after it is created.
+
+A) Adding elements
+
+1. Using assignment with a new key
+Syntax: dict_name[new_key] = value
+If the key does not exist, a new pair is added; if it exists, its value is replaced.
+
+2. Using update()
+Syntax: dict_name.update({key1: value1, key2: value2})
+Adds several pairs at once (and updates existing keys).
+
+3. Using setdefault()
+Syntax: dict_name.setdefault(key, value)
+Adds the pair only if the key is not already present.
+
+4. Merging with the | operator (Python 3.9 and later)
+new_dict = d1 | d2
+
+```python
+phone = {"Anu": "98401"}
+phone["Bala"] = "90030"                          # 1. assignment
+phone.update({"Charu": "94440", "Deepa": "99620"})   # 2. update
+phone.setdefault("Anu", "00000")                 # 3. not changed: key exists
+phone.setdefault("Ezhil", "97890")               # 3. added
+print(phone)
+print(len(phone))
+```
+
+Output:
+```text
+{'Anu': '98401', 'Bala': '90030', 'Charu': '94440', 'Deepa': '99620', 'Ezhil': '97890'}
+5
+```
+
+B) Deleting elements
+
+1. del statement
+Syntax: del dict_name[key]  (KeyError if the key is absent)
+
+2. pop()
+Syntax: dict_name.pop(key[, default])
+Removes the key and returns its value; returns default if given and the key is absent.
+
+3. popitem()
+Removes and returns the last inserted (key, value) pair.
+
+4. clear()
+Removes all elements.
+
+5. Deleting while looping
+Loop over a copy of the keys (list(d)) to avoid a RuntimeError.
+
+```python
+phone = {"Anu": "98401", "Bala": "90030", "Charu": "94440",
+         "Deepa": "99620", "Ezhil": "97890"}
+del phone["Bala"]                    # 1. del
+print(phone)
+print(phone.pop("Charu"))            # 2. pop
+print(phone.pop("Zara", "not found"))
+print(phone.popitem())               # 3. popitem
+for name in list(phone):             # 5. delete while looping
+    if name.startswith("A"):
+        del phone[name]
+print(phone)
+phone.clear()                        # 4. clear
+print(phone)
+```
+
+Output:
+```text
+{'Anu': '98401', 'Charu': '94440', 'Deepa': '99620', 'Ezhil': '97890'}
+94440
+not found
+('Ezhil', '97890')
+{'Deepa': '99620'}
+{}
+```
+
+Summary
+- Add: d[key] = value, update(), setdefault(), |
+- Delete: del d[key], pop(), popitem(), clear()
 
 === Q3
 Question: What is tuple? How to create, access and updating a tuple?
@@ -33,3 +220,111 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2023 Q23
 Answer:
+Tuple
+A tuple is an ordered, immutable collection of items written inside round brackets ( ) and separated by commas. Tuples:
+- keep items in order and allow indexing and slicing,
+- allow duplicate values and different data types,
+- cannot be changed after creation (immutable),
+- are faster than lists and can be used as dictionary keys.
+
+1. Creating a tuple
+a) With brackets:      t = (10, 20, 30)
+b) Without brackets:   t = 10, 20, 30   (tuple packing)
+c) Empty tuple:        t = ()
+d) Single item:        t = (5,)   (the comma is needed; (5) is just an int)
+e) Using tuple():      tuple([1, 2, 3]), tuple("abc")
+f) Nested tuple:       t = ((1, 2), (3, 4))
+
+```python
+t1 = (10, 20, 30)
+t2 = 10, 20, 30
+t3 = ()
+t4 = (5,)
+t5 = tuple("abc")
+t6 = ((1, 2), (3, 4))
+print(t1, t2, t3, t4, t5, t6)
+print(type((5)), type((5,)))
+```
+
+Output:
+```text
+(10, 20, 30) (10, 20, 30) () (5,) ('a', 'b', 'c') ((1, 2), (3, 4))
+<class 'int'> <class 'tuple'>
+```
+
+2. Accessing a tuple
+a) Indexing: t[0] (first), t[-1] (last)
+b) Slicing: t[1:3], t[::-1]
+c) Nested access: t[i][j]
+d) Looping: for item in t
+e) Unpacking: a, b, c = t
+
+```python
+t = ("Python", "Java", "C", "SQL", "R")
+print(t[0], t[-1])
+print(t[1:4], t[::-1])
+nested = ((1, 2), (3, 4))
+print(nested[1][0])
+for lang in t[:2]:
+    print(lang)
+a, b, c = (1, 2, 3)
+print(a, b, c)
+```
+
+Output:
+```text
+Python R
+('Java', 'C', 'SQL') ('R', 'SQL', 'C', 'Java', 'Python')
+3
+Python
+Java
+1 2 3
+```
+
+3. Updating a tuple
+A tuple is immutable, so t[0] = value gives a TypeError, and items cannot be added or removed. A tuple is "updated" by creating a new tuple:
+a) Concatenation: t = t + (40,)
+b) Converting to a list, changing it, and converting back
+c) Reassigning the whole tuple
+d) A mutable object inside a tuple (such as a list) can itself be changed
+The whole tuple can be deleted with del t.
+
+```python
+t = (10, 20, 30)
+try:
+    t[0] = 99
+except TypeError as e:
+    print("Error:", e)
+
+t = t + (40,)                  # a) concatenation
+print(t)
+
+temp = list(t)                 # b) list conversion
+temp[1] = 25
+temp.remove(30)
+t = tuple(temp)
+print(t)
+
+t = (1, 2, 3)                  # c) reassignment
+print(t)
+
+record = ("Anu", [80, 90])     # d) list inside a tuple
+record[1].append(85)
+print(record)
+
+del t
+print("t deleted")
+```
+
+Output:
+```text
+Error: 'tuple' object does not support item assignment
+(10, 20, 30, 40)
+(10, 25, 40)
+(1, 2, 3)
+('Anu', [80, 90, 85])
+t deleted
+```
+
+Conclusion
+Tuples are created with ( ) or tuple(), accessed with indexing, slicing and unpacking, and, being immutable, are updated only by building a new tuple.

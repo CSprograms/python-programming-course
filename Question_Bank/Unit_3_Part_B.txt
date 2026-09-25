@@ -15,6 +15,64 @@ PO: PO1,PO3,PO5
 PSO: PSO1,PSO2
 Asked: November 2023 Q15
 Answer:
+A function is a named block of reusable code that performs a specific task. Functions make programs shorter, easier to read, test and reuse.
+
+1. Function definition
+A function is defined with the def keyword.
+
+Syntax:
+```text
+def function_name(parameter1, parameter2, ...):
+    """docstring (optional)"""
+    statements
+    return value          # optional
+```
+
+Parts of a function definition:
+- def: keyword that starts the definition.
+- function_name: an identifier, following the naming rules.
+- parameters: variables in brackets that receive values; they are optional.
+- colon ( : ) and an indented body.
+- docstring: optional description of the function.
+- return: sends a result back to the caller. Without return, the function returns None.
+
+2. Function call
+A function runs only when it is called. It is called by writing its name followed by brackets containing the arguments.
+
+Syntax:  function_name(argument1, argument2, ...)
+
+When a function is called:
+1. Control jumps to the function definition.
+2. The arguments are copied into the parameters.
+3. The body is executed.
+4. The return value is sent back and control returns to the calling statement.
+
+Example
+```python
+def simple_interest(p, n, r):
+    """Return simple interest."""
+    si = p * n * r / 100
+    return si
+
+def greet(name):
+    print("Hello", name)        # no return: returns None
+
+amount = simple_interest(10000, 2, 7.5)   # function call
+print("Interest:", amount)
+greet("Deepa")
+print(simple_interest.__doc__)
+```
+
+Output:
+```text
+Interest: 1500.0
+Hello Deepa
+Return simple interest.
+```
+
+Parameters and arguments
+- Parameters are the names in the definition (p, n, r).
+- Arguments are the actual values passed in the call (10000, 2, 7.5).
 
 === Q2
 Question: Write a python program to calculate a factorial value for given number.
@@ -24,6 +82,56 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2024 Q16
 Answer:
+Factorial of n (n!) is the product of all positive integers from 1 to n.
+n! = 1 x 2 x 3 x ... x n, and 0! = 1. Example: 5! = 120.
+
+Method 1: using a loop
+```python
+def factorial(n):
+    fact = 1
+    for i in range(1, n + 1):
+        fact = fact * i
+    return fact
+
+num = 6            # num = int(input("Enter a number: "))
+if num < 0:
+    print("Factorial does not exist for negative numbers")
+else:
+    print("Factorial of", num, "is", factorial(num))
+```
+
+Output:
+```text
+Factorial of 6 is 720
+```
+
+Method 2: using recursion
+```python
+def fact(n):
+    if n == 0 or n == 1:     # base case
+        return 1
+    return n * fact(n - 1)   # recursive call
+
+print("Factorial of 5 is", fact(5))
+```
+
+Output:
+```text
+Factorial of 5 is 120
+```
+
+Working of fact(5): 5 * fact(4) = 5 * 4 * fact(3) = ... = 5 * 4 * 3 * 2 * 1 = 120
+
+Method 3: using the math module
+```python
+import math
+print(math.factorial(7))
+```
+
+Output:
+```text
+5040
+```
 
 === Q3
 Question: Write about modules with examples.
@@ -33,6 +141,60 @@ PO: PO2,PO3,PO4,PO5
 PSO: PSO1,PSO2
 Asked: April 2025 Q18
 Answer:
+A module is a file containing Python code (functions, variables, classes) saved with the .py extension. Modules help to divide a large program into smaller files and to reuse code.
+
+Types of modules
+1. Built-in modules: come with Python, e.g. math, random, datetime, os, sys.
+2. User-defined modules: created by the programmer.
+
+Ways to import a module
+1. import module_name
+2. import module_name as alias
+3. from module_name import name1, name2
+4. from module_name import *   (imports all names; not recommended)
+
+Example with built-in modules
+```python
+import math
+import random as rd
+from datetime import date
+
+print(math.sqrt(144), math.pow(2, 5), math.ceil(4.2), math.floor(4.8))
+r = rd.randint(1, 10)
+print(1 <= r <= 10)
+print(date(2026, 1, 26).year)
+print(len(dir(math)) > 40)       # dir() lists names in a module
+```
+
+Output:
+```text
+12.0 32.0 5 4
+True
+2026
+True
+```
+
+User-defined module
+Save the following as mymath.py:
+```text
+def add(a, b):
+    return a + b
+
+def cube(n):
+    return n ** 3
+
+PI = 3.14159
+```
+
+Use it in another file in the same folder:
+```text
+import mymath
+print(mymath.add(4, 5))      # 9
+print(mymath.cube(3))        # 27
+print(mymath.PI)             # 3.14159
+```
+
+Advantages: code reuse, better organisation, easy maintenance, and no name clashes (each module has its own namespace).
 
 === Q4
 Question: Write short note on function and function call.
@@ -42,3 +204,42 @@ PO: PO1,PO3,PO5
 PSO: PSO1,PSO2
 Asked: November 2025 Q15
 Answer:
+Function
+A function is a group of related statements that performs a specific task and can be used many times. It avoids repetition and makes the program modular.
+Types: built-in functions (print, len, max, input) and user-defined functions (created with def).
+
+Defining a function:
+```text
+def function_name(parameters):
+    statements
+    return value
+```
+
+Function call
+A function is executed only when it is called, by writing its name with arguments in brackets: function_name(arguments). On a call, control goes to the function, the body is executed, and the return value comes back to the point of the call.
+
+```python
+def maximum(a, b):
+    if a > b:
+        return a
+    return b
+
+def line():
+    print("-" * 20)
+
+line()                               # call without arguments
+print("Maximum:", maximum(45, 78))   # call with arguments
+big = maximum(10, 3)                 # return value stored
+print("Stored result:", big)
+line()
+```
+
+Output:
+```text
+--------------------
+Maximum: 78
+Stored result: 10
+--------------------
+```
+
+Advantages: reusability, less code, easy debugging and better readability.

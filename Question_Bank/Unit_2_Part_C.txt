@@ -15,6 +15,124 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2023 Q21
 Answer:
+Introduction
+Decision-making statements let a program choose between different actions based on a condition. A condition is an expression whose value is True or False (for example mark >= 40). In Python the statements inside a block are marked by a colon ( : ) and indentation.
+
+1. if statement
+The block runs only when the condition is True; otherwise it is skipped.
+```text
+if condition:
+    statements
+```
+
+2. if-else statement
+The if-else statement has two blocks. When the condition is True the if block runs; when it is False the else block runs. Exactly one of the two blocks is always executed.
+
+Syntax:
+```text
+if condition:
+    statements-1      # condition is True
+else:
+    statements-2      # condition is False
+```
+
+Flow:
+condition -> True -> statements-1 -> next statement
+condition -> False -> statements-2 -> next statement
+
+Example 1: even or odd
+```python
+num = 25
+if num % 2 == 0:
+    print(num, "is Even")
+else:
+    print(num, "is Odd")
+```
+
+Output:
+```text
+25 is Odd
+```
+
+Example 2: leap year
+```python
+year = 2024
+if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+    print(year, "is a leap year")
+else:
+    print(year, "is not a leap year")
+```
+
+Output:
+```text
+2024 is a leap year
+```
+
+3. if-elif-else ladder
+When there are more than two choices, elif is used. Conditions are checked from top to bottom and the first True block runs.
+
+4. Nested if statement
+An if or if-else statement inside another if or else block is called a nested if. The inner condition is tested only after the outer condition has been checked. It is used when one decision depends on another.
+
+Syntax:
+```text
+if condition1:
+    if condition2:
+        statements-A
+    else:
+        statements-B
+else:
+    if condition3:
+        statements-C
+    else:
+        statements-D
+```
+
+Example 3: largest of three numbers
+```python
+a, b, c = 34, 91, 57
+if a > b:
+    if a > c:
+        largest = a
+    else:
+        largest = c
+else:
+    if b > c:
+        largest = b
+    else:
+        largest = c
+print("Largest number is", largest)
+```
+
+Output:
+```text
+Largest number is 91
+```
+
+Example 4: exam result using nested if
+```python
+theory, practical = 62, 35
+if theory >= 40:
+    if practical >= 40:
+        print("Passed in both")
+    else:
+        print("Failed in practical")
+else:
+    print("Failed in theory")
+```
+
+Output:
+```text
+Failed in practical
+```
+
+Differences between if-else and nested if
+- if-else tests one condition and chooses between two blocks.
+- Nested if tests conditions at more than one level; the inner test depends on the outer result.
+- Deep nesting reduces readability; logical operators (and, or) or elif can often replace it.
+
+Conclusion
+The if-else statement handles two-way decisions, and the nested if handles decisions inside decisions. Proper indentation is essential because it decides which statements belong to which block.
 
 === Q2
 Question: Explain iterative statements with example.
@@ -24,6 +142,112 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: November 2025 Q21
 Answer:
+Introduction
+Iterative statements (loops) execute a set of statements repeatedly. They save writing the same code many times. Python provides two looping statements, for and while, and three loop-control statements, break, continue and pass. Loops can also have an optional else part and can be nested.
+
+1. for loop
+The for loop takes each item of a sequence (range, string, list, tuple, dictionary) one by one and executes the body for it. It is used when the number of repetitions is known.
+
+Syntax:
+```text
+for variable in sequence:
+    statements
+```
+
+range(start, stop, step) generates numbers from start up to stop-1.
+
+Example 1: sum of first N natural numbers
+```python
+n = 10
+total = 0
+for i in range(1, n + 1):
+    total += i
+print("Sum =", total)
+```
+
+Output:
+```text
+Sum = 55
+```
+
+Example 2: count vowels in a word
+```python
+word = "education"
+count = 0
+for ch in word:
+    if ch in "aeiou":
+        count += 1
+print("Vowels:", count)
+```
+
+Output:
+```text
+Vowels: 5
+```
+
+2. while loop
+The while loop repeats the body as long as the condition is True. It is used when the number of repetitions is not known in advance. The loop variable must be updated inside the loop.
+
+Syntax:
+```text
+while condition:
+    statements
+```
+
+Example 3: Fibonacci numbers below 50
+```python
+a, b = 0, 1
+while a < 50:
+    print(a, end=" ")
+    a, b = b, a + b
+print()
+```
+
+Output:
+```text
+0 1 1 2 3 5 8 13 21 34
+```
+
+3. Loop with else
+The else part runs when the loop finishes normally (not by break).
+```python
+n = 13
+for d in range(2, n):
+    if n % d == 0:
+        print(n, "is not prime")
+        break
+else:
+    print(n, "is prime")
+```
+
+Output:
+```text
+13 is prime
+```
+
+4. Nested loops
+A loop inside another loop. The inner loop completes fully for each outer iteration.
+```python
+for i in range(1, 4):
+    for j in range(1, 4):
+        print(i * j, end="\t")
+    print()
+```
+
+Output:
+```text
+1	2	3
+2	4	6
+3	6	9
+```
+
+5. Loop-control statements
+- break: exits the loop.
+- continue: skips to the next iteration.
+- pass: does nothing (placeholder).
+
+Conclusion
+The for loop is used for a known number of iterations or to walk through a sequence; the while loop is used for condition-based repetition. With break, continue, else and nesting, loops can solve most repetitive tasks.
 
 === Q3
 Question: Explain various iterative statements in python with examples.
@@ -33,6 +257,121 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2024 Q21
 Answer:
+Iteration means executing a group of statements repeatedly. Python supports the following iterative statements.
+
+1. The for statement
+It iterates over the items of any sequence in order.
+```text
+for variable in sequence:
+    body
+```
+
+a) for with range()
+- range(5) gives 0 1 2 3 4
+- range(2, 7) gives 2 3 4 5 6
+- range(10, 0, -2) gives 10 8 6 4 2
+```python
+for i in range(10, 0, -2):
+    print(i, end=" ")
+print()
+```
+
+Output:
+```text
+10 8 6 4 2
+```
+
+b) for with a list
+```python
+marks = [72, 88, 65, 91]
+total = 0
+for m in marks:
+    total += m
+print("Total:", total, "Average:", total / len(marks))
+```
+
+Output:
+```text
+Total: 316 Average: 79.0
+```
+
+2. The while statement
+It repeats the body while the condition is True.
+```text
+while condition:
+    body
+```
+```python
+n = 5
+fact = 1
+while n > 1:
+    fact *= n
+    n -= 1
+print("Factorial of 5 =", fact)
+```
+
+Output:
+```text
+Factorial of 5 = 120
+```
+
+3. Infinite loop with break
+while True creates a loop that runs until break is executed.
+```python
+numbers = [12, 7, -1, 30]      # -1 means stop
+i = 0
+while True:
+    if numbers[i] == -1:
+        break
+    print("Read:", numbers[i])
+    i += 1
+```
+
+Output:
+```text
+Read: 12
+Read: 7
+```
+
+4. The continue statement
+```python
+for i in range(1, 11):
+    if i % 3 == 0:
+        continue
+    print(i, end=" ")
+print()
+```
+
+Output:
+```text
+1 2 4 5 7 8 10
+```
+
+5. The pass statement
+A placeholder that does nothing: for i in range(5): pass
+
+6. else with loops
+The else block after for/while runs when the loop ends without break.
+
+7. Nested loops: printing a number triangle
+```python
+for i in range(1, 5):
+    for j in range(1, i + 1):
+        print(j, end=" ")
+    print()
+```
+
+Output:
+```text
+1
+1 2
+1 2 3
+1 2 3 4
+```
+
+Comparison of for and while
+- for: count-controlled, iterates over a sequence, loop variable updated automatically.
+- while: condition-controlled, number of iterations may be unknown, loop variable updated by the programmer.
 
 === Q4
 Question: List out IF statement and its types.
@@ -42,3 +381,115 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2024 Q21
 Answer:
+The if statement is a decision-making statement. It tests a condition and executes a block of code only when the condition is True. Python has the following types of if statements.
+
+1. Simple if statement
+```text
+if condition:
+    statements
+```
+```python
+balance = 5000
+withdraw = 2000
+if withdraw <= balance:
+    balance -= withdraw
+    print("Collect cash. Balance:", balance)
+```
+
+Output:
+```text
+Collect cash. Balance: 3000
+```
+
+2. if-else statement
+```text
+if condition:
+    statements-1
+else:
+    statements-2
+```
+```python
+age = 16
+if age >= 18:
+    print("Can vote")
+else:
+    print("Cannot vote, wait", 18 - age, "years")
+```
+
+Output:
+```text
+Cannot vote, wait 2 years
+```
+
+3. if-elif-else (else-if ladder)
+```text
+if condition1:
+    block1
+elif condition2:
+    block2
+elif condition3:
+    block3
+else:
+    block4
+```
+```python
+day = 3
+if day == 1:
+    print("Monday")
+elif day == 2:
+    print("Tuesday")
+elif day == 3:
+    print("Wednesday")
+else:
+    print("Other day")
+```
+
+Output:
+```text
+Wednesday
+```
+
+4. Nested if statement
+```text
+if condition1:
+    if condition2:
+        statements
+    else:
+        statements
+else:
+    statements
+```
+```python
+username, password = "admin", "py@123"
+if username == "admin":
+    if password == "py@123":
+        print("Login successful")
+    else:
+        print("Wrong password")
+else:
+    print("Unknown user")
+```
+
+Output:
+```text
+Login successful
+```
+
+5. Short-hand if and conditional expression
+- One-line if: if x > 0: print("positive")
+- Conditional (ternary) expression: value = a if condition else b
+```python
+x = -4
+result = "Positive" if x > 0 else "Not positive"
+print(result)
+```
+
+Output:
+```text
+Not positive
+```
+
+Points to remember
+- A colon ( : ) ends every if, elif and else line.
+- The block is marked by indentation (usually 4 spaces).
+- Any number of elif parts can be used; else is optional and comes last.

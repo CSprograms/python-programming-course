@@ -55,6 +55,10 @@ Rules:
   exactly as written (so Python `#` comments inside code are safe).
   - A blank line starts a new paragraph.
   - Put code between a line ```` ```python ```` and a line ```` ``` ```` to show it as highlighted code.
+  - Put syntax templates or program output between ```` ```text ```` and ```` ``` ````; they are shown in a light box.
+    The convention used in the answers is a line `Output:` followed by a ```` ```text ```` block.
+  - A short first line of a paragraph with no full stop (for example `1. if-else statement` or `Syntax:`)
+    is shown in bold as a small heading.
   - Leave the answer empty if it is not ready. The website then shows the question only; once you add
     an answer, an **Answer** link appears under the question.
 - Lines starting with `#` are comments only in the header at the top of the file (before `=== Q1`).

@@ -15,6 +15,129 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2025 Q23
 Answer:
+Introduction
+A list is one of Python's most used built-in data types. It stores a collection of items in a single variable. A list is:
+- Ordered: items keep the order in which they were added and are accessed by index.
+- Mutable: items can be added, changed and removed after creation.
+- Heterogeneous: items of different data types can be stored together.
+- Allows duplicates: the same value can appear more than once.
+- Dynamic: the size grows and shrinks automatically.
+
+1. Creating lists
+```python
+empty = []
+nums = [10, 20, 30, 40, 50]
+mixed = ["Anu", 19, 8.7, True]
+nested = [[1, 2], [3, 4]]
+from_range = list(range(1, 6))
+print(empty, nums, mixed, nested, from_range)
+```
+
+Output:
+```text
+[] [10, 20, 30, 40, 50] ['Anu', 19, 8.7, True] [[1, 2], [3, 4]] [1, 2, 3, 4, 5]
+```
+
+2. Accessing elements: indexing and slicing
+Positive indexes start at 0 from the left; negative indexes start at -1 from the right.
+Index:     0   1   2   3   4
+nums  = [ 10, 20, 30, 40, 50 ]
+Negative: -5  -4  -3  -2  -1
+```python
+nums = [10, 20, 30, 40, 50]
+print(nums[0], nums[-1], nums[2])
+print(nums[1:4], nums[:2], nums[::2], nums[::-1])
+nested = [[1, 2], [3, 4]]
+print(nested[1][0])
+```
+
+Output:
+```text
+10 50 30
+[20, 30, 40] [10, 20] [10, 30, 50] [50, 40, 30, 20, 10]
+3
+```
+
+3. Updating, adding and deleting
+```python
+nums = [10, 20, 30]
+nums[1] = 25              # update
+nums.append(40)           # add at end
+nums.insert(0, 5)         # add at index
+nums.extend([50, 60])     # add many
+print(nums)
+nums.remove(30)           # delete by value
+nums.pop()                # delete last
+del nums[0]               # delete by index
+print(nums)
+```
+
+Output:
+```text
+[5, 10, 25, 30, 40, 50, 60]
+[10, 25, 40, 50]
+```
+
+4. List operators
+```python
+a, b = [1, 2], [3, 4]
+print(a + b, a * 3, 2 in a, 5 not in b, len(a + b))
+```
+
+Output:
+```text
+[1, 2, 3, 4] [1, 2, 1, 2, 1, 2] True True 4
+```
+
+5. Traversing a list
+```python
+fruits = ["apple", "mango", "grape"]
+for i, f in enumerate(fruits, start=1):
+    print(i, f)
+```
+
+Output:
+```text
+1 apple
+2 mango
+3 grape
+```
+
+6. Built-in functions with lists
+len(), max(), min(), sum(), sorted(), list()
+```python
+marks = [72, 95, 64, 88]
+print(len(marks), max(marks), min(marks), sum(marks), sorted(marks))
+print("Average:", sum(marks) / len(marks))
+```
+
+Output:
+```text
+4 95 64 319 [64, 72, 88, 95]
+Average: 79.75
+```
+
+7. Application: separating even and odd numbers
+```python
+numbers = [11, 24, 35, 42, 57, 68]
+even, odd = [], []
+for n in numbers:
+    if n % 2 == 0:
+        even.append(n)
+    else:
+        odd.append(n)
+print("Even:", even)
+print("Odd :", odd)
+```
+
+Output:
+```text
+Even: [24, 42, 68]
+Odd : [11, 35, 57]
+```
+
+Conclusion
+Lists are flexible, ordered and mutable collections. Indexing, slicing, operators, methods and loops make them suitable for storing and processing groups of data such as marks, names and records.
 
 === Q2
 Question: What is a list? Explain the basic list operations and methods.
@@ -24,3 +147,97 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2024 Q23
 Answer:
+Definition
+A list is an ordered, mutable collection of items enclosed in square brackets [ ] and separated by commas. It can store items of different types, allows duplicates, and its items are accessed by index starting from 0.
+Example: marks = [78, 85, 92]
+
+A) Basic list operations
+
+1. Indexing: list[i] gives the item at position i (negative indexes count from the end).
+2. Slicing: list[start:stop:step] gives a sub-list.
+3. Concatenation (+): joins two lists.
+4. Repetition (*): repeats a list.
+5. Membership (in, not in): tests whether an item is present.
+6. Length len(): number of items.
+7. Updating: list[i] = value changes an item.
+8. Deletion: del list[i] or del list[start:stop].
+9. Iteration: for item in list.
+10. Comparison: ==, <, > compare lists element by element.
+
+```python
+L = [10, 20, 30, 40]
+print(L[1], L[-2], L[1:3])
+print(L + [50], [7] * 3)
+print(30 in L, 99 not in L, len(L))
+L[0] = 11
+del L[1]
+print(L)
+print([1, 2, 3] == [1, 2, 3], [1, 2] < [1, 3])
+```
+
+Output:
+```text
+20 30 [20, 30]
+[10, 20, 30, 40, 50] [7, 7, 7]
+True True 4
+[11, 30, 40]
+True True
+```
+
+B) List methods
+
+1. append(x): adds x at the end.
+2. insert(i, x): inserts x at index i.
+3. extend(iterable): adds all items of another list.
+4. remove(x): removes the first occurrence of x (error if absent).
+5. pop([i]): removes and returns the item at index i (the last item by default).
+6. clear(): removes all items.
+7. index(x): returns the index of the first occurrence of x.
+8. count(x): returns how many times x occurs.
+9. sort(): sorts the list in ascending order; sort(reverse=True) sorts in descending order.
+10. reverse(): reverses the order of items.
+11. copy(): returns a shallow copy of the list.
+
+```python
+nums = [5, 3, 8]
+nums.append(3)
+print("append :", nums)
+nums.insert(1, 10)
+print("insert :", nums)
+nums.extend([7, 1])
+print("extend :", nums)
+nums.remove(3)
+print("remove :", nums)
+x = nums.pop()
+print("pop    :", nums, "removed", x)
+print("index  :", nums.index(8), "count:", nums.count(3))
+nums.sort()
+print("sort   :", nums)
+nums.sort(reverse=True)
+print("desc   :", nums)
+nums.reverse()
+print("reverse:", nums)
+backup = nums.copy()
+nums.clear()
+print("clear  :", nums, "copy:", backup)
+```
+
+Output:
+```text
+append : [5, 3, 8, 3]
+insert : [5, 10, 3, 8, 3]
+extend : [5, 10, 3, 8, 3, 7, 1]
+remove : [5, 10, 8, 3, 7, 1]
+pop    : [5, 10, 8, 3, 7] removed 1
+index  : 2 count: 1
+sort   : [3, 5, 7, 8, 10]
+desc   : [10, 8, 7, 5, 3]
+reverse: [3, 5, 7, 8, 10]
+clear  : [] copy: [3, 5, 7, 8, 10]
+```
+
+C) Built-in functions used with lists
+len(L), max(L), min(L), sum(L), sorted(L) (returns a new sorted list), list(seq) (converts a sequence to a list).
+
+Conclusion
+Lists support many operations (indexing, slicing, +, *, in) and methods (append, insert, remove, pop, sort, ...), which make them the most commonly used data structure in Python.

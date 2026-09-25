@@ -15,6 +15,99 @@ PO: PO1,PO2,PO3
 PSO: PSO1
 Asked: November 2024 Q20
 Answer:
+Introduction
+A data type is the classification of a value. It decides what kind of value a variable can hold (number, text, collection, ...) and which operations can be done on it. Python is dynamically typed: the type is decided automatically when a value is assigned. The built-in function type() returns the data type, and isinstance() checks it.
+
+1. Numeric data types
+a) int: whole numbers, positive or negative, with no size limit.
+   Example: roll_no = 101, population = 1400000000
+b) float: real numbers with a decimal point or in exponent form.
+   Example: cgpa = 8.75, speed = 3.0e8
+c) complex: numbers in the form a + bj, where j is the imaginary unit.
+   Example: z = 4 + 3j (z.real = 4.0, z.imag = 3.0)
+
+2. Boolean data type (bool)
+Has only two values, True and False. Comparisons produce bool values.
+   Example: is_passed = marks >= 40
+
+3. String data type (str)
+A sequence of characters in single, double or triple quotes. Strings are immutable and support indexing, slicing, + (join) and * (repeat).
+   Example: college = "Sri Sankara", college[0] gives 'S'
+
+4. List data type (list)
+An ordered, mutable collection written in [ ]. It can hold values of different types.
+   Example: marks = [78, 85, 92]; marks.append(66)
+
+5. Tuple data type (tuple)
+An ordered, immutable collection written in ( ).
+   Example: date_of_birth = (24, 1, 2006)
+
+6. Range (range)
+An immutable sequence of numbers, mostly used in for loops.
+   Example: range(1, 6) gives 1, 2, 3, 4, 5
+
+7. Dictionary data type (dict)
+An unordered-by-position collection of key : value pairs written in { }. Keys must be unique.
+   Example: student = {"name": "Kavin", "dept": "BCA"}
+
+8. Set data type (set, frozenset)
+An unordered collection of unique elements. Duplicates are removed automatically.
+   Example: s = {1, 2, 2, 3} gives {1, 2, 3}
+
+9. None type (NoneType)
+The single value None means "no value" or "nothing yet".
+
+Mutable vs immutable
+- Mutable (can be changed after creation): list, dict, set
+- Immutable (cannot be changed): int, float, complex, bool, str, tuple, frozenset
+
+Program: a student record using many data types
+```python
+roll_no = 101                      # int
+name = "Kavin"                     # str
+cgpa = 8.75                        # float
+z = 4 + 3j                         # complex
+is_hosteller = False               # bool
+marks = [78, 85, 92]               # list
+dob = (24, 1, 2006)                # tuple
+subjects = {"Python", "Java", "Python"}   # set (duplicate removed)
+info = {"dept": "BCA", "year": 1}  # dict
+guide = None                       # NoneType
+
+marks.append(66)                   # list can be changed
+print("Name   :", name, type(name))
+print("Roll   :", roll_no, type(roll_no))
+print("CGPA   :", cgpa, type(cgpa))
+print("z      :", z.real, z.imag, type(z))
+print("Hostel :", is_hosteller, type(is_hosteller))
+print("Marks  :", marks, type(marks))
+print("DOB    :", dob, type(dob))
+print("Count  :", len(subjects), type(subjects))
+print("Dept   :", info["dept"], type(info))
+print("Guide  :", guide, type(guide))
+print("Total  :", sum(marks))
+```
+
+Output:
+```text
+Name   : Kavin <class 'str'>
+Roll   : 101 <class 'int'>
+CGPA   : 8.75 <class 'float'>
+z      : 4.0 3.0 <class 'complex'>
+Hostel : False <class 'bool'>
+Marks  : [78, 85, 92, 66] <class 'list'>
+DOB    : (24, 1, 2006) <class 'tuple'>
+Count  : 2 <class 'set'>
+Dept   : BCA <class 'dict'>
+Guide  : None <class 'NoneType'>
+Total  : 321
+```
+
+Type conversion between data types
+int("25") gives 25, float(5) gives 5.0, str(99) gives '99', list("abc") gives ['a', 'b', 'c'], tuple([1, 2]) gives (1, 2).
+
+Conclusion
+Python provides numeric, boolean, sequence (str, list, tuple, range), mapping (dict), set and None types. Choosing the right data type makes a program correct and efficient.
 
 === Q2
 Question: Explain the different types of operators used in python.
@@ -24,6 +117,85 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2024 Q20
 Answer:
+Introduction
+An operator is a special symbol or keyword that performs an operation on one or more values called operands. In a + b, + is the operator and a, b are operands. Python has seven types of operators.
+
+1. Arithmetic operators (a = 17, b = 5)
++   Addition            a + b   = 22
+-   Subtraction         a - b   = 12
+*   Multiplication      a * b   = 85
+/   Division            a / b   = 3.4  (always gives float)
+//  Floor division      a // b  = 3    (quotient without decimals)
+%   Modulus             a % b   = 2    (remainder)
+**  Exponent            a ** 2  = 289
+
+2. Relational (comparison) operators
+Compare two values and give True or False: == (equal), != (not equal), > , < , >= , <=.
+Example: 17 > 5 gives True, 17 == 5 gives False.
+
+3. Logical operators
+Combine conditions.
+and : True only if both conditions are True
+or  : True if at least one condition is True
+not : reverses the result
+Example: (a > 10 and b > 10) gives False; not (a > 10) gives False.
+
+4. Assignment operators
+= assigns a value. Compound operators do the operation and assign:
++=, -=, *=, /=, //=, %=, **=   (x += 3 means x = x + 3)
+
+5. Bitwise operators (work on the binary form; 12 = 1100, 10 = 1010)
+&  AND          12 & 10 = 8    (1000)
+|  OR           12 | 10 = 14   (1110)
+^  XOR          12 ^ 10 = 6    (0110)
+~  NOT          ~12     = -13
+<< Left shift   12 << 1 = 24
+>> Right shift  12 >> 2 = 3
+
+6. Membership operators
+in and not in check whether a value is present in a sequence (string, list, tuple, dict keys).
+Example: 3 in [1, 2, 3] gives True.
+
+7. Identity operators
+is and is not check whether two names refer to the same object in memory.
+Example: x is None.
+
+Operator precedence (highest to lowest, main ones)
+** ; ~ ; * / // % ; + - ; << >> ; & ; ^ ; | ; comparisons, in, is ; not ; and ; or
+Example: 2 + 3 * 4 ** 2 = 2 + 3 * 16 = 50
+
+Program
+```python
+a, b = 17, 5
+print("Arithmetic :", a + b, a - b, a * b, a / b, a // b, a % b, a ** 2)
+print("Relational :", a > b, a < b, a == b, a != b)
+print("Logical    :", a > 10 and b > 10, a > 10 or b > 10, not a > 10)
+x = 10
+x += 3
+x *= 2
+print("Assignment :", x)
+print("Bitwise    :", 12 & 10, 12 | 10, 12 ^ 10, ~12, 12 << 1, 12 >> 2)
+nums = [1, 2, 3]
+print("Membership :", 3 in nums, 5 not in nums)
+y = nums
+print("Identity   :", y is nums, y is not nums)
+print("Precedence :", 2 + 3 * 4 ** 2)
+```
+
+Output:
+```text
+Arithmetic : 22 12 85 3.4 3 2 289
+Relational : True False False True
+Logical    : False True False
+Assignment : 26
+Bitwise    : 8 14 6 -13 24 3
+Membership : True True
+Identity   : True False
+Precedence : 50
+```
+
+Conclusion
+Operators are the building blocks of expressions. Python groups them as arithmetic, relational, logical, assignment, bitwise, membership and identity operators, and evaluates them by precedence.
 
 === Q3
 Question: Explain various types of operators.
@@ -33,6 +205,74 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2023 Q20
 Answer:
+An operator is a symbol that tells the interpreter to perform an operation on operands. Python supports the following types.
+
+1. Arithmetic operators
+Used for mathematical calculations.
++ addition, - subtraction, * multiplication, / division (float result), // floor division, % modulus (remainder), ** power.
+Example: 20 / 6 = 3.3333333333333335, 20 // 6 = 3, 20 % 6 = 2, 2 ** 5 = 32
+
+2. Relational (comparison) operators
+Used to compare values; the result is True or False.
+== equal to, != not equal to, > greater than, < less than, >= greater than or equal to, <= less than or equal to.
+Example: 20 >= 6 gives True
+
+3. Logical operators
+Used to combine two or more conditions.
+and (both must be True), or (any one True), not (opposite).
+Example: 20 > 6 and 6 > 1 gives True
+
+4. Assignment operators
+Used to assign values to variables.
+= simple assignment; +=, -=, *=, /=, //=, %=, **= compound assignment.
+Example: n = 5; n **= 2 makes n = 25
+
+5. Bitwise operators
+Operate on individual bits.
+& AND, | OR, ^ XOR, ~ complement, << left shift, >> right shift.
+Example: 6 & 3 = 2 (110 & 011 = 010), 6 << 2 = 24
+
+6. Membership operators
+in, not in: test whether a value is a member of a sequence.
+Example: "py" in "python" gives True
+
+7. Identity operators
+is, is not: test whether two variables point to the same object.
+Example: a = [1]; b = a; a is b gives True
+
+8. Unary and ternary forms
+Unary minus (-x) changes the sign. The conditional expression "x if condition else y" works like a ternary operator.
+Example: result = "Pass" if mark >= 40 else "Fail"
+
+Program
+```python
+p, q = 20, 6
+print(p + q, p - q, p * q, p / q, p // q, p % q, 2 ** 5)
+print(p == q, p != q, p > q, p <= q)
+print(p > 6 and q > 1, p < 6 or q < 1, not p > 6)
+n = 5
+n **= 2
+print(n)
+print(6 & 3, 6 | 3, 6 ^ 3, ~6, 6 << 2, 6 >> 1)
+print("py" in "python", "java" not in "python")
+a = [1]
+b = a
+print(a is b, a is not b)
+mark = 72
+print("Pass" if mark >= 40 else "Fail")
+```
+
+Output:
+```text
+26 14 120 3.3333333333333335 3 2 32
+False True True False
+True False False
+25
+2 7 5 -7 24 3
+True True
+True False
+Pass
+```
 
 === Q4
 Question: Explain various types of operators. Give an example of it.
@@ -42,3 +282,66 @@ PO: PO1,PO2,PO3
 PSO: PSO1
 Asked: November 2025 Q20
 Answer:
+Meaning
+Operators are symbols (or keywords) that perform operations on variables and values. The values on which they operate are called operands. Example: in total = m1 + m2, + and = are operators.
+
+Types of operators in Python
+
+1. Arithmetic operators: + - * / // % **
+Example: price = 250, qty = 3; price * qty = 750; 250 // 3 = 83; 250 % 3 = 1
+
+2. Relational operators: == != > < >= <=
+Example: mark = 65; mark >= 40 gives True
+
+3. Logical operators: and or not
+Example: attendance >= 75 and mark >= 40 decides eligibility
+
+4. Assignment operators: = += -= *= /= //= %= **=
+Example: balance = 1000; balance -= 250 leaves 750
+
+5. Bitwise operators: & | ^ ~ << >>
+Example: 5 & 1 = 1 (a number is odd when n & 1 is 1)
+
+6. Membership operators: in, not in
+Example: "BCA" in ["BCA", "BSc"] gives True
+
+7. Identity operators: is, is not
+Example: value is None
+
+Precedence and associativity
+When an expression has many operators, Python follows precedence: ** first, then * / // %, then + -, then comparisons, then not, and, or. Operators of equal precedence are evaluated left to right, except ** which is evaluated right to left (2 ** 3 ** 2 = 2 ** 9 = 512). Brackets ( ) change the order.
+
+Example program: shopping bill
+```python
+price, qty = 250, 3
+amount = price * qty                         # arithmetic
+discount = amount * 10 / 100
+amount -= discount                           # assignment
+print("Amount to pay:", amount)
+print("Boxes of 3:", 250 // 3, "Left over:", 250 % 3)
+
+attendance, mark = 80, 65
+eligible = attendance >= 75 and mark >= 40   # relational + logical
+print("Eligible:", eligible)
+
+n = 5
+print("Odd" if n & 1 else "Even")            # bitwise
+print("BCA" in ["BCA", "BSc"])               # membership
+coupon = None
+print(coupon is None)                        # identity
+print(2 ** 3 ** 2, (2 + 3) * 4)              # precedence
+```
+
+Output:
+```text
+Amount to pay: 675.0
+Boxes of 3: 83 Left over: 1
+Eligible: True
+Odd
+True
+True
+512 20
+```
+
+Conclusion
+Python provides arithmetic, relational, logical, assignment, bitwise, membership and identity operators. They are combined into expressions, which are evaluated using precedence and associativity rules.

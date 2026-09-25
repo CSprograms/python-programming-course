@@ -767,6 +767,16 @@ a { color: inherit; }
   color: var(--text-hi);
   background: none !important;
 }
+.qb-code.qb-text {
+  background: var(--paper-card);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--blue-soft);
+}
+.qb-code.qb-text code { color: var(--text-hi-light); }
+@media print {
+  .topbar, .sidebar, .qb-tabs, .qb-filters, .prev-next { display: none !important; }
+  .qb-answer-body { border-left: none; }
+}
 
 /* Question Bank links in the sidebar */
 .qb-tree {

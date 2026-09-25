@@ -15,6 +15,22 @@ PO: PO1
 PSO: PSO1
 Asked: November 2025 Q12
 Answer:
+break: stops the loop immediately and moves control to the first statement after the loop.
+continue: skips the remaining statements of the current iteration and goes to the next iteration of the loop.
+
+```python
+for i in range(1, 8):
+    if i == 3:
+        continue      # skip 3
+    if i == 6:
+        break         # stop at 6
+    print(i, end=" ")
+```
+
+Output:
+```text
+1 2 4 5
+```
 
 === Q2
 Question: Define elif statement.
@@ -24,6 +40,32 @@ PO: PO1
 PSO: PSO1
 Asked: November 2023 Q4
 Answer:
+elif (short for "else if") is used to check another condition when the previous if condition is False. It allows many choices in one if statement; only the first True block is executed. An optional else at the end runs when no condition is True.
+
+Syntax:
+```text
+if condition1:
+    statements
+elif condition2:
+    statements
+else:
+    statements
+```
+
+```python
+mark = 72
+if mark >= 80:
+    print("Grade A")
+elif mark >= 60:
+    print("Grade B")
+else:
+    print("Grade C")
+```
+
+Output:
+```text
+Grade B
+```
 
 === Q3
 Question: Difference between while and do-while loop.
@@ -34,6 +76,26 @@ PSO: PSO1
 Asked: November 2025 Q4
 Note: Python has no do-while loop; answer by contrasting while with the do-while idiom (while True: ... if not cond: break).
 Answer:
+Note: Python has a while loop but no do-while loop. The difference is:
+
+while loop: entry-controlled. The condition is checked first, so the body may run zero times.
+do-while loop (C, Java): exit-controlled. The body runs first and the condition is checked at the end, so the body runs at least once.
+
+In Python, do-while is written with while True and break:
+```python
+n = 10
+while n < 5:          # while: body never runs
+    print("while", n)
+while True:           # do-while style: body runs once
+    print("do-while", n)
+    if not n < 5:
+        break
+```
+
+Output:
+```text
+do-while 10
+```
 
 === Q4
 Question: Different between for and while loops.
@@ -43,6 +105,36 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2023 Q3
 Answer:
+for loop:
+1. Used when the number of iterations is known.
+2. Iterates over a sequence (range, string, list, ...).
+3. The loop variable is updated automatically.
+   Example: for i in range(5):
+
+while loop:
+1. Used when the number of iterations is not known in advance.
+2. Repeats as long as a condition is True.
+3. The loop variable must be initialised and updated by the programmer, otherwise the loop may never end.
+   Example: while n > 0:
+
+```python
+for i in range(1, 4):
+    print("for", i)
+i = 1
+while i <= 3:
+    print("while", i)
+    i += 1
+```
+
+Output:
+```text
+for 1
+for 2
+for 3
+while 1
+while 2
+while 3
+```
 
 === Q5
 Question: Differentiate between break and continue statement.
@@ -52,6 +144,34 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: April 2024 Q5
 Answer:
+break:
+1. Terminates the whole loop.
+2. Control goes to the statement after the loop.
+3. Remaining iterations are not executed.
+
+continue:
+1. Terminates only the current iteration.
+2. Control goes back to the loop for the next iteration.
+3. The loop continues with the remaining iterations.
+
+```python
+for ch in "PYTHON":
+    if ch == "H":
+        break
+    print(ch, end="")
+print()
+for ch in "PYTHON":
+    if ch == "H":
+        continue
+    print(ch, end="")
+print()
+```
+
+Output:
+```text
+PYT
+PYTON
+```
 
 === Q6
 Question: List out the uses of Break statement.
@@ -61,6 +181,24 @@ PO: PO1,PO3
 PSO: PSO1
 Asked: November 2024 Q3
 Answer:
+Uses of the break statement:
+1. To stop a loop immediately when a condition is met.
+2. To end a search once the required item is found (no need to check the rest).
+3. To come out of an infinite loop such as while True.
+4. To stop reading input when the user enters a sentinel value (for example 0 or "quit").
+5. In a nested loop, it exits only the innermost loop in which it appears.
+
+```python
+for n in [4, 9, 15, 22, 30]:
+    if n % 5 == 0:
+        print("First multiple of 5:", n)
+        break
+```
+
+Output:
+```text
+First multiple of 5: 15
+```
 
 === Q7
 Question: What do you mean by conditional statements?
@@ -70,6 +208,24 @@ PO: PO1
 PSO: PSO1
 Asked: November 2025 Q3
 Answer:
+Conditional (selection or decision-making) statements execute a block of code only when a condition is True; otherwise another block is executed or it is skipped. Python's conditional statements are:
+1. if
+2. if-else
+3. if-elif-else (ladder)
+4. nested if (an if inside another if)
+
+```python
+age = 20
+if age >= 18:
+    print("Eligible to vote")
+else:
+    print("Not eligible")
+```
+
+Output:
+```text
+Eligible to vote
+```
 
 === Q8
 Question: What is indefinite loop?
@@ -79,6 +235,21 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q4
 Answer:
+An indefinite loop is a loop in which the number of iterations is not known before the loop starts; it runs until a condition becomes False. In Python the while loop is used for this. A loop whose condition never becomes False is an infinite loop (for example while True:), and it must be stopped with break.
+
+```python
+n = 1234
+digits = 0
+while n > 0:          # repeats until n becomes 0
+    n = n // 10
+    digits += 1
+print("Digits:", digits)
+```
+
+Output:
+```text
+Digits: 4
+```
 
 === Q9
 Question: What is iterative statement?
@@ -88,6 +259,20 @@ PO: PO1
 PSO: PSO1
 Asked: November 2023 Q12
 Answer:
+An iterative (looping) statement executes a block of statements repeatedly, either a fixed number of times or while a condition is True. Python has two iterative statements:
+1. for loop: repeats for each item of a sequence.
+2. while loop: repeats while a condition is True.
+break, continue and pass are used to control loops.
+
+```python
+for i in range(1, 6):
+    print(i, end=" ")
+```
+
+Output:
+```text
+1 2 3 4 5
+```
 
 === Q10
 Question: What is nested loop?
@@ -97,6 +282,21 @@ PO: PO1
 PSO: PSO1
 Asked: April 2024 Q6
 Answer:
+A nested loop is a loop written inside the body of another loop. For every single iteration of the outer loop, the inner loop runs completely. It is used for patterns, tables and matrices.
+
+```python
+for i in range(1, 4):          # outer loop: rows
+    for j in range(1, i + 1):  # inner loop: columns
+        print("*", end=" ")
+    print()
+```
+
+Output:
+```text
+*
+* *
+* * *
+```
 
 === Q11
 Question: Write a Syntax of Continue Statement.
@@ -106,6 +306,27 @@ PO: PO1
 PSO: PSO1
 Asked: April 2025 Q4
 Answer:
+The continue statement skips the rest of the current iteration and goes to the next iteration.
+
+Syntax:
+```text
+for variable in sequence:
+    if condition:
+        continue
+    statements
+```
+
+```python
+for i in range(1, 6):
+    if i == 3:
+        continue
+    print(i, end=" ")
+```
+
+Output:
+```text
+1 2 4 5
+```
 
 === Q12
 Question: Write down the syntax for loop statement.
@@ -115,3 +336,24 @@ PO: PO1
 PSO: PSO1
 Asked: November 2024 Q4
 Answer:
+The for loop repeats a block of statements for each item in a sequence (range, string, list, tuple, dictionary).
+
+Syntax:
+```text
+for variable in sequence:
+    statements
+else:                 # optional, runs when the loop ends normally
+    statements
+```
+
+range(start, stop, step) is commonly used to produce the sequence.
+
+```python
+for i in range(2, 11, 2):
+    print(i, end=" ")
+```
+
+Output:
+```text
+2 4 6 8 10
+```

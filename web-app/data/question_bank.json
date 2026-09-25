@@ -32,7 +32,7 @@
           "qno": 11
         }
       ],
-      "answer": "",
+      "answer": "In Python a variable is declared and initialized in one step: write the variable name, the assignment operator = and a value. No data type is written; Python decides the type from the value.\n\nSyntax:  variable_name = value\n\n```python\nage = 19              # int\nname = \"Priya\"        # str\na, b, c = 1, 2, 3     # several variables in one line\nx = y = 0             # same value to many variables\nprint(age, name, a, b, c, x, y)\n```\n\nOutput:\n```text\n19 Priya 1 2 3 0 0\n```",
       "id": 1
     },
     {
@@ -52,7 +52,7 @@
           "qno": 1
         }
       ],
-      "answer": "",
+      "answer": "Rules for naming a variable (identifier) in Python:\n1. The name can contain letters (a–z, A–Z), digits (0–9) and the underscore ( _ ).\n2. It must start with a letter or an underscore, not a digit (1total is invalid).\n3. Spaces and special symbols such as @, $, %, - are not allowed (my-name is invalid).\n4. A keyword cannot be used as a name (for, if, class are invalid).\n5. Names are case-sensitive: total, Total and TOTAL are three different variables.\n\nValid: total, _count, mark1, student_name        Invalid: 1mark, my name, for, a$b",
       "id": 2
     },
     {
@@ -72,7 +72,7 @@
           "qno": 2
         }
       ],
-      "answer": "",
+      "answer": "A comment is a note written in the program to explain the code. The Python interpreter ignores comments; they are not executed.\n\n- Single-line comment: starts with the # symbol.\n- Multi-line comment: several lines each starting with #. A string in triple quotes (\"\"\" ... \"\"\") that is not assigned to a variable is also often used as a multi-line comment.\n\n```python\n# This program adds two numbers\na = 10\nb = 20\nprint(a + b)   # prints the sum\n```",
       "id": 3
     },
     {
@@ -92,7 +92,7 @@
           "qno": 2
         }
       ],
-      "answer": "",
+      "answer": "A comment is an explanatory note in a program that is ignored by the Python interpreter. It makes the program easier to read and understand. A single-line comment starts with #; a multi-line comment can be written with # on every line or inside triple quotes.\n\nExample:\n```python\n# Program to find the area of a circle   (single-line comment)\nr = 5\narea = 3.14 * r * r     # formula: pi * r * r\n\"\"\"\nThis is a multi-line comment\nwritten using triple quotes.\n\"\"\"\nprint(\"Area =\", area)\n```\n\nOutput:\n```text\nArea = 78.5\n```",
       "id": 4
     },
     {
@@ -112,7 +112,7 @@
           "qno": 1
         }
       ],
-      "answer": "",
+      "answer": "A constant is a value that does not change while the program runs.\n- Literal constants are fixed values written directly in the program, such as 10, 3.14, \"Hello\", True.\n- Python has no special keyword for named constants. By convention, a variable written in CAPITAL letters is treated as a constant and should not be changed, for example PI = 3.14159 and MAX_MARKS = 100.\n\n```python\nPI = 3.14159\nMAX_MARKS = 100\nprint(PI, MAX_MARKS)\n```\n\nOutput:\n```text\n3.14159 100\n```",
       "id": 5
     },
     {
@@ -132,7 +132,7 @@
           "qno": 2
         }
       ],
-      "answer": "",
+      "answer": "An expression is a combination of values (operands), variables and operators that Python evaluates to produce a single value.\n\nExamples: 5 + 3 gives 8; a * b - c; x > y gives True or False.\n\n```python\na, b = 10, 4\nresult = a * 2 + b     # expression\nprint(result)\nprint(a > b)           # relational expression\n```\n\nOutput:\n```text\n24\nTrue\n```",
       "id": 6
     },
     {
@@ -152,7 +152,7 @@
           "qno": 1
         }
       ],
-      "answer": "",
+      "answer": "An identifier is the name given to a program element such as a variable, function, class or module. It identifies that element in the program.\n\nRules: it may contain letters, digits and underscore; it must not start with a digit; it cannot be a keyword; no spaces or special symbols; it is case-sensitive.\n\nExamples of valid identifiers: total, _count, student_name, mark1.\nInvalid: 2marks, for, my name.",
       "id": 7
     },
     {
@@ -172,7 +172,7 @@
           "qno": 2
         }
       ],
-      "answer": "",
+      "answer": "Indentation is the white space (spaces or tabs) at the beginning of a line. Python uses indentation to mark a block of code, instead of braces { } used in C or Java. All statements in the same block must have the same indentation (4 spaces is the standard). Wrong indentation gives an IndentationError.\n\n```python\nmarks = 75\nif marks >= 40:\n    print(\"Pass\")        # indented: inside the if block\n    print(\"Well done\")\nprint(\"End\")             # not indented: outside the block\n```\n\nOutput:\n```text\nPass\nWell done\nEnd\n```",
       "id": 8
     },
     {
@@ -192,7 +192,7 @@
           "qno": 3
         }
       ],
-      "answer": "",
+      "answer": "A keyword is a reserved word that has a special meaning to the Python interpreter. Keywords cannot be used as variable, function or class names. Python 3 has about 35 keywords, and all are lowercase except True, False and None.\n\nExamples: if, else, elif, for, while, break, continue, def, return, class, import, True, False, None, and, or, not, in, is.\n\nThe full list can be printed with:\n```python\nimport keyword\nprint(len(keyword.kwlist) > 30, \"for\" in keyword.kwlist)\n```\n\nOutput:\n```text\nTrue True\n```",
       "id": 9
     },
     {
@@ -212,7 +212,7 @@
           "qno": 1
         }
       ],
-      "answer": "",
+      "answer": "A literal is a fixed value written directly in the source code.\n\nTypes of literals:\n1. Numeric literals: 10 (int), 3.14 (float), 2+3j (complex)\n2. String literals: 'Python', \"BCA\", '''multi-line'''\n3. Boolean literals: True, False\n4. Special literal: None (means \"no value\")\n5. Collection literals: [1, 2] list, (1, 2) tuple, {\"a\": 1} dictionary, {1, 2} set\n\nExample: in x = 25, the value 25 is an integer literal.",
       "id": 10
     },
     {
@@ -232,7 +232,7 @@
           "qno": 11
         }
       ],
-      "answer": "",
+      "answer": "Type conversion is changing a value from one data type to another.\n1. Implicit conversion: Python converts automatically, for example int + float gives float (5 + 2.5 = 7.5).\n2. Explicit conversion (type casting): the programmer converts using functions such as int(), float(), str(), bool(), list(), tuple().\n\n```python\na = 5 + 2.5          # implicit: int -> float\nb = int(\"25\")        # explicit: str -> int\nc = str(100)         # explicit: int -> str\nprint(a, b + 1, c + \"!\")\n```\n\nOutput:\n```text\n7.5 26 100!\n```",
       "id": 11
     },
     {
@@ -252,7 +252,7 @@
           "qno": 1
         }
       ],
-      "answer": "",
+      "answer": "1. Simple and easy to learn: the syntax is close to English and programs are short.\n2. Interpreted: the code runs line by line, so errors are easy to find.\n3. Dynamically typed: no need to declare the data type of a variable.\n4. Platform independent (portable): the same program runs on Windows, Linux and macOS.\n5. Free and open source, with a large standard library (\"batteries included\").\n6. Object-oriented, and supports procedural programming too.",
       "id": 12
     },
     {
@@ -272,7 +272,7 @@
           "qno": 2
         }
       ],
-      "answer": "",
+      "answer": "The input() function reads a line typed by the user from the keyboard. It always returns the value as a string, so int() or float() is used to convert numbers.\n\nSyntax:  variable = input(\"prompt message\")\n\n```text\nname = input(\"Enter your name: \")\nage = int(input(\"Enter your age: \"))\nmark = float(input(\"Enter your mark: \"))\nprint(\"Hello\", name, \"your age is\", age)\n```\n\nSample run:\n```text\nEnter your name: Ravi\nEnter your age: 19\nEnter your mark: 82.5\nHello Ravi your age is 19\n```",
       "id": 13
     },
     {
@@ -292,7 +292,7 @@
           "qno": 13
         }
       ],
-      "answer": "",
+      "answer": "Python is a high-level, general-purpose programming language created by Guido van Rossum (first released in 1991). Its main features are:\n\n1. Simple and easy to learn\nThe syntax is close to English, uses few symbols and needs fewer lines than C or Java.\n\n2. Interpreted language\nPython code is executed line by line by the interpreter. There is no separate compile step, and errors are reported with the line number.\n\n3. Dynamically typed\nThe type of a variable is decided at run time from its value; no declaration is needed (x = 10, then x = \"ten\").\n\n4. Free and open source\nPython can be downloaded, used and shared freely.\n\n5. Platform independent (portable)\nA program written on Windows runs on Linux or macOS without changes.\n\n6. Object-oriented\nIt supports classes and objects, and also procedural and functional styles.\n\n7. Large standard library\nReady-made modules such as math, random, datetime and os save programming effort (\"batteries included\").\n\n8. Extensible and embeddable\nPython can use code written in C/C++ and can be embedded in other applications.\n\n9. High-level language\nMemory management is automatic (garbage collection); the programmer does not handle memory addresses.\n\n10. Wide range of applications\nWeb development, data science, machine learning, automation, scripting and games.\n\nExample (a complete program in three lines):\n```python\nname = \"BCA\"\nyear = 2026\nprint(\"Welcome to Python,\", name, year)\n```\n\nOutput:\n```text\nWelcome to Python, BCA 2026\n```",
       "id": 14
     },
     {
@@ -312,7 +312,7 @@
           "qno": 13
         }
       ],
-      "answer": "",
+      "answer": "An operator is a symbol that performs an operation on values (operands). Example: in 5 + 3, + is the operator and 5, 3 are operands. Python operators are:\n\n1. Arithmetic operators: + (add), - (subtract), * (multiply), / (divide, float result), // (floor division), % (remainder), ** (power).\n2. Relational (comparison) operators: ==, !=, >, <, >=, <=. The result is True or False.\n3. Logical operators: and, or, not.\n4. Assignment operators: =, +=, -=, *=, /=, //=, %=, **=.\n5. Bitwise operators: & (AND), | (OR), ^ (XOR), ~ (NOT), << (left shift), >> (right shift).\n6. Membership operators: in, not in (checks whether a value is in a sequence).\n7. Identity operators: is, is not (checks whether two names refer to the same object).\n\n```python\na, b = 10, 3\nprint(a + b, a / b, a // b, a % b, a ** 2)   # arithmetic\nprint(a > b, a == b)                         # relational\nprint(a > 5 and b > 5, not a > 5)            # logical\na += 2                                       # assignment (a = a + 2)\nprint(a)\nprint(6 & 3, 6 | 3, 6 << 1)                  # bitwise\nprint('y' in 'Python')                       # membership\nx = [1, 2]\ny = x\nprint(x is y)                                # identity\n```\n\nOutput:\n```text\n13 3.3333333333333335 3 1 100\nTrue False\nFalse False\n12\n2 7 12\nTrue\nTrue\n```",
       "id": 15
     },
     {
@@ -332,7 +332,7 @@
           "qno": 14
         }
       ],
-      "answer": "",
+      "answer": "Python provides seven types of operators:\n1. Arithmetic operators: +  -  *  /  //  %  **\n   Example: 7 // 2 = 3, 7 % 2 = 1, 2 ** 3 = 8\n2. Relational (comparison) operators: ==  !=  >  <  >=  <=\n   Example: 5 > 3 gives True\n3. Logical operators: and  or  not\n   Example: (5 > 3) and (2 > 4) gives False\n4. Assignment operators: =  +=  -=  *=  /=  //=  %=  **=\n   Example: x += 5 means x = x + 5\n5. Bitwise operators: &  |  ^  ~  <<  >>\n   Example: 5 & 3 = 1, 5 | 3 = 7\n6. Membership operators: in  not in\n   Example: 'a' in 'java' gives True\n7. Identity operators: is  is not\n   Example: x is None\n\n```python\nx = 7\nprint(x // 2, x % 2, 2 ** 3)\nprint(x > 3 and x < 10)\nx += 5\nprint(x, 5 & 3, 5 | 3, 'a' in 'java')\n```\n\nOutput:\n```text\n3 1 8\nTrue\n12 1 7 True\n```",
       "id": 16
     },
     {
@@ -352,7 +352,7 @@
           "qno": 13
         }
       ],
-      "answer": "",
+      "answer": "A data type tells what kind of value a variable holds and which operations are allowed on it. The type() function shows the data type. Python's built-in data types are:\n\n1. Numeric types\n- int: whole numbers of any size, e.g. 25, -7\n- float: numbers with a decimal point, e.g. 3.14, 2.5e3\n- complex: numbers with a real and an imaginary part, e.g. 3+4j\n\n2. Boolean type (bool)\nHas only two values, True and False. It is the result of comparisons.\n\n3. Sequence types\n- str: a sequence of characters in quotes, e.g. \"Python\". Strings are immutable.\n- list: an ordered, changeable collection in [ ], e.g. [10, 20, 30]\n- tuple: an ordered, unchangeable collection in ( ), e.g. (1, 2, 3)\n- range: a sequence of numbers, e.g. range(1, 5)\n\n4. Mapping type (dict)\nKey-value pairs in { }, e.g. {\"name\": \"Ravi\", \"age\": 19}\n\n5. Set types\n- set: an unordered collection of unique items, e.g. {1, 2, 3}\n- frozenset: an immutable set\n\n6. None type\nNone represents \"no value\".\n\n```python\na = 25; b = 3.14; c = 3 + 4j; d = True\ns = \"BCA\"; l = [1, 2]; t = (1, 2); dt = {\"x\": 1}; st = {1, 2}; n = None\nnames = [type(v).__name__ for v in (a, b, c, d, s, l, t, dt, st, n)]\nprint(\" \".join(names))\n```\n\nOutput:\n```text\nint float complex bool str list tuple dict set NoneType\n```",
       "id": 17
     },
     {
@@ -372,7 +372,7 @@
           "qno": 14
         }
       ],
-      "answer": "",
+      "answer": "Every value in Python has a data type. Python decides the type automatically from the value, and type() shows it.\n\n1. int: integers such as 10, -45, 1000000. There is no size limit.\n2. float: real numbers with a decimal point, such as 2.5 and -0.75.\n3. complex: numbers in the form a+bj, such as 2+3j.\n4. bool: logical values True and False.\n5. str: text in single, double or triple quotes, such as 'hello'. Strings are immutable.\n6. list: an ordered, mutable collection, such as [1, \"a\", 2.5].\n7. tuple: an ordered, immutable collection, such as (10, 20).\n8. dict: key-value pairs, such as {\"roll\": 1, \"name\": \"Anu\"}.\n9. set: an unordered collection of unique values, such as {1, 2, 3}.\n10. NoneType: the special value None.\n\nMutable types (can be changed): list, dict, set.\nImmutable types (cannot be changed): int, float, complex, bool, str, tuple.\n\n```python\nmarks = [80, 90]\nmarks.append(75)          # list is mutable\nprint(marks, type(marks))\nname = \"python\"\nprint(name.upper(), type(name))\nprint(type(10), type(2.5), type(2+3j), type(True))\n```\n\nOutput:\n```text\n[80, 90, 75] <class 'list'>\nPYTHON <class 'str'>\n<class 'int'> <class 'float'> <class 'complex'> <class 'bool'>\n```",
       "id": 18
     },
     {
@@ -392,7 +392,7 @@
           "qno": 20
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nA data type is the classification of a value. It decides what kind of value a variable can hold (number, text, collection, ...) and which operations can be done on it. Python is dynamically typed: the type is decided automatically when a value is assigned. The built-in function type() returns the data type, and isinstance() checks it.\n\n1. Numeric data types\na) int: whole numbers, positive or negative, with no size limit.\n   Example: roll_no = 101, population = 1400000000\nb) float: real numbers with a decimal point or in exponent form.\n   Example: cgpa = 8.75, speed = 3.0e8\nc) complex: numbers in the form a + bj, where j is the imaginary unit.\n   Example: z = 4 + 3j (z.real = 4.0, z.imag = 3.0)\n\n2. Boolean data type (bool)\nHas only two values, True and False. Comparisons produce bool values.\n   Example: is_passed = marks >= 40\n\n3. String data type (str)\nA sequence of characters in single, double or triple quotes. Strings are immutable and support indexing, slicing, + (join) and * (repeat).\n   Example: college = \"Sri Sankara\", college[0] gives 'S'\n\n4. List data type (list)\nAn ordered, mutable collection written in [ ]. It can hold values of different types.\n   Example: marks = [78, 85, 92]; marks.append(66)\n\n5. Tuple data type (tuple)\nAn ordered, immutable collection written in ( ).\n   Example: date_of_birth = (24, 1, 2006)\n\n6. Range (range)\nAn immutable sequence of numbers, mostly used in for loops.\n   Example: range(1, 6) gives 1, 2, 3, 4, 5\n\n7. Dictionary data type (dict)\nAn unordered-by-position collection of key : value pairs written in { }. Keys must be unique.\n   Example: student = {\"name\": \"Kavin\", \"dept\": \"BCA\"}\n\n8. Set data type (set, frozenset)\nAn unordered collection of unique elements. Duplicates are removed automatically.\n   Example: s = {1, 2, 2, 3} gives {1, 2, 3}\n\n9. None type (NoneType)\nThe single value None means \"no value\" or \"nothing yet\".\n\nMutable vs immutable\n- Mutable (can be changed after creation): list, dict, set\n- Immutable (cannot be changed): int, float, complex, bool, str, tuple, frozenset\n\nProgram: a student record using many data types\n```python\nroll_no = 101                      # int\nname = \"Kavin\"                     # str\ncgpa = 8.75                        # float\nz = 4 + 3j                         # complex\nis_hosteller = False               # bool\nmarks = [78, 85, 92]               # list\ndob = (24, 1, 2006)                # tuple\nsubjects = {\"Python\", \"Java\", \"Python\"}   # set (duplicate removed)\ninfo = {\"dept\": \"BCA\", \"year\": 1}  # dict\nguide = None                       # NoneType\n\nmarks.append(66)                   # list can be changed\nprint(\"Name   :\", name, type(name))\nprint(\"Roll   :\", roll_no, type(roll_no))\nprint(\"CGPA   :\", cgpa, type(cgpa))\nprint(\"z      :\", z.real, z.imag, type(z))\nprint(\"Hostel :\", is_hosteller, type(is_hosteller))\nprint(\"Marks  :\", marks, type(marks))\nprint(\"DOB    :\", dob, type(dob))\nprint(\"Count  :\", len(subjects), type(subjects))\nprint(\"Dept   :\", info[\"dept\"], type(info))\nprint(\"Guide  :\", guide, type(guide))\nprint(\"Total  :\", sum(marks))\n```\n\nOutput:\n```text\nName   : Kavin <class 'str'>\nRoll   : 101 <class 'int'>\nCGPA   : 8.75 <class 'float'>\nz      : 4.0 3.0 <class 'complex'>\nHostel : False <class 'bool'>\nMarks  : [78, 85, 92, 66] <class 'list'>\nDOB    : (24, 1, 2006) <class 'tuple'>\nCount  : 2 <class 'set'>\nDept   : BCA <class 'dict'>\nGuide  : None <class 'NoneType'>\nTotal  : 321\n```\n\nType conversion between data types\nint(\"25\") gives 25, float(5) gives 5.0, str(99) gives '99', list(\"abc\") gives ['a', 'b', 'c'], tuple([1, 2]) gives (1, 2).\n\nConclusion\nPython provides numeric, boolean, sequence (str, list, tuple, range), mapping (dict), set and None types. Choosing the right data type makes a program correct and efficient.",
       "id": 19
     },
     {
@@ -412,7 +412,7 @@
           "qno": 20
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nAn operator is a special symbol or keyword that performs an operation on one or more values called operands. In a + b, + is the operator and a, b are operands. Python has seven types of operators.\n\n1. Arithmetic operators (a = 17, b = 5)\n+   Addition            a + b   = 22\n-   Subtraction         a - b   = 12\n*   Multiplication      a * b   = 85\n/   Division            a / b   = 3.4  (always gives float)\n//  Floor division      a // b  = 3    (quotient without decimals)\n%   Modulus             a % b   = 2    (remainder)\n**  Exponent            a ** 2  = 289\n\n2. Relational (comparison) operators\nCompare two values and give True or False: == (equal), != (not equal), > , < , >= , <=.\nExample: 17 > 5 gives True, 17 == 5 gives False.\n\n3. Logical operators\nCombine conditions.\nand : True only if both conditions are True\nor  : True if at least one condition is True\nnot : reverses the result\nExample: (a > 10 and b > 10) gives False; not (a > 10) gives False.\n\n4. Assignment operators\n= assigns a value. Compound operators do the operation and assign:\n+=, -=, *=, /=, //=, %=, **=   (x += 3 means x = x + 3)\n\n5. Bitwise operators (work on the binary form; 12 = 1100, 10 = 1010)\n&  AND          12 & 10 = 8    (1000)\n|  OR           12 | 10 = 14   (1110)\n^  XOR          12 ^ 10 = 6    (0110)\n~  NOT          ~12     = -13\n<< Left shift   12 << 1 = 24\n>> Right shift  12 >> 2 = 3\n\n6. Membership operators\nin and not in check whether a value is present in a sequence (string, list, tuple, dict keys).\nExample: 3 in [1, 2, 3] gives True.\n\n7. Identity operators\nis and is not check whether two names refer to the same object in memory.\nExample: x is None.\n\nOperator precedence (highest to lowest, main ones)\n** ; ~ ; * / // % ; + - ; << >> ; & ; ^ ; | ; comparisons, in, is ; not ; and ; or\nExample: 2 + 3 * 4 ** 2 = 2 + 3 * 16 = 50\n\nProgram\n```python\na, b = 17, 5\nprint(\"Arithmetic :\", a + b, a - b, a * b, a / b, a // b, a % b, a ** 2)\nprint(\"Relational :\", a > b, a < b, a == b, a != b)\nprint(\"Logical    :\", a > 10 and b > 10, a > 10 or b > 10, not a > 10)\nx = 10\nx += 3\nx *= 2\nprint(\"Assignment :\", x)\nprint(\"Bitwise    :\", 12 & 10, 12 | 10, 12 ^ 10, ~12, 12 << 1, 12 >> 2)\nnums = [1, 2, 3]\nprint(\"Membership :\", 3 in nums, 5 not in nums)\ny = nums\nprint(\"Identity   :\", y is nums, y is not nums)\nprint(\"Precedence :\", 2 + 3 * 4 ** 2)\n```\n\nOutput:\n```text\nArithmetic : 22 12 85 3.4 3 2 289\nRelational : True False False True\nLogical    : False True False\nAssignment : 26\nBitwise    : 8 14 6 -13 24 3\nMembership : True True\nIdentity   : True False\nPrecedence : 50\n```\n\nConclusion\nOperators are the building blocks of expressions. Python groups them as arithmetic, relational, logical, assignment, bitwise, membership and identity operators, and evaluates them by precedence.",
       "id": 20
     },
     {
@@ -432,7 +432,7 @@
           "qno": 20
         }
       ],
-      "answer": "",
+      "answer": "An operator is a symbol that tells the interpreter to perform an operation on operands. Python supports the following types.\n\n1. Arithmetic operators\nUsed for mathematical calculations.\n+ addition, - subtraction, * multiplication, / division (float result), // floor division, % modulus (remainder), ** power.\nExample: 20 / 6 = 3.3333333333333335, 20 // 6 = 3, 20 % 6 = 2, 2 ** 5 = 32\n\n2. Relational (comparison) operators\nUsed to compare values; the result is True or False.\n== equal to, != not equal to, > greater than, < less than, >= greater than or equal to, <= less than or equal to.\nExample: 20 >= 6 gives True\n\n3. Logical operators\nUsed to combine two or more conditions.\nand (both must be True), or (any one True), not (opposite).\nExample: 20 > 6 and 6 > 1 gives True\n\n4. Assignment operators\nUsed to assign values to variables.\n= simple assignment; +=, -=, *=, /=, //=, %=, **= compound assignment.\nExample: n = 5; n **= 2 makes n = 25\n\n5. Bitwise operators\nOperate on individual bits.\n& AND, | OR, ^ XOR, ~ complement, << left shift, >> right shift.\nExample: 6 & 3 = 2 (110 & 011 = 010), 6 << 2 = 24\n\n6. Membership operators\nin, not in: test whether a value is a member of a sequence.\nExample: \"py\" in \"python\" gives True\n\n7. Identity operators\nis, is not: test whether two variables point to the same object.\nExample: a = [1]; b = a; a is b gives True\n\n8. Unary and ternary forms\nUnary minus (-x) changes the sign. The conditional expression \"x if condition else y\" works like a ternary operator.\nExample: result = \"Pass\" if mark >= 40 else \"Fail\"\n\nProgram\n```python\np, q = 20, 6\nprint(p + q, p - q, p * q, p / q, p // q, p % q, 2 ** 5)\nprint(p == q, p != q, p > q, p <= q)\nprint(p > 6 and q > 1, p < 6 or q < 1, not p > 6)\nn = 5\nn **= 2\nprint(n)\nprint(6 & 3, 6 | 3, 6 ^ 3, ~6, 6 << 2, 6 >> 1)\nprint(\"py\" in \"python\", \"java\" not in \"python\")\na = [1]\nb = a\nprint(a is b, a is not b)\nmark = 72\nprint(\"Pass\" if mark >= 40 else \"Fail\")\n```\n\nOutput:\n```text\n26 14 120 3.3333333333333335 3 2 32\nFalse True True False\nTrue False False\n25\n2 7 5 -7 24 3\nTrue True\nTrue False\nPass\n```",
       "id": 21
     },
     {
@@ -452,7 +452,7 @@
           "qno": 20
         }
       ],
-      "answer": "",
+      "answer": "Meaning\nOperators are symbols (or keywords) that perform operations on variables and values. The values on which they operate are called operands. Example: in total = m1 + m2, + and = are operators.\n\nTypes of operators in Python\n\n1. Arithmetic operators: + - * / // % **\nExample: price = 250, qty = 3; price * qty = 750; 250 // 3 = 83; 250 % 3 = 1\n\n2. Relational operators: == != > < >= <=\nExample: mark = 65; mark >= 40 gives True\n\n3. Logical operators: and or not\nExample: attendance >= 75 and mark >= 40 decides eligibility\n\n4. Assignment operators: = += -= *= /= //= %= **=\nExample: balance = 1000; balance -= 250 leaves 750\n\n5. Bitwise operators: & | ^ ~ << >>\nExample: 5 & 1 = 1 (a number is odd when n & 1 is 1)\n\n6. Membership operators: in, not in\nExample: \"BCA\" in [\"BCA\", \"BSc\"] gives True\n\n7. Identity operators: is, is not\nExample: value is None\n\nPrecedence and associativity\nWhen an expression has many operators, Python follows precedence: ** first, then * / // %, then + -, then comparisons, then not, and, or. Operators of equal precedence are evaluated left to right, except ** which is evaluated right to left (2 ** 3 ** 2 = 2 ** 9 = 512). Brackets ( ) change the order.\n\nExample program: shopping bill\n```python\nprice, qty = 250, 3\namount = price * qty                         # arithmetic\ndiscount = amount * 10 / 100\namount -= discount                           # assignment\nprint(\"Amount to pay:\", amount)\nprint(\"Boxes of 3:\", 250 // 3, \"Left over:\", 250 % 3)\n\nattendance, mark = 80, 65\neligible = attendance >= 75 and mark >= 40   # relational + logical\nprint(\"Eligible:\", eligible)\n\nn = 5\nprint(\"Odd\" if n & 1 else \"Even\")            # bitwise\nprint(\"BCA\" in [\"BCA\", \"BSc\"])               # membership\ncoupon = None\nprint(coupon is None)                        # identity\nprint(2 ** 3 ** 2, (2 + 3) * 4)              # precedence\n```\n\nOutput:\n```text\nAmount to pay: 675.0\nBoxes of 3: 83 Left over: 1\nEligible: True\nOdd\nTrue\nTrue\n512 20\n```\n\nConclusion\nPython provides arithmetic, relational, logical, assignment, bitwise, membership and identity operators. They are combined into expressions, which are evaluated using precedence and associativity rules.",
       "id": 22
     },
     {
@@ -472,7 +472,7 @@
           "qno": 12
         }
       ],
-      "answer": "",
+      "answer": "break: stops the loop immediately and moves control to the first statement after the loop.\ncontinue: skips the remaining statements of the current iteration and goes to the next iteration of the loop.\n\n```python\nfor i in range(1, 8):\n    if i == 3:\n        continue      # skip 3\n    if i == 6:\n        break         # stop at 6\n    print(i, end=\" \")\n```\n\nOutput:\n```text\n1 2 4 5\n```",
       "id": 23
     },
     {
@@ -492,7 +492,7 @@
           "qno": 4
         }
       ],
-      "answer": "",
+      "answer": "elif (short for \"else if\") is used to check another condition when the previous if condition is False. It allows many choices in one if statement; only the first True block is executed. An optional else at the end runs when no condition is True.\n\nSyntax:\n```text\nif condition1:\n    statements\nelif condition2:\n    statements\nelse:\n    statements\n```\n\n```python\nmark = 72\nif mark >= 80:\n    print(\"Grade A\")\nelif mark >= 60:\n    print(\"Grade B\")\nelse:\n    print(\"Grade C\")\n```\n\nOutput:\n```text\nGrade B\n```",
       "id": 24
     },
     {
@@ -512,7 +512,7 @@
           "qno": 4
         }
       ],
-      "answer": "",
+      "answer": "Note: Python has a while loop but no do-while loop. The difference is:\n\nwhile loop: entry-controlled. The condition is checked first, so the body may run zero times.\ndo-while loop (C, Java): exit-controlled. The body runs first and the condition is checked at the end, so the body runs at least once.\n\nIn Python, do-while is written with while True and break:\n```python\nn = 10\nwhile n < 5:          # while: body never runs\n    print(\"while\", n)\nwhile True:           # do-while style: body runs once\n    print(\"do-while\", n)\n    if not n < 5:\n        break\n```\n\nOutput:\n```text\ndo-while 10\n```",
       "id": 25
     },
     {
@@ -532,7 +532,7 @@
           "qno": 3
         }
       ],
-      "answer": "",
+      "answer": "for loop:\n1. Used when the number of iterations is known.\n2. Iterates over a sequence (range, string, list, ...).\n3. The loop variable is updated automatically.\n   Example: for i in range(5):\n\nwhile loop:\n1. Used when the number of iterations is not known in advance.\n2. Repeats as long as a condition is True.\n3. The loop variable must be initialised and updated by the programmer, otherwise the loop may never end.\n   Example: while n > 0:\n\n```python\nfor i in range(1, 4):\n    print(\"for\", i)\ni = 1\nwhile i <= 3:\n    print(\"while\", i)\n    i += 1\n```\n\nOutput:\n```text\nfor 1\nfor 2\nfor 3\nwhile 1\nwhile 2\nwhile 3\n```",
       "id": 26
     },
     {
@@ -552,7 +552,7 @@
           "qno": 5
         }
       ],
-      "answer": "",
+      "answer": "break:\n1. Terminates the whole loop.\n2. Control goes to the statement after the loop.\n3. Remaining iterations are not executed.\n\ncontinue:\n1. Terminates only the current iteration.\n2. Control goes back to the loop for the next iteration.\n3. The loop continues with the remaining iterations.\n\n```python\nfor ch in \"PYTHON\":\n    if ch == \"H\":\n        break\n    print(ch, end=\"\")\nprint()\nfor ch in \"PYTHON\":\n    if ch == \"H\":\n        continue\n    print(ch, end=\"\")\nprint()\n```\n\nOutput:\n```text\nPYT\nPYTON\n```",
       "id": 27
     },
     {
@@ -572,7 +572,7 @@
           "qno": 3
         }
       ],
-      "answer": "",
+      "answer": "Uses of the break statement:\n1. To stop a loop immediately when a condition is met.\n2. To end a search once the required item is found (no need to check the rest).\n3. To come out of an infinite loop such as while True.\n4. To stop reading input when the user enters a sentinel value (for example 0 or \"quit\").\n5. In a nested loop, it exits only the innermost loop in which it appears.\n\n```python\nfor n in [4, 9, 15, 22, 30]:\n    if n % 5 == 0:\n        print(\"First multiple of 5:\", n)\n        break\n```\n\nOutput:\n```text\nFirst multiple of 5: 15\n```",
       "id": 28
     },
     {
@@ -592,7 +592,7 @@
           "qno": 3
         }
       ],
-      "answer": "",
+      "answer": "Conditional (selection or decision-making) statements execute a block of code only when a condition is True; otherwise another block is executed or it is skipped. Python's conditional statements are:\n1. if\n2. if-else\n3. if-elif-else (ladder)\n4. nested if (an if inside another if)\n\n```python\nage = 20\nif age >= 18:\n    print(\"Eligible to vote\")\nelse:\n    print(\"Not eligible\")\n```\n\nOutput:\n```text\nEligible to vote\n```",
       "id": 29
     },
     {
@@ -612,7 +612,7 @@
           "qno": 4
         }
       ],
-      "answer": "",
+      "answer": "An indefinite loop is a loop in which the number of iterations is not known before the loop starts; it runs until a condition becomes False. In Python the while loop is used for this. A loop whose condition never becomes False is an infinite loop (for example while True:), and it must be stopped with break.\n\n```python\nn = 1234\ndigits = 0\nwhile n > 0:          # repeats until n becomes 0\n    n = n // 10\n    digits += 1\nprint(\"Digits:\", digits)\n```\n\nOutput:\n```text\nDigits: 4\n```",
       "id": 30
     },
     {
@@ -632,7 +632,7 @@
           "qno": 12
         }
       ],
-      "answer": "",
+      "answer": "An iterative (looping) statement executes a block of statements repeatedly, either a fixed number of times or while a condition is True. Python has two iterative statements:\n1. for loop: repeats for each item of a sequence.\n2. while loop: repeats while a condition is True.\nbreak, continue and pass are used to control loops.\n\n```python\nfor i in range(1, 6):\n    print(i, end=\" \")\n```\n\nOutput:\n```text\n1 2 3 4 5\n```",
       "id": 31
     },
     {
@@ -652,7 +652,7 @@
           "qno": 6
         }
       ],
-      "answer": "",
+      "answer": "A nested loop is a loop written inside the body of another loop. For every single iteration of the outer loop, the inner loop runs completely. It is used for patterns, tables and matrices.\n\n```python\nfor i in range(1, 4):          # outer loop: rows\n    for j in range(1, i + 1):  # inner loop: columns\n        print(\"*\", end=\" \")\n    print()\n```\n\nOutput:\n```text\n*\n* *\n* * *\n```",
       "id": 32
     },
     {
@@ -672,7 +672,7 @@
           "qno": 4
         }
       ],
-      "answer": "",
+      "answer": "The continue statement skips the rest of the current iteration and goes to the next iteration.\n\nSyntax:\n```text\nfor variable in sequence:\n    if condition:\n        continue\n    statements\n```\n\n```python\nfor i in range(1, 6):\n    if i == 3:\n        continue\n    print(i, end=\" \")\n```\n\nOutput:\n```text\n1 2 4 5\n```",
       "id": 33
     },
     {
@@ -692,7 +692,7 @@
           "qno": 4
         }
       ],
-      "answer": "",
+      "answer": "The for loop repeats a block of statements for each item in a sequence (range, string, list, tuple, dictionary).\n\nSyntax:\n```text\nfor variable in sequence:\n    statements\nelse:                 # optional, runs when the loop ends normally\n    statements\n```\n\nrange(start, stop, step) is commonly used to produce the sequence.\n\n```python\nfor i in range(2, 11, 2):\n    print(i, end=\" \")\n```\n\nOutput:\n```text\n2 4 6 8 10\n```",
       "id": 34
     },
     {
@@ -712,7 +712,7 @@
           "qno": 14
         }
       ],
-      "answer": "",
+      "answer": "Note: Python has only the while loop. It has no do-while loop, but the same behaviour can be written with while True and break.\n\n1. while loop (entry-controlled loop)\n- The condition is tested before the body is executed.\n- If the condition is False at the start, the body is not executed even once.\n- Syntax:\n```text\nwhile condition:\n    statements\n```\n\n2. do-while loop (exit-controlled loop, in C/C++/Java)\n- The body is executed first, and the condition is tested at the end.\n- The body is executed at least once, even if the condition is False.\n- C syntax: do { statements; } while (condition);\n\n3. do-while in Python\n```text\nwhile True:\n    statements\n    if not condition:\n        break\n```\n\nDifferences\n- Condition checked: while at the start; do-while at the end.\n- Minimum executions: while 0 times; do-while 1 time.\n- Type: while is entry-controlled; do-while is exit-controlled.\n- Python support: while is built in; do-while is written with while True + break.\n\nExample: menu that must be shown at least once\n```python\nchoice_list = [2, 1, 0]      # values a user might enter\ni = 0\nwhile True:                  # do-while style\n    choice = choice_list[i]\n    i += 1\n    print(\"Menu shown, choice =\", choice)\n    if not choice != 0:      # stop when user enters 0\n        break\n\ncount = 5\nwhile count < 3:             # normal while: not executed at all\n    print(\"never printed\")\nprint(\"Done\")\n```\n\nOutput:\n```text\nMenu shown, choice = 2\nMenu shown, choice = 1\nMenu shown, choice = 0\nDone\n```",
       "id": 35
     },
     {
@@ -732,7 +732,7 @@
           "qno": 14
         }
       ],
-      "answer": "",
+      "answer": "Jump statements transfer the control from one part of the program to another, unconditionally. Python has three jump statements used in loops: break, continue and pass. The return statement is also a jump statement (used in functions).\n\n1. break\nEnds the loop immediately; control goes to the statement after the loop.\n```python\nfor i in range(1, 10):\n    if i == 5:\n        break\n    print(i, end=\" \")\nprint(\"| loop ended at 5\")\n```\n\nOutput:\n```text\n1 2 3 4 | loop ended at 5\n```\n\n2. continue\nSkips the rest of the current iteration and continues with the next one.\n```python\nfor i in range(1, 8):\n    if i % 2 == 0:\n        continue          # skip even numbers\n    print(i, end=\" \")\nprint()\n```\n\nOutput:\n```text\n1 3 5 7\n```\n\n3. pass\nA null statement: it does nothing. It is used where a statement is required by syntax but no action is needed yet (an empty loop, if block or function).\n```python\nfor i in range(3):\n    pass                  # to be completed later\ndef future_function():\n    pass\nprint(\"pass executed without error\")\n```\n\nOutput:\n```text\npass executed without error\n```\n\n4. return\nEnds a function and sends a value back to the caller.\n```python\ndef square(n):\n    return n * n\nprint(square(6))\n```\n\nOutput:\n```text\n36\n```",
       "id": 36
     },
     {
@@ -752,7 +752,7 @@
           "qno": 15
         }
       ],
-      "answer": "",
+      "answer": "Selection (decision-making) statements choose which block of code to execute depending on a condition. The condition is an expression that gives True or False. Python has four forms.\n\n1. Simple if\nExecutes the block only when the condition is True.\n```text\nif condition:\n    statements\n```\n\n2. if-else\nExecutes one block when the condition is True and another when it is False.\n```text\nif condition:\n    statements-1\nelse:\n    statements-2\n```\n\n3. if-elif-else ladder\nChecks many conditions one after another; the first True block runs.\n```text\nif condition1:\n    block1\nelif condition2:\n    block2\nelse:\n    block3\n```\n\n4. Nested if\nAn if statement written inside another if or else block.\n\nExample program: result of a student\n```python\nmark = 68\nattendance = 82\n\nif mark >= 0:                                  # simple if\n    print(\"Valid mark\")\n\nif attendance >= 75:                           # if-else\n    print(\"Eligible for exam\")\nelse:\n    print(\"Not eligible\")\n\nif mark >= 90:                                 # if-elif-else ladder\n    grade = \"O\"\nelif mark >= 75:\n    grade = \"A\"\nelif mark >= 60:\n    grade = \"B\"\nelif mark >= 40:\n    grade = \"C\"\nelse:\n    grade = \"RA\"\nprint(\"Grade:\", grade)\n\nif mark >= 40:                                 # nested if\n    if mark >= 60:\n        print(\"First class\")\n    else:\n        print(\"Pass\")\n```\n\nOutput:\n```text\nValid mark\nEligible for exam\nGrade: B\nFirst class\n```",
       "id": 37
     },
     {
@@ -772,7 +772,7 @@
           "qno": 14
         }
       ],
-      "answer": "",
+      "answer": "Selection statements (conditional statements) allow a program to take decisions. Depending on whether a condition is True or False, a particular block is executed. Blocks are marked by indentation.\n\n1. if statement\n```python\ntemperature = 38\nif temperature > 37.5:\n    print(\"You have fever\")\n```\n\nOutput:\n```text\nYou have fever\n```\n\n2. if-else statement\n```python\nn = 17\nif n % 2 == 0:\n    print(n, \"is even\")\nelse:\n    print(n, \"is odd\")\n```\n\nOutput:\n```text\n17 is odd\n```\n\n3. if-elif-else statement\n```python\nunits = 250\nif units <= 100:\n    bill = 0\nelif units <= 200:\n    bill = (units - 100) * 2.25\nelse:\n    bill = 100 * 2.25 + (units - 200) * 4.5\nprint(\"Electricity bill:\", bill)\n```\n\nOutput:\n```text\nElectricity bill: 450.0\n```\n\n4. Nested if statement\n```python\na, b, c = 12, 45, 30\nif a > b:\n    if a > c:\n        print(\"Largest:\", a)\n    else:\n        print(\"Largest:\", c)\nelse:\n    if b > c:\n        print(\"Largest:\", b)\n    else:\n        print(\"Largest:\", c)\n```\n\nOutput:\n```text\nLargest: 45\n```\n\n5. Conditional expression (short if-else in one line)\nresult = \"Pass\" if mark >= 40 else \"Fail\"",
       "id": 38
     },
     {
@@ -792,7 +792,7 @@
           "qno": 15
         }
       ],
-      "answer": "",
+      "answer": "The while statement repeats a block of statements as long as a condition is True. It is an entry-controlled loop: the condition is checked before each iteration. It is used when the number of repetitions is not known in advance.\n\nSyntax:\n```text\nwhile condition:\n    statements\nelse:          # optional: runs when the condition becomes False\n    statements\n```\n\nWorking:\n1. The condition is evaluated.\n2. If True, the body is executed and control goes back to step 1.\n3. If False, the loop ends and the statement after the loop runs.\nThe body must change the loop variable; otherwise the loop runs forever (infinite loop).\n\nSample code 1: sum of digits\n```python\nn = 5078\ntotal = 0\nwhile n > 0:\n    total += n % 10\n    n //= 10\nprint(\"Sum of digits:\", total)\n```\n\nOutput:\n```text\nSum of digits: 20\n```\n\nSample code 2: multiplication table with while ... else\n```python\ni = 1\nwhile i <= 5:\n    print(\"7 x\", i, \"=\", 7 * i)\n    i += 1\nelse:\n    print(\"Table completed\")\n```\n\nOutput:\n```text\n7 x 1 = 7\n7 x 2 = 14\n7 x 3 = 21\n7 x 4 = 28\n7 x 5 = 35\nTable completed\n```",
       "id": 39
     },
     {
@@ -812,7 +812,7 @@
           "qno": 16
         }
       ],
-      "answer": "",
+      "answer": "A nested if is an if (or if-else) statement placed inside another if or else block. The inner condition is checked only when the outer condition is True (or False, if it is in the else part). It is used when a decision depends on more than one condition, checked step by step.\n\nSyntax:\n```text\nif condition1:\n    if condition2:\n        statements-A\n    else:\n        statements-B\nelse:\n    statements-C\n```\n\nWorking:\n1. condition1 is checked first.\n2. If it is False, statements-C run and the inner if is skipped.\n3. If it is True, condition2 is checked: True runs statements-A, False runs statements-B.\n\nExample: checking whether a number is positive, and then even or odd\n```python\nfor n in (8, 7, -3):\n    if n > 0:\n        if n % 2 == 0:\n            print(n, \"is positive and even\")\n        else:\n            print(n, \"is positive and odd\")\n    else:\n        print(n, \"is not positive\")\n```\n\nOutput:\n```text\n8 is positive and even\n7 is positive and odd\n-3 is not positive\n```",
       "id": 40
     },
     {
@@ -832,7 +832,7 @@
           "qno": 15
         }
       ],
-      "answer": "",
+      "answer": "1. for loop\nRepeats a block for each item of a sequence. Used when the number of iterations is known.\n\nSyntax:\n```text\nfor variable in sequence:\n    statements\n```\n\nrange() syntax: range(stop), range(start, stop), range(start, stop, step). stop is not included.\n\nExample: squares of 1 to 5\n```python\nfor i in range(1, 6):\n    print(i, \"squared =\", i * i)\n```\n\nOutput:\n```text\n1 squared = 1\n2 squared = 4\n3 squared = 9\n4 squared = 16\n5 squared = 25\n```\n\nExample: iterating over a string\n```python\nfor ch in \"BCA\":\n    print(ch)\n```\n\nOutput:\n```text\nB\nC\nA\n```\n\n2. while loop\nRepeats a block while a condition is True. Used when the number of iterations is not known.\n\nSyntax:\n```text\ninitialisation\nwhile condition:\n    statements\n    update\n```\n\nExample: reverse a number\n```python\nn = 1234\nrev = 0\nwhile n > 0:\n    rev = rev * 10 + n % 10\n    n //= 10\nprint(\"Reversed:\", rev)\n```\n\nOutput:\n```text\nReversed: 4321\n```",
       "id": 41
     },
     {
@@ -852,7 +852,7 @@
           "qno": 21
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nDecision-making statements let a program choose between different actions based on a condition. A condition is an expression whose value is True or False (for example mark >= 40). In Python the statements inside a block are marked by a colon ( : ) and indentation.\n\n1. if statement\nThe block runs only when the condition is True; otherwise it is skipped.\n```text\nif condition:\n    statements\n```\n\n2. if-else statement\nThe if-else statement has two blocks. When the condition is True the if block runs; when it is False the else block runs. Exactly one of the two blocks is always executed.\n\nSyntax:\n```text\nif condition:\n    statements-1      # condition is True\nelse:\n    statements-2      # condition is False\n```\n\nFlow:\ncondition -> True -> statements-1 -> next statement\ncondition -> False -> statements-2 -> next statement\n\nExample 1: even or odd\n```python\nnum = 25\nif num % 2 == 0:\n    print(num, \"is Even\")\nelse:\n    print(num, \"is Odd\")\n```\n\nOutput:\n```text\n25 is Odd\n```\n\nExample 2: leap year\n```python\nyear = 2024\nif (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:\n    print(year, \"is a leap year\")\nelse:\n    print(year, \"is not a leap year\")\n```\n\nOutput:\n```text\n2024 is a leap year\n```\n\n3. if-elif-else ladder\nWhen there are more than two choices, elif is used. Conditions are checked from top to bottom and the first True block runs.\n\n4. Nested if statement\nAn if or if-else statement inside another if or else block is called a nested if. The inner condition is tested only after the outer condition has been checked. It is used when one decision depends on another.\n\nSyntax:\n```text\nif condition1:\n    if condition2:\n        statements-A\n    else:\n        statements-B\nelse:\n    if condition3:\n        statements-C\n    else:\n        statements-D\n```\n\nExample 3: largest of three numbers\n```python\na, b, c = 34, 91, 57\nif a > b:\n    if a > c:\n        largest = a\n    else:\n        largest = c\nelse:\n    if b > c:\n        largest = b\n    else:\n        largest = c\nprint(\"Largest number is\", largest)\n```\n\nOutput:\n```text\nLargest number is 91\n```\n\nExample 4: exam result using nested if\n```python\ntheory, practical = 62, 35\nif theory >= 40:\n    if practical >= 40:\n        print(\"Passed in both\")\n    else:\n        print(\"Failed in practical\")\nelse:\n    print(\"Failed in theory\")\n```\n\nOutput:\n```text\nFailed in practical\n```\n\nDifferences between if-else and nested if\n- if-else tests one condition and chooses between two blocks.\n- Nested if tests conditions at more than one level; the inner test depends on the outer result.\n- Deep nesting reduces readability; logical operators (and, or) or elif can often replace it.\n\nConclusion\nThe if-else statement handles two-way decisions, and the nested if handles decisions inside decisions. Proper indentation is essential because it decides which statements belong to which block.",
       "id": 42
     },
     {
@@ -872,7 +872,7 @@
           "qno": 21
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nIterative statements (loops) execute a set of statements repeatedly. They save writing the same code many times. Python provides two looping statements, for and while, and three loop-control statements, break, continue and pass. Loops can also have an optional else part and can be nested.\n\n1. for loop\nThe for loop takes each item of a sequence (range, string, list, tuple, dictionary) one by one and executes the body for it. It is used when the number of repetitions is known.\n\nSyntax:\n```text\nfor variable in sequence:\n    statements\n```\n\nrange(start, stop, step) generates numbers from start up to stop-1.\n\nExample 1: sum of first N natural numbers\n```python\nn = 10\ntotal = 0\nfor i in range(1, n + 1):\n    total += i\nprint(\"Sum =\", total)\n```\n\nOutput:\n```text\nSum = 55\n```\n\nExample 2: count vowels in a word\n```python\nword = \"education\"\ncount = 0\nfor ch in word:\n    if ch in \"aeiou\":\n        count += 1\nprint(\"Vowels:\", count)\n```\n\nOutput:\n```text\nVowels: 5\n```\n\n2. while loop\nThe while loop repeats the body as long as the condition is True. It is used when the number of repetitions is not known in advance. The loop variable must be updated inside the loop.\n\nSyntax:\n```text\nwhile condition:\n    statements\n```\n\nExample 3: Fibonacci numbers below 50\n```python\na, b = 0, 1\nwhile a < 50:\n    print(a, end=\" \")\n    a, b = b, a + b\nprint()\n```\n\nOutput:\n```text\n0 1 1 2 3 5 8 13 21 34\n```\n\n3. Loop with else\nThe else part runs when the loop finishes normally (not by break).\n```python\nn = 13\nfor d in range(2, n):\n    if n % d == 0:\n        print(n, \"is not prime\")\n        break\nelse:\n    print(n, \"is prime\")\n```\n\nOutput:\n```text\n13 is prime\n```\n\n4. Nested loops\nA loop inside another loop. The inner loop completes fully for each outer iteration.\n```python\nfor i in range(1, 4):\n    for j in range(1, 4):\n        print(i * j, end=\"\\t\")\n    print()\n```\n\nOutput:\n```text\n1\t2\t3\n2\t4\t6\n3\t6\t9\n```\n\n5. Loop-control statements\n- break: exits the loop.\n- continue: skips to the next iteration.\n- pass: does nothing (placeholder).\n\nConclusion\nThe for loop is used for a known number of iterations or to walk through a sequence; the while loop is used for condition-based repetition. With break, continue, else and nesting, loops can solve most repetitive tasks.",
       "id": 43
     },
     {
@@ -892,7 +892,7 @@
           "qno": 21
         }
       ],
-      "answer": "",
+      "answer": "Iteration means executing a group of statements repeatedly. Python supports the following iterative statements.\n\n1. The for statement\nIt iterates over the items of any sequence in order.\n```text\nfor variable in sequence:\n    body\n```\n\na) for with range()\n- range(5) gives 0 1 2 3 4\n- range(2, 7) gives 2 3 4 5 6\n- range(10, 0, -2) gives 10 8 6 4 2\n```python\nfor i in range(10, 0, -2):\n    print(i, end=\" \")\nprint()\n```\n\nOutput:\n```text\n10 8 6 4 2\n```\n\nb) for with a list\n```python\nmarks = [72, 88, 65, 91]\ntotal = 0\nfor m in marks:\n    total += m\nprint(\"Total:\", total, \"Average:\", total / len(marks))\n```\n\nOutput:\n```text\nTotal: 316 Average: 79.0\n```\n\n2. The while statement\nIt repeats the body while the condition is True.\n```text\nwhile condition:\n    body\n```\n```python\nn = 5\nfact = 1\nwhile n > 1:\n    fact *= n\n    n -= 1\nprint(\"Factorial of 5 =\", fact)\n```\n\nOutput:\n```text\nFactorial of 5 = 120\n```\n\n3. Infinite loop with break\nwhile True creates a loop that runs until break is executed.\n```python\nnumbers = [12, 7, -1, 30]      # -1 means stop\ni = 0\nwhile True:\n    if numbers[i] == -1:\n        break\n    print(\"Read:\", numbers[i])\n    i += 1\n```\n\nOutput:\n```text\nRead: 12\nRead: 7\n```\n\n4. The continue statement\n```python\nfor i in range(1, 11):\n    if i % 3 == 0:\n        continue\n    print(i, end=\" \")\nprint()\n```\n\nOutput:\n```text\n1 2 4 5 7 8 10\n```\n\n5. The pass statement\nA placeholder that does nothing: for i in range(5): pass\n\n6. else with loops\nThe else block after for/while runs when the loop ends without break.\n\n7. Nested loops: printing a number triangle\n```python\nfor i in range(1, 5):\n    for j in range(1, i + 1):\n        print(j, end=\" \")\n    print()\n```\n\nOutput:\n```text\n1\n1 2\n1 2 3\n1 2 3 4\n```\n\nComparison of for and while\n- for: count-controlled, iterates over a sequence, loop variable updated automatically.\n- while: condition-controlled, number of iterations may be unknown, loop variable updated by the programmer.",
       "id": 44
     },
     {
@@ -912,7 +912,7 @@
           "qno": 21
         }
       ],
-      "answer": "",
+      "answer": "The if statement is a decision-making statement. It tests a condition and executes a block of code only when the condition is True. Python has the following types of if statements.\n\n1. Simple if statement\n```text\nif condition:\n    statements\n```\n```python\nbalance = 5000\nwithdraw = 2000\nif withdraw <= balance:\n    balance -= withdraw\n    print(\"Collect cash. Balance:\", balance)\n```\n\nOutput:\n```text\nCollect cash. Balance: 3000\n```\n\n2. if-else statement\n```text\nif condition:\n    statements-1\nelse:\n    statements-2\n```\n```python\nage = 16\nif age >= 18:\n    print(\"Can vote\")\nelse:\n    print(\"Cannot vote, wait\", 18 - age, \"years\")\n```\n\nOutput:\n```text\nCannot vote, wait 2 years\n```\n\n3. if-elif-else (else-if ladder)\n```text\nif condition1:\n    block1\nelif condition2:\n    block2\nelif condition3:\n    block3\nelse:\n    block4\n```\n```python\nday = 3\nif day == 1:\n    print(\"Monday\")\nelif day == 2:\n    print(\"Tuesday\")\nelif day == 3:\n    print(\"Wednesday\")\nelse:\n    print(\"Other day\")\n```\n\nOutput:\n```text\nWednesday\n```\n\n4. Nested if statement\n```text\nif condition1:\n    if condition2:\n        statements\n    else:\n        statements\nelse:\n    statements\n```\n```python\nusername, password = \"admin\", \"py@123\"\nif username == \"admin\":\n    if password == \"py@123\":\n        print(\"Login successful\")\n    else:\n        print(\"Wrong password\")\nelse:\n    print(\"Unknown user\")\n```\n\nOutput:\n```text\nLogin successful\n```\n\n5. Short-hand if and conditional expression\n- One-line if: if x > 0: print(\"positive\")\n- Conditional (ternary) expression: value = a if condition else b\n```python\nx = -4\nresult = \"Positive\" if x > 0 else \"Not positive\"\nprint(result)\n```\n\nOutput:\n```text\nNot positive\n```\n\nPoints to remember\n- A colon ( : ) ends every if, elif and else line.\n- The block is marked by indentation (usually 4 spaces).\n- Any number of elif parts can be used; else is optional and comes last.",
       "id": 45
     },
     {
@@ -936,7 +936,7 @@
           "qno": 6
         }
       ],
-      "answer": "",
+      "answer": "Recursion is a technique in which a function calls itself to solve a problem. The problem is divided into a smaller problem of the same kind. Every recursive function must have:\n1. A base case, which stops the recursion.\n2. A recursive case, in which the function calls itself with a smaller value.\n\n```python\ndef factorial(n):\n    if n == 0:                 # base case\n        return 1\n    return n * factorial(n - 1)   # recursive call\nprint(factorial(5))\n```\n\nOutput:\n```text\n120\n```",
       "id": 46
     },
     {
@@ -956,7 +956,7 @@
           "qno": 7
         }
       ],
-      "answer": "",
+      "answer": "Recursion is the process in which a function calls itself, directly or indirectly. Such a function is called a recursive function. It must have a base condition to stop; otherwise Python raises RecursionError (maximum recursion depth exceeded).\n\nExample: sum of the first n natural numbers\n```python\ndef total(n):\n    if n == 1:\n        return 1\n    return n + total(n - 1)\nprint(total(10))\n```\n\nOutput:\n```text\n55\n```",
       "id": 47
     },
     {
@@ -976,7 +976,7 @@
           "qno": 5
         }
       ],
-      "answer": "",
+      "answer": "Scope: the part of the program where a variable can be accessed.\n- Local scope: a variable created inside a function can be used only inside that function.\n- Global scope: a variable created outside all functions can be used anywhere in the program.\n\nLifetime: the period during which a variable exists in memory.\n- A local variable lives only while the function is running; it is destroyed when the function returns.\n- A global variable lives until the program ends.\n\n```python\nx = 10              # global\ndef show():\n    y = 5           # local\n    print(x, y)\nshow()\nprint(x)            # y is not available here\n```\n\nOutput:\n```text\n10 5\n10\n```",
       "id": 48
     },
     {
@@ -996,7 +996,7 @@
           "qno": 8
         }
       ],
-      "answer": "",
+      "answer": "A variable created inside a function has local scope: it can be used only inside that function. It is created when the function is called and destroyed when the function ends. Using it outside the function gives NameError. A local variable with the same name as a global variable hides the global one inside the function.\n\n```python\ndef area():\n    length = 5          # local variable\n    print(\"Inside:\", length * 2)\narea()\ntry:\n    print(length)\nexcept NameError:\n    print(\"length is not defined outside the function\")\n```\n\nOutput:\n```text\nInside: 10\nlength is not defined outside the function\n```",
       "id": 49
     },
     {
@@ -1016,7 +1016,7 @@
           "qno": 5
         }
       ],
-      "answer": "",
+      "answer": "Recursion means a function calling itself. A large problem is solved by breaking it into a smaller version of the same problem until a simple case (base case) is reached, which is solved directly. Examples: factorial, Fibonacci series, GCD, sum of digits.\n\n```python\ndef fib(n):\n    if n <= 1:\n        return n                    # base case\n    return fib(n - 1) + fib(n - 2)  # recursive case\nprint([fib(i) for i in range(8)])\n```\n\nOutput:\n```text\n[0, 1, 1, 2, 3, 5, 8, 13]\n```",
       "id": 50
     },
     {
@@ -1036,7 +1036,7 @@
           "qno": 6
         }
       ],
-      "answer": "",
+      "answer": "A module is a Python file (with the .py extension) that contains functions, variables and classes which can be reused in other programs. It is included with the import statement. Modules are of two kinds:\n1. Built-in modules: math, random, datetime, os\n2. User-defined modules: files written by the programmer\n\n```python\nimport math\nfrom random import randint\nprint(math.sqrt(49), math.pi > 3)\nprint(1 <= randint(1, 6) <= 6)\n```\n\nOutput:\n```text\n7.0 True\nTrue\n```",
       "id": 51
     },
     {
@@ -1056,7 +1056,7 @@
           "qno": 12
         }
       ],
-      "answer": "",
+      "answer": "A namespace is a mapping from names (identifiers) to objects. It keeps names unique and avoids conflicts, because the same name can exist in different namespaces. Python has:\n1. Built-in namespace: names such as print, len, int (available always).\n2. Global namespace: names defined at the top level of a module.\n3. Local namespace: names defined inside a function.\nPython searches for a name in the order Local -> Enclosing -> Global -> Built-in (the LEGB rule).\n\n```python\nx = \"global x\"\ndef demo():\n    x = \"local x\"\n    print(x)\ndemo()\nprint(x)\n```\n\nOutput:\n```text\nlocal x\nglobal x\n```",
       "id": 52
     },
     {
@@ -1076,7 +1076,7 @@
           "qno": 15
         }
       ],
-      "answer": "",
+      "answer": "A function is a named block of reusable code that performs a specific task. Functions make programs shorter, easier to read, test and reuse.\n\n1. Function definition\nA function is defined with the def keyword.\n\nSyntax:\n```text\ndef function_name(parameter1, parameter2, ...):\n    \"\"\"docstring (optional)\"\"\"\n    statements\n    return value          # optional\n```\n\nParts of a function definition:\n- def: keyword that starts the definition.\n- function_name: an identifier, following the naming rules.\n- parameters: variables in brackets that receive values; they are optional.\n- colon ( : ) and an indented body.\n- docstring: optional description of the function.\n- return: sends a result back to the caller. Without return, the function returns None.\n\n2. Function call\nA function runs only when it is called. It is called by writing its name followed by brackets containing the arguments.\n\nSyntax:  function_name(argument1, argument2, ...)\n\nWhen a function is called:\n1. Control jumps to the function definition.\n2. The arguments are copied into the parameters.\n3. The body is executed.\n4. The return value is sent back and control returns to the calling statement.\n\nExample\n```python\ndef simple_interest(p, n, r):\n    \"\"\"Return simple interest.\"\"\"\n    si = p * n * r / 100\n    return si\n\ndef greet(name):\n    print(\"Hello\", name)        # no return: returns None\n\namount = simple_interest(10000, 2, 7.5)   # function call\nprint(\"Interest:\", amount)\ngreet(\"Deepa\")\nprint(simple_interest.__doc__)\n```\n\nOutput:\n```text\nInterest: 1500.0\nHello Deepa\nReturn simple interest.\n```\n\nParameters and arguments\n- Parameters are the names in the definition (p, n, r).\n- Arguments are the actual values passed in the call (10000, 2, 7.5).",
       "id": 53
     },
     {
@@ -1096,7 +1096,7 @@
           "qno": 16
         }
       ],
-      "answer": "",
+      "answer": "Factorial of n (n!) is the product of all positive integers from 1 to n.\nn! = 1 x 2 x 3 x ... x n, and 0! = 1. Example: 5! = 120.\n\nMethod 1: using a loop\n```python\ndef factorial(n):\n    fact = 1\n    for i in range(1, n + 1):\n        fact = fact * i\n    return fact\n\nnum = 6            # num = int(input(\"Enter a number: \"))\nif num < 0:\n    print(\"Factorial does not exist for negative numbers\")\nelse:\n    print(\"Factorial of\", num, \"is\", factorial(num))\n```\n\nOutput:\n```text\nFactorial of 6 is 720\n```\n\nMethod 2: using recursion\n```python\ndef fact(n):\n    if n == 0 or n == 1:     # base case\n        return 1\n    return n * fact(n - 1)   # recursive call\n\nprint(\"Factorial of 5 is\", fact(5))\n```\n\nOutput:\n```text\nFactorial of 5 is 120\n```\n\nWorking of fact(5): 5 * fact(4) = 5 * 4 * fact(3) = ... = 5 * 4 * 3 * 2 * 1 = 120\n\nMethod 3: using the math module\n```python\nimport math\nprint(math.factorial(7))\n```\n\nOutput:\n```text\n5040\n```",
       "id": 54
     },
     {
@@ -1116,7 +1116,7 @@
           "qno": 18
         }
       ],
-      "answer": "",
+      "answer": "A module is a file containing Python code (functions, variables, classes) saved with the .py extension. Modules help to divide a large program into smaller files and to reuse code.\n\nTypes of modules\n1. Built-in modules: come with Python, e.g. math, random, datetime, os, sys.\n2. User-defined modules: created by the programmer.\n\nWays to import a module\n1. import module_name\n2. import module_name as alias\n3. from module_name import name1, name2\n4. from module_name import *   (imports all names; not recommended)\n\nExample with built-in modules\n```python\nimport math\nimport random as rd\nfrom datetime import date\n\nprint(math.sqrt(144), math.pow(2, 5), math.ceil(4.2), math.floor(4.8))\nr = rd.randint(1, 10)\nprint(1 <= r <= 10)\nprint(date(2026, 1, 26).year)\nprint(len(dir(math)) > 40)       # dir() lists names in a module\n```\n\nOutput:\n```text\n12.0 32.0 5 4\nTrue\n2026\nTrue\n```\n\nUser-defined module\nSave the following as mymath.py:\n```text\ndef add(a, b):\n    return a + b\n\ndef cube(n):\n    return n ** 3\n\nPI = 3.14159\n```\n\nUse it in another file in the same folder:\n```text\nimport mymath\nprint(mymath.add(4, 5))      # 9\nprint(mymath.cube(3))        # 27\nprint(mymath.PI)             # 3.14159\n```\n\nAdvantages: code reuse, better organisation, easy maintenance, and no name clashes (each module has its own namespace).",
       "id": 55
     },
     {
@@ -1136,7 +1136,7 @@
           "qno": 15
         }
       ],
-      "answer": "",
+      "answer": "Function\nA function is a group of related statements that performs a specific task and can be used many times. It avoids repetition and makes the program modular.\nTypes: built-in functions (print, len, max, input) and user-defined functions (created with def).\n\nDefining a function:\n```text\ndef function_name(parameters):\n    statements\n    return value\n```\n\nFunction call\nA function is executed only when it is called, by writing its name with arguments in brackets: function_name(arguments). On a call, control goes to the function, the body is executed, and the return value comes back to the point of the call.\n\n```python\ndef maximum(a, b):\n    if a > b:\n        return a\n    return b\n\ndef line():\n    print(\"-\" * 20)\n\nline()                               # call without arguments\nprint(\"Maximum:\", maximum(45, 78))   # call with arguments\nbig = maximum(10, 3)                 # return value stored\nprint(\"Stored result:\", big)\nline()\n```\n\nOutput:\n```text\n--------------------\nMaximum: 78\nStored result: 10\n--------------------\n```\n\nAdvantages: reusability, less code, easy debugging and better readability.",
       "id": 56
     },
     {
@@ -1160,7 +1160,7 @@
           "qno": 22
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nArguments are the values passed to a function when it is called. The variables that receive them in the function definition are called parameters. Python supports four types of arguments:\n1. Required (positional) arguments\n2. Keyword arguments\n3. Default arguments\n4. Variable-length arguments (*args and **kwargs)\n\n1. Required (positional) arguments\nThe arguments are passed in the same order as the parameters, and their number must match exactly. Missing or extra arguments give a TypeError.\n```python\ndef student(name, age):\n    print(\"Name:\", name, \"| Age:\", age)\n\nstudent(\"Arun\", 19)          # correct order\nstudent(19, \"Arun\")          # wrong order gives wrong meaning\n```\n\nOutput:\n```text\nName: Arun | Age: 19\nName: 19 | Age: Arun\n```\n\n2. Keyword arguments\nThe argument is passed as parameter_name=value, so the order does not matter.\n```python\ndef student(name, age):\n    print(\"Name:\", name, \"| Age:\", age)\n\nstudent(age=20, name=\"Banu\")\n```\n\nOutput:\n```text\nName: Banu | Age: 20\n```\n\n3. Default arguments\nA parameter can be given a default value in the definition. If the caller does not pass that argument, the default is used. Default parameters must come after non-default parameters.\n```python\ndef power(base, exp=2):\n    return base ** exp\n\nprint(power(5))        # exp takes default 2\nprint(power(2, 5))     # default overridden\n```\n\nOutput:\n```text\n25\n32\n```\n\n4. Variable-length arguments\na) *args (arbitrary positional arguments): collects any number of values into a tuple.\n```python\ndef total(*numbers):\n    print(\"Received:\", numbers)\n    return sum(numbers)\n\nprint(total(10, 20))\nprint(total(1, 2, 3, 4, 5))\n```\n\nOutput:\n```text\nReceived: (10, 20)\n30\nReceived: (1, 2, 3, 4, 5)\n15\n```\n\nb) **kwargs (arbitrary keyword arguments): collects any number of name=value pairs into a dictionary.\n```python\ndef profile(**details):\n    for key, value in details.items():\n        print(key, \":\", value)\n\nprofile(name=\"Charu\", dept=\"BCA\", year=2)\n```\n\nOutput:\n```text\nname : Charu\ndept : BCA\nyear : 2\n```\n\nCombining all types\nThe order in the definition must be: required, default, *args, **kwargs.\n```python\ndef order(item, qty=1, *extras, **info):\n    print(item, qty, extras, info)\n\norder(\"Pen\")\norder(\"Book\", 3, \"cover\", \"tag\", gift=True)\n```\n\nOutput:\n```text\nPen 1 () {}\nBook 3 ('cover', 'tag') {'gift': True}\n```\n\nConclusion\nPositional arguments depend on order, keyword arguments on names, default arguments make parameters optional, and *args / **kwargs accept any number of values. Together they make Python functions flexible.",
       "id": 57
     },
     {
@@ -1180,7 +1180,7 @@
           "qno": 22
         }
       ],
-      "answer": "",
+      "answer": "A module is a .py file that contains functions, variables and classes. Any Python file we write can be used as a module in another program with import. A user-defined module is created in three steps.\n\nStep 1: Write the module\nCreate a file named calculator.py with the following code:\n```text\n\"\"\"calculator.py - a user-defined module for simple calculations.\"\"\"\n\nPI = 3.14159\n\ndef add(a, b):\n    return a + b\n\ndef subtract(a, b):\n    return a - b\n\ndef multiply(a, b):\n    return a * b\n\ndef divide(a, b):\n    if b == 0:\n        return \"Division by zero is not allowed\"\n    return a / b\n\ndef circle_area(r):\n    return PI * r * r\n\nif __name__ == \"__main__\":\n    # runs only when calculator.py itself is executed, not when imported\n    print(\"Testing module:\", add(2, 3))\n```\n\nStep 2: Save it in the same folder as the main program (or in a folder on Python's path).\n\nStep 3: Import and use it in another program, e.g. main.py:\n```text\nimport calculator\nprint(calculator.add(10, 5))\nprint(calculator.divide(10, 0))\n\nfrom calculator import multiply, circle_area\nprint(multiply(4, 6))\nprint(circle_area(2))\n\nimport calculator as calc\nprint(calc.subtract(20, 8), calc.PI)\n```\n\nOutput of main.py:\n```text\n15\nDivision by zero is not allowed\n24\n12.56636\n12 3.14159\n```\n\nImportant points\n- The module name is the file name without .py (calculator.py gives calculator).\n- import runs the module once and creates a namespace: names are used as calculator.add.\n- from module import name brings the name directly into the program.\n- dir(calculator) lists all the names defined in the module.\n- The block under if __name__ == \"__main__\": is used for testing and does not run on import.\n\nAdvantages\nReusability, a well-organised program, easy maintenance, and avoiding name clashes.",
       "id": 58
     },
     {
@@ -1200,7 +1200,7 @@
           "qno": 22
         }
       ],
-      "answer": "",
+      "answer": "(i) Functions\n\nDefinition\nA function is a named, self-contained block of statements that performs a specific task. It runs only when it is called, can take inputs (parameters) and can return a result.\n\nTypes of functions\n1. Built-in functions: print(), len(), type(), max(), min(), sum(), input(), range()\n2. User-defined functions: written by the programmer using def\n3. Anonymous (lambda) functions: small one-line functions, e.g. lambda x: x * x\n4. Recursive functions: functions that call themselves\n\nDefining and calling a function\n```text\ndef function_name(parameters):\n    statements\n    return value\n\nfunction_name(arguments)       # call\n```\n\nTypes of arguments: positional, keyword, default and variable-length (*args, **kwargs).\n\nThe return statement sends a value back; a function can return several values as a tuple.\n\nScope: variables defined inside a function are local; variables outside are global.\n\nExample program\n```python\ndef area_perimeter(l, b):\n    return l * b, 2 * (l + b)       # returns two values\n\ndef greet(name, msg=\"Good morning\"):\n    return msg + \", \" + name\n\nsquare = lambda x: x * x\n\na, p = area_perimeter(8, 5)\nprint(\"Area:\", a, \"Perimeter:\", p)\nprint(greet(\"Meena\"))\nprint(greet(\"Meena\", \"Welcome\"))\nprint(\"Square of 9:\", square(9))\nprint(\"Built-in:\", len(\"Python\"), max(4, 9, 2))\n```\n\nOutput:\n```text\nArea: 40 Perimeter: 26\nGood morning, Meena\nWelcome, Meena\nSquare of 9: 81\nBuilt-in: 6 9\n```\n\nAdvantages of functions: code reuse, modular programs, easy testing and debugging, and less repetition.\n\n(ii) Modules\n\nDefinition\nA module is a file with the .py extension that contains Python definitions (functions, variables, classes) and statements. It lets us organise related code and reuse it in other programs.\n\nTypes\n1. Built-in (standard library) modules: math, random, datetime, os, sys, statistics\n2. User-defined modules: .py files written by us\n\nImporting\n- import math\n- import math as m\n- from math import sqrt, pi\n- from math import *\n\nExample with built-in modules\n```python\nimport math\nimport statistics as st\nfrom random import randint\n\nprint(math.factorial(5), math.gcd(24, 36), round(math.pi, 4))\nprint(st.mean([70, 80, 90]))\ndice = randint(1, 6)            # random number from 1 to 6\nprint(1 <= dice <= 6)\n```\n\nOutput:\n```text\n120 12 3.1416\n80\nTrue\n```\n\nUser-defined module example\nFile shapes.py:\n```text\ndef square_area(s):\n    return s * s\ndef rectangle_area(l, b):\n    return l * b\n```\nFile main.py:\n```text\nimport shapes\nprint(shapes.square_area(4))         # 16\nprint(shapes.rectangle_area(3, 7))   # 21\n```\n\nUseful points\n- dir(module) lists the names in a module; help(module) shows its documentation.\n- Each module has its own namespace, so the same function name in two modules does not clash.\n- A package is a folder of modules.\n\nComparison\n- A function is a block of code inside a program; a module is a file that can contain many functions.\n- Functions are called with name(); module contents are used after import, as module.name.",
       "id": 59
     },
     {
@@ -1220,7 +1220,7 @@
           "qno": 22
         }
       ],
-      "answer": "",
+      "answer": "Arguments are the actual values supplied to a function call; parameters are the names that receive them in the definition. Python functions accept the following types of arguments.\n\n1. Positional (required) arguments\nMatched to parameters by position. The count must be the same.\n```python\ndef divide(a, b):\n    return a / b\nprint(divide(10, 4))\nprint(divide(4, 10))\n```\n\nOutput:\n```text\n2.5\n0.4\n```\n\n2. Keyword arguments\nPassed as name=value, so the order can change. Keyword arguments must come after positional ones in a call.\n```python\ndef book(title, author, price):\n    print(title, \"by\", author, \"- Rs.\", price)\nbook(price=450, author=\"R. Nageswara Rao\", title=\"Core Python\")\nbook(\"Let Us Python\", price=399, author=\"Y. Kanetkar\")\n```\n\nOutput:\n```text\nCore Python by R. Nageswara Rao - Rs. 450\nLet Us Python by Y. Kanetkar - Rs. 399\n```\n\n3. Default arguments\nParameters with a default value; the argument can be omitted.\n```python\ndef interest(p, n, r=8.5):\n    return p * n * r / 100\nprint(interest(20000, 2))         # r = 8.5\nprint(interest(20000, 2, 10))     # r = 10\n```\n\nOutput:\n```text\n3400.0\n4000.0\n```\n\n4. Variable-length positional arguments (*args)\nA parameter with * collects any number of positional arguments as a tuple.\n```python\ndef average(*marks):\n    return sum(marks) / len(marks)\nprint(average(80, 90))\nprint(average(65, 70, 75, 80))\n```\n\nOutput:\n```text\n85.0\n72.5\n```\n\n5. Variable-length keyword arguments (**kwargs)\nA parameter with ** collects extra keyword arguments as a dictionary.\n```python\ndef report(**subject_marks):\n    for sub, m in subject_marks.items():\n        print(sub, \"=\", m)\n    print(\"Total =\", sum(subject_marks.values()))\nreport(python=88, java=79, maths=91)\n```\n\nOutput:\n```text\npython = 88\njava = 79\nmaths = 91\nTotal = 258\n```\n\nRules\n- In a definition the order is: positional, default, *args, **kwargs.\n- A positional argument cannot follow a keyword argument in a call: f(a=1, 2) is a SyntaxError.\n- The same parameter cannot receive two values: f(1, a=1) gives a TypeError.\n\nSummary\n- Positional: matched by order, e.g. divide(10, 4)\n- Keyword: matched by name, e.g. book(price=450, ...)\n- Default: optional, with a preset value, e.g. interest(p, n, r=8.5)\n- *args: any number of values, as a tuple, e.g. average(*marks)\n- **kwargs: any number of name=value pairs, as a dict, e.g. report(**subject_marks)",
       "id": 60
     },
     {
@@ -1240,7 +1240,7 @@
           "qno": 21
         }
       ],
-      "answer": "",
+      "answer": "Aim\nTo print the factorial of every number from 1 to n.\n\nLogic\nThe factorial of i is i! = 1 x 2 x ... x i. Instead of calculating each factorial from the beginning, multiply the previous factorial by i: i! = (i-1)! x i.\n\nAlgorithm\n1. Read n.\n2. Set fact = 1.\n3. For i = 1 to n: fact = fact x i, then print i and fact.\n4. Stop.\n\nProgram 1: using a single loop\n```python\nn = 7                    # n = int(input(\"Enter n: \"))\nfact = 1\nprint(\"Number   Factorial\")\nfor i in range(1, n + 1):\n    fact = fact * i\n    print(f\"{i:>4} {fact:>12}\")\n```\n\nOutput:\n```text\nNumber   Factorial\n   1            1\n   2            2\n   3            6\n   4           24\n   5          120\n   6          720\n   7         5040\n```\n\nProgram 2: using a user-defined function\n```python\ndef factorial(num):\n    f = 1\n    for k in range(2, num + 1):\n        f *= k\n    return f\n\nn = 5\nfor i in range(1, n + 1):\n    print(f\"{i}! = {factorial(i)}\")\n```\n\nOutput:\n```text\n1! = 1\n2! = 2\n3! = 6\n4! = 24\n5! = 120\n```\n\nProgram 3: using recursion\n```python\ndef fact(num):\n    if num <= 1:\n        return 1\n    return num * fact(num - 1)\n\nn = 6\nprint([fact(i) for i in range(1, n + 1)])\n```\n\nOutput:\n```text\n[1, 2, 6, 24, 120, 720]\n```\n\nNote: the program should check for invalid input; factorial is not defined for negative numbers.",
       "id": 61
     },
     {
@@ -1260,7 +1260,7 @@
           "qno": 7
         }
       ],
-      "answer": "",
+      "answer": "A list is an ordered, mutable (changeable) collection of items written inside square brackets [ ], with items separated by commas. A list can hold items of different data types and allows duplicate values. Items are accessed by index, starting from 0.\n\n```python\nmarks = [85, 92, 78, 92]\ndetails = [\"Anu\", 19, 8.5, True]\nprint(marks[0], marks[-1], len(marks))\nmarks[1] = 95          # list can be changed\nprint(marks)\n```\n\nOutput:\n```text\n85 92 4\n[85, 95, 78, 92]\n```",
       "id": 62
     },
     {
@@ -1280,7 +1280,7 @@
           "qno": 7
         }
       ],
-      "answer": "",
+      "answer": "Values can be added to a list in these ways:\n1. append(x): adds one item at the end.\n2. insert(i, x): adds an item at index i.\n3. extend(iterable): adds all items of another list (or sequence) at the end.\n4. + operator: joins two lists into a new list.\n\n```python\nnums = [10, 20]\nnums.append(30)\nnums.insert(0, 5)\nnums.extend([40, 50])\nnums = nums + [60]\nprint(nums)\n```\n\nOutput:\n```text\n[5, 10, 20, 30, 40, 50, 60]\n```",
       "id": 63
     },
     {
@@ -1300,7 +1300,7 @@
           "qno": 7
         }
       ],
-      "answer": "",
+      "answer": "A list is declared by writing items inside square brackets, separated by commas, and assigning it to a name.\n\nSyntax:  list_name = [item1, item2, ...]\n\n```python\nempty = []                         # empty list\nempty2 = list()                    # empty list using list()\nfruits = [\"apple\", \"mango\"]        # list of strings\nmixed = [1, \"two\", 3.0]            # mixed data types\nnums = list(range(1, 6))           # from a range\nchars = list(\"abc\")                # from a string\nprint(empty, empty2, fruits, mixed, nums, chars)\n```\n\nOutput:\n```text\n[] [] ['apple', 'mango'] [1, 'two', 3.0] [1, 2, 3, 4, 5] ['a', 'b', 'c']\n```",
       "id": 64
     },
     {
@@ -1320,7 +1320,7 @@
           "qno": 5
         }
       ],
-      "answer": "",
+      "answer": "In Python, strings are immutable: once a string is created, its characters cannot be changed. Assigning to an index such as s[0] = 'J' gives a TypeError. To \"change\" a string, a new string is created, for example with slicing, + or replace().\n\n```python\ns = \"Python\"\ntry:\n    s[0] = \"J\"\nexcept TypeError as e:\n    print(\"Error:\", e)\ns = \"J\" + s[1:]          # new string created\nprint(s)\n```\n\nOutput:\n```text\nError: 'str' object does not support item assignment\nJython\n```",
       "id": 65
     },
     {
@@ -1340,7 +1340,7 @@
           "qno": 8
         }
       ],
-      "answer": "",
+      "answer": "A list is a built-in data type that stores a collection of items in a particular order. It is written in square brackets [ ]. Lists are mutable (items can be added, changed or removed), allow duplicates, can contain different data types, and support indexing and slicing.\n\n```python\ncolours = [\"red\", \"green\", \"blue\"]\ncolours.append(\"white\")\nprint(colours, colours[1:3])\n```\n\nOutput:\n```text\n['red', 'green', 'blue', 'white'] ['green', 'blue']\n```",
       "id": 66
     },
     {
@@ -1360,7 +1360,7 @@
           "qno": 5
         }
       ],
-      "answer": "",
+      "answer": "String functions (methods) are built-in functions used to work on strings, such as changing case, searching, replacing and splitting. Because strings are immutable, they return a new string or value; the original string is not changed.\n\nCommon string functions: len(), upper(), lower(), title(), capitalize(), strip(), find(), replace(), split(), join(), count(), startswith(), isdigit().\n\n```python\ns = \"  hello python  \"\nprint(len(s), s.strip().upper(), s.count(\"o\"), s.strip().replace(\"python\", \"world\"))\n```\n\nOutput:\n```text\n16 HELLO PYTHON 2 hello world\n```",
       "id": 67
     },
     {
@@ -1380,7 +1380,7 @@
           "qno": 6
         }
       ],
-      "answer": "",
+      "answer": "Strings are compared with the relational operators ==, !=, <, >, <=, >=. The comparison is character by character using Unicode (ASCII) values, so it is case-sensitive (\"A\" < \"a\"). For a case-insensitive comparison, convert both strings with lower().\n\n```python\ndef compare(s1, s2):\n    if s1 == s2:\n        return \"Both strings are equal\"\n    elif s1 < s2:\n        return s1 + \" comes before \" + s2\n    else:\n        return s1 + \" comes after \" + s2\n\nprint(compare(\"apple\", \"apple\"))\nprint(compare(\"apple\", \"banana\"))\nprint(compare(\"Zoo\", \"ant\"))\nprint(\"Python\".lower() == \"PYTHON\".lower())\n```\n\nOutput:\n```text\nBoth strings are equal\napple comes before banana\nZoo comes before ant\nTrue\n```",
       "id": 68
     },
     {
@@ -1400,7 +1400,7 @@
           "qno": 10
         }
       ],
-      "answer": "",
+      "answer": "append() is a list method that adds a single item to the end of a list. It changes the original list and returns None. If a list is appended, it is added as one nested item.\n\nSyntax:  list_name.append(item)\n\n```python\nnames = [\"Anu\", \"Bala\"]\nnames.append(\"Charu\")\nnames.append([1, 2])\nprint(names, len(names))\n```\n\nOutput:\n```text\n['Anu', 'Bala', 'Charu', [1, 2]] 4\n```",
       "id": 69
     },
     {
@@ -1420,7 +1420,7 @@
           "qno": 16
         }
       ],
-      "answer": "",
+      "answer": "A string is a sequence of characters enclosed in single, double or triple quotes. Strings are immutable. Python supports the following operations on strings.\n\n1. Concatenation (+): joins two strings.\n2. Repetition (*): repeats a string n times.\n3. Indexing [ ]: gets one character; indexes start at 0, and negative indexes count from the end (-1 is the last character).\n4. Slicing [start:end:step]: gets a part of the string (end is not included).\n5. Membership (in, not in): checks whether a substring is present.\n6. Comparison (==, !=, <, >): compares strings character by character.\n7. Length len(): number of characters.\n8. Traversal: visiting each character with a for loop.\n\n```python\ns1, s2 = \"Python\", \"Program\"\nprint(s1 + \" \" + s2)            # concatenation\nprint(\"Hi! \" * 3)               # repetition\nprint(s1[0], s1[-1])            # indexing\nprint(s1[1:4], s1[::-1])        # slicing, reverse\nprint(\"tho\" in s1, \"z\" not in s1)   # membership\nprint(s1 == \"python\", s1 < s2)      # comparison\nprint(len(s2))                  # length\nfor ch in \"BCA\":                # traversal\n    print(ch, end=\"-\")\nprint()\n```\n\nOutput:\n```text\nPython Program\nHi! Hi! Hi!\nP n\nyth nohtyP\nTrue True\nFalse False\n7\nB-C-A-\n```",
       "id": 70
     },
     {
@@ -1440,7 +1440,7 @@
           "qno": 17
         }
       ],
-      "answer": "",
+      "answer": "String methods are built-in functions that belong to string objects and are called with dot notation: string.method(). Since strings are immutable, methods return a new string (or a value) and do not change the original.\n\n1. Case conversion\n- upper(): all letters to capital\n- lower(): all letters to small\n- title(): first letter of every word capital\n- capitalize(): only the first letter of the string capital\n- swapcase(): changes the case of every letter\n\n2. Searching\n- find(sub): index of the first occurrence, or -1 if not found\n- index(sub): like find() but gives an error if not found\n- count(sub): number of occurrences\n- startswith(), endswith(): check the beginning or end\n\n3. Modifying\n- replace(old, new): replaces text\n- strip(), lstrip(), rstrip(): remove spaces at the ends\n\n4. Splitting and joining\n- split(sep): breaks a string into a list\n- join(list): joins list items into one string\n\n5. Testing (return True or False)\n- isalpha(), isdigit(), isalnum(), isupper(), islower(), isspace()\n\n```python\ns = \"welcome to python programming\"\nprint(s.upper())\nprint(s.title())\nprint(s.capitalize())\nprint(\"PyThOn\".swapcase())\nprint(s.find(\"python\"), s.find(\"java\"), s.count(\"o\"))\nprint(s.startswith(\"wel\"), s.endswith(\"ing\"))\nprint(s.replace(\"python\", \"Java\"))\nprint(\"   BCA   \".strip() + \"|\")\nwords = s.split()\nprint(words)\nprint(\"-\".join(words))\nprint(\"2026\".isdigit(), \"BCA2\".isalnum(), \"abc\".isalpha())\n```\n\nOutput:\n```text\nWELCOME TO PYTHON PROGRAMMING\nWelcome To Python Programming\nWelcome to python programming\npYtHoN\n11 -1 4\nTrue True\nwelcome to Java programming\nBCA|\n['welcome', 'to', 'python', 'programming']\nwelcome-to-python-programming\nTrue True True\n```",
       "id": 71
     },
     {
@@ -1460,7 +1460,7 @@
           "qno": 18
         }
       ],
-      "answer": "",
+      "answer": "Strings in Python are sequences of characters. The main operations are:\n\n1. Concatenation (+)\nJoins two strings: \"Good\" + \" Morning\" gives \"Good Morning\".\n\n2. Repetition (*)\nRepeats a string: \"ab\" * 3 gives \"ababab\".\n\n3. Indexing\nAccesses a single character by position. s[0] is the first character and s[-1] is the last.\n\n4. Slicing\nExtracts a substring: s[start:end] (end excluded), s[:3] (first three), s[::-1] (reverse).\n\n5. Membership\nin / not in test whether a substring exists.\n\n6. Length\nlen(s) returns the number of characters.\n\nExample: checking a palindrome and forming initials\n```python\nword = \"madam\"\nprint(word, \"is palindrome:\", word == word[::-1])\n\nname = \"Sri Sankara Arts College\"\ninitials = \"\"\nfor part in name.split():\n    initials = initials + part[0]\nprint(\"Initials:\", initials)\n\ngreeting = \"Good\" + \" \" + \"Morning\"\nprint(greeting, len(greeting))\nprint(\"=\" * 15)\nprint(\"Morning\" in greeting, greeting[5:], greeting[-3:])\n```\n\nOutput:\n```text\nmadam is palindrome: True\nInitials: SSAC\nGood Morning 12\n===============\nTrue Morning ing\n```",
       "id": 72
     },
     {
@@ -1480,7 +1480,7 @@
           "qno": 19
         }
       ],
-      "answer": "",
+      "answer": "Purpose\nappend() is a list method that adds a single element at the end of a list.\n\nSyntax\nlist_name.append(element)\n\nFeatures\n1. It modifies the original list in place (lists are mutable).\n2. It adds exactly one element; the length increases by 1.\n3. It returns None, so do not write lst = lst.append(x) (lst would become None).\n4. The element can be of any type. If a list is appended, it is added as a single nested element.\n5. To add many elements one by one, use extend() or a loop with append().\n\nExample 1: building a list\n```python\nsquares = []\nfor i in range(1, 6):\n    squares.append(i * i)\nprint(squares)\n```\n\nOutput:\n```text\n[1, 4, 9, 16, 25]\n```\n\nExample 2: append() vs extend()\n```python\na = [1, 2]\nb = [1, 2]\na.append([3, 4])      # one element (a list)\nb.extend([3, 4])      # two elements\nprint(a, len(a))\nprint(b, len(b))\nresult = a.append(5)\nprint(result)\n```\n\nOutput:\n```text\n[1, 2, [3, 4]] 3\n[1, 2, 3, 4] 4\nNone\n```\n\nExample 3: storing marks entered by the user\n```python\nmarks = []\nfor m in [78, 91, 66]:        # m = int(input(\"Enter mark: \"))\n    marks.append(m)\nprint(\"Marks:\", marks, \"Total:\", sum(marks))\n```\n\nOutput:\n```text\nMarks: [78, 91, 66] Total: 235\n```",
       "id": 73
     },
     {
@@ -1500,7 +1500,7 @@
           "qno": 16
         }
       ],
-      "answer": "",
+      "answer": "Python provides built-in functions that work on strings, and string methods that are called on a string object with a dot.\n\nA) Built-in functions used with strings\n- len(s): number of characters\n- max(s), min(s): character with the highest / lowest Unicode value\n- str(x): converts a value to a string\n- ord(ch): Unicode (ASCII) value of a character\n- chr(n): character for a Unicode value\n- sorted(s): list of the characters in sorted order\n\nB) String methods\n1. Case: upper(), lower(), title(), capitalize(), swapcase()\n2. Search: find(), rfind(), index(), count(), startswith(), endswith()\n3. Edit: replace(), strip(), lstrip(), rstrip(), center(width), zfill(width)\n4. Split/join: split(), join(), partition()\n5. Test: isalpha(), isdigit(), isalnum(), isspace(), isupper(), islower(), istitle()\n\n```python\ns = \"Python\"\nprint(len(s), max(s), min(s))\nprint(ord(\"A\"), chr(97), str(25) + \"5\")\nprint(sorted(\"bca\"))\nprint(s.upper(), s.lower(), s.swapcase())\nprint(s.find(\"h\"), s.count(\"o\"), s.index(\"n\"))\nprint(s.center(10, \"*\"), \"7\".zfill(3))\nprint(\"a,b,c\".split(\",\"), \" \".join([\"I\", \"love\", s]))\nprint(s.isalpha(), \"123\".isdigit(), s.istitle())\n```\n\nOutput:\n```text\n6 y P\n65 a 255\n['a', 'b', 'c']\nPYTHON python pYTHON\n3 1 5\n**Python** 007\n['a', 'b', 'c'] I love Python\nTrue True True\n```\n\nNote: strings are immutable, so every method returns a new string; the original s is unchanged.",
       "id": 74
     },
     {
@@ -1520,7 +1520,7 @@
           "qno": 17
         }
       ],
-      "answer": "",
+      "answer": "1. len()\nReturns the number of characters in a string (including spaces).\nExample: len(\"Hello World\") gives 11\n\n2. upper() and lower()\nupper() converts all letters to uppercase; lower() converts them to lowercase.\nExample: \"Python\".upper() gives \"PYTHON\"\n\n3. find()\nReturns the index of the first occurrence of a substring, or -1 if it is not found.\nExample: \"banana\".find(\"na\") gives 2\n\n4. replace(old, new)\nReturns a new string in which all occurrences of old are replaced by new.\nExample: \"I like Java\".replace(\"Java\", \"Python\") gives \"I like Python\"\n\n5. split()\nBreaks a string into a list of words, using spaces (or the given separator).\nExample: \"a-b-c\".split(\"-\") gives ['a', 'b', 'c']\n\n6. strip()\nRemoves spaces (or given characters) from both ends.\nExample: \"  hi  \".strip() gives \"hi\"\n\n7. count()\nReturns how many times a substring occurs.\nExample: \"banana\".count(\"a\") gives 3\n\n```python\ntext = \"  Python is easy and Python is fun  \"\nt = text.strip()\nprint(len(t))\nprint(t.upper())\nprint(t.find(\"easy\"), t.find(\"hard\"))\nprint(t.replace(\"Python\", \"Java\"))\nprint(t.split())\nprint(t.count(\"Python\"))\n```\n\nOutput:\n```text\n32\nPYTHON IS EASY AND PYTHON IS FUN\n10 -1\nJava is easy and Java is fun\n['Python', 'is', 'easy', 'and', 'Python', 'is', 'fun']\n2\n```",
       "id": 75
     },
     {
@@ -1540,7 +1540,7 @@
           "qno": 17
         }
       ],
-      "answer": "",
+      "answer": "A list is an ordered, mutable collection written in [ ]. The basic operations on lists are:\n1. Creating: nums = [10, 20, 30]\n2. Accessing (indexing): nums[0], nums[-1]\n3. Slicing: nums[1:3]\n4. Updating: nums[1] = 25\n5. Concatenation (+): [1, 2] + [3] gives [1, 2, 3]\n6. Repetition (*): [0] * 3 gives [0, 0, 0]\n7. Membership (in, not in): 20 in nums\n8. Length: len(nums)\n9. Adding items: append(), insert(), extend()\n10. Removing items: remove(value), pop(index), del nums[i], clear()\n11. Traversal with a for loop\n12. Sorting and reversing: sort(), reverse()\n\n```python\nnums = [40, 10, 30]\nprint(nums[0], nums[-1], nums[0:2])\nnums[1] = 15\nnums.append(50)\nnums.insert(1, 5)\nprint(nums)\nnums.remove(30)\nlast = nums.pop()\ndel nums[0]\nprint(nums, \"popped:\", last)\nprint(nums + [99], [0] * 3)\nprint(15 in nums, len(nums))\nnums.extend([8, 2])\nnums.sort()\nprint(nums)\nfor n in nums:\n    print(n * 2, end=\" \")\nprint()\n```\n\nOutput:\n```text\n40 30 [40, 10]\n[40, 5, 15, 30, 50]\n[5, 15] popped: 50\n[5, 15, 99] [0, 0, 0]\nTrue 2\n[2, 5, 8, 15]\n4 10 16 30\n```",
       "id": 76
     },
     {
@@ -1560,7 +1560,7 @@
           "qno": 13
         }
       ],
-      "answer": "",
+      "answer": "Strings are compared using the relational operators ==, !=, <, >, <=, >=. The result is True or False.\n\nHow it works\n1. Python compares the two strings character by character from the left.\n2. The first pair of different characters decides the result, using their Unicode (ASCII) values (ord()).\n3. If one string is the beginning of the other, the shorter string is smaller (\"app\" < \"apple\").\n4. Comparison is case-sensitive: uppercase letters (A = 65 ... Z = 90) are smaller than lowercase letters (a = 97 ... z = 122).\n5. For case-insensitive comparison, compare s1.lower() and s2.lower().\n\nOther ways to compare\n- is: checks whether two names refer to the same object (not recommended for comparing values).\n- startswith(), endswith(), in: compare parts of strings.\n\n```python\nprint(\"apple\" == \"apple\", \"apple\" != \"Apple\")\nprint(\"apple\" < \"banana\", \"cat\" > \"car\")\nprint(\"app\" < \"apple\")\nprint(\"Zebra\" < \"apple\", ord(\"Z\"), ord(\"a\"))\nprint(\"Python\".lower() == \"PYTHON\".lower())\nnames = [\"ravi\", \"Anu\", \"bala\"]\nprint(sorted(names))\nprint(sorted(names, key=str.lower))\n```\n\nOutput:\n```text\nTrue True\nTrue True\nTrue\nTrue 90 97\nTrue\n['Anu', 'bala', 'ravi']\n['Anu', 'bala', 'ravi']\n```",
       "id": 77
     },
     {
@@ -1581,7 +1581,7 @@
           "qno": 19
         }
       ],
-      "answer": "",
+      "answer": "List\n1. An ordered collection of items.\n2. Written in square brackets [ ].\n3. Items are accessed by an integer index (0, 1, 2, ...).\n4. Duplicate items are allowed.\n5. Items are single values: [10, 20, 30].\n6. Searching for a value checks items one by one, which is slower for large lists.\n7. Methods: append(), insert(), extend(), remove(), pop(), sort().\n8. Created with [] or list().\n9. Used for sequences such as marks, names, a queue.\n\nDictionary\n1. A collection of key : value pairs (it keeps insertion order from Python 3.7).\n2. Written in curly braces { }.\n3. Values are accessed by key: d[\"name\"].\n4. Keys must be unique; values may repeat.\n5. Items are pairs: {\"roll\": 1, \"name\": \"Anu\"}.\n6. Looking up a key is very fast (hashing).\n7. Methods: keys(), values(), items(), get(), update(), pop().\n8. Created with {} or dict().\n9. Used for records, lookups and counting.\n\nBoth are mutable, can grow or shrink, and can hold any data type as values.\n\n```python\nmarks_list = [85, 90, 78]\nmarks_dict = {\"python\": 85, \"java\": 90, \"maths\": 78}\nprint(marks_list[1])               # access by index\nprint(marks_dict[\"java\"])          # access by key\nmarks_list.append(88)\nmarks_dict[\"dbms\"] = 88            # add a new key-value pair\nprint(marks_list)\nprint(marks_dict)\nprint(90 in marks_list, \"java\" in marks_dict)\n```\n\nOutput:\n```text\n90\n90\n[85, 90, 78, 88]\n{'python': 85, 'java': 90, 'maths': 78, 'dbms': 88}\nTrue True\n```",
       "id": 78
     },
     {
@@ -1601,7 +1601,7 @@
           "qno": 23
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nA list is one of Python's most used built-in data types. It stores a collection of items in a single variable. A list is:\n- Ordered: items keep the order in which they were added and are accessed by index.\n- Mutable: items can be added, changed and removed after creation.\n- Heterogeneous: items of different data types can be stored together.\n- Allows duplicates: the same value can appear more than once.\n- Dynamic: the size grows and shrinks automatically.\n\n1. Creating lists\n```python\nempty = []\nnums = [10, 20, 30, 40, 50]\nmixed = [\"Anu\", 19, 8.7, True]\nnested = [[1, 2], [3, 4]]\nfrom_range = list(range(1, 6))\nprint(empty, nums, mixed, nested, from_range)\n```\n\nOutput:\n```text\n[] [10, 20, 30, 40, 50] ['Anu', 19, 8.7, True] [[1, 2], [3, 4]] [1, 2, 3, 4, 5]\n```\n\n2. Accessing elements: indexing and slicing\nPositive indexes start at 0 from the left; negative indexes start at -1 from the right.\nIndex:     0   1   2   3   4\nnums  = [ 10, 20, 30, 40, 50 ]\nNegative: -5  -4  -3  -2  -1\n```python\nnums = [10, 20, 30, 40, 50]\nprint(nums[0], nums[-1], nums[2])\nprint(nums[1:4], nums[:2], nums[::2], nums[::-1])\nnested = [[1, 2], [3, 4]]\nprint(nested[1][0])\n```\n\nOutput:\n```text\n10 50 30\n[20, 30, 40] [10, 20] [10, 30, 50] [50, 40, 30, 20, 10]\n3\n```\n\n3. Updating, adding and deleting\n```python\nnums = [10, 20, 30]\nnums[1] = 25              # update\nnums.append(40)           # add at end\nnums.insert(0, 5)         # add at index\nnums.extend([50, 60])     # add many\nprint(nums)\nnums.remove(30)           # delete by value\nnums.pop()                # delete last\ndel nums[0]               # delete by index\nprint(nums)\n```\n\nOutput:\n```text\n[5, 10, 25, 30, 40, 50, 60]\n[10, 25, 40, 50]\n```\n\n4. List operators\n```python\na, b = [1, 2], [3, 4]\nprint(a + b, a * 3, 2 in a, 5 not in b, len(a + b))\n```\n\nOutput:\n```text\n[1, 2, 3, 4] [1, 2, 1, 2, 1, 2] True True 4\n```\n\n5. Traversing a list\n```python\nfruits = [\"apple\", \"mango\", \"grape\"]\nfor i, f in enumerate(fruits, start=1):\n    print(i, f)\n```\n\nOutput:\n```text\n1 apple\n2 mango\n3 grape\n```\n\n6. Built-in functions with lists\nlen(), max(), min(), sum(), sorted(), list()\n```python\nmarks = [72, 95, 64, 88]\nprint(len(marks), max(marks), min(marks), sum(marks), sorted(marks))\nprint(\"Average:\", sum(marks) / len(marks))\n```\n\nOutput:\n```text\n4 95 64 319 [64, 72, 88, 95]\nAverage: 79.75\n```\n\n7. Application: separating even and odd numbers\n```python\nnumbers = [11, 24, 35, 42, 57, 68]\neven, odd = [], []\nfor n in numbers:\n    if n % 2 == 0:\n        even.append(n)\n    else:\n        odd.append(n)\nprint(\"Even:\", even)\nprint(\"Odd :\", odd)\n```\n\nOutput:\n```text\nEven: [24, 42, 68]\nOdd : [11, 35, 57]\n```\n\nConclusion\nLists are flexible, ordered and mutable collections. Indexing, slicing, operators, methods and loops make them suitable for storing and processing groups of data such as marks, names and records.",
       "id": 79
     },
     {
@@ -1621,7 +1621,7 @@
           "qno": 23
         }
       ],
-      "answer": "",
+      "answer": "Definition\nA list is an ordered, mutable collection of items enclosed in square brackets [ ] and separated by commas. It can store items of different types, allows duplicates, and its items are accessed by index starting from 0.\nExample: marks = [78, 85, 92]\n\nA) Basic list operations\n\n1. Indexing: list[i] gives the item at position i (negative indexes count from the end).\n2. Slicing: list[start:stop:step] gives a sub-list.\n3. Concatenation (+): joins two lists.\n4. Repetition (*): repeats a list.\n5. Membership (in, not in): tests whether an item is present.\n6. Length len(): number of items.\n7. Updating: list[i] = value changes an item.\n8. Deletion: del list[i] or del list[start:stop].\n9. Iteration: for item in list.\n10. Comparison: ==, <, > compare lists element by element.\n\n```python\nL = [10, 20, 30, 40]\nprint(L[1], L[-2], L[1:3])\nprint(L + [50], [7] * 3)\nprint(30 in L, 99 not in L, len(L))\nL[0] = 11\ndel L[1]\nprint(L)\nprint([1, 2, 3] == [1, 2, 3], [1, 2] < [1, 3])\n```\n\nOutput:\n```text\n20 30 [20, 30]\n[10, 20, 30, 40, 50] [7, 7, 7]\nTrue True 4\n[11, 30, 40]\nTrue True\n```\n\nB) List methods\n\n1. append(x): adds x at the end.\n2. insert(i, x): inserts x at index i.\n3. extend(iterable): adds all items of another list.\n4. remove(x): removes the first occurrence of x (error if absent).\n5. pop([i]): removes and returns the item at index i (the last item by default).\n6. clear(): removes all items.\n7. index(x): returns the index of the first occurrence of x.\n8. count(x): returns how many times x occurs.\n9. sort(): sorts the list in ascending order; sort(reverse=True) sorts in descending order.\n10. reverse(): reverses the order of items.\n11. copy(): returns a shallow copy of the list.\n\n```python\nnums = [5, 3, 8]\nnums.append(3)\nprint(\"append :\", nums)\nnums.insert(1, 10)\nprint(\"insert :\", nums)\nnums.extend([7, 1])\nprint(\"extend :\", nums)\nnums.remove(3)\nprint(\"remove :\", nums)\nx = nums.pop()\nprint(\"pop    :\", nums, \"removed\", x)\nprint(\"index  :\", nums.index(8), \"count:\", nums.count(3))\nnums.sort()\nprint(\"sort   :\", nums)\nnums.sort(reverse=True)\nprint(\"desc   :\", nums)\nnums.reverse()\nprint(\"reverse:\", nums)\nbackup = nums.copy()\nnums.clear()\nprint(\"clear  :\", nums, \"copy:\", backup)\n```\n\nOutput:\n```text\nappend : [5, 3, 8, 3]\ninsert : [5, 10, 3, 8, 3]\nextend : [5, 10, 3, 8, 3, 7, 1]\nremove : [5, 10, 8, 3, 7, 1]\npop    : [5, 10, 8, 3, 7] removed 1\nindex  : 2 count: 1\nsort   : [3, 5, 7, 8, 10]\ndesc   : [10, 8, 7, 5, 3]\nreverse: [3, 5, 7, 8, 10]\nclear  : [] copy: [3, 5, 7, 8, 10]\n```\n\nC) Built-in functions used with lists\nlen(L), max(L), min(L), sum(L), sorted(L) (returns a new sorted list), list(seq) (converts a sequence to a list).\n\nConclusion\nLists support many operations (indexing, slicing, +, *, in) and methods (append, insert, remove, pop, sort, ...), which make them the most commonly used data structure in Python.",
       "id": 80
     },
     {
@@ -1645,7 +1645,7 @@
           "qno": 7
         }
       ],
-      "answer": "",
+      "answer": "A dictionary is a built-in data type that stores data as key : value pairs inside curly braces { }. Each key is unique and is used to access its value. Dictionaries are mutable. Keys must be immutable (string, number, tuple); values can be of any type. From Python 3.7, dictionaries keep the insertion order.\n\n```python\nstudent = {\"roll\": 101, \"name\": \"Anu\", \"dept\": \"BCA\"}\nprint(student[\"name\"])\nstudent[\"year\"] = 1\nprint(student)\n```\n\nOutput:\n```text\nAnu\n{'roll': 101, 'name': 'Anu', 'dept': 'BCA', 'year': 1}\n```",
       "id": 81
     },
     {
@@ -1665,7 +1665,7 @@
           "qno": 8
         }
       ],
-      "answer": "",
+      "answer": "A dictionary is a mutable collection of key-value pairs, written as {key1: value1, key2: value2, ...}. Values are accessed by their keys, not by position. Keys are unique and immutable; values may repeat.\n\n```python\ncapitals = {\"Tamil Nadu\": \"Chennai\", \"Kerala\": \"Thiruvananthapuram\"}\nprint(capitals[\"Tamil Nadu\"], len(capitals))\n```\n\nOutput:\n```text\nChennai 2\n```",
       "id": 82
     },
     {
@@ -1685,7 +1685,7 @@
           "qno": 9
         }
       ],
-      "answer": "",
+      "answer": "A tuple is an ordered, immutable collection of items written inside round brackets ( ), separated by commas. Once created, its items cannot be changed, added or removed. Tuples allow duplicates and different data types, and support indexing and slicing. A tuple with one item needs a trailing comma: (5,).\n\n```python\nt = (10, \"BCA\", 8.5, 10)\nprint(t[1], t[-1], len(t), type((5,)))\n```\n\nOutput:\n```text\nBCA 10 4 <class 'tuple'>\n```",
       "id": 83
     },
     {
@@ -1705,7 +1705,7 @@
           "qno": 9
         }
       ],
-      "answer": "",
+      "answer": "A new element (key-value pair) is created by assigning a value to a new key: dict_name[key] = value. If the key already exists, its value is updated. update() can add several elements at once, and setdefault() adds a key only if it is not present.\n\n```python\nd = {}                          # empty dictionary\nd[\"name\"] = \"Kavi\"              # create element\nd[\"age\"] = 19\nd.update({\"dept\": \"BCA\", \"year\": 2})\nd.setdefault(\"city\", \"Kanchipuram\")\nprint(d)\n```\n\nOutput:\n```text\n{'name': 'Kavi', 'age': 19, 'dept': 'BCA', 'year': 2, 'city': 'Kanchipuram'}\n```",
       "id": 84
     },
     {
@@ -1725,7 +1725,7 @@
           "qno": 9
         }
       ],
-      "answer": "",
+      "answer": "A tuple is a sequence data type that stores a fixed collection of items in order. It is written with round brackets and is immutable, so it is used for data that should not change, such as dates, coordinates or days of the week. Tuples are faster than lists and can be used as dictionary keys.\n\n```python\ndays = (\"Mon\", \"Tue\", \"Wed\")\npoint = 3, 4                  # brackets are optional (packing)\nx, y = point                  # unpacking\nprint(days[0], point, x + y)\n```\n\nOutput:\n```text\nMon (3, 4) 7\n```",
       "id": 85
     },
     {
@@ -1745,7 +1745,7 @@
           "qno": 8
         }
       ],
-      "answer": "",
+      "answer": "A nested tuple is a tuple that contains one or more tuples as its elements. Inner elements are accessed with two indexes: t[i][j]. It is used to store table-like data such as student records.\n\n```python\nstudents = ((\"Anu\", 85), (\"Bala\", 92), (\"Charu\", 78))\nprint(students[1])          # second record\nprint(students[1][0])       # name in the second record\nfor name, mark in students:\n    print(name, mark)\n```\n\nOutput:\n```text\n('Bala', 92)\nBala\nAnu 85\nBala 92\nCharu 78\n```",
       "id": 86
     },
     {
@@ -1765,7 +1765,7 @@
           "qno": 8
         }
       ],
-      "answer": "",
+      "answer": "Because tuples are immutable, they have only two methods:\n1. count(x): returns the number of times x occurs in the tuple.\n2. index(x): returns the index of the first occurrence of x (ValueError if not found).\n\nBuilt-in functions often used with tuples: len(), max(), min(), sum(), sorted(), tuple().\n\n```python\nt = (4, 7, 4, 9, 4)\nprint(t.count(4), t.index(9))\nprint(len(t), max(t), min(t), sum(t), sorted(t))\n```\n\nOutput:\n```text\n3 3\n5 9 4 28 [4, 4, 4, 7, 9]\n```",
       "id": 87
     },
     {
@@ -1785,7 +1785,7 @@
           "qno": 16
         }
       ],
-      "answer": "",
+      "answer": "A tuple is an ordered, immutable sequence written in ( ). Since its items cannot be changed, tuples do not have methods such as append(), remove() or sort(). Python provides only two tuple methods, and several built-in functions work with tuples.\n\n1. count(value)\nReturns the number of times the value appears in the tuple. It returns 0 if the value is not present.\n\n2. index(value[, start[, end]])\nReturns the position of the first occurrence of the value. The optional start and end limit the search. It raises ValueError if the value is not found.\n\n```python\nmarks = (78, 92, 65, 92, 88, 92)\nprint(\"count(92):\", marks.count(92))\nprint(\"count(50):\", marks.count(50))\nprint(\"index(92):\", marks.index(92))\nprint(\"index(92, 2):\", marks.index(92, 2))\ntry:\n    marks.index(50)\nexcept ValueError:\n    print(\"50 is not in the tuple\")\n```\n\nOutput:\n```text\ncount(92): 3\ncount(50): 0\nindex(92): 1\nindex(92, 2): 3\n50 is not in the tuple\n```\n\nBuilt-in functions used with tuples\n- len(t): number of items\n- max(t), min(t): largest and smallest item\n- sum(t): total of numeric items\n- sorted(t): returns a new sorted list\n- tuple(seq): converts a list or string into a tuple\n\n```python\nt = (78, 92, 65, 88)\nprint(len(t), max(t), min(t), sum(t))\nprint(sorted(t), tuple(sorted(t)))\nprint(tuple(\"abc\"), tuple([1, 2]))\n```\n\nOutput:\n```text\n4 92 65 323\n[65, 78, 88, 92] (65, 78, 88, 92)\n('a', 'b', 'c') (1, 2)\n```\n\nNote: to \"modify\" a tuple, convert it to a list with list(), change the list, and convert it back with tuple().",
       "id": 88
     },
     {
@@ -1805,7 +1805,7 @@
           "qno": 17
         }
       ],
-      "answer": "",
+      "answer": "A dictionary is a mutable collection of key : value pairs written in { }. Keys are unique and immutable; values can be any type. Values are accessed through keys: d[key].\n\nCreating: d = {\"a\": 1, \"b\": 2}, d = dict(a=1, b=2), d = {}\n\nDictionary methods\n1. keys(): returns all keys\n2. values(): returns all values\n3. items(): returns (key, value) pairs\n4. get(key, default): returns the value, or the default if the key is missing (no error)\n5. update(other): adds or changes pairs from another dictionary\n6. pop(key): removes the key and returns its value\n7. popitem(): removes and returns the last inserted pair\n8. setdefault(key, value): returns the value; inserts the key if it is absent\n9. copy(): returns a shallow copy\n10. clear(): removes all pairs\n11. dict.fromkeys(keys, value): creates a dictionary from a sequence of keys\n\nBuilt-in functions: len(d), sorted(d), key in d, del d[key]\n\n```python\nemp = {\"id\": 7, \"name\": \"Hari\", \"salary\": 30000}\nprint(emp.keys())\nprint(emp.values())\nprint(emp.items())\nprint(emp.get(\"name\"), emp.get(\"dept\", \"Not assigned\"))\nemp.update({\"salary\": 35000, \"dept\": \"IT\"})\nprint(emp)\nprint(\"Removed:\", emp.pop(\"id\"))\nprint(\"Last pair:\", emp.popitem())\nprint(len(emp), \"name\" in emp, sorted(emp))\nprint(dict.fromkeys([\"python\", \"java\"], 0))\nemp.clear()\nprint(emp)\n```\n\nOutput:\n```text\ndict_keys(['id', 'name', 'salary'])\ndict_values([7, 'Hari', 30000])\ndict_items([('id', 7), ('name', 'Hari'), ('salary', 30000)])\nHari Not assigned\n{'id': 7, 'name': 'Hari', 'salary': 35000, 'dept': 'IT'}\nRemoved: 7\nLast pair: ('dept', 'IT')\n2 True ['name', 'salary']\n{'python': 0, 'java': 0}\n{}\n```",
       "id": 89
     },
     {
@@ -1825,7 +1825,7 @@
           "qno": 18
         }
       ],
-      "answer": "",
+      "answer": "A dictionary has no sort() method. It is sorted with the built-in sorted() function, which returns a sorted list. The result can be converted back into a dictionary with dict().\n\n1. Sort by keys\nsorted(d) or sorted(d.items()) sorts by key.\n\n2. Sort by values\nUse the key parameter: sorted(d.items(), key=lambda item: item[1]).\n\n3. Descending order\nAdd reverse=True.\n\n```python\nmarks = {\"Ravi\": 78, \"Anu\": 92, \"Bala\": 65, \"Deepa\": 88}\n\nprint(sorted(marks))                         # keys only\nby_key = dict(sorted(marks.items()))\nprint(\"By name :\", by_key)\n\nby_value = dict(sorted(marks.items(), key=lambda item: item[1]))\nprint(\"By mark :\", by_value)\n\ntop = dict(sorted(marks.items(), key=lambda item: item[1], reverse=True))\nprint(\"Rank list:\", top)\n\nfor rank, (name, mark) in enumerate(top.items(), start=1):\n    print(rank, name, mark)\n```\n\nOutput:\n```text\n['Anu', 'Bala', 'Deepa', 'Ravi']\nBy name : {'Anu': 92, 'Bala': 65, 'Deepa': 88, 'Ravi': 78}\nBy mark : {'Bala': 65, 'Ravi': 78, 'Deepa': 88, 'Anu': 92}\nRank list: {'Anu': 92, 'Deepa': 88, 'Ravi': 78, 'Bala': 65}\n1 Anu 92\n2 Deepa 88\n3 Ravi 78\n4 Bala 65\n```\n\nNote: dictionaries keep insertion order (Python 3.7 and later), so the dictionary built from the sorted list stays in sorted order.",
       "id": 90
     },
     {
@@ -1845,7 +1845,7 @@
           "qno": 18
         }
       ],
-      "answer": "",
+      "answer": "A dictionary stores data as key : value pairs. The operations performed on a dictionary are:\n\n1. Creating\nd = {\"name\": \"Anu\", \"age\": 19} or d = dict(name=\"Anu\", age=19)\n\n2. Accessing\nd[\"name\"] returns the value (KeyError if the key is missing); d.get(\"name\") returns None instead of an error.\n\n3. Adding\nd[\"city\"] = \"Chennai\" adds a new pair.\n\n4. Updating\nd[\"age\"] = 20 changes an existing value; d.update({...}) changes several.\n\n5. Deleting\ndel d[\"city\"], d.pop(\"age\"), d.popitem(), d.clear()\n\n6. Membership\n\"name\" in d checks whether a key exists.\n\n7. Length\nlen(d) gives the number of pairs.\n\n8. Traversing\nfor k in d, for v in d.values(), for k, v in d.items()\n\n9. Copying and merging\nd.copy(), and d1 | d2 (Python 3.9 and later) or d1.update(d2)\n\n```python\nd = {\"name\": \"Anu\", \"age\": 19}\nprint(d[\"name\"], d.get(\"mark\"))          # accessing\nd[\"city\"] = \"Chennai\"                    # adding\nd[\"age\"] = 20                            # updating\nprint(d)\ndel d[\"city\"]                            # deleting\nprint(d.pop(\"age\"), d)\nprint(\"name\" in d, len(d))               # membership, length\nd.update({\"dept\": \"BCA\", \"year\": 1})\nfor key, value in d.items():             # traversing\n    print(key, \"->\", value)\nbackup = d.copy()\nd.clear()\nprint(d, backup)\n```\n\nOutput:\n```text\nAnu None\n{'name': 'Anu', 'age': 20, 'city': 'Chennai'}\n20 {'name': 'Anu'}\nTrue 1\nname -> Anu\ndept -> BCA\nyear -> 1\n{} {'name': 'Anu', 'dept': 'BCA', 'year': 1}\n```",
       "id": 91
     },
     {
@@ -1865,7 +1865,7 @@
           "qno": 18
         }
       ],
-      "answer": "",
+      "answer": "Dictionary\nA dictionary is a mutable collection of key : value pairs written inside curly braces { }. Each key is unique and maps to a value; values are accessed by key, not by position. Keys must be immutable (str, int, tuple); values can be of any type. Dictionaries keep insertion order from Python 3.7.\n\nWays to create a dictionary\n\n1. Using curly braces\nstudent = {\"roll\": 1, \"name\": \"Anu\"}\n\n2. Empty dictionary, then adding pairs\nd = {}  then  d[\"key\"] = value\n\n3. Using the dict() constructor with keyword arguments\nd = dict(name=\"Anu\", age=19)\n\n4. From a list of tuples\nd = dict([(\"a\", 1), (\"b\", 2)])\n\n5. From two lists using zip()\nd = dict(zip(keys_list, values_list))\n\n6. Using dict.fromkeys()\nd = dict.fromkeys([\"x\", \"y\"], 0)\n\n7. Dictionary comprehension\nd = {n: n * n for n in range(1, 4)}\n\n```python\nd1 = {\"roll\": 1, \"name\": \"Anu\"}\nd2 = {}\nd2[\"city\"] = \"Kanchipuram\"\nd3 = dict(name=\"Bala\", age=20)\nd4 = dict([(\"a\", 1), (\"b\", 2)])\nd5 = dict(zip([\"python\", \"java\"], [88, 79]))\nd6 = dict.fromkeys([\"x\", \"y\"], 0)\nd7 = {n: n * n for n in range(1, 4)}\nfor d in (d1, d2, d3, d4, d5, d6, d7):\n    print(d)\n```\n\nOutput:\n```text\n{'roll': 1, 'name': 'Anu'}\n{'city': 'Kanchipuram'}\n{'name': 'Bala', 'age': 20}\n{'a': 1, 'b': 2}\n{'python': 88, 'java': 79}\n{'x': 0, 'y': 0}\n{1: 1, 2: 4, 3: 9}\n```",
       "id": 92
     },
     {
@@ -1885,7 +1885,7 @@
           "qno": 23
         }
       ],
-      "answer": "",
+      "answer": "Introduction\nA dictionary is a mutable collection of key : value pairs written in curly braces { }. Keys are unique and immutable (string, number, tuple); values can be of any type. Items are reached through keys, not positions. Dictionaries keep insertion order (Python 3.7 and later).\n\n1. Creating a dictionary\na) With curly braces:  student = {\"roll\": 101, \"name\": \"Anu\", \"dept\": \"BCA\"}\nb) Empty dictionary:   d = {}  or  d = dict()\nc) With dict():        d = dict(name=\"Anu\", age=19)\nd) From pairs:         d = dict([(\"a\", 1), (\"b\", 2)])\ne) With zip():         d = dict(zip(keys, values))\nf) Comprehension:      squares = {n: n * n for n in range(1, 6)}\n\n```python\nstudent = {\"roll\": 101, \"name\": \"Anu\", \"dept\": \"BCA\"}\nempty = {}\nemp = dict(name=\"Ravi\", age=25)\nsquares = {n: n * n for n in range(1, 6)}\nprint(student, empty, emp, squares, sep=\"\\n\")\n```\n\nOutput:\n```text\n{'roll': 101, 'name': 'Anu', 'dept': 'BCA'}\n{}\n{'name': 'Ravi', 'age': 25}\n{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}\n```\n\n2. Accessing elements\na) Using the key in square brackets: d[key]. A missing key raises KeyError.\nb) Using get(key, default): returns the default (or None) for a missing key.\nc) keys(), values() and items() return all keys, values and pairs.\nd) A for loop traverses the dictionary.\n\n```python\nstudent = {\"roll\": 101, \"name\": \"Anu\", \"dept\": \"BCA\"}\nprint(student[\"name\"])\nprint(student.get(\"mark\"), student.get(\"mark\", 0))\nprint(list(student.keys()), list(student.values()))\nfor key, value in student.items():\n    print(key, \":\", value)\n```\n\nOutput:\n```text\nAnu\nNone 0\n['roll', 'name', 'dept'] [101, 'Anu', 'BCA']\nroll : 101\nname : Anu\ndept : BCA\n```\n\n3. Updating elements\na) Assign to an existing key to change its value: d[key] = new_value.\nb) Assign to a new key to add an element.\nc) update() changes or adds many pairs at once.\n\n```python\nstudent = {\"roll\": 101, \"name\": \"Anu\", \"dept\": \"BCA\"}\nstudent[\"dept\"] = \"B.Sc CS\"          # change value\nstudent[\"mark\"] = 88                 # add new pair\nstudent.update({\"mark\": 91, \"year\": 2})\nprint(student)\n```\n\nOutput:\n```text\n{'roll': 101, 'name': 'Anu', 'dept': 'B.Sc CS', 'mark': 91, 'year': 2}\n```\n\n4. Deleting elements\na) del d[key]: removes the pair (KeyError if the key is missing).\nb) pop(key): removes the pair and returns its value.\nc) popitem(): removes and returns the last inserted pair.\nd) clear(): removes all pairs, leaving an empty dictionary.\ne) del d: deletes the whole dictionary variable.\n\n```python\nstudent = {\"roll\": 101, \"name\": \"Anu\", \"dept\": \"BCA\", \"mark\": 91, \"year\": 2}\ndel student[\"roll\"]\nprint(student)\nprint(\"pop:\", student.pop(\"mark\"))\nprint(\"popitem:\", student.popitem())\nprint(student)\nstudent.clear()\nprint(student)\ndel student\ntry:\n    print(student)\nexcept NameError:\n    print(\"student no longer exists\")\n```\n\nOutput:\n```text\n{'name': 'Anu', 'dept': 'BCA', 'mark': 91, 'year': 2}\npop: 91\npopitem: ('year', 2)\n{'name': 'Anu', 'dept': 'BCA'}\n{}\nstudent no longer exists\n```\n\nConclusion\nDictionaries are created with { } or dict(), accessed with keys or get(), updated by assignment or update(), and elements are deleted with del, pop(), popitem() or clear().",
       "id": 93
     },
     {
@@ -1905,7 +1905,7 @@
           "qno": 23
         }
       ],
-      "answer": "",
+      "answer": "A dictionary stores key : value pairs and is mutable, so elements can be added and deleted after it is created.\n\nA) Adding elements\n\n1. Using assignment with a new key\nSyntax: dict_name[new_key] = value\nIf the key does not exist, a new pair is added; if it exists, its value is replaced.\n\n2. Using update()\nSyntax: dict_name.update({key1: value1, key2: value2})\nAdds several pairs at once (and updates existing keys).\n\n3. Using setdefault()\nSyntax: dict_name.setdefault(key, value)\nAdds the pair only if the key is not already present.\n\n4. Merging with the | operator (Python 3.9 and later)\nnew_dict = d1 | d2\n\n```python\nphone = {\"Anu\": \"98401\"}\nphone[\"Bala\"] = \"90030\"                          # 1. assignment\nphone.update({\"Charu\": \"94440\", \"Deepa\": \"99620\"})   # 2. update\nphone.setdefault(\"Anu\", \"00000\")                 # 3. not changed: key exists\nphone.setdefault(\"Ezhil\", \"97890\")               # 3. added\nprint(phone)\nprint(len(phone))\n```\n\nOutput:\n```text\n{'Anu': '98401', 'Bala': '90030', 'Charu': '94440', 'Deepa': '99620', 'Ezhil': '97890'}\n5\n```\n\nB) Deleting elements\n\n1. del statement\nSyntax: del dict_name[key]  (KeyError if the key is absent)\n\n2. pop()\nSyntax: dict_name.pop(key[, default])\nRemoves the key and returns its value; returns default if given and the key is absent.\n\n3. popitem()\nRemoves and returns the last inserted (key, value) pair.\n\n4. clear()\nRemoves all elements.\n\n5. Deleting while looping\nLoop over a copy of the keys (list(d)) to avoid a RuntimeError.\n\n```python\nphone = {\"Anu\": \"98401\", \"Bala\": \"90030\", \"Charu\": \"94440\",\n         \"Deepa\": \"99620\", \"Ezhil\": \"97890\"}\ndel phone[\"Bala\"]                    # 1. del\nprint(phone)\nprint(phone.pop(\"Charu\"))            # 2. pop\nprint(phone.pop(\"Zara\", \"not found\"))\nprint(phone.popitem())               # 3. popitem\nfor name in list(phone):             # 5. delete while looping\n    if name.startswith(\"A\"):\n        del phone[name]\nprint(phone)\nphone.clear()                        # 4. clear\nprint(phone)\n```\n\nOutput:\n```text\n{'Anu': '98401', 'Charu': '94440', 'Deepa': '99620', 'Ezhil': '97890'}\n94440\nnot found\n('Ezhil', '97890')\n{'Deepa': '99620'}\n{}\n```\n\nSummary\n- Add: d[key] = value, update(), setdefault(), |\n- Delete: del d[key], pop(), popitem(), clear()",
       "id": 94
     },
     {
@@ -1925,7 +1925,7 @@
           "qno": 23
         }
       ],
-      "answer": "",
+      "answer": "Tuple\nA tuple is an ordered, immutable collection of items written inside round brackets ( ) and separated by commas. Tuples:\n- keep items in order and allow indexing and slicing,\n- allow duplicate values and different data types,\n- cannot be changed after creation (immutable),\n- are faster than lists and can be used as dictionary keys.\n\n1. Creating a tuple\na) With brackets:      t = (10, 20, 30)\nb) Without brackets:   t = 10, 20, 30   (tuple packing)\nc) Empty tuple:        t = ()\nd) Single item:        t = (5,)   (the comma is needed; (5) is just an int)\ne) Using tuple():      tuple([1, 2, 3]), tuple(\"abc\")\nf) Nested tuple:       t = ((1, 2), (3, 4))\n\n```python\nt1 = (10, 20, 30)\nt2 = 10, 20, 30\nt3 = ()\nt4 = (5,)\nt5 = tuple(\"abc\")\nt6 = ((1, 2), (3, 4))\nprint(t1, t2, t3, t4, t5, t6)\nprint(type((5)), type((5,)))\n```\n\nOutput:\n```text\n(10, 20, 30) (10, 20, 30) () (5,) ('a', 'b', 'c') ((1, 2), (3, 4))\n<class 'int'> <class 'tuple'>\n```\n\n2. Accessing a tuple\na) Indexing: t[0] (first), t[-1] (last)\nb) Slicing: t[1:3], t[::-1]\nc) Nested access: t[i][j]\nd) Looping: for item in t\ne) Unpacking: a, b, c = t\n\n```python\nt = (\"Python\", \"Java\", \"C\", \"SQL\", \"R\")\nprint(t[0], t[-1])\nprint(t[1:4], t[::-1])\nnested = ((1, 2), (3, 4))\nprint(nested[1][0])\nfor lang in t[:2]:\n    print(lang)\na, b, c = (1, 2, 3)\nprint(a, b, c)\n```\n\nOutput:\n```text\nPython R\n('Java', 'C', 'SQL') ('R', 'SQL', 'C', 'Java', 'Python')\n3\nPython\nJava\n1 2 3\n```\n\n3. Updating a tuple\nA tuple is immutable, so t[0] = value gives a TypeError, and items cannot be added or removed. A tuple is \"updated\" by creating a new tuple:\na) Concatenation: t = t + (40,)\nb) Converting to a list, changing it, and converting back\nc) Reassigning the whole tuple\nd) A mutable object inside a tuple (such as a list) can itself be changed\nThe whole tuple can be deleted with del t.\n\n```python\nt = (10, 20, 30)\ntry:\n    t[0] = 99\nexcept TypeError as e:\n    print(\"Error:\", e)\n\nt = t + (40,)                  # a) concatenation\nprint(t)\n\ntemp = list(t)                 # b) list conversion\ntemp[1] = 25\ntemp.remove(30)\nt = tuple(temp)\nprint(t)\n\nt = (1, 2, 3)                  # c) reassignment\nprint(t)\n\nrecord = (\"Anu\", [80, 90])     # d) list inside a tuple\nrecord[1].append(85)\nprint(record)\n\ndel t\nprint(\"t deleted\")\n```\n\nOutput:\n```text\nError: 'tuple' object does not support item assignment\n(10, 20, 30, 40)\n(10, 25, 40)\n(1, 2, 3)\n('Anu', [80, 90, 85])\nt deleted\n```\n\nConclusion\nTuples are created with ( ) or tuple(), accessed with indexing, slicing and unpacking, and, being immutable, are updated only by building a new tuple.",
       "id": 95
     }
   ]

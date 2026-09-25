@@ -15,6 +15,112 @@ PO: PO2,PO3,PO5
 PSO: PSO1,PSO2
 Asked: November 2023 Q22; November 2025 Q22
 Answer:
+Introduction
+Arguments are the values passed to a function when it is called. The variables that receive them in the function definition are called parameters. Python supports four types of arguments:
+1. Required (positional) arguments
+2. Keyword arguments
+3. Default arguments
+4. Variable-length arguments (*args and **kwargs)
+
+1. Required (positional) arguments
+The arguments are passed in the same order as the parameters, and their number must match exactly. Missing or extra arguments give a TypeError.
+```python
+def student(name, age):
+    print("Name:", name, "| Age:", age)
+
+student("Arun", 19)          # correct order
+student(19, "Arun")          # wrong order gives wrong meaning
+```
+
+Output:
+```text
+Name: Arun | Age: 19
+Name: 19 | Age: Arun
+```
+
+2. Keyword arguments
+The argument is passed as parameter_name=value, so the order does not matter.
+```python
+def student(name, age):
+    print("Name:", name, "| Age:", age)
+
+student(age=20, name="Banu")
+```
+
+Output:
+```text
+Name: Banu | Age: 20
+```
+
+3. Default arguments
+A parameter can be given a default value in the definition. If the caller does not pass that argument, the default is used. Default parameters must come after non-default parameters.
+```python
+def power(base, exp=2):
+    return base ** exp
+
+print(power(5))        # exp takes default 2
+print(power(2, 5))     # default overridden
+```
+
+Output:
+```text
+25
+32
+```
+
+4. Variable-length arguments
+a) *args (arbitrary positional arguments): collects any number of values into a tuple.
+```python
+def total(*numbers):
+    print("Received:", numbers)
+    return sum(numbers)
+
+print(total(10, 20))
+print(total(1, 2, 3, 4, 5))
+```
+
+Output:
+```text
+Received: (10, 20)
+30
+Received: (1, 2, 3, 4, 5)
+15
+```
+
+b) **kwargs (arbitrary keyword arguments): collects any number of name=value pairs into a dictionary.
+```python
+def profile(**details):
+    for key, value in details.items():
+        print(key, ":", value)
+
+profile(name="Charu", dept="BCA", year=2)
+```
+
+Output:
+```text
+name : Charu
+dept : BCA
+year : 2
+```
+
+Combining all types
+The order in the definition must be: required, default, *args, **kwargs.
+```python
+def order(item, qty=1, *extras, **info):
+    print(item, qty, extras, info)
+
+order("Pen")
+order("Book", 3, "cover", "tag", gift=True)
+```
+
+Output:
+```text
+Pen 1 () {}
+Book 3 ('cover', 'tag') {'gift': True}
+```
+
+Conclusion
+Positional arguments depend on order, keyword arguments on names, default arguments make parameters optional, and *args / **kwargs accept any number of values. Together they make Python functions flexible.
 
 === Q2
 Question: Create your own module in python.
@@ -24,6 +130,71 @@ PO: PO2,PO3,PO4,PO5
 PSO: PSO1,PSO2
 Asked: November 2024 Q22
 Answer:
+A module is a .py file that contains functions, variables and classes. Any Python file we write can be used as a module in another program with import. A user-defined module is created in three steps.
+
+Step 1: Write the module
+Create a file named calculator.py with the following code:
+```text
+"""calculator.py - a user-defined module for simple calculations."""
+
+PI = 3.14159
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Division by zero is not allowed"
+    return a / b
+
+def circle_area(r):
+    return PI * r * r
+
+if __name__ == "__main__":
+    # runs only when calculator.py itself is executed, not when imported
+    print("Testing module:", add(2, 3))
+```
+
+Step 2: Save it in the same folder as the main program (or in a folder on Python's path).
+
+Step 3: Import and use it in another program, e.g. main.py:
+```text
+import calculator
+print(calculator.add(10, 5))
+print(calculator.divide(10, 0))
+
+from calculator import multiply, circle_area
+print(multiply(4, 6))
+print(circle_area(2))
+
+import calculator as calc
+print(calc.subtract(20, 8), calc.PI)
+```
+
+Output of main.py:
+```text
+15
+Division by zero is not allowed
+24
+12.56636
+12 3.14159
+```
+
+Important points
+- The module name is the file name without .py (calculator.py gives calculator).
+- import runs the module once and creates a namespace: names are used as calculator.add.
+- from module import name brings the name directly into the program.
+- dir(calculator) lists all the names defined in the module.
+- The block under if __name__ == "__main__": is used for testing and does not run on import.
+
+Advantages
+Reusability, a well-organised program, easy maintenance, and avoiding name clashes.
 
 === Q3
 Question: Discuss the following (i) Functions (ii) Modules.
@@ -33,6 +204,118 @@ PO: PO2,PO3,PO4,PO5
 PSO: PSO1,PSO2
 Asked: April 2025 Q22
 Answer:
+(i) Functions
+
+Definition
+A function is a named, self-contained block of statements that performs a specific task. It runs only when it is called, can take inputs (parameters) and can return a result.
+
+Types of functions
+1. Built-in functions: print(), len(), type(), max(), min(), sum(), input(), range()
+2. User-defined functions: written by the programmer using def
+3. Anonymous (lambda) functions: small one-line functions, e.g. lambda x: x * x
+4. Recursive functions: functions that call themselves
+
+Defining and calling a function
+```text
+def function_name(parameters):
+    statements
+    return value
+
+function_name(arguments)       # call
+```
+
+Types of arguments: positional, keyword, default and variable-length (*args, **kwargs).
+
+The return statement sends a value back; a function can return several values as a tuple.
+
+Scope: variables defined inside a function are local; variables outside are global.
+
+Example program
+```python
+def area_perimeter(l, b):
+    return l * b, 2 * (l + b)       # returns two values
+
+def greet(name, msg="Good morning"):
+    return msg + ", " + name
+
+square = lambda x: x * x
+
+a, p = area_perimeter(8, 5)
+print("Area:", a, "Perimeter:", p)
+print(greet("Meena"))
+print(greet("Meena", "Welcome"))
+print("Square of 9:", square(9))
+print("Built-in:", len("Python"), max(4, 9, 2))
+```
+
+Output:
+```text
+Area: 40 Perimeter: 26
+Good morning, Meena
+Welcome, Meena
+Square of 9: 81
+Built-in: 6 9
+```
+
+Advantages of functions: code reuse, modular programs, easy testing and debugging, and less repetition.
+
+(ii) Modules
+
+Definition
+A module is a file with the .py extension that contains Python definitions (functions, variables, classes) and statements. It lets us organise related code and reuse it in other programs.
+
+Types
+1. Built-in (standard library) modules: math, random, datetime, os, sys, statistics
+2. User-defined modules: .py files written by us
+
+Importing
+- import math
+- import math as m
+- from math import sqrt, pi
+- from math import *
+
+Example with built-in modules
+```python
+import math
+import statistics as st
+from random import randint
+
+print(math.factorial(5), math.gcd(24, 36), round(math.pi, 4))
+print(st.mean([70, 80, 90]))
+dice = randint(1, 6)            # random number from 1 to 6
+print(1 <= dice <= 6)
+```
+
+Output:
+```text
+120 12 3.1416
+80
+True
+```
+
+User-defined module example
+File shapes.py:
+```text
+def square_area(s):
+    return s * s
+def rectangle_area(l, b):
+    return l * b
+```
+File main.py:
+```text
+import shapes
+print(shapes.square_area(4))         # 16
+print(shapes.rectangle_area(3, 7))   # 21
+```
+
+Useful points
+- dir(module) lists the names in a module; help(module) shows its documentation.
+- Each module has its own namespace, so the same function name in two modules does not clash.
+- A package is a folder of modules.
+
+Comparison
+- A function is a block of code inside a program; a module is a file that can contain many functions.
+- Functions are called with name(); module contents are used after import, as module.name.
 
 === Q4
 Question: What are the different types of arguments passed to the function? Explain with example.
@@ -42,6 +325,97 @@ PO: PO2,PO3,PO5
 PSO: PSO1,PSO2
 Asked: April 2024 Q22
 Answer:
+Arguments are the actual values supplied to a function call; parameters are the names that receive them in the definition. Python functions accept the following types of arguments.
+
+1. Positional (required) arguments
+Matched to parameters by position. The count must be the same.
+```python
+def divide(a, b):
+    return a / b
+print(divide(10, 4))
+print(divide(4, 10))
+```
+
+Output:
+```text
+2.5
+0.4
+```
+
+2. Keyword arguments
+Passed as name=value, so the order can change. Keyword arguments must come after positional ones in a call.
+```python
+def book(title, author, price):
+    print(title, "by", author, "- Rs.", price)
+book(price=450, author="R. Nageswara Rao", title="Core Python")
+book("Let Us Python", price=399, author="Y. Kanetkar")
+```
+
+Output:
+```text
+Core Python by R. Nageswara Rao - Rs. 450
+Let Us Python by Y. Kanetkar - Rs. 399
+```
+
+3. Default arguments
+Parameters with a default value; the argument can be omitted.
+```python
+def interest(p, n, r=8.5):
+    return p * n * r / 100
+print(interest(20000, 2))         # r = 8.5
+print(interest(20000, 2, 10))     # r = 10
+```
+
+Output:
+```text
+3400.0
+4000.0
+```
+
+4. Variable-length positional arguments (*args)
+A parameter with * collects any number of positional arguments as a tuple.
+```python
+def average(*marks):
+    return sum(marks) / len(marks)
+print(average(80, 90))
+print(average(65, 70, 75, 80))
+```
+
+Output:
+```text
+85.0
+72.5
+```
+
+5. Variable-length keyword arguments (**kwargs)
+A parameter with ** collects extra keyword arguments as a dictionary.
+```python
+def report(**subject_marks):
+    for sub, m in subject_marks.items():
+        print(sub, "=", m)
+    print("Total =", sum(subject_marks.values()))
+report(python=88, java=79, maths=91)
+```
+
+Output:
+```text
+python = 88
+java = 79
+maths = 91
+Total = 258
+```
+
+Rules
+- In a definition the order is: positional, default, *args, **kwargs.
+- A positional argument cannot follow a keyword argument in a call: f(a=1, 2) is a SyntaxError.
+- The same parameter cannot receive two values: f(1, a=1) gives a TypeError.
+
+Summary
+- Positional: matched by order, e.g. divide(10, 4)
+- Keyword: matched by name, e.g. book(price=450, ...)
+- Default: optional, with a preset value, e.g. interest(p, n, r=8.5)
+- *args: any number of values, as a tuple, e.g. average(*marks)
+- **kwargs: any number of name=value pairs, as a dict, e.g. report(**subject_marks)
 
 === Q5
 Question: Write a Python Program to print factorial of 1 to n Numbers.
@@ -51,3 +425,76 @@ PO: PO2,PO3,PO5
 PSO: PSO1
 Asked: April 2025 Q21
 Answer:
+Aim
+To print the factorial of every number from 1 to n.
+
+Logic
+The factorial of i is i! = 1 x 2 x ... x i. Instead of calculating each factorial from the beginning, multiply the previous factorial by i: i! = (i-1)! x i.
+
+Algorithm
+1. Read n.
+2. Set fact = 1.
+3. For i = 1 to n: fact = fact x i, then print i and fact.
+4. Stop.
+
+Program 1: using a single loop
+```python
+n = 7                    # n = int(input("Enter n: "))
+fact = 1
+print("Number   Factorial")
+for i in range(1, n + 1):
+    fact = fact * i
+    print(f"{i:>4} {fact:>12}")
+```
+
+Output:
+```text
+Number   Factorial
+   1            1
+   2            2
+   3            6
+   4           24
+   5          120
+   6          720
+   7         5040
+```
+
+Program 2: using a user-defined function
+```python
+def factorial(num):
+    f = 1
+    for k in range(2, num + 1):
+        f *= k
+    return f
+
+n = 5
+for i in range(1, n + 1):
+    print(f"{i}! = {factorial(i)}")
+```
+
+Output:
+```text
+1! = 1
+2! = 2
+3! = 6
+4! = 24
+5! = 120
+```
+
+Program 3: using recursion
+```python
+def fact(num):
+    if num <= 1:
+        return 1
+    return num * fact(num - 1)
+
+n = 6
+print([fact(i) for i in range(1, n + 1)])
+```
+
+Output:
+```text
+[1, 2, 6, 24, 120, 720]
+```
+
+Note: the program should check for invalid input; factorial is not defined for negative numbers.
