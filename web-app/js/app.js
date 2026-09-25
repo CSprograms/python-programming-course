@@ -1,7 +1,15 @@
 (function () {
   "use strict";
 
-  var state = { data: null, filter: "", activeSession: null };
+  var state = {
+    data: null,
+    qb: null,          // question bank data (loaded after the sessions)
+    qbError: null,
+    qbFilter: { unit: "all", part: "all", repeated: false },
+    view: "intro",     // "intro" | "session" | "qb"
+    filter: "",
+    activeSession: null,
+  };
 
   var els = {
     sidebar: document.getElementById("sidebar"),
@@ -10,6 +18,8 @@
     search: document.getElementById("searchInput"),
     drawerToggle: document.getElementById("drawerToggle"),
     scrim: document.getElementById("scrim"),
+    navSessions: document.getElementById("navSessions"),
+    navQB: document.getElementById("navQB"),
   };
 
   var TYPE_LABEL = {
@@ -31,6 +41,7 @@
       buildTree();
       route();
       window.addEventListener("hashchange", route);
+      loadQuestionBank();
     })
     .catch(function (err) {
       els.content.innerHTML =
@@ -144,6 +155,7 @@
     searchDebounce = setTimeout(function () {
       state.filter = v;
       buildTree();
+      if (state.view === "qb") renderQBResults();
     }, 120);
   });
 
@@ -152,17 +164,28 @@
   // ---------------------------------------------------------------
   function route() {
     var m = /^#session-(\d+)$/.exec(location.hash);
-    if (m && state.data.sessions[m[1]]) {
+    if (location.hash === "#qb") {
+      renderQB();
+    } else if (m && state.data.sessions[m[1]]) {
       renderSession(parseInt(m[1], 10));
     } else {
       renderIntro();
     }
+    setNav();
+  }
+
+  function setNav() {
+    els.navSessions.classList.toggle("active", state.view !== "qb");
+    els.navQB.classList.toggle("active", state.view === "qb");
+    if (state.view === "qb") els.navQB.setAttribute("aria-current", "page");
+    else els.navQB.removeAttribute("aria-current");
   }
 
   // ---------------------------------------------------------------
   // Intro / landing view
   // ---------------------------------------------------------------
   function renderIntro() {
+    state.view = "intro";
     state.activeSession = null;
     markActiveInTree();
     var c = state.data.course;
@@ -190,7 +213,11 @@
         '<div class="u-range">Sessions ' + u.start + "\u2013" + u.end + "</div>" +
         "</button>";
     });
-    html += "</div></div>";
+    html += "</div>";
+    html +=
+      '<a class="intro-qb" href="#qb"><span class="t">Previous-year Question Bank \u2192</span>' +
+      '<span class="d">End-semester questions (Nov 2023 \u2013 Nov 2025) that match the current syllabus, sorted by unit.</span></a>';
+    html += "</div>";
 
     els.content.innerHTML = html;
 
@@ -214,6 +241,7 @@
   // Session view
   // ---------------------------------------------------------------
   function renderSession(num) {
+    state.view = "session";
     state.activeSession = num;
     markActiveInTree();
 
@@ -330,6 +358,173 @@
       if (block) block.classList.add("open");
       activeItem.scrollIntoView({ block: "nearest" });
     }
+  }
+
+  // ---------------------------------------------------------------
+  // Question Bank view  (#qb)
+  // ---------------------------------------------------------------
+  function loadQuestionBank() {
+    fetch("data/question_bank.json", { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (qb) {
+        state.qb = qb;
+        if (state.view === "qb") renderQB();
+      })
+      .catch(function (err) {
+        state.qbError = String(err.message || err);
+        if (state.view === "qb") renderQB();
+      });
+  }
+
+  function renderQB() {
+    state.view = "qb";
+    state.activeSession = null;
+    markActiveInTree();
+    window.scrollTo(0, 0);
+
+    if (!state.qb) {
+      els.content.innerHTML = state.qbError
+        ? '<div class="session-note">Could not load the question bank (' + escapeHtml(state.qbError) +
+          "). Check that data/question_bank.json exists.</div>"
+        : '<div class="qb-empty">Loading question bank\u2026</div>';
+      return;
+    }
+
+    var qb = state.qb;
+    var exams = qb.exams || [];
+    var html = '<div class="qb-head">';
+    html += '<div class="kicker">' + escapeHtml(state.data.course.code) + " \u00B7 Previous-year questions</div>";
+    html += "<h1>Question Bank</h1>";
+    html +=
+      "<p>" + qb.questions.length + " questions from the end-semester papers" +
+      (exams.length ? " of " + escapeHtml(exams[0]) + " to " + escapeHtml(exams[exams.length - 1]) : "") +
+      ", grouped by unit. " + escapeHtml(qb.excluded || "") + "</p>";
+    html += "</div>";
+
+    html += '<div class="qb-filters" id="qbFilters"></div>';
+    html += '<div class="qb-summary" id="qbSummary" aria-live="polite"></div>';
+    html += '<div id="qbResults"></div>';
+    els.content.innerHTML = html;
+
+    renderQBFilters();
+    renderQBResults();
+  }
+
+  function qbMatches(q, f, text) {
+    if (f.unit !== "all" && q.units.indexOf(f.unit) === -1) return false;
+    if (f.part !== "all" && q.part !== f.part) return false;
+    if (f.repeated && q.asked.length < 2) return false;
+    if (text) {
+      var hay = (q.question + " " + q.co + " " + q.kl + " " + (q.note || "") + " " +
+        q.asked.map(function (a) { return a.exam; }).join(" ")).toLowerCase();
+      if (hay.indexOf(text) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderQBFilters() {
+    var f = state.qbFilter;
+    var qs = state.qb.questions;
+    function count(over) {
+      var g = { unit: f.unit, part: f.part, repeated: f.repeated };
+      for (var k in over) g[k] = over[k];
+      return qs.filter(function (q) { return qbMatches(q, g, ""); }).length;
+    }
+    function chip(kind, value, label, on, n) {
+      return '<button type="button" class="chip' + (on ? " on" : "") + '" data-kind="' + kind +
+        '" data-value="' + value + '" aria-pressed="' + on + '">' + label +
+        (n !== undefined ? '<span class="count">' + n + "</span>" : "") + "</button>";
+    }
+
+    var html = '<div class="qb-filter-group"><span class="label">Unit</span>';
+    html += chip("unit", "all", "All", f.unit === "all", count({ unit: "all" }));
+    state.data.units.forEach(function (u) {
+      html += chip("unit", u.number, u.number, f.unit === u.number, count({ unit: u.number }));
+    });
+    html += '</div><div class="qb-filter-group"><span class="label">Part</span>';
+    html += chip("part", "all", "All", f.part === "all", count({ part: "all" }));
+    Object.keys(state.qb.parts).forEach(function (p) {
+      html += chip("part", p, escapeHtml(p), f.part === p, count({ part: p }));
+    });
+    html += '</div><div class="qb-filter-group">';
+    html += chip("repeated", "1", "Asked more than once", f.repeated, count({ repeated: true }));
+    html += "</div>";
+
+    var box = document.getElementById("qbFilters");
+    box.innerHTML = html;
+    box.querySelectorAll(".chip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var kind = btn.dataset.kind;
+        if (kind === "repeated") state.qbFilter.repeated = !state.qbFilter.repeated;
+        else state.qbFilter[kind] = btn.dataset.value;
+        renderQBFilters();
+        renderQBResults();
+      });
+    });
+  }
+
+  function renderQBResults() {
+    var box = document.getElementById("qbResults");
+    if (!box || !state.qb) return;
+    var f = state.qbFilter;
+    var text = state.filter.trim().toLowerCase();
+    var shown = state.qb.questions.filter(function (q) { return qbMatches(q, f, text); });
+
+    var summary = shown.length + (shown.length === 1 ? " question" : " questions");
+    if (text) summary += " matching \u201C" + state.filter.trim() + "\u201D";
+    document.getElementById("qbSummary").textContent = summary;
+
+    if (shown.length === 0) {
+      box.innerHTML = '<div class="qb-empty">No questions match these filters.</div>';
+      return;
+    }
+
+    var html = "";
+    state.data.units.forEach(function (u) {
+      // A question spanning two units (e.g. IV/V) is listed under its first
+      // unit, or under the unit being filtered on.
+      var inUnit = shown.filter(function (q) {
+        return f.unit !== "all" ? q.units.indexOf(u.number) !== -1 : q.units[0] === u.number;
+      });
+      if (inUnit.length === 0) return;
+      html += '<section class="qb-unit">';
+      html += '<div class="qb-unit-head"><h2><span class="num">Unit ' + u.number + "</span>" +
+        escapeHtml(u.title) + "</h2>" +
+        '<a href="#session-' + u.start + '">Sessions ' + u.start + "\u2013" + u.end + " \u2192</a></div>";
+      Object.keys(state.qb.parts).forEach(function (p) {
+        var inPart = inUnit.filter(function (q) { return q.part === p; });
+        if (inPart.length === 0) return;
+        html += '<div class="qb-part-title">' + escapeHtml(state.qb.parts[p]) + " \u00B7 " +
+          inPart.length + (inPart.length === 1 ? " question" : " questions") + "</div>";
+        html += '<ol class="qb-list">';
+        inPart.forEach(function (q) { html += qbItem(q); });
+        html += "</ol>";
+      });
+      html += "</section>";
+    });
+    box.innerHTML = html;
+  }
+
+  function qbItem(q) {
+    var html = '<li class="qb-q part-' + q.part + '">';
+    html += '<div class="qb-q-text">' + escapeHtml(q.question) + "</div>";
+    html += '<div class="qb-meta">';
+    if (q.asked.length > 1) html += '<span class="qb-tag repeat">Asked ' + q.asked.length + "\u00D7</span>";
+    html += '<span class="qb-tag" title="Knowledge level">' + escapeHtml(q.kl) + "</span>";
+    html += '<span class="qb-tag" title="Course outcome">' + escapeHtml(q.co) + "</span>";
+    if (q.units.length > 1) html += '<span class="qb-tag" title="Units">Units ' + escapeHtml(q.units.join(" & ")) + "</span>";
+    html += '<span class="qb-asked">' + q.asked.map(function (a) {
+      return escapeHtml(a.exam) + " \u00B7 Q" + escapeHtml(String(a.qno));
+    }).join(", ") + "</span>";
+    html += '<span title="Programme outcomes / programme-specific outcomes">' +
+      escapeHtml([q.po, q.pso].filter(Boolean).join(" \u00B7 ")) + "</span>";
+    html += "</div>";
+    if (q.note) html += '<div class="qb-note">' + escapeHtml(q.note) + "</div>";
+    html += "</li>";
+    return html;
   }
 
   // ---------------------------------------------------------------

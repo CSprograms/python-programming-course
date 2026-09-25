@@ -13,6 +13,7 @@ web-app/
 ├── css/style.css         # all styling (no framework)
 ├── js/app.js             # renders sidebar + session view from data/sessions.json
 ├── data/sessions.json    # generated; do not hand-edit (see below)
+├── data/question_bank.json  # generated from ../Question_Bank/question_bank.csv
 └── README.md
 ```
 

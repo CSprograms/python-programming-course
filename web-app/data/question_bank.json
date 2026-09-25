@@ -1,0 +1,1837 @@
+{
+  "title": "Previous-year Question Bank",
+  "source": "End-semester question papers, analysed against the current syllabus",
+  "excluded": "Out-of-syllabus questions (File Handling, Arrays) are not included.",
+  "parts": {
+    "A": "Part A",
+    "B": "Part B",
+    "C": "Part C"
+  },
+  "exams": [
+    "November 2023",
+    "April 2024",
+    "November 2024",
+    "April 2025",
+    "November 2025"
+  ],
+  "questions": [
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "How to declare and initialize variable?",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO2",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 11
+        }
+      ],
+      "id": 1
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "List out the rules to declare a variable in python.",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is Comment?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 2
+        }
+      ],
+      "id": 3
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is comment? Give an example.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO6",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 2
+        }
+      ],
+      "id": 4
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is constants?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is expression? Give an example.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 2
+        }
+      ],
+      "id": 6
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is Identifier?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 1
+        }
+      ],
+      "id": 7
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is indentation?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 2
+        }
+      ],
+      "id": 8
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is keyword?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 3
+        }
+      ],
+      "id": 9
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is literal?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 1
+        }
+      ],
+      "id": 10
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "What is type conversion?",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 11
+        }
+      ],
+      "id": 11
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "Write any four features of python.",
+      "kl": "K1",
+      "co": "CO1",
+      "po": "PO1,PO6",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 1
+        }
+      ],
+      "id": 12
+    },
+    {
+      "part": "A",
+      "units": [
+        "I"
+      ],
+      "question": "Write down the Input statement in python.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO2",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 2
+        }
+      ],
+      "id": 13
+    },
+    {
+      "part": "B",
+      "units": [
+        "I"
+      ],
+      "question": "Describe about features of python.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO6",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 13
+        }
+      ],
+      "id": 14
+    },
+    {
+      "part": "B",
+      "units": [
+        "I"
+      ],
+      "question": "Explain the various operators in Python Programming.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 13
+        }
+      ],
+      "id": 15
+    },
+    {
+      "part": "B",
+      "units": [
+        "I"
+      ],
+      "question": "List out Operators in python.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 14
+        }
+      ],
+      "id": 16
+    },
+    {
+      "part": "B",
+      "units": [
+        "I"
+      ],
+      "question": "What are built-in data types used in python? Explain in detail.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 13
+        }
+      ],
+      "id": 17
+    },
+    {
+      "part": "B",
+      "units": [
+        "I"
+      ],
+      "question": "What are the built-in data types in python ? Explain.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 14
+        }
+      ],
+      "id": 18
+    },
+    {
+      "part": "C",
+      "units": [
+        "I"
+      ],
+      "question": "Explain the Data type in python with your own example.",
+      "kl": "K3",
+      "co": "CO1",
+      "po": "PO1,PO2,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 20
+        }
+      ],
+      "id": 19
+    },
+    {
+      "part": "C",
+      "units": [
+        "I"
+      ],
+      "question": "Explain the different types of operators used in python.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 20
+        }
+      ],
+      "id": 20
+    },
+    {
+      "part": "C",
+      "units": [
+        "I"
+      ],
+      "question": "Explain various types of operators.",
+      "kl": "K2",
+      "co": "CO1",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 20
+        }
+      ],
+      "id": 21
+    },
+    {
+      "part": "C",
+      "units": [
+        "I"
+      ],
+      "question": "Explain various types of operators. Give an example of it.",
+      "kl": "K3",
+      "co": "CO1",
+      "po": "PO1,PO2,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 20
+        }
+      ],
+      "id": 22
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Define break and continue statements.",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 12
+        }
+      ],
+      "id": 23
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Define elif statement.",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 4
+        }
+      ],
+      "id": 24
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Difference between while and do-while loop.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "Python has no do-while loop; answer by contrasting while with the do-while idiom (while True: ... if not cond: break).",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 4
+        }
+      ],
+      "id": 25
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Different between for and while loops.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 3
+        }
+      ],
+      "id": 26
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Differentiate between break and continue statement.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 5
+        }
+      ],
+      "id": 27
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "List out the uses of Break statement.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 3
+        }
+      ],
+      "id": 28
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "What do you mean by conditional statements?",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 3
+        }
+      ],
+      "id": 29
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "What is indefinite loop?",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 4
+        }
+      ],
+      "id": 30
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "What is iterative statement?",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 12
+        }
+      ],
+      "id": 31
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "What is nested loop?",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 6
+        }
+      ],
+      "id": 32
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Write a Syntax of Continue Statement.",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 4
+        }
+      ],
+      "id": 33
+    },
+    {
+      "part": "A",
+      "units": [
+        "II"
+      ],
+      "question": "Write down the syntax for loop statement.",
+      "kl": "K1",
+      "co": "CO2",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 4
+        }
+      ],
+      "id": 34
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "Different between while and do while loop.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "Python has no do-while loop; answer by contrasting while with the do-while idiom (while True: ... if not cond: break).",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 14
+        }
+      ],
+      "id": 35
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "Explain about Jump Statement in Python.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 14
+        }
+      ],
+      "id": 36
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "Explain about selection control statement with example program.",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 15
+        }
+      ],
+      "id": 37
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "Explain selection statements used in python with suitable example.",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 14
+        }
+      ],
+      "id": 38
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "Explain the While statement with sample code.",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 15
+        }
+      ],
+      "id": 39
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "How the Nested If works?",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 16
+        }
+      ],
+      "id": 40
+    },
+    {
+      "part": "B",
+      "units": [
+        "II"
+      ],
+      "question": "Write for loop & while loop Syntaxes with examples.",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 15
+        }
+      ],
+      "id": 41
+    },
+    {
+      "part": "C",
+      "units": [
+        "II"
+      ],
+      "question": "Explain in detail if else and nested if statement with example",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 21
+        }
+      ],
+      "id": 42
+    },
+    {
+      "part": "C",
+      "units": [
+        "II"
+      ],
+      "question": "Explain iterative statements with example.",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 21
+        }
+      ],
+      "id": 43
+    },
+    {
+      "part": "C",
+      "units": [
+        "II"
+      ],
+      "question": "Explain various iterative statements in python with examples.",
+      "kl": "K3",
+      "co": "CO2",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 21
+        }
+      ],
+      "id": 44
+    },
+    {
+      "part": "C",
+      "units": [
+        "II"
+      ],
+      "question": "List out IF statement and its types.",
+      "kl": "K2",
+      "co": "CO2",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 21
+        }
+      ],
+      "id": 45
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "What is Recursion?",
+      "kl": "K1",
+      "co": "CO3",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 6
+        },
+        {
+          "exam": "April 2025",
+          "qno": 6
+        }
+      ],
+      "id": 46
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "Define recursion.",
+      "kl": "K1",
+      "co": "CO3",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 7
+        }
+      ],
+      "id": 47
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "Define variable scope and lifetime?",
+      "kl": "K2",
+      "co": "CO3",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 5
+        }
+      ],
+      "id": 48
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "What is meant by local scope of a variable?",
+      "kl": "K1",
+      "co": "CO3",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 8
+        }
+      ],
+      "id": 49
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "What is meant by recursion?",
+      "kl": "K1",
+      "co": "CO3",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 5
+        }
+      ],
+      "id": 50
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "What is module?",
+      "kl": "K1",
+      "co": "CO3",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 6
+        }
+      ],
+      "id": 51
+    },
+    {
+      "part": "A",
+      "units": [
+        "III"
+      ],
+      "question": "What is Namespace?",
+      "kl": "K2",
+      "co": "CO3",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 12
+        }
+      ],
+      "id": 52
+    },
+    {
+      "part": "B",
+      "units": [
+        "III"
+      ],
+      "question": "Explain in detail function definition and function call",
+      "kl": "K2",
+      "co": "CO3",
+      "po": "PO1,PO3,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 15
+        }
+      ],
+      "id": 53
+    },
+    {
+      "part": "B",
+      "units": [
+        "III"
+      ],
+      "question": "Write a python program to calculate a factorial value for given number.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 16
+        }
+      ],
+      "id": 54
+    },
+    {
+      "part": "B",
+      "units": [
+        "III"
+      ],
+      "question": "Write about modules with examples.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO4,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 18
+        }
+      ],
+      "id": 55
+    },
+    {
+      "part": "B",
+      "units": [
+        "III"
+      ],
+      "question": "Write short note on function and function call.",
+      "kl": "K2",
+      "co": "CO3",
+      "po": "PO1,PO3,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 15
+        }
+      ],
+      "id": 56
+    },
+    {
+      "part": "C",
+      "units": [
+        "III"
+      ],
+      "question": "Discuss about various type function arguments with proper example.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 22
+        },
+        {
+          "exam": "November 2025",
+          "qno": 22
+        }
+      ],
+      "id": 57
+    },
+    {
+      "part": "C",
+      "units": [
+        "III"
+      ],
+      "question": "Create your own module in python.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO4,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 22
+        }
+      ],
+      "id": 58
+    },
+    {
+      "part": "C",
+      "units": [
+        "III"
+      ],
+      "question": "Discuss the following (i) Functions (ii) Modules.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO4,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 22
+        }
+      ],
+      "id": 59
+    },
+    {
+      "part": "C",
+      "units": [
+        "III"
+      ],
+      "question": "What are the different types of arguments passed to the function? Explain with example.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 22
+        }
+      ],
+      "id": 60
+    },
+    {
+      "part": "C",
+      "units": [
+        "III"
+      ],
+      "question": "Write a Python Program to print factorial of 1 to n Numbers.",
+      "kl": "K3",
+      "co": "CO3",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 21
+        }
+      ],
+      "id": 61
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "Define list.",
+      "kl": "K1",
+      "co": "CO4",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 7
+        }
+      ],
+      "id": 62
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "How do you add values to a list in python?",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO2,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 7
+        }
+      ],
+      "id": 63
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "How to declare list in python?",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO1,PO2",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 7
+        }
+      ],
+      "id": 64
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "What is immutable string?",
+      "kl": "K1",
+      "co": "CO4",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 5
+        }
+      ],
+      "id": 65
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "What is List?",
+      "kl": "K1",
+      "co": "CO4",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 8
+        }
+      ],
+      "id": 66
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "What is String function?",
+      "kl": "K1",
+      "co": "CO4",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 5
+        }
+      ],
+      "id": 67
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "Write a string compare function in python.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 6
+        }
+      ],
+      "id": 68
+    },
+    {
+      "part": "A",
+      "units": [
+        "IV"
+      ],
+      "question": "Write down the purpose of append function.",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO1,PO2",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 10
+        }
+      ],
+      "id": 69
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Describe about python string operations.",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO1,PO3,PO6",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 16
+        }
+      ],
+      "id": 70
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Explain about built-in string methods with examples.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 17
+        }
+      ],
+      "id": 71
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Explain few string operations. Give an example of it.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 18
+        }
+      ],
+      "id": 72
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Explain the append() method of a list with an example.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO6",
+      "pso": "PSO1",
+      "note": "Reframed from \"Explain the following (i) append() (ii) writelines()\"; part (ii) is file handling, which is out of syllabus.",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 19
+        }
+      ],
+      "id": 73
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Explain the String methods and functions.",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO1,PO3,PO6",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 16
+        }
+      ],
+      "id": 74
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "List out and explain any 5 String Functions in Python.",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO1,PO3,PO6",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 17
+        }
+      ],
+      "id": 75
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Write about basic list operations with example.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 17
+        }
+      ],
+      "id": 76
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV"
+      ],
+      "question": "Write about string comparison.",
+      "kl": "K2",
+      "co": "CO4",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 13
+        }
+      ],
+      "id": 77
+    },
+    {
+      "part": "B",
+      "units": [
+        "IV",
+        "V"
+      ],
+      "question": "Write difference between list and dictionary.",
+      "kl": "K2",
+      "co": "CO4/CO5",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 19
+        }
+      ],
+      "id": 78
+    },
+    {
+      "part": "C",
+      "units": [
+        "IV"
+      ],
+      "question": "Explain Lists with suitable examples.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 23
+        }
+      ],
+      "id": 79
+    },
+    {
+      "part": "C",
+      "units": [
+        "IV"
+      ],
+      "question": "What is a list? Explain the basic list operations and methods.",
+      "kl": "K3",
+      "co": "CO4",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 23
+        }
+      ],
+      "id": 80
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "What is dictionary?",
+      "kl": "K1",
+      "co": "CO5",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 10
+        },
+        {
+          "exam": "April 2025",
+          "qno": 7
+        }
+      ],
+      "id": 81
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "Define Dictionary.",
+      "kl": "K1",
+      "co": "CO5",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 8
+        }
+      ],
+      "id": 82
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "Define tuple.",
+      "kl": "K1",
+      "co": "CO5",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 9
+        }
+      ],
+      "id": 83
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "How to create an element in dictionary?",
+      "kl": "K2",
+      "co": "CO5",
+      "po": "PO2,PO3",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 9
+        }
+      ],
+      "id": 84
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "What is meant by tuple?",
+      "kl": "K1",
+      "co": "CO5",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 9
+        }
+      ],
+      "id": 85
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "What is nested tuple?",
+      "kl": "K1",
+      "co": "CO5",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 8
+        }
+      ],
+      "id": 86
+    },
+    {
+      "part": "A",
+      "units": [
+        "V"
+      ],
+      "question": "Write types of tuple methods.",
+      "kl": "K1",
+      "co": "CO5",
+      "po": "PO1",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 8
+        }
+      ],
+      "id": 87
+    },
+    {
+      "part": "B",
+      "units": [
+        "V"
+      ],
+      "question": "Explain about different tuple methods used in python.",
+      "kl": "K2",
+      "co": "CO5",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 16
+        }
+      ],
+      "id": 88
+    },
+    {
+      "part": "B",
+      "units": [
+        "V"
+      ],
+      "question": "Explain Dictionaries and its related functions.",
+      "kl": "K2",
+      "co": "CO5",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2025",
+          "qno": 17
+        }
+      ],
+      "id": 89
+    },
+    {
+      "part": "B",
+      "units": [
+        "V"
+      ],
+      "question": "How to Sort a Dictionary.",
+      "kl": "K3",
+      "co": "CO5",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 18
+        }
+      ],
+      "id": 90
+    },
+    {
+      "part": "B",
+      "units": [
+        "V"
+      ],
+      "question": "What are the various operations performed on dictionary ? Explain.",
+      "kl": "K2",
+      "co": "CO5",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "April 2024",
+          "qno": 18
+        }
+      ],
+      "id": 91
+    },
+    {
+      "part": "B",
+      "units": [
+        "V"
+      ],
+      "question": "What is dictionary? How to create dictionary?",
+      "kl": "K2",
+      "co": "CO5",
+      "po": "PO1,PO3",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 18
+        }
+      ],
+      "id": 92
+    },
+    {
+      "part": "C",
+      "units": [
+        "V"
+      ],
+      "question": "Describe briefly creating, Accessing, updating and deleting elements in a dictionary.",
+      "kl": "K3",
+      "co": "CO5",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2025",
+          "qno": 23
+        }
+      ],
+      "id": 93
+    },
+    {
+      "part": "C",
+      "units": [
+        "V"
+      ],
+      "question": "How to add and delete an element in dictionary.",
+      "kl": "K3",
+      "co": "CO5",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1,PSO2",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2024",
+          "qno": 23
+        }
+      ],
+      "id": 94
+    },
+    {
+      "part": "C",
+      "units": [
+        "V"
+      ],
+      "question": "What is tuple? How to create, access and updating a tuple?",
+      "kl": "K3",
+      "co": "CO5",
+      "po": "PO2,PO3,PO5",
+      "pso": "PSO1",
+      "note": "",
+      "asked": [
+        {
+          "exam": "November 2023",
+          "qno": 23
+        }
+      ],
+      "id": 95
+    }
+  ]
+}

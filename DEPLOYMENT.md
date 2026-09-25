@@ -4,7 +4,7 @@ The site uses **Netlify's Git integration**. Netlify reads `netlify.toml`:
 
 | Setting | Value | Why |
 |---|---|---|
-| Build command | `python3 build_data.py` | Regenerates `web-app/data/sessions.json` from `Session_Programs/` |
+| Build command | `python3 build_data.py` | Regenerates `web-app/data/sessions.json` (from `Session_Programs/`) and `question_bank.json` (from `Question_Bank/question_bank.csv`) |
 | Publish directory | `web-app` | The static site |
 | Functions | none | Everything runs in the browser |
 
@@ -34,7 +34,7 @@ No tokens, secrets or environment variables are needed.
 
 ```bash
 python build_data.py          # optional locally; Netlify also runs it
-git add Session_Programs web-app/data/sessions.json
+git add Session_Programs Question_Bank web-app/data
 git commit -m "Update Session NN programs"
 git push origin main          # Netlify builds and publishes in about a minute
 ```
@@ -58,6 +58,7 @@ Unknown paths show `web-app/404.html`.
 - [ ] The local server shows the home page, and a few sessions open correctly
       (for example 1, 12, 14, 40, 75)
 - [ ] Search finds programs (try "dictionary" and "40")
+- [ ] **Question Bank** (top bar) lists 95 questions, and the Unit / Part filters work
 - [ ] The **Validate course data** workflow is green on GitHub
 - [ ] The Netlify deploy log shows `Wrote …/web-app/data/sessions.json` and **Published**
 - [ ] The live site works on a phone (the menu button opens the session list)

@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """
-Extracts every session's Python programs (docstring + code) from
-Session_Programs/ into web-app/data/sessions.json for the static
-code-viewer web app.
+Builds the data files for the static Session Viewer web app:
+
+* web-app/data/sessions.json       from Session_Programs/ (docstring + code)
+* web-app/data/question_bank.json  from Question_Bank/question_bank.csv
+                                   (previous-year questions, in syllabus only)
 """
 import ast
+import csv
 import json
 import os
 import re
@@ -12,6 +15,8 @@ import re
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SESSIONS_DIR = os.path.join(ROOT, "Session_Programs")
 OUT_PATH = os.path.join(ROOT, "web-app", "data", "sessions.json")
+QB_CSV = os.path.join(ROOT, "Question_Bank", "question_bank.csv")
+QB_OUT_PATH = os.path.join(ROOT, "web-app", "data", "question_bank.json")
 
 UNITS = [
     {"number": "I", "title": "Introduction to Python", "start": 1, "end": 15},
@@ -219,5 +224,125 @@ def build():
     print(f"Sessions: {len(sessions_out)}, Programs: {total_programs}, No-code sessions: {no_code}")
 
 
+# ---------------------------------------------------------------------------
+# Question Bank
+# ---------------------------------------------------------------------------
+QB_PARTS = {
+    "A": "Part A",
+    "B": "Part B",
+    "C": "Part C",
+}
+QB_REQUIRED = ["Part", "Unit", "Question", "KL", "CO", "PO", "PSO", "Exam", "QNo"]
+MONTHS = {
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11,
+    "december": 12,
+}
+VALID_UNITS = {u["number"] for u in UNITS}
+
+
+def exam_sort_key(exam):
+    """'November 2023' -> (2023, 11) so exams sort chronologically."""
+    parts = exam.split()
+    try:
+        return (int(parts[-1]), MONTHS.get(parts[0].lower(), 0))
+    except (ValueError, IndexError):
+        return (0, 0)
+
+
+def normalise_question(text):
+    """Key used to merge the same question asked in several exams:
+    case, spacing and punctuation are ignored."""
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
+def build_question_bank():
+    """Read Question_Bank/question_bank.csv (one row per question per exam,
+    in-syllabus questions only) and write question_bank.json with repeated
+    questions merged and their exam history listed."""
+    if not os.path.exists(QB_CSV):
+        print(f"Question bank: {os.path.relpath(QB_CSV, ROOT)} not found, skipped")
+        return
+
+    with open(QB_CSV, "r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        missing = [c for c in QB_REQUIRED if c not in (reader.fieldnames or [])]
+        if missing:
+            raise SystemExit(f"ERROR: {QB_CSV} is missing column(s): {', '.join(missing)}")
+        rows = list(reader)
+
+    merged = {}
+    order = []
+    for line_no, row in enumerate(rows, start=2):
+        row = {k: (v or "").strip() for k, v in row.items() if k}
+        if not row["Question"]:
+            continue
+        part = row["Part"].upper()
+        if part not in QB_PARTS:
+            raise SystemExit(f"ERROR: question_bank.csv line {line_no}: Part must be A, B or C")
+        units = [u.strip() for u in row["Unit"].split("/") if u.strip()]
+        bad = [u for u in units if u not in VALID_UNITS]
+        if not units or bad:
+            raise SystemExit(
+                f"ERROR: question_bank.csv line {line_no}: Unit '{row['Unit']}' "
+                f"must be I-V (use I/II for a question spanning two units)"
+            )
+
+        key = (part, normalise_question(row["Question"]))
+        if key not in merged:
+            merged[key] = {
+                "part": part,
+                "units": units,
+                "question": row["Question"],
+                "kl": row["KL"],
+                "co": row["CO"],
+                "po": row["PO"],
+                "pso": row["PSO"],
+                "note": row.get("Note", ""),
+                "asked": [],
+            }
+            order.append(key)
+        entry = merged[key]
+        if row.get("Note") and not entry["note"]:
+            entry["note"] = row["Note"]
+        qno = row["QNo"]
+        entry["asked"].append({"exam": row["Exam"], "qno": int(qno) if qno.isdigit() else qno})
+
+    questions = []
+    for key in order:
+        q = merged[key]
+        q["asked"].sort(key=lambda a: exam_sort_key(a["exam"]))
+        questions.append(q)
+
+    unit_rank = {u["number"]: i for i, u in enumerate(UNITS)}
+    questions.sort(
+        key=lambda q: (unit_rank[q["units"][0]], q["part"], -len(q["asked"]), q["question"].lower())
+    )
+    for i, q in enumerate(questions, start=1):
+        q["id"] = i
+
+    exams = sorted({a["exam"] for q in questions for a in q["asked"]}, key=exam_sort_key)
+    data = {
+        "title": "Previous-year Question Bank",
+        "source": "End-semester question papers, analysed against the current syllabus",
+        "excluded": "Out-of-syllabus questions (File Handling, Arrays) are not included.",
+        "parts": QB_PARTS,
+        "exams": exams,
+        "questions": questions,
+    }
+    with open(QB_OUT_PATH, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+    occurrences = sum(len(q["asked"]) for q in questions)
+    repeated = sum(1 for q in questions if len(q["asked"]) > 1)
+    print(f"Wrote {QB_OUT_PATH}")
+    print(
+        f"Question bank: {len(rows)} rows -> {len(questions)} unique questions "
+        f"({occurrences} exam occurrences, {repeated} repeated), exams: {', '.join(exams)}"
+    )
+
+
 if __name__ == "__main__":
     build()
+    build_question_bank()

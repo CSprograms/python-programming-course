@@ -46,12 +46,17 @@ jobs:
           assert not missing, f"missing sessions: {missing}"
           programs = sum(len(s["programs"]) for s in sessions.values())
           print(f"OK: {len(sessions)} sessions, {programs} programs")
+          qb = json.load(open("web-app/data/question_bank.json", encoding="utf-8"))
+          assert qb["questions"], "question bank is empty"
+          print(f"OK: {len(qb['questions'])} question-bank questions")
           PY
 
-      - name: Check committed sessions.json is up to date
+      - name: Check committed data files are up to date
         run: |
-          if ! git diff --quiet -- web-app/data/sessions.json; then
-            echo "::warning file=web-app/data/sessions.json::sessions.json in the repo is out of date. Netlify regenerates it on deploy, but run 'python build_data.py' locally and commit it so the local viewer matches."
-          else
-            echo "sessions.json is up to date."
-          fi
+          for f in web-app/data/sessions.json web-app/data/question_bank.json; do
+            if ! git diff --quiet -- "$f"; then
+              echo "::warning file=$f::$f in the repo is out of date. Netlify regenerates it on deploy, but run 'python build_data.py' locally and commit it so the local viewer matches."
+            else
+              echo "$f is up to date."
+            fi
+          done
