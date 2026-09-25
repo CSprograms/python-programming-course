@@ -30,15 +30,27 @@ def unit_for_session(n):
 
 
 def parse_program_file(filepath):
-    """Parse a .py file: return (docstring_text, code_text)."""
-    with open(filepath, "r", encoding="utf-8") as f:
+    """Parse a .py file: return (docstring_text, code_text).
+
+    * "utf-8-sig" strips a byte-order mark that Windows editors (Notepad,
+      some VS Code settings) may add; ast.parse() rejects a leading BOM.
+    * Text mode with universal newlines turns CRLF (Windows) into LF.
+    * Only a real module docstring is removed from the displayed code; a
+      file that starts with an ordinary expression (e.g. print(...)) keeps it.
+    """
+    with open(filepath, "r", encoding="utf-8-sig") as f:
         source = f.read()
-    tree = ast.parse(source)
+    try:
+        tree = ast.parse(source, filename=filepath)
+    except SyntaxError as exc:
+        rel = os.path.relpath(filepath, ROOT)
+        raise SystemExit(
+            "ERROR: syntax error in {} (line {}): {}".format(rel, exc.lineno, exc.msg)
+        )
     docstring = ast.get_docstring(tree)
     code = source
-    if tree.body and isinstance(tree.body[0], ast.Expr):
-        first = tree.body[0]
-        end_lineno = getattr(first, "end_lineno", None)
+    if docstring is not None:
+        end_lineno = getattr(tree.body[0], "end_lineno", None)
         if end_lineno is not None:
             lines = source.split("\n")
             code = "\n".join(lines[end_lineno:])
@@ -107,8 +119,17 @@ def natural_program_key(filename):
 def build():
     sessions_out = {}
 
+    if not os.path.isdir(SESSIONS_DIR):
+        raise SystemExit("ERROR: folder not found: {}".format(SESSIONS_DIR))
+
+    # Only real session folders (Session_01 ... Session_75); ignore anything
+    # else such as README.md or a stray "Session_Plan" folder.
     session_dirs = sorted(
-        (d for d in os.listdir(SESSIONS_DIR) if d.startswith("Session_")),
+        (
+            d for d in os.listdir(SESSIONS_DIR)
+            if re.fullmatch(r"Session_\d+", d)
+            and os.path.isdir(os.path.join(SESSIONS_DIR, d))
+        ),
         key=lambda d: int(d.split("_")[1]),
     )
 
@@ -117,7 +138,7 @@ def build():
         session_path = os.path.join(SESSIONS_DIR, dirname)
         py_files = sorted(
             (f for f in os.listdir(session_path) if f.endswith(".py")),
-            key=natural_program_key,
+            key=lambda f: (natural_program_key(f), f),
         )
 
         entry = {
@@ -132,7 +153,7 @@ def build():
             note = ""
             session_type = "note"
             if os.path.exists(readme_path):
-                with open(readme_path, "r", encoding="utf-8") as f:
+                with open(readme_path, "r", encoding="utf-8-sig") as f:
                     readme_text = f.read()
                 m = re.search(r"This is a \*\*(.+?)\*\*", readme_text)
                 if m:
@@ -186,8 +207,11 @@ def build():
     }
 
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    # newline="\n" keeps the file byte-identical on Windows and Linux (CI /
+    # Netlify), so re-running the script never produces a line-ending diff.
+    with open(OUT_PATH, "w", encoding="utf-8", newline="\n") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
 
     total_programs = sum(len(s["programs"]) for s in sessions_out.values())
     no_code = sum(1 for s in sessions_out.values() if not s["programs"])

@@ -1,0 +1,4 @@
+# Normalise text files to LF inside the repository. Your Windows working copy
+# still uses CRLF (per core.autocrlf), but GitHub, Netlify and Linux tools
+# always see LF, so no whole-file line-ending diffs appear.
+* text=auto

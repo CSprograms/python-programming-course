@@ -1,113 +1,85 @@
-# UCAM11 Deployment Guide
+# Deploying the Session Viewer to Netlify
 
-Complete instructions for deploying the UCAM11 Python Course Web App to Netlify.
+The site uses **Netlify's Git integration**. Netlify reads `netlify.toml`:
 
-## Prerequisites
+| Setting | Value | Why |
+|---|---|---|
+| Build command | `python3 build_data.py` | Regenerates `web-app/data/sessions.json` from `Session_Programs/` |
+| Publish directory | `web-app` | The static site |
+| Functions | none | Everything runs in the browser |
 
-- GitHub account with the UCAM11 repository
-- Netlify account (free tier is sufficient)
-- Git installed on your local machine
-- Python 3.9+ (optional, only if regenerating session data)
+GitHub Actions (`.github/workflows/validate.yml`) **does not deploy**. It checks
+that every program compiles and that the generated data has all 75 sessions.
+It also warns you if the committed `sessions.json` is out of date.
 
-## Automated Deployment (Recommended)
+## One-time setup
 
-### Step 1: Connect Repository to Netlify
+1. Push the repository to GitHub (`CSprograms/python-programming-course`).
+2. Sign in at <https://app.netlify.com> → **Add new site** → **Import an existing project** → **GitHub**.
+3. Pick the `python-programming-course` repository and the `main` branch.
+4. Leave the build fields as Netlify pre-fills them from `netlify.toml`:
+   Base directory *(empty)*, Build command `python3 build_data.py`,
+   Publish directory `web-app`.
+5. Click **Deploy**. The site goes live at `https://<random-name>.netlify.app`.
+6. Optional: rename it under **Site configuration → Change site name**
+   (for example `ucam11-python.netlify.app`), or add a custom domain under
+   **Domain management**.
 
-1. **Push your code to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Initial UCAM11 project setup"
-   git push origin main
-   ```
+No tokens, secrets or environment variables are needed.
 
-2. **Go to [netlify.com](https://netlify.com)** and sign in with your GitHub account
+> If an older setup added `NETLIFY_AUTH_TOKEN` / `NETLIFY_SITE_ID` secrets for a
+> GitHub Actions deploy, you can delete them. They are no longer used.
 
-3. **Click "Add new site"** → **"Import an existing project"**
+## Everyday updates
 
-4. **Select GitHub** as your provider and authorize Netlify
+```bash
+python build_data.py          # optional locally; Netlify also runs it
+git add Session_Programs web-app/data/sessions.json
+git commit -m "Update Session NN programs"
+git push origin main          # Netlify builds and publishes in about a minute
+```
 
-5. **Choose your UCAM11 repository** from the list
+## Caching
 
-6. **Build settings** should auto-detect:
-   - **Base directory**: (leave empty)
-   - **Build command**: (leave empty — no build needed)
-   - **Publish directory**: `web-app`
+`app.js`, `style.css` and `sessions.json` keep fixed file names, so they are
+served with `Cache-Control: max-age=0, must-revalidate`. Browsers check for a
+new version on each visit and get a quick 304 reply when nothing has changed,
+so students see updates right away without a hard refresh.
 
-7. **Click "Deploy site"**
+## Routing
 
-   Your site is now live! Netlify will assign a random subdomain like `random-name-12345.netlify.app`.
+The viewer uses hash links (`/#session-12`), so it needs no redirect rules.
+Unknown paths show `web-app/404.html`.
 
-### Step 2: Configure Custom Domain (Optional)
+## Pre-launch checklist
 
-1. In the Netlify dashboard, go to **Site settings** → **Domain management**
-2. Under **Custom domains**, click **Add custom domain**
-3. Enter your domain (e.g., `ucam11.example.com`)
-4. Follow Netlify's DNS configuration instructions
-5. Once DNS is set up, your site is accessible at your custom domain
+- [ ] `python build_data.py` prints `Sessions: 75, Programs: 230, No-code sessions: 15`
+      (the numbers change if you add programs)
+- [ ] The local server shows the home page, and a few sessions open correctly
+      (for example 1, 12, 14, 40, 75)
+- [ ] Search finds programs (try "dictionary" and "40")
+- [ ] The **Validate course data** workflow is green on GitHub
+- [ ] The Netlify deploy log shows `Wrote …/web-app/data/sessions.json` and **Published**
+- [ ] The live site works on a phone (the menu button opens the session list)
 
-## Automatic Deploys
+## Troubleshooting
 
-Every time you push to `main`:
+| Symptom | Fix |
+|---|---|
+| Deploy fails at `python3 build_data.py` with "syntax error in Session_Programs/…" | Fix that program (the message gives the file and line), then push again |
+| "Could not load session data" on the page | Open the Netlify deploy log and confirm the build step ran and `web-app/data/sessions.json` was written |
+| Blank page when `index.html` is opened directly | Use a local server (see README); `file://` pages cannot fetch the data |
+| Site not updating | Netlify → **Deploys**: check the latest deploy for errors; **Trigger deploy → Clear cache and deploy site** |
 
-1. Netlify detects the push
-2. The `web-app/` directory is deployed
-3. Your site updates instantly (~30 seconds)
+## Rollback
 
-### Monitoring Deployments
+Netlify → **Deploys** → choose an earlier successful deploy → **Publish deploy**.
 
-1. Netlify dashboard → **Deploys**
-2. Each deployment shows status, logs, timestamp, and commit message
-
-## Manual Deployment
-
-Using Netlify CLI:
+## Manual deploy (optional)
 
 ```bash
 npm install -g netlify-cli
 netlify login
+python build_data.py
 netlify deploy --prod --dir=web-app
 ```
-
-## Regenerating Session Data
-
-If you've added or edited session programs:
-
-```bash
-python3 build_data.py
-git add web-app/data/sessions.json
-git commit -m "Update session data"
-git push origin main
-```
-
-Netlify auto-deploys; no manual action needed.
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Site not updating after push | Check Netlify's **Deploys** tab for errors |
-| "Publish directory not found" | Ensure `web-app/` folder exists and contains `index.html` |
-| Build command failing | Leave build command empty (static site) |
-| Old content showing | Hard refresh: Ctrl+Shift+R or clear browser cache |
-| Data not updating | Run `python3 build_data.py` and re-push |
-
-## Rollback
-
-To revert to a previous deployment:
-
-1. Netlify dashboard → **Deploys**
-2. Find the good version
-3. Click **...** → **Publish deploy**
-
-The previous version is immediately live.
-
-## Security & Performance
-
-- ✓ Free automatic HTTPS
-- ✓ Security headers configured
-- ✓ Aggressive caching for static assets
-- ✓ Fresh content on updates
-
----
-
-For detailed setup instructions, see [SETUP.md](./SETUP.md).

@@ -1,0 +1,57 @@
+name: Validate course data
+
+# Deployment is handled by Netlify's Git integration (see netlify.toml):
+# Netlify runs build_data.py and publishes web-app/ on every push to main.
+# This workflow only CHECKS the content, so a broken program or stale data
+# is caught on GitHub before (or alongside) the Netlify deploy.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile every course program (syntax check)
+        run: python -m compileall -q Session_Programs Supplementary-NCERT-Programs
+
+      - name: Regenerate session data
+        run: python build_data.py
+
+      - name: Validate sessions.json
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("web-app/data/sessions.json", encoding="utf-8"))
+          sessions = d["sessions"]
+          assert len(sessions) == 75, f"expected 75 sessions, found {len(sessions)}"
+          missing = [n for n in range(1, 76) if str(n) not in sessions]
+          assert not missing, f"missing sessions: {missing}"
+          programs = sum(len(s["programs"]) for s in sessions.values())
+          print(f"OK: {len(sessions)} sessions, {programs} programs")
+          PY
+
+      - name: Check committed sessions.json is up to date
+        run: |
+          if ! git diff --quiet -- web-app/data/sessions.json; then
+            echo "::warning file=web-app/data/sessions.json::sessions.json in the repo is out of date. Netlify regenerates it on deploy, but run 'python build_data.py' locally and commit it so the local viewer matches."
+          else
+            echo "sessions.json is up to date."
+          fi

@@ -1,65 +1,55 @@
+# Netlify configuration for the UCAM11I Python Programming Session Viewer.
+#
+# Deployment model: Netlify's own Git integration (connect the repo once in
+# the Netlify dashboard). On every push to `main` Netlify runs build_data.py,
+# which regenerates web-app/data/sessions.json from Session_Programs/, and
+# then publishes the static web-app/ folder. No secrets or GitHub Actions
+# deploy step are needed.
+
 [build]
-  # Static site — no build process needed
+  command = "python3 build_data.py"
   publish = "web-app"
-  command = ""
-  functions = "functions"
 
-[build.environment]
-  # Python version for any scripts (like build_data.py if used in CI)
-  PYTHON_VERSION = "3.11"
-
-# Development settings
+# `netlify dev` — serves web-app/ as a static site on http://localhost:8888
 [dev]
-  command = "python3 -m http.server 8000"
-  port = 8000
-  framework = "static"
+  framework = "#static"
+  publish   = "web-app"
+  port      = 8888
 
-# Context-specific settings
-[context.production]
-  command = ""
-  publish = "web-app"
-
-[context.deploy-preview]
-  command = ""
-  publish = "web-app"
-
-[context.branch-deploy]
-  command = ""
-  publish = "web-app"
-
-# Security headers
+# ---------------------------------------------------------------------------
+# Security headers (all paths)
+# ---------------------------------------------------------------------------
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "SAMEORIGIN"
-    X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=()"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-# Cache control
-[[headers]]
-  for = "/index.html"
-  [headers.values]
-    Cache-Control = "max-age=0, must-revalidate"
-
+# ---------------------------------------------------------------------------
+# Caching
+# app.js / style.css / sessions.json are NOT fingerprinted (their names never
+# change), so they must be revalidated on every visit; otherwise students
+# would keep seeing old code for a long time after an update. Netlify's ETags
+# make revalidation cheap (304 Not Modified when nothing changed).
+# ---------------------------------------------------------------------------
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/data/*"
   [headers.values]
-    Cache-Control = "max-age=3600, must-revalidate"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
-# Single Page Application (SPA) routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No SPA catch-all redirect: the app routes with URL hashes (#session-12), so
+# every page is served by /index.html already. A catch-all would make a
+# missing file (e.g. data/sessions.json) return index.html with status 200
+# and hide the real error. Unknown paths get web-app/404.html instead.

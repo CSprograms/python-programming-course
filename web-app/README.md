@@ -8,10 +8,11 @@ documented sample output for each program.
 
 ```
 web-app/
-├── index.html          # app shell
-├── css/style.css        # all styling (no framework)
+├── index.html            # app shell
+├── 404.html              # shown by Netlify for unknown paths
+├── css/style.css         # all styling (no framework)
 ├── js/app.js             # renders sidebar + session view from data/sessions.json
-├── data/sessions.json    # generated — do not hand-edit, see below
+├── data/sessions.json    # generated; do not hand-edit (see below)
 └── README.md
 ```
 
@@ -41,6 +42,6 @@ regenerated file along with your content changes.
 
 ## Deploying
 
-This repo has a `netlify.toml` at the root (`publish = "web-app"`,
-no build command), so connecting the repo in Netlify's dashboard
-deploys this folder with no manual configuration.
+`netlify.toml` at the repo root sets `command = "python3 build_data.py"` and
+`publish = "web-app"`, so Netlify regenerates the data and publishes this
+folder on every push to `main`. See `../DEPLOYMENT.md`.

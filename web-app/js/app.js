@@ -21,7 +21,7 @@
     note: "Note",
   };
 
-  fetch("data/sessions.json")
+  fetch("data/sessions.json", { cache: "no-cache" })
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
@@ -283,13 +283,10 @@
     els.content.querySelectorAll(".copy-btn").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var code = btn.closest(".code-block").querySelector("code").textContent;
-        navigator.clipboard.writeText(code).then(function () {
-          var original = btn.textContent;
-          btn.textContent = "Copied";
-          setTimeout(function () {
-            btn.textContent = original;
-          }, 1400);
-        });
+        copyText(code).then(
+          function () { flashButton(btn, "Copied"); },
+          function () { flashButton(btn, "Copy failed"); }
+        );
       });
     });
   }
@@ -319,9 +316,20 @@
   }
 
   function markActiveInTree() {
+    var activeItem = null;
     els.tree.querySelectorAll(".session-item").forEach(function (item) {
-      item.classList.toggle("active", parseInt(item.dataset.session, 10) === state.activeSession);
+      var isActive = parseInt(item.dataset.session, 10) === state.activeSession;
+      item.classList.toggle("active", isActive);
+      if (isActive) activeItem = item;
     });
+    // Expand the unit that holds the current session (e.g. after using
+    // Previous/Next across a unit boundary or opening a #session-N link)
+    // and keep the highlighted item visible in the sidebar.
+    if (activeItem) {
+      var block = activeItem.closest(".unit-block");
+      if (block) block.classList.add("open");
+      activeItem.scrollIntoView({ block: "nearest" });
+    }
   }
 
   // ---------------------------------------------------------------
@@ -347,6 +355,37 @@
   // ---------------------------------------------------------------
   // Utils
   // ---------------------------------------------------------------
+  // navigator.clipboard only exists on HTTPS / localhost. When the viewer is
+  // opened over plain HTTP (e.g. a lab PC on the college LAN) fall back to a
+  // hidden textarea + execCommand("copy").
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.top = "-1000px";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) resolve(); else reject(new Error("copy failed"));
+    });
+  }
+
+  function flashButton(btn, label) {
+    if (!btn.dataset.label) btn.dataset.label = btn.textContent;
+    btn.textContent = label;
+    clearTimeout(btn._flashTimer);
+    btn._flashTimer = setTimeout(function () {
+      btn.textContent = btn.dataset.label;
+    }, 1400);
+  }
+
   function formatNote(str) {
     // Note text is our own generated content (from README.md files in the
     // repo, not user input), so a light, non-recursive markdown pass for
